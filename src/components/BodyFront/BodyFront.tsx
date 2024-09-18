@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import trapezoidsFront from '../../../public/images/traziopen/front.png';
 import sholdersFront from '../../../public/images/sholders/front.png'
-import styles from './TopOfBodyFront.module.scss';
+import styles from './BodyFront.module.scss';
 
 const TopOfBodyFront = () => {
     return (

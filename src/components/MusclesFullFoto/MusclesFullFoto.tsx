@@ -1,23 +1,27 @@
-import TopOfBodyBack from "../TopOfBodyBack/TopOfBodyBack";
-import TopOfBodyFront from "../TopOfBodyFront/TopOfBodyFront";
+import BodyBack from "../BodyBack/BodyBack";
+import BodyFront from "../BodyFront/BodyFront";
 import styles from './MusclesFullFoto.module.scss';
+import '../styles/index.css';
 
 const MusclesFullFoto = () => {
-    return ( 
-        <div className={styles.body_shell}>
-            <div className="back">
-                <TopOfBodyBack/>
-                <div className="legs">
+    return (
+        <>
+            <div className={styles.body_shell}>
+                <div className="back">
+                    <BodyBack/>
+                    <div className="legs">
 
+                    </div>
+                </div>
+                <div className="front">
+                    <BodyFront/>
+                    <div className="legs">
+
+                    </div>
                 </div>
             </div>
-            <div className="front">
-                <TopOfBodyFront/>
-                <div className="legs">
-
-                </div>
-            </div>
-        </div>
+        </>
+        
     )
 };
 
