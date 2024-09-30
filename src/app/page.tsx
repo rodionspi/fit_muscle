@@ -1,10 +1,8 @@
-import MusclesFullFoto from "@/components/MusclesFullFoto/MusclesFullFoto";
 import MusclesChart from "@/components/MusclesChart/MusclesChart";
 
 export default function Home() {
   return (
-    <main>
-      <MusclesFullFoto/>
+    <main style={{ height: "1000px" }}>
       <MusclesChart/>
     </main>
   );
