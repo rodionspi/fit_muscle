@@ -12,28 +12,27 @@ const MusclesChart = () => {
                         <th className="border border-slate-700 w-1/2">Body front</th>
                     </tr>
                 </thead>
-                <tbody> 
+                <tbody>
                     {musclesLists['back'].map((muscle, i) => {
                         return (
-                            <tr key={i}>
-                                <td className="border border-slate-700 w-1/2 text-center align-middle">
-                                    <div className="flex flex-col items-center justify-center">
-                                        <Image src={muscle.src} alt={muscle.alt}/>
-                                        {muscle.name}
-                                    </div>
+                        <tr key={i}>
+                            <td className="border border-slate-700 w-1/2 text-center align-middle hover:bg-slate-500">
+                                <a href={muscle.link} className="flex flex-col items-center justify-center">
+                                    <Image src={muscle.src} alt={muscle.name} />
+                                    {muscle.name}
+                                </a>
+                            </td>
+
+                            {i < musclesLists['front'].length ? (
+                                <td className="border border-slate-700 w-1/2 text-center align-middle hover:bg-slate-500">
+                                    <a href={musclesLists['front'][i].link} className="flex flex-col items-center justify-center">
+                                        <Image src={musclesLists['front'][i].src} alt={musclesLists['front'][i].name} />
+                                        {musclesLists['front'][i].name}
+                                    </a>
                                 </td>
-                                {
-                                    i < musclesLists['front'].length ? (
-                                        <td className="border border-slate-700 w-1/2 text-center align-middle">
-                                        <div className="flex flex-col items-center justify-center">
-                                            <Image src={musclesLists['front'][i].src} alt={musclesLists['front'][i].alt} />
-                                            {musclesLists['front'][i].name}
-                                        </div>
-                                        </td>
-                                    ) : null
-                                }
-                            </tr>
-                        )
+                            ) : null}
+                        </tr>
+                        );
                     })}
                 </tbody>
             </table>
