@@ -1,0 +1,7 @@
+.body_shell {
+    display: flex;
+    justify-content: center;
+    > div {
+        width: 300px;
+    }
+}

@@ -1,0 +1,18 @@
+.main_part {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    height: 400px;
+}
+
+.parts {
+    position: absolute; 
+}
+
+.trapezoids {
+    top: 0px;
+}
+
+.sholders {
+    top: 35px;
+}
