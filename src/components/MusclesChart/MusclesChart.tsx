@@ -28,18 +28,18 @@ const MusclesChart = () => {
     const musclesRendering = (muscle: Muscle) => {
         if (currentMuscleTD === muscle.name) {
             return (
-                <div className="flex w-full h-full">
-                    <a href={muscle.link} className="flex-1 flex items-center justify-center border-r border-slate-700">
+                <div className="flex w-full h-full text-slate-800">
+                    <a href={muscle.link} className="flex-1 flex items-center justify-center border-r border-slate-700 hover:bg-slate-400">
                         Web site
                     </a>
-                    <a href={muscle.link} className="flex-1 flex items-center justify-center">
+                    <a href={muscle.link} className="flex-1 flex items-center justify-center hover:bg-slate-400">
                         Video
                     </a>
                 </div>
             )
         } else {
             return (
-                <div className="muscle flex flex-col items-center justify-center">
+                <div className="muscle flex flex-col items-center justify-center text-slate-300">
                     <Image src={muscle.src} alt={muscle.name} />
                     {muscle.name}
                 </div>
@@ -52,8 +52,8 @@ const MusclesChart = () => {
             <table className="border border-separate border-spacing-3 border-slate-500 m-auto mt-8 bg-slate-600 w-2/3 h-1/2">
                 <thead>
                     <tr>
-                        <th className="border border-slate-700 w-1/2">Body back</th>
-                        <th className="border border-slate-700 w-1/2">Body front</th>
+                        <th className="border border-slate-700 w-1/2 text-slate-300">Body back</th>
+                        <th className="border border-slate-700 w-1/2 text-slate-300">Body front</th>
                     </tr>
                 </thead>
                 <tbody>
