@@ -7,7 +7,7 @@ export default function Home() {
         <header>
           <NavBar/>
         </header>
-        <main style={{ height: "1000px" }}>
+        <main >
           <MusclesChart/>
         </main>
     </>

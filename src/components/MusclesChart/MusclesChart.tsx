@@ -5,25 +5,22 @@ import musclesLists from '../musclesList';
 import '../styles/index.css';
 import Image from 'next/image';
 import Muscle from '@/types/Muscle';
+import React from 'react';
 
 const MusclesChart = () => {
 
     const [currentMuscleTD, setCurrentMuscleTD] = useState<string>('');
 
-    const onMouseOver = (e: React.MouseEvent<HTMLTableCellElement>) => {
-        const tdElement = e.currentTarget;
+    const onMouseOver = (e: React.MouseEvent<HTMLTableCellElement | HTMLDivElement>) => {
+        const targetElement = e.currentTarget;
     
-        if (tdElement.tagName === 'TD') {
-            const trElement = tdElement.parentElement;
+        const muscleName = targetElement.querySelector('.muscle')?.textContent;
     
-            if (trElement) {
-                const muscleName = tdElement.querySelector('.muscle')?.textContent;
-                if (currentMuscleTD !== muscleName && muscleName) {
-                    setCurrentMuscleTD(muscleName);
-                }
-            }
+        if (muscleName && currentMuscleTD !== muscleName) {
+            setCurrentMuscleTD(muscleName);
         }
     };
+    
 
     const musclesRendering = (muscle: Muscle) => {
         if (currentMuscleTD === muscle.name) {
@@ -39,8 +36,13 @@ const MusclesChart = () => {
             )
         } else {
             return (
-                <div className="muscle flex flex-col items-center justify-center text-slate-300">
-                    <Image src={muscle.src} alt={muscle.name} />
+                <div className="muscle items-center justify-center text-slate-300 h-full">
+                   <Image 
+                        src={muscle.src} 
+                        alt={muscle.name} 
+                        height={150} 
+                    />
+
                     {muscle.name}
                 </div>
             )
@@ -49,40 +51,32 @@ const MusclesChart = () => {
     
     return (
         <>
-            <table className="border border-separate border-spacing-3 border-slate-500 m-auto mt-8 bg-slate-600 w-2/3 h-1/2">
-                <thead>
-                    <tr>
-                        <th className="border border-slate-700 w-1/2 text-slate-300">Body back</th>
-                        <th className="border border-slate-700 w-1/2 text-slate-300">Body front</th>
-                    </tr>
-                </thead>
-                <tbody>
+            <div className="musclesChart border border-separate border-spacing-3 border-slate-500 m-auto mt-8 bg-slate-600 w-2/3 h-1/2">
+                <div className="grid grid-cols-2">
+                    <div className="border border-slate-700 text-slate-300 text-center py-2">Body back</div>
+                    <div className="border border-slate-700 text-slate-300 text-center py-2">Body front</div>
+                </div>
+                <div className="grid grid-cols-2">
                     {musclesLists['back'].map((muscle, i) => {
                         return (
-                        <tr key={i}>
-                            <td className="border border-slate-700 w-1/2 text-center align-middle hover:bg-slate-500" onMouseOver={(e) => onMouseOver(e)}>
-                                {musclesRendering(muscle)}
-                            </td>
-                            {i < musclesLists['front'].length ? (
-                                <td className="border border-slate-700 w-1/2 text-center align-middle hover:bg-slate-500" onMouseOver={(e) => onMouseOver(e)}>
-                                    {musclesRendering(musclesLists['front'][i])}
-                                </td>
-                            ) : null}
-                        </tr>
+                            <React.Fragment key={i}>
+                                <div className="border border-slate-700 text-center align-middle hover:bg-slate-500 flex items-center justify-center h-44" onMouseOver={(e) => onMouseOver(e)}>
+                                    {musclesRendering(muscle)}
+                                </div>
+                                {i < musclesLists['front'].length ? (
+                                    <div className="border border-slate-700 text-center align-middle hover:bg-slate-500 flex items-center justify-center h-44" onMouseOver={(e) => onMouseOver(e)}>
+                                        {musclesRendering(musclesLists['front'][i])}
+                                    </div>
+                                ) : (
+                                    <div className="empty-cell h-44"></div> 
+                                )}
+                            </React.Fragment>
                         );
                     })}
-                </tbody>
-            </table>
+                </div>
+            </div>
         </>
     );
 }
 
-export default MusclesChart
-
-
-{/* <div className="border flex-1 flex items-center justify-center w-full h-full">
-                                            <p>Web site</p>
-                                        </div>
-                                        <div className="border flex-1 flex items-center justify-center w-full h-full">
-                                            <p>Video</p>
-                                        </div> */}
+export default MusclesChart;
