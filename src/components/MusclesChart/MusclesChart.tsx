@@ -6,6 +6,7 @@ import '../styles/index.css';
 import Image from 'next/image';
 import Muscle from '@/types/Muscle';
 import React from 'react';
+import Layout from '@/app/page';
 
 const MusclesChart = () => {
 
@@ -20,7 +21,6 @@ const MusclesChart = () => {
             setCurrentMuscleTD(muscleName);
         }
     };
-    
 
     const musclesRendering = (muscle: Muscle) => {
         if (currentMuscleTD === muscle.name) {
@@ -50,32 +50,35 @@ const MusclesChart = () => {
     }
     
     return (
-        <>
-            <div className="musclesChart border border-separate border-spacing-3 border-slate-500 m-auto mt-8 bg-slate-600 w-2/3 h-1/2">
-                <div className="grid grid-cols-2">
-                    <div className="border border-slate-700 text-slate-300 text-center py-2">Body back</div>
-                    <div className="border border-slate-700 text-slate-300 text-center py-2">Body front</div>
-                </div>
-                <div className="grid grid-cols-2">
-                    {musclesLists['back'].map((muscle, i) => {
-                        return (
-                            <React.Fragment key={i}>
-                                <div className="border border-slate-700 text-center align-middle hover:bg-slate-500 flex items-center justify-center h-44" onMouseOver={(e) => onMouseOver(e)}>
-                                    {musclesRendering(muscle)}
-                                </div>
-                                {i < musclesLists['front'].length ? (
-                                    <div className="border border-slate-700 text-center align-middle hover:bg-slate-500 flex items-center justify-center h-44" onMouseOver={(e) => onMouseOver(e)}>
-                                        {musclesRendering(musclesLists['front'][i])}
-                                    </div>
-                                ) : (
-                                    <div className="empty-cell h-44"></div> 
-                                )}
-                            </React.Fragment>
-                        );
-                    })}
-                </div>
+        <div 
+            className="musclesChart border border-separate border-spacing-3 border-slate-500 m-auto mt-8 bg-slate-600 w-2/3 h-1/2">
+            <div className="grid grid-cols-2">
+                <div className="border border-slate-700 text-slate-300 text-center py-2">Body back</div>
+                <div className="border border-slate-700 text-slate-300 text-center py-2">Body front</div>
             </div>
-        </>
+            <div className="grid grid-cols-2">
+                {musclesLists['back'].map((muscle, i) => {
+                    return (
+                        <React.Fragment key={i}>
+                            <div 
+                                className="border border-slate-700 text-center align-middle hover:bg-slate-500 flex items-center justify-center h-44" 
+                                onMouseOver={(e) => onMouseOver(e)}>
+                                {musclesRendering(muscle)}
+                            </div>
+                            {i < musclesLists['front'].length ? (
+                                <div 
+                                    className="border border-slate-700 text-center align-middle hover:bg-slate-500 flex items-center justify-center h-44" 
+                                    onMouseOver={(e) => onMouseOver(e)}>
+                                    {musclesRendering(musclesLists['front'][i])}
+                                </div>
+                            ) : (
+                                <div className="empty-cell h-44"></div> 
+                            )}
+                        </React.Fragment>
+                    );
+                })}
+            </div>
+        </div>
     );
 }
 

@@ -1,14 +1,11 @@
+'use client';
+
 import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline';
 import logo from '../../../public/images/Logo/Biceps_Muscle.png';
 import Image from 'next/image';
-
-const navigation = [
-  { name: 'Muscle Chart', href: '#', current: true },
-  { name: 'About', href: '#', current: false },
-  { name: 'Contact', href: '#', current: false },
-  { name: 'FAQ', href: '#', current: false },
-]
+import { useState } from 'react';
+import Navigation from '@/types/Navigaton';
 
 const classNames = (...classes: string[]) => {
   return classes.filter(Boolean).join(' ')
@@ -16,6 +13,23 @@ const classNames = (...classes: string[]) => {
 
 
 const NavBar = () => {
+
+  const [navigation, setNavigation] = useState(
+    [
+      { name: 'Muscle Chart', href: '/', current: true },
+      { name: 'About', href: '/about', current: false },
+      { name: 'Contact', href: '/contact', current: false },
+      { name: 'FAQ', href: '/faq', current: false },
+    ]
+  );
+
+  const handlePageChanging = (name: string) => {
+    setNavigation((currentNavigation: Navigation[]) => {
+      return currentNavigation.map(option => option.name === name ? 
+        option = {...option, current: true} : option = {...option, current: false});
+    })
+  }
+
   return (
     <Disclosure as="nav" className="bg-gray-800">
       <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
@@ -35,7 +49,7 @@ const NavBar = () => {
               <Image
                 alt="Your Company"
                 src={logo}
-                className="h-8 w-auto"
+                className="h-10 w-auto"
               />
             </div>
             <div className="hidden sm:ml-6 sm:block">
@@ -45,6 +59,7 @@ const NavBar = () => {
                     key={item.name}
                     href={item.href}
                     aria-current={item.current ? 'page' : undefined}
+                    onClick={() => handlePageChanging(item.name)}
                     className={classNames(
                       item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
                       'rounded-md px-3 py-2 text-sm font-medium',
