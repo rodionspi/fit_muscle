@@ -1,27 +1,27 @@
-import traziopen_front from '../../public/images/traziopen/front.png';
-import traziopen_back from '../../public/images/traziopen/back.png';
+import traziopen_front from '../../public/images/for_muscles_chart/traziopen/front.png';
+import traziopen_back from '../../public/images/for_muscles_chart/traziopen/back.png';
 
-import triceps from '../../public/images/triceps.png';
+import triceps from '../../public/images/for_muscles_chart/triceps.png';
 
-import sholdersBack from '../../public/images/sholders/back.png';
-import sholdersFront from '../../public/images/sholders/front.png';
+import sholdersBack from '../../public/images/for_muscles_chart/sholders/back.png';
+import sholdersFront from '../../public/images/for_muscles_chart/sholders/front.png';
 
-import grip from '../../public/images/grip.png';
+import grip from '../../public/images/for_muscles_chart/grip.png';
 
-import back from '../../public/images/back_muscles.png';
+import back from '../../public/images/for_muscles_chart/back_muscles.png';
 
-import chest from '../../public/images/chest.png';
+import chest from '../../public/images/for_muscles_chart/chest.png';
 
-import biceps from '../../public/images/biceps.png';
+import biceps from '../../public/images/for_muscles_chart/biceps.png';
 
-import abs from '../../public/images/abs.png';
+import abs from '../../public/images/for_muscles_chart/abs.png';
 
-import gluteal_muscles from '../../public/images/gluteal_muscles.png';
+import gluteal_muscles from '../../public/images/for_muscles_chart/gluteal_muscles.png';
 
-import legs_back from '../../public/images/legs/back.png';
-import legs_front from '../../public/images/legs/front.png';
+import legs_back from '../../public/images/for_muscles_chart/legs/back.png';
+import legs_front from '../../public/images/for_muscles_chart/legs/front.png';
 
-import calf_muscles from '../../public/images/calf_muscles.png';
+import calf_muscles from '../../public/images/for_muscles_chart/calf_muscles.png';
 
 const musclesLists = {
     'back': [
