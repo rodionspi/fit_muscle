@@ -51,7 +51,7 @@ const MusclesChart = () => {
     
     return (
         <div 
-            className="musclesChart border border-separate border-spacing-3 border-slate-500 m-auto mt-8 bg-slate-600 w-2/3 h-1/2">
+            className="musclesChart border border-separate border-spacing-3 border-slate-500 m-auto mt-8 bg-slate-600 mb-8">
             <div className="grid grid-cols-2">
                 <div className="border border-slate-700 text-slate-300 text-center py-2">Body back</div>
                 <div className="border border-slate-700 text-slate-300 text-center py-2">Body front</div>

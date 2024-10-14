@@ -1,34 +1,22 @@
 'use client';
 
-import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
+import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react';
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline';
 import logo from '../../../public/images/Logo/Biceps_Muscle.png';
 import Image from 'next/image';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Navigation from '@/types/Navigaton';
+import { useRouter } from 'next/router';
 
 const classNames = (...classes: string[]) => {
   return classes.filter(Boolean).join(' ')
 }
 
+interface NavBarComponentProps {
+  navigation: Navigation[];
+}
 
-const NavBar = () => {
-
-  const [navigation, setNavigation] = useState(
-    [
-      { name: 'Muscle Chart', href: '/', current: true },
-      { name: 'About', href: '/about', current: false },
-      { name: 'Contact', href: '/contact', current: false },
-      { name: 'FAQ', href: '/faq', current: false },
-    ]
-  );
-
-  const handlePageChanging = (name: string) => {
-    setNavigation((currentNavigation: Navigation[]) => {
-      return currentNavigation.map(option => option.name === name ? 
-        option = {...option, current: true} : option = {...option, current: false});
-    })
-  }
+const NavBar = ({ navigation }: NavBarComponentProps) => {
 
   return (
     <Disclosure as="nav" className="bg-gray-800">
@@ -59,7 +47,6 @@ const NavBar = () => {
                     key={item.name}
                     href={item.href}
                     aria-current={item.current ? 'page' : undefined}
-                    onClick={() => handlePageChanging(item.name)}
                     className={classNames(
                       item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
                       'rounded-md px-3 py-2 text-sm font-medium',
