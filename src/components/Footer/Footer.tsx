@@ -9,8 +9,6 @@ const Footer = () => {
                 <ul className="list-none bg-gray-700 rounded-md p-3">
                     <li><a href="/" className="hover:text-slate-400">Muscle Chart</a></li>
                     <li><a href="/about" className="hover:text-slate-400">About</a></li>
-                    <li><a href="/contact" className="hover:text-slate-400">Contact</a></li>
-                    <li><a href="/faq" className="hover:text-slate-400">FAQ</a></li>
                 </ul>
             </div>
         </div>

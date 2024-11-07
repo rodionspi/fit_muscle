@@ -13,8 +13,6 @@ export default function Main({ children }: { children: React.ReactNode }) {
   const [navigation, setNavigation] = useState<Navigation[]>([
     { name: 'Muscle Chart', href: '/', current: true },
     { name: 'About', href: '/about', current: false },
-    { name: 'Contact', href: '/contact', current: false },
-    { name: 'FAQ', href: '/faq', current: false },
   ]);
 
   useEffect(() => {
