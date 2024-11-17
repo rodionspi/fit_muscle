@@ -1,4 +1,5 @@
-import React from "react";
+"use client"
+
 import Main from "../page";
 
 const About = () => {
@@ -16,7 +17,10 @@ const About = () => {
             <br />
             <h2 className="text-2xl font-medium">Who is working on the website development?</h2>
             <br />
-            <p>My <a href="https://github.com/rodionspi" className="text-sky-400">github</a>. I am a developer with two years of experience. I have experience with JavaScript and Typescript languages. If you want to ask me something or you are interested in something, write to me at my <p>e-mail: rodionspirik48@gmail.com</p></p>
+            <p>My <a href="https://github.com/rodionspi" className="text-sky-400">github</a>.
+            I am a developer with two years of experience. I have experience with JavaScript and TypeScript languages. If you want to ask me something or you are interested in something, write to me at my e-mail below
+            </p>
+            <p>e-mail: rodionspirik48@gmail.com</p>
         </Main>
     )
 }

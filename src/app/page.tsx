@@ -31,7 +31,7 @@ export default function Main({ children }: { children: React.ReactNode }) {
       <header>
         <NavBar navigation={navigation} />
       </header>
-      <main className="flex-grow m-auto mt-8 w-1/2">
+      <main className="flex-grow m-auto mt-8 mb-8 w-1/2">
         {children || <MusclesChart />}
       </main>
       <footer className="mt-auto">
