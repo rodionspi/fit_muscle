@@ -4,10 +4,12 @@ import Main from "@/app/page";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { useState } from "react";
 import * as Yup from "yup";
-import { addData } from "@/server/сollectionFunctions";
+import { addUser } from "@/server/сollectionFunctions";
+import { useUser } from "@/contexts/UserContext";
 
 const Registration = () => {
     const [isHidden, setIsHidden] = useState<boolean>(true);
+    const { setUserId } = useUser();
 
     const validationSchema = Yup.object({
         name: Yup.string()
@@ -33,7 +35,15 @@ const Registration = () => {
     };
 
     const handleSubmit = (values: typeof initialValues) => {
-        console.log(addData(values))
+        const userIdPromise = addUser(values);
+
+        userIdPromise
+            .then(userId => {
+                setUserId(userId);
+            })
+            .catch(error => {
+                console.error("Error adding data:", error);
+            });
     };
 
     return (
@@ -43,7 +53,7 @@ const Registration = () => {
                 <Formik
                     initialValues={initialValues}
                     validationSchema={validationSchema}
-                    onSubmit={handleSubmit}
+                    onSubmit={(values, e) => handleSubmit(values)}
                 >
                     {() => (
                         <Form className="w-full">

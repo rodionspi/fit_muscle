@@ -1,9 +1,9 @@
 import { db } from "../../firebaseConfig";
-import { collection, addDoc } from "firebase/firestore";
+import { collection, addDoc, getDocs } from "firebase/firestore";
 import User from "@/types/User";
 import { getAuth } from "firebase/auth";
 
-const addData = async (formValues: User) => {
+const addUser = async (formValues: User) => {
   const {name, email, password} = formValues;
   try {
     const docRef = await addDoc(collection(db, "users"), {
@@ -12,9 +12,27 @@ const addData = async (formValues: User) => {
       password: password
     });
     console.log("Document written with ID: ", docRef.id);
+    return docRef.id
   } catch (error) {
     console.error("Error adding document: ", error);
   }
 };
 
-export {addData};
+const getUser = async (formValues: User) => {
+  const {email, password} = formValues;
+  try {
+    const querySnapshot = await getDocs(collection(db, "users"));
+    for (const doc of querySnapshot.docs) {
+      const data = doc.data();
+      if (data.password === password && data.email === email) {
+        return data; 
+      }
+    }
+    return null
+  } catch (error) {
+      console.error("Ошибка при получении коллекции:", error);
+      return null
+  }
+}
+
+export {addUser, getUser};
