@@ -2,14 +2,18 @@ import { db } from "../../firebaseConfig";
 import { collection, addDoc, getDocs } from "firebase/firestore";
 import User from "@/types/User";
 import { getAuth } from "firebase/auth";
+import { v4 as generateUuid } from "uuid";
 
 const addUser = async (formValues: User) => {
   const {name, email, password} = formValues;
   try {
+    const userId = generateUuid();
+    
     const docRef = await addDoc(collection(db, "users"), {
       name: name,
       email: email,
-      password: password
+      password: password,
+      id: userId
     });
     console.log("Document written with ID: ", docRef.id);
     return docRef.id
@@ -36,3 +40,7 @@ const getUser = async (formValues: User) => {
 }
 
 export {addUser, getUser};
+
+function uuidv4() {
+  throw new Error("Function not implemented.");
+}

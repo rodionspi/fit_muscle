@@ -13,7 +13,7 @@ const UserContext = createContext<UserContextType | null>(null);
 export function UserProvider({ children }: { children: ReactNode }) {
   const [userId, setUserId] = useState<string | null>(null);
   const [userData, setUserData] = useState<User | null>(null)
-  
+
   return (
     <UserContext.Provider value={{ userId, setUserId, userData, setUserData }}>
       {children}
