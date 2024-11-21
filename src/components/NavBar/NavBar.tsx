@@ -5,9 +5,8 @@ import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline';
 import logo_muscle from '../../../public/images/logos/Biceps_Muscle.png';
 import logo_person from '../../../public/images/logos/logo_person.jpg';
 import Image from 'next/image';
-import { useEffect, useState } from 'react';
 import Navigation from '@/types/Navigaton';
-import { useRouter } from 'next/router';
+import { useUser } from '@/contexts/UserContext';
 
 const classNames = (...classes: string[]) => {
   return classes.filter(Boolean).join(' ')
@@ -18,6 +17,8 @@ interface NavBarComponentProps {
 }
 
 const NavBar = ({ navigation }: NavBarComponentProps) => {
+
+  const {userData} = useUser();
 
   return (
     <Disclosure as="nav" className="bg-gray-800">
@@ -83,22 +84,40 @@ const NavBar = ({ navigation }: NavBarComponentProps) => {
               <MenuItems
                 transition
                 className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 transition focus:outline-none data-[closed]:scale-95 data-[closed]:transform data-[closed]:opacity-0 data-[enter]:duration-100 data-[leave]:duration-75 data-[enter]:ease-out data-[leave]:ease-in"
-              >
-                <MenuItem>
-                  <a href="/profile/login" className="block px-4 py-2 text-sm text-gray-700 data-[focus]:bg-gray-100">
-                    Login
-                  </a>
-                </MenuItem>
-                <MenuItem>
-                  <a href="/settings" className="block px-4 py-2 text-sm text-gray-700 data-[focus]:bg-gray-100">
-                    Settings
-                  </a>
-                </MenuItem>
-                <MenuItem>
-                  <a href="/profile/registration" className="block px-4 py-2 text-sm text-gray-700 data-[focus]:bg-gray-100">
-                    Registration
-                  </a>
-                </MenuItem>
+              > 
+                {userData ? (
+                  <>
+                    <MenuItem>
+                      <a href={`/profile/${userData.id}`} className="block px-4 py-2 text-sm text-gray-700 data-[focus]:bg-gray-100">
+                        Profile
+                      </a>
+                    </MenuItem>
+                      <MenuItem>
+                      <a href="/settings" className="block px-4 py-2 text-sm text-gray-700 data-[focus]:bg-gray-100">
+                        Settings
+                      </a>
+                    </MenuItem>
+                  </>
+                ) : (
+                  <>
+                    <MenuItem>
+                      <a href="/profile/login" className="block px-4 py-2 text-sm text-gray-700 data-[focus]:bg-gray-100">
+                        Login
+                      </a>
+                    </MenuItem>
+                    <MenuItem>
+                      <a href="/settings" className="block px-4 py-2 text-sm text-gray-700 data-[focus]:bg-gray-100">
+                        Settings
+                      </a>
+                    </MenuItem>
+                    <MenuItem>
+                      <a href="/profile/registration" className="block px-4 py-2 text-sm text-gray-700 data-[focus]:bg-gray-100">
+                        Registration
+                      </a>
+                    </MenuItem>
+                  </>
+                )}
+                
               </MenuItems>
             </Menu>
           </div>

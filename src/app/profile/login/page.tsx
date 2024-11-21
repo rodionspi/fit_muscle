@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useUser } from "../../../contexts/UserContext";
+import { useRouter } from "next/navigation";
 import Main from "@/app/page";
 import * as Yup from "yup";
 import { ErrorMessage, Field, Form, Formik } from "formik";
@@ -9,7 +10,9 @@ import { getUser } from "@/server/сollectionFunctions";
 
 const Login = () => {
   const [isHidden, setIsHidden] = useState<boolean>(true);
-  const { setUserData } = useUser();
+  const { setUserId, setUserData } = useUser();
+  const router = useRouter();
+
 
   const validationSchema = Yup.object({
     email: Yup.string()
@@ -22,7 +25,7 @@ const Login = () => {
             /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)/,
             "Password must contain at least one uppercase letter, one lowercase letter and one number"
         ),
-});
+  });
 
   const initialValues = {
       email: "",
@@ -32,8 +35,15 @@ const Login = () => {
   const handleLogin = (values: typeof initialValues) => {
     getUser(values)
         .then(data => {
-            console.log(data);
-            setUserData(data);
+            if (!!data) {
+                setUserData(data);
+                setUserId(() => {
+                    return data.id
+                });
+                router.push(`/profile/${data.id}`);
+            } else {
+                console.error("User not found");
+            }
         })
         .catch(error => {
             console.log(error)
