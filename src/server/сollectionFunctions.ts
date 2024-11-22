@@ -40,7 +40,3 @@ const getUser = async (formValues: User) => {
 }
 
 export {addUser, getUser};
-
-function uuidv4() {
-  throw new Error("Function not implemented.");
-}

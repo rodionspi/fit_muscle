@@ -6,6 +6,7 @@ import { useEffect } from "react";
 import logo_person from '@/../public/images/logos/logo_person.jpg';
 import { useRouter } from "next/navigation";
 import Image from 'next/image';
+import { getDataFromLS } from "@/server/localStorageFunctions";
 
 
 const ProfilePage = ({params} : any) => {
@@ -15,7 +16,10 @@ const ProfilePage = ({params} : any) => {
   
   useEffect(() => {
     if (!userData) {
-      router.push(`/profile/login`)
+      const localStorageUserData = getDataFromLS();
+      if(!localStorageUserData) {
+        router.push(`/profile/login`)
+      }
     }
   }, [userData])
 
@@ -27,13 +31,14 @@ const ProfilePage = ({params} : any) => {
             alt="Acount_logo"
             src={logo_person}
             className="h-28 w-28 rounded-full"
+            priority
           /> 
           <div>
             <p className="text-xl">E-mail: {userData.email}</p>
             <p className="text-xl">Name: {userData.name}</p>
           </div>
         </div>
-      ) : null}
+      ) : <div className="w-12 h-12 border-4 m-auto border-gray-300 border-t-blue-500 rounded-full animate-spin"></div>}
     </Main>
   )
 };
