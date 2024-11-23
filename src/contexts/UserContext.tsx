@@ -1,3 +1,4 @@
+import { getDataFromLS } from "@/server/localStorageFunctions";
 import User from "@/types/User";
 import { createContext, Dispatch, ReactNode, SetStateAction, useContext, useEffect, useState } from "react";
 
@@ -13,6 +14,15 @@ const UserContext = createContext<UserContextType | null>(null);
 export function UserProvider({ children }: { children: ReactNode }) {
   const [userId, setUserId] = useState<string | null>(null);
   const [userData, setUserData] = useState<User | null>(null)
+
+  useEffect(() => {
+    if (!userData) {
+      const localStorageUserData = getDataFromLS();
+      if (!!localStorageUserData) {
+        setUserData(localStorageUserData)
+      }
+    }
+  }, [userData])
 
   return (
     <UserContext.Provider value={{ userId, setUserId, userData, setUserData }}>
