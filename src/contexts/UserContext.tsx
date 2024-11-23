@@ -18,7 +18,7 @@ export function UserProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     if (!userData) {
       const localStorageUserData = getDataFromLS();
-      if (localStorageUserData) {
+      if (!!localStorageUserData) {
         setUserData(localStorageUserData)
       }
     }

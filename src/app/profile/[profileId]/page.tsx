@@ -9,7 +9,7 @@ import Image from 'next/image';
 import { getDataFromLS } from "@/server/localStorageFunctions";
 
 
-const ProfilePage = ({params} : any) => {
+const ProfilePage = () => {
   const {userData} = useUser();
   const router = useRouter();
 
@@ -25,7 +25,7 @@ const ProfilePage = ({params} : any) => {
 
   return (
     <Main>
-      {userData ? (
+      {!!userData ? (
         <div className="grid grid-cols-2 gap-4">
           <Image
             alt="Acount_logo"
