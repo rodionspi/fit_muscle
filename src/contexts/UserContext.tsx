@@ -18,11 +18,12 @@ export function UserProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     if (!userData) {
       const localStorageUserData = getDataFromLS();
-      if (!!localStorageUserData) {
-        setUserData(localStorageUserData)
+      if (localStorageUserData) {
+        console.log("Loading from localStorage...");
+        setUserData(localStorageUserData);
       }
     }
-  }, [userData])
+  }, []);
 
   return (
     <UserContext.Provider value={{ userId, setUserId, userData, setUserData }}>

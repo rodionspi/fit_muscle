@@ -6,10 +6,12 @@ import { useState } from "react";
 import * as Yup from "yup";
 import { addUser } from "@/server/сollectionFunctions";
 import { useUser } from "@/contexts/UserContext";
+import { useRouter } from "next/navigation";
 
 const Registration = () => {
     const [isHidden, setIsHidden] = useState<boolean>(true);
-    const { setUserId } = useUser();
+    const { setUserId, setUserData } = useUser();
+    const router = useRouter();
 
     const validationSchema = Yup.object({
         name: Yup.string()
@@ -38,8 +40,12 @@ const Registration = () => {
         const userIdPromise = addUser(values);
 
         userIdPromise
-            .then(userId => {
-                setUserId(userId);
+            .then(data => {
+                if (data) {
+                    setUserData(values);
+                    setUserId(data.id)
+                    router.push(`/profile/${data.id}`);
+                }
             })
             .catch(error => {
                 console.error("Error adding data:", error);

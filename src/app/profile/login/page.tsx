@@ -38,7 +38,7 @@ const Login = () => {
         .then(data => {
             if (!!data) {
                 setUserData(data);
-                setDataToLS(data)
+                setDataToLS(data);
                 setUserId(() => {
                     return data.id
                 });

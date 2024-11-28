@@ -1,7 +1,6 @@
 import { db } from "../../firebaseConfig";
 import { collection, addDoc, getDocs } from "firebase/firestore";
 import User from "@/types/User";
-import { getAuth } from "firebase/auth";
 import { v4 as generateUuid } from "uuid";
 
 const addUser = async (formValues: User) => {
@@ -15,10 +14,11 @@ const addUser = async (formValues: User) => {
       password: password,
       id: userId
     });
-    console.log("Document written with ID: ", docRef.id);
-    return docRef.id
+    
+    return docRef;
   } catch (error) {
     console.error("Error adding document: ", error);
+    return null;
   }
 };
 
@@ -34,7 +34,7 @@ const getUser = async (formValues: User) => {
     }
     return null
   } catch (error) {
-      console.error("Ошибка при получении коллекции:", error);
+      console.error("Error while getting collection: ", error);
       return null
   }
 }
