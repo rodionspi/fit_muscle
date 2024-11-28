@@ -146,6 +146,13 @@ const Registration = () => {
                             >
                                 Register
                             </button>
+                            <p className="text-center mt-2 mb-2">or if you already have an account</p>
+                            <button
+                                type="button"
+                                className="w-full py-2 px-4 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            >
+                                <a href="/profile/login">Login</a>
+                            </button>
                         </Form>
                     )}
                 </Formik>
