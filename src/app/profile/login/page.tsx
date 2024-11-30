@@ -38,7 +38,7 @@ const Login = () => {
         .then(data => {
             if (!!data) {
                 setUserData(data);
-                setDataToLS(data)
+                setDataToLS(data);
                 setUserId(() => {
                     return data.id
                 });
@@ -58,6 +58,7 @@ const Login = () => {
                 <h2 className="text-2xl font-semibold mb-6 text-center">Login</h2>
                 <Formik
                     initialValues={initialValues}
+                    validationSchema={validationSchema}
                     onSubmit={(values) => handleLogin(values)}
                 >
                     {() => (
@@ -123,6 +124,13 @@ const Login = () => {
                                 className="w-full py-2 px-4 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
                             >
                                 Login
+                            </button>
+                            <p className="text-center mt-2 mb-2">or if you are not registered yet</p>
+                            <button
+                                type="button"
+                                className="w-full py-2 px-4 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            >
+                                <a href="/profile/registration">Registation</a>
                             </button>
                         </Form>
                     )}

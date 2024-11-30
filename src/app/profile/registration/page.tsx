@@ -4,12 +4,15 @@ import Main from "@/app/page";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { useState } from "react";
 import * as Yup from "yup";
-import { addUser } from "@/server/сollectionFunctions";
+import { addUser, getUser } from "@/server/сollectionFunctions";
 import { useUser } from "@/contexts/UserContext";
+import { useRouter } from "next/navigation";
 
 const Registration = () => {
     const [isHidden, setIsHidden] = useState<boolean>(true);
-    const { setUserId } = useUser();
+    const { setUserId, setUserData } = useUser();
+    const [message, setMessage] = useState<string>('');
+    const router = useRouter();
 
     const validationSchema = Yup.object({
         name: Yup.string()
@@ -34,17 +37,26 @@ const Registration = () => {
         password: "",
     };
 
-    const handleSubmit = (values: typeof initialValues) => {
-        const userIdPromise = addUser(values);
-
-        userIdPromise
-            .then(userId => {
-                setUserId(userId);
-            })
-            .catch(error => {
-                console.error("Error adding data:", error);
-            });
-    };
+    const handleSubmit = async (values: typeof initialValues) => {
+        try {
+          const existingUser = await getUser(values);
+          
+          if (existingUser) {
+            setMessage('User already exists');
+          } else {
+            const newUser = await addUser(values);
+            
+            if (newUser) {
+              setUserData(values);
+              setUserId(newUser.id);
+              router.push(`/profile/${newUser.id}`);
+            }
+          }
+        } catch (error) {
+          console.error("Error during submission:", error);
+        }
+      };
+      
 
     return (
         <Main>
@@ -140,6 +152,14 @@ const Registration = () => {
                             >
                                 Register
                             </button>
+                            <p className="text-center mt-2 mb-2">or if you already have an account</p>
+                            <button
+                                type="button"
+                                className="w-full py-2 px-4 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            >
+                                <a href="/profile/login">Login</a>
+                            </button>
+                            <p className="text-red-400">{message}</p>
                         </Form>
                     )}
                 </Formik>
