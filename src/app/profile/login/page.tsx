@@ -58,6 +58,7 @@ const Login = () => {
                 <h2 className="text-2xl font-semibold mb-6 text-center">Login</h2>
                 <Formik
                     initialValues={initialValues}
+                    validationSchema={validationSchema}
                     onSubmit={(values) => handleLogin(values)}
                 >
                     {() => (
