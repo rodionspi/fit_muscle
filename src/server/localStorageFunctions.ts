@@ -2,22 +2,23 @@ import User from "@/types/User";
 import { DocumentData } from "firebase/firestore";
 
 const getDataFromLS = (): User | null => {
-    const localStorageData: any = {};
-  
-    for (let i = 0; i < localStorage.length; i++) {
-      const key: string | null = localStorage.key(i);
-      if (key) {
-        try {
-          localStorageData[key] = JSON.parse(localStorage.getItem(key)!);
-        } catch (error) {
-          console.error(`Error parsing key "${key}":`, error);
-          localStorageData[key] = localStorage.getItem(key);
-        }
+  const localStorageData: Record<string, any> = {};
+
+  for (let i = 0; i < localStorage.length; i++) {
+    const key: string | null = localStorage.key(i);
+    if (key) {
+      try {
+        localStorageData[key] = JSON.parse(localStorage.getItem(key)!);
+      } catch (error) {
+        console.error(`Error parsing key "${key}":`, error);
+        localStorageData[key] = localStorage.getItem(key);
       }
     }
-  
-    return !!localStorageData ? null : localStorageData;
-  };
+  }
+
+  return Object.keys(localStorageData).length > 0 ? localStorageData as User : null;
+};
+
 
 const setDataToLS = (data: DocumentData) => {
     try {
@@ -28,6 +29,6 @@ const setDataToLS = (data: DocumentData) => {
     } catch (error) {
       console.error("Error saving data to localStorage:", error);
     }
-  };
+};
 
 export {getDataFromLS, setDataToLS};
