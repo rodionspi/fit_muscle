@@ -57,23 +57,14 @@ const MusclesChart = () => {
                 <div className="border border-slate-700 text-slate-300 text-center py-2">Body front</div>
             </div>
             <div className="grid grid-cols-2">
-                {musclesLists['back'].map((muscle, i) => {
+                {musclesLists.map((muscle, i) => {
                     return (
                         <React.Fragment key={i}>
-                            <div 
+                            <div
                                 className="border border-slate-700 text-center align-middle hover:bg-slate-500 flex items-center justify-center h-44" 
                                 onMouseOver={(e) => onMouseOver(e)}>
                                 {musclesRendering(muscle)}
                             </div>
-                            {i < musclesLists['front'].length ? (
-                                <div 
-                                    className="border border-slate-700 text-center align-middle hover:bg-slate-500 flex items-center justify-center h-44" 
-                                    onMouseOver={(e) => onMouseOver(e)}>
-                                    {musclesRendering(musclesLists['front'][i])}
-                                </div>
-                            ) : (
-                                <div className="empty-cell h-44"></div> 
-                            )}
                         </React.Fragment>
                     );
                 })}
