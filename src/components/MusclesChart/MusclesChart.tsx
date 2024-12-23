@@ -26,24 +26,28 @@ const MusclesChart = () => {
         if (currentMuscleTD === muscle.name) {
             return (
                 <div className="flex w-full h-full text-slate-800">
-                    <a href={muscle.link} className="flex-1 flex items-center justify-center border-r border-slate-700 hover:bg-slate-400">
+                    <a href={muscle.link.web} className="flex-1 flex items-center justify-center border-r border-slate-700 hover:bg-slate-400">
                         Web site
                     </a>
-                    <a href={muscle.link} className="flex-1 flex items-center justify-center hover:bg-slate-400">
+                    <a href={muscle.link.video} className="flex-1 flex items-center justify-center hover:bg-slate-400">
                         Video
                     </a>
                 </div>
             )
         } else {
             return (
-                <div className="muscle items-center justify-center text-slate-300 h-full">
-                   <Image 
-                        src={muscle.src} 
-                        alt={muscle.name} 
-                        height={150} 
-                    />
-
-                    {muscle.name}
+                // flex flex-col items-center justify-center text-black
+                <div className="muscle h-full w-full">
+                    <div className="h-5/6">
+                        <Image 
+                            src={muscle.src} 
+                            alt={muscle.name}
+                            className='h-full w-full object-contain'
+                            width={100}
+                            height={100}
+                        />
+                    </div>
+                    <span className="mt-2">{muscle.name}</span>
                 </div>
             )
         }
