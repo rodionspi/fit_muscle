@@ -5,13 +5,17 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import { useState } from "react";
 import * as Yup from "yup";
 import { addUser, getUser } from "@/server/сollectionFunctions";
+import Image from "next/image";
+import google_logo from "@/../public/images/logos/google_logo.png";
+import "firebase/compat/auth";
 import { useUser } from "@/contexts/UserContext";
 import { useRouter } from "next/navigation";
+import { auth, provider, signInWithPopup } from "../../../../firebaseConfig";
 
 const Registration = () => {
     const [isHidden, setIsHidden] = useState<boolean>(true);
     const { setUserId, setUserData } = useUser();
-    const [message, setMessage] = useState<string>('');
+    const [error, setError] = useState<string>('');
     const router = useRouter();
 
     const validationSchema = Yup.object({
@@ -42,7 +46,7 @@ const Registration = () => {
           const existingUser = await getUser(values);
           
           if (existingUser) {
-            setMessage('User already exists');
+            setError('User already exists');
           } else {
             const newUser = await addUser(values);
             
@@ -55,12 +59,44 @@ const Registration = () => {
         } catch (error) {
           console.error("Error during submission:", error);
         }
-      };
+    };
+
+    const handleGoogleRegistration = async () => {
+        try {
+            // Implement Google registration logic here
+            // For example, using Firebase Authentication
+            const result = await signInWithPopup(auth, provider);
+            const user = result.user;
+
+            if (user) {
+                const userData = {
+                    name: user.displayName || "",
+                    email: user.email || "", // Ensure email is a string
+                    password: "", // You might want to handle this differently
+                };
+
+                const existingUser = await getUser(userData);
+
+                if (existingUser) {
+                    setError('User already exists');
+                } else {
+                    const newUser = await addUser(userData);
+                    if (newUser) {
+                        setUserData(userData);
+                        setUserId(newUser.id);
+                        router.push(`/profile/${newUser.id}`);
+                    }
+                }
+            }
+        } catch (error) {
+            console.error("Error during Google registration:", error);
+        }
+    };
       
 
     return (
         <Main>
-            <div className="p-16 m-auto rounded-lg shadow-lg w-full max-w-sm bg-gray-600">
+            <div className="p-8 m-auto rounded-lg shadow-lg max-w-lg bg-gray-600 sm:p-12 md:p-16 lg:p-20 xl:p-24">
                 <h2 className="text-2xl font-semibold mb-6 text-center">Register</h2>
                 <Formik
                     initialValues={initialValues}
@@ -69,6 +105,11 @@ const Registration = () => {
                 >
                     {() => (
                         <Form className="w-full">
+                            {error && (
+                            <div className="mb-4 p-4 text-red-700 bg-red-100 border border-red-400 rounded">
+                                <p className="text-sm">{error}</p>
+                            </div>
+                        )}
                             {/* User Name */}
                             <div className="mb-4">
                                 <label
@@ -152,14 +193,26 @@ const Registration = () => {
                             >
                                 Register
                             </button>
+
+                            <button
+                                type="button"
+                                onClick={handleGoogleRegistration}
+                                className="w-full py-2 px-4 bg-white text-gray-700 font-semibold rounded-lg border border-gray-300 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-300 mt-4 flex items-center justify-center">
+                                <Image
+                                    src={google_logo}
+                                    alt="Google logo"
+                                    className="w-5 h-5 mr-2"
+                                />
+                                Register with Google
+                            </button>
                             <p className="text-center mt-2 mb-2">or if you already have an account</p>
                             <button
                                 type="button"
+                                onClick={() => router.push('/profile/login')}
                                 className="w-full py-2 px-4 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
                             >
-                                <a href="/profile/login">Login</a>
+                                Login
                             </button>
-                            <p className="text-red-400">{message}</p>
                         </Form>
                     )}
                 </Formik>

@@ -8,7 +8,7 @@ interface MuscleLink {
 interface Muscle {
     name: string;
     src: StaticImageData;
-    link: MuscleLink;
+    links: MuscleLink;
 }
  
 export default Muscle
