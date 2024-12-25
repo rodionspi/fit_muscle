@@ -28,7 +28,7 @@ const getUser = async (formValues: User) => {
     const querySnapshot = await getDocs(collection(db, "users"));
     for (const doc of querySnapshot.docs) {
       const data = doc.data();
-      if (data.password === password && data.email === email) {
+      if (data.email === email) {
         return data; 
       }
     }
