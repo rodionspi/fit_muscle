@@ -54,6 +54,6 @@ This project is licensed under the MIT License.
 
 ## Contact
 
-For any inquiries or support, please contact us at [your-email@example.com].
+For any inquiries or support, please contact us at [rodionspirik48@gmail.com].
 
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
