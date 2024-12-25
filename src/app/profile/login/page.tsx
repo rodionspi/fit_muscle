@@ -155,7 +155,7 @@ const Login = () => {
 
                         <button
                             type="submit"
-                            className="w-full py-2 px-4 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            className="w-full py-2 px-4 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 mt-4"
                         >
                             Login
                         </button>
@@ -163,7 +163,8 @@ const Login = () => {
                         <button
                             type="button"
                             onClick={handleGoogleLogin}
-                            className="w-full py-2 px-4 bg-white text-gray-700 font-semibold rounded-lg border border-gray-300 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-300 mt-4 flex items-center justify-center">
+                            className="w-full py-2 px-4 bg-white text-gray-700 font-semibold rounded-lg border border-gray-300 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-300 mt-4 flex items-center justify-center"
+                        >
                             <Image
                                 src={google_logo}
                                 alt="Google logo"
@@ -171,13 +172,15 @@ const Login = () => {
                             />
                             Login with Google
                         </button>
-                        <p className="text-center mt-2 mb-2">or if you are not registered yet</p>
+
+                        <p className="text-center mt-4 mb-4">or if you are not registered yet</p>
+
                         <button
                             type="button"
                             onClick={() => router.push('/profile/registration')}
-                            className="w-full py-2 px-4 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            className="w-full py-2 px-4 bg-green-500 text-white font-semibold rounded-lg hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-500 mt-4"
                         >
-                            <a href="/profile/registration">Registation</a>
+                            Registration
                         </button>
                     </Form>
                 )}
