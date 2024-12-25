@@ -17,13 +17,13 @@ import abs from '../../public/images/for_muscles_chart/abs.png';
 
 import glutes from '../../public/images/for_muscles_chart/glutes.png';
 
-import legs_back from '../../public/images/for_muscles_chart/legs/back.png';
-import legs_front from '../../public/images/for_muscles_chart/legs/front.png';
+import hamstrings from '../../public/images/for_muscles_chart/hamstrings.png';
+import quads from '../../public/images/for_muscles_chart/quads.png';
 
 import calf_muscles from '../../public/images/for_muscles_chart/calf_muscles.png';
 import Muscle from '@/types/Muscle';
 
-const musclesLists: Muscle[] = [
+const musclesList: Muscle[] = [
         { name: 'Traps', src: traps, links: 
                 {
                 video: 'https://www.youtube.com/watch?v=C6sYjDFuq9I',
@@ -54,7 +54,7 @@ const musclesLists: Muscle[] = [
                 web: 'https://row.gymshark.com/blog/article/best-glute-exercises'
                 } 
         },
-        { name: 'Hamstrings', src: legs_back, links: 
+        { name: 'Hamstrings', src: hamstrings, links: 
                 {
                 video: 'https://www.youtube.com/watch?v=j8X3S98gOQE',
                 web: 'https://row.gymshark.com/blog/article/best-hamstring-exercises',
@@ -90,7 +90,7 @@ const musclesLists: Muscle[] = [
                 web: 'https://www.goodrx.com/well-being/movement-exercise/exercises-to-improve-grip-strength'
                 }
         },
-        { name: 'Legs', src: legs_front, links: 
+        { name: 'Quads', src: quads, links: 
                 {
                 video: 'https://www.youtube.com/watch?v=FShg92-FF_c',
                 web: 'https://row.gymshark.com/blog/article/best-quad-exercises'
@@ -99,4 +99,4 @@ const musclesLists: Muscle[] = [
 ];
 
 
-export default musclesLists;
+export default musclesList;

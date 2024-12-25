@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from 'react';
-import musclesLists from '../musclesList';
+import musclesList from '../musclesList';
 import '../styles/index.css';
 import Image from 'next/image';
 import Muscle from '@/types/Muscle';
@@ -57,7 +57,7 @@ const MusclesChart = () => {
         <div className="musclesChart border border-separate border-spacing-3 border-slate-500 m-auto mt-8 bg-slate-600 mb-8">
             <h2 className="text-center font-bold text-2xl mb-4 mt-4">Muscles Chart</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4">
-                {musclesLists.map((muscle, i) => {
+                {musclesList.map((muscle, i) => {
                     return (
                         <React.Fragment key={i}>
                            <div
