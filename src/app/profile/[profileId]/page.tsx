@@ -26,19 +26,23 @@ const ProfilePage = () => {
   return (
     <Main>
       {!!userData ? (
-        <div className="grid grid-cols-2 gap-4">
+        <div className="flex flex-col items-center space-y-6">
           <Image
-            alt="Acount_logo"
-            src={logo_person}
-            className="h-28 w-28 rounded-full"
-            priority
-          /> 
-          <div>
-            <p className="text-xl">E-mail: {userData.email}</p>
-            <p className="text-xl">Name: {userData.name}</p>
+          alt="Account logo"
+          src={logo_person}
+          className="h-32 w-32 rounded-full shadow-lg"
+          priority
+          />
+          <div className="text-center">
+          <p className="text-2xl font-semibold text-gray-300">{userData.name}</p>
+          <p className="text-xl text-gray-300">{userData.email}</p>
           </div>
         </div>
-      ) : <div className="w-12 h-12 border-4 m-auto border-gray-300 border-t-blue-500 rounded-full animate-spin"></div>}
+      ) : (
+        <div className="flex justify-center items-center h-full">
+          <div className="w-12 h-12 border-4 border-gray-300 border-t-blue-500 rounded-full animate-spin"></div>
+        </div>
+      )}
     </Main>
   )
 };
