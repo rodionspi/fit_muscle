@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from 'react';
-import musclesLists from '../musclesList';
+import musclesList from '../musclesList';
 import '../styles/index.css';
 import Image from 'next/image';
 import Muscle from '@/types/Muscle';
@@ -53,7 +53,7 @@ const MusclesChart = () => {
             )
         }
     }
-
+    
     const tableRendering = () => {
         return (
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
