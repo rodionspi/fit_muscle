@@ -79,15 +79,27 @@ const MusclesChart = () => {
                     {musclesLists.map((muscle, i) => (
                         <div
                             key={i}
-                            className="carousel-item flex-none w-64 h-full border border-slate-700 rounded-lg shadow-lg text-center align-middle hover:bg-slate-500 flex items-center justify-center transition duration-300 ease-in-out transform hover:scale-105 mx-2 h-full"
+                            className="carousel-item flex-none w-64 h-full border border-slate-700 rounded-lg shadow-lg text-center align-middle hover:bg-slate-500 flex items-center justify-center transition duration-300 ease-in-out transform hover:scale-105 mx-2 h-96"
                             onMouseOver={(e) => onMouseOver(e)}
                         >
                             {musclesRendering(muscle)}
                         </div>
                     ))}
                 </div>
-                <button className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-slate-700 text-white p-2 rounded-full">‹</button>
-                <button className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-slate-700 text-white p-2 rounded-full">›</button>
+                <button 
+                    className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-slate-700 text-white p-4 rounded-full hover:bg-slate-500 transition duration-300 ease-in-out ml-4"
+                    onClick={() => document.querySelector('.carousel')?.scrollBy({ left: -600, behavior: 'smooth' })}
+                    style={{ borderRadius: '50%' }}
+                >
+                    ‹
+                </button>
+                <button 
+                    className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-slate-700 text-white p-4 rounded-full hover:bg-slate-500 transition duration-300 ease-in-out mr-4"
+                    onClick={() => document.querySelector('.carousel')?.scrollBy({ left: 600, behavior: 'smooth' })}
+                    style={{ borderRadius: '50%' }}
+                >
+                    ›
+                </button>
             </div>
         )
     }
