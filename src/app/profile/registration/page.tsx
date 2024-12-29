@@ -194,18 +194,23 @@ const Registration = () => {
                                 Register
                             </button>
 
-                            <button
-                                type="button"
-                                onClick={handleGoogleRegistration}
-                                className="w-full py-2 px-4 bg-white text-gray-700 font-semibold rounded-lg border border-gray-300 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-300 mt-4 flex items-center justify-center">
-                                <Image
-                                    src={google_logo}
-                                    alt="Google logo"
-                                    className="w-5 h-5 mr-2"
-                                />
-                                Register with Google
-                            </button>
-                            <p className="text-center mt-2 mb-2">or if you already have an account</p>
+                            <div className="mt-4">
+                                <button
+                                    type="button"
+                                    onClick={handleGoogleRegistration}
+                                    className="w-full py-2 px-4 bg-white text-gray-700 font-semibold rounded-lg border border-gray-300 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-300 flex items-center justify-center"
+                                >
+                                    <Image
+                                        src={google_logo}
+                                        alt="Google logo"
+                                        className="w-5 h-5 mr-2"
+                                    />
+                                    Register with Google
+                                </button>
+                            </div>
+
+                            <p className="text-center mt-4 mb-2 text-gray-300">or if you already have an account</p>
+
                             <button
                                 type="button"
                                 onClick={() => router.push('/profile/login')}
