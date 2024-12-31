@@ -6,6 +6,7 @@ import '../styles/index.css';
 import Image from 'next/image';
 import Muscle from '@/types/Muscle';
 import React from 'react';
+import muscleRendering from '@/components/MuscleRendering/MuscleRendering';
 
 const MusclesChart = () => {
 
@@ -25,38 +26,6 @@ const MusclesChart = () => {
     const onMouseOut = (e: React.MouseEvent<HTMLTableCellElement | HTMLDivElement>) => {
         setCurrentMuscleTD('');
     };
-
-    const musclesRendering = (muscle: Muscle, height: number = 130) => {
-        if (currentMuscleTD === muscle.name) {
-            return (
-                <div className="flex flex-col w-full text-slate-800 h-full" onMouseOut={(e) => onMouseOut(e)}>
-                    <div className="flex flex-1">
-                        <a href={muscle.links.web} className="flex-1 flex items-center justify-center border-r border-slate-700 hover:bg-slate-400">
-                            Web site
-                        </a>
-                        <a href={muscle.links.video} className="flex-1 flex items-center justify-center hover:bg-slate-400">
-                            Video
-                        </a>
-                    </div>
-                    <span className="mt-2 text-white font-semibold mb-2">{muscle.name}</span>
-                </div>
-            )
-        } else {
-            return (
-                <div className="muscle w-full flex flex-col items-center justify-between h-full" onMouseOut={(e) => onMouseOut(e)}>
-                    <div className="flex items-center justify-center overflow-hidden h-full">
-                        <Image 
-                            src={muscle.src} 
-                            alt={muscle.name}
-                            className='object-cover rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-110'
-                            height={height}
-                        />
-                    </div>
-                    <span className="mt-2 text-white font-semibold mb-2">{muscle.name}</span>
-                </div>
-            )
-        }
-    }
     
     const tableRendering = () => {
         return (
@@ -64,10 +33,10 @@ const MusclesChart = () => {
                 {musclesList.map((muscle: Muscle, i: number) => {
                     return (
                         <React.Fragment key={i}>
-                        <div
-                                className="border border-slate-700 rounded-lg shadow-lg text-center align-middle hover:bg-slate-500 flex items-center justify-center h-44 transition duration-300 ease-in-out transform hover:scale-105" 
+                            <div
+                                className="border border-slate-700 rounded-lg shadow-lg text-center align-middle hover:bg-slate-500 flex items-center justify-center h-44 transition duration-300 ease-in-out transform hover:scale-101" 
                                 onMouseOver={(e) => onMouseOver(e)}>
-                                {musclesRendering(muscle)}
+                                {muscleRendering(muscle, onMouseOut, currentMuscleTD)}
                             </div>
                         </React.Fragment>
                     );
@@ -83,10 +52,10 @@ const MusclesChart = () => {
                     {musclesList.map((muscle: Muscle, i: number) => (
                         <div
                             key={i}
-                            className="carousel-item flex-none w-96 border border-slate-700 rounded-lg shadow-lg text-center align-middle hover:bg-slate-500 flex items-center justify-center transition duration-300 ease-in-out transform hover:scale-105 mx-2 h-full"
+                            className="carousel-item flex-none w-96 border border-slate-700 rounded-lg shadow-lg text-center align-middle hover:bg-slate-500 hover:rounded-lg flex items-center justify-center transition duration-300 ease-in-out transform hover:scale-105 mx-2 h-full"
                             onMouseOver={(e) => onMouseOver(e)}
                         >
-                            {musclesRendering(muscle, 300)}
+                            {muscleRendering(muscle, onMouseOut, currentMuscleTD, 180)}
                         </div>
                     ))}
                 </div>
