@@ -6,12 +6,11 @@ import '../styles/index.css';
 import Image from 'next/image';
 import Muscle from '@/types/Muscle';
 import React from 'react';
-import { table } from 'console';
 
 const MusclesChart = () => {
 
     const [currentMuscleTD, setCurrentMuscleTD] = useState<string>('');
-    const [mode, setMode] = useState<string>('table');
+    const [mode, setMode] = useState<'Table' | 'Carousel'>('Table');
 
     const onMouseOver = (e: React.MouseEvent<HTMLTableCellElement | HTMLDivElement>) => {
         const targetElement = e.currentTarget;
@@ -23,32 +22,37 @@ const MusclesChart = () => {
         }
     };
 
-    const musclesRendering = (muscle: Muscle, width: number = 100, height: number = 100) => {
+    const onMouseOut = (e: React.MouseEvent<HTMLTableCellElement | HTMLDivElement>) => {
+        setCurrentMuscleTD('');
+    };
+
+    const musclesRendering = (muscle: Muscle, height: number = 130) => {
         if (currentMuscleTD === muscle.name) {
             return (
-                <div className="flex w-full h-full text-slate-800">
-                    <a href={muscle.links.web} className="flex-1 flex items-center justify-center border-r border-slate-700 hover:bg-slate-400 hover:rounded-lg">
-                        Web site
-                    </a>
-                    <a href={muscle.links.video} className="flex-1 flex items-center justify-center hover:bg-slate-400 hover:rounded-lg">
-                        Video
-                    </a>
+                <div className="flex flex-col w-full text-slate-800 h-full" onMouseOut={(e) => onMouseOut(e)}>
+                    <div className="flex flex-1">
+                        <a href={muscle.links.web} className="flex-1 flex items-center justify-center border-r border-slate-700 hover:bg-slate-400">
+                            Web site
+                        </a>
+                        <a href={muscle.links.video} className="flex-1 flex items-center justify-center hover:bg-slate-400">
+                            Video
+                        </a>
+                    </div>
+                    <span className="mt-2 text-white font-semibold mb-2">{muscle.name}</span>
                 </div>
             )
         } else {
             return (
-                // flex flex-col items-center justify-center text-black
-                <div className="muscle w-full flex flex-col items-center justify-center">
-                    <div className="mt-2 flex items-center justify-center overflow-hidden">
+                <div className="muscle w-full flex flex-col items-center justify-between h-full" onMouseOut={(e) => onMouseOut(e)}>
+                    <div className="flex items-center justify-center overflow-hidden h-full">
                         <Image 
                             src={muscle.src} 
                             alt={muscle.name}
                             className='object-cover rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-110'
-                            width={width}
                             height={height}
                         />
                     </div>
-                    <span className="mt-2 text-white font-semibold">{muscle.name}</span>
+                    <span className="mt-2 text-white font-semibold mb-2">{muscle.name}</span>
                 </div>
             )
         }
@@ -75,14 +79,14 @@ const MusclesChart = () => {
     const carouselRendering = () => {
         return (
             <div className="carousel-container relative h-full">
-                <div className="carousel flex overflow-x-scroll scrollbar-hide h-full">
+                <div className="carousel flex overflow-x-scroll scrollbar-hide h-96">
                     {musclesList.map((muscle: Muscle, i: number) => (
                         <div
                             key={i}
-                            className="carousel-item flex-none w-96 border border-slate-700 rounded-lg shadow-lg text-center align-middle hover:bg-slate-500 flex items-center justify-center transition duration-300 ease-in-out transform hover:scale-105 mx-2 h-96"
+                            className="carousel-item flex-none w-96 border border-slate-700 rounded-lg shadow-lg text-center align-middle hover:bg-slate-500 flex items-center justify-center transition duration-300 ease-in-out transform hover:scale-105 mx-2 h-full"
                             onMouseOver={(e) => onMouseOver(e)}
                         >
-                            {musclesRendering(muscle, 300, 300)}
+                            {musclesRendering(muscle, 300)}
                         </div>
                     ))}
                 </div>
@@ -107,14 +111,14 @@ const MusclesChart = () => {
             <div className="flex justify-center mb-4">
                 <button 
                     className="px-4 py-2 bg-slate-700 text-white rounded-lg hover:bg-slate-500 transition duration-300 ease-in-out"
-                    onClick={() => setMode(mode === 'table' ? 'carousel' : 'table')}
+                    onClick={() => setMode(mode === 'Table' ? 'Carousel' : 'Table')}
                 >
-                    {mode}
+                    {mode === 'Table' ? 'Carousel' : 'Table'}
                 </button>
             </div>
             <div className="musclesChart border border-separate border-spacing-3 border-slate-500 m-auto mt-8 bg-slate-600 mb-8 p-4 h-full">
                 <h2 className="text-center font-bold text-2xl mb-4 mt-4">Muscles Chart</h2>
-                {mode === 'table' ? tableRendering() : carouselRendering()}
+                {mode === 'Table' ? tableRendering() : carouselRendering()}
             </div>
         </>
     );
