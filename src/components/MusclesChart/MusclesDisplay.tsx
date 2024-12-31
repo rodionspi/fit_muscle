@@ -91,13 +91,13 @@ const MusclesChart = () => {
                     ))}
                 </div>
                 <button 
-                    className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-slate-700 text-white p-4 rounded-full hover:bg-slate-500 transition duration-300 ease-in-out ml-4"
+                    className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-slate-700 text-white p-2 w-10 rounded-full hover:bg-slate-500 transition duration-300 ease-in-out ml-4"
                     onClick={() => document.querySelector('.carousel')?.scrollBy({ left: -600, behavior: 'smooth' })}
                 >
                     ‹
                 </button>
                 <button 
-                    className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-slate-700 text-white p-4 rounded-full hover:bg-slate-500 transition duration-300 ease-in-out mr-4"
+                    className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-slate-700 text-white p-2 w-10 rounded-full hover:bg-slate-500 transition duration-300 ease-in-out mr-4"
                     onClick={() => document.querySelector('.carousel')?.scrollBy({ left: 600, behavior: 'smooth' })}
                 >
                     ›
