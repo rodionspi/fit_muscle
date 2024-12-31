@@ -23,7 +23,7 @@ const MusclesChart = () => {
         }
     };
 
-    const musclesRendering = (muscle: Muscle) => {
+    const musclesRendering = (muscle: Muscle, width: number = 100, height: number = 100) => {
         if (currentMuscleTD === muscle.name) {
             return (
                 <div className="flex w-full h-full text-slate-800">
@@ -38,14 +38,14 @@ const MusclesChart = () => {
         } else {
             return (
                 // flex flex-col items-center justify-center text-black
-                <div className="muscle h-full w-full flex flex-col items-center justify-center">
-                    <div className="h-5/6 mt-2 flex items-center justify-center overflow-hidden">
+                <div className="muscle w-full flex flex-col items-center justify-center">
+                    <div className="mt-2 flex items-center justify-center overflow-hidden">
                         <Image 
                             src={muscle.src} 
                             alt={muscle.name}
-                            className='h-full w-full object-cover rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-110'
-                            width={100}
-                            height={100}
+                            className='object-cover rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-110'
+                            width={width}
+                            height={height}
                         />
                     </div>
                     <span className="mt-2 text-white font-semibold">{muscle.name}</span>
@@ -57,7 +57,7 @@ const MusclesChart = () => {
     const tableRendering = () => {
         return (
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                {musclesLists.map((muscle, i) => {
+                {musclesList.map((muscle: Muscle, i: number) => {
                     return (
                         <React.Fragment key={i}>
                         <div
@@ -76,27 +76,25 @@ const MusclesChart = () => {
         return (
             <div className="carousel-container relative h-full">
                 <div className="carousel flex overflow-x-scroll scrollbar-hide h-full">
-                    {musclesLists.map((muscle, i) => (
+                    {musclesList.map((muscle: Muscle, i: number) => (
                         <div
                             key={i}
-                            className="carousel-item flex-none w-64 h-full border border-slate-700 rounded-lg shadow-lg text-center align-middle hover:bg-slate-500 flex items-center justify-center transition duration-300 ease-in-out transform hover:scale-105 mx-2 h-96"
+                            className="carousel-item flex-none w-96 border border-slate-700 rounded-lg shadow-lg text-center align-middle hover:bg-slate-500 flex items-center justify-center transition duration-300 ease-in-out transform hover:scale-105 mx-2 h-96"
                             onMouseOver={(e) => onMouseOver(e)}
                         >
-                            {musclesRendering(muscle)}
+                            {musclesRendering(muscle, 300, 300)}
                         </div>
                     ))}
                 </div>
                 <button 
                     className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-slate-700 text-white p-4 rounded-full hover:bg-slate-500 transition duration-300 ease-in-out ml-4"
                     onClick={() => document.querySelector('.carousel')?.scrollBy({ left: -600, behavior: 'smooth' })}
-                    style={{ borderRadius: '50%' }}
                 >
                     ‹
                 </button>
                 <button 
                     className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-slate-700 text-white p-4 rounded-full hover:bg-slate-500 transition duration-300 ease-in-out mr-4"
                     onClick={() => document.querySelector('.carousel')?.scrollBy({ left: 600, behavior: 'smooth' })}
-                    style={{ borderRadius: '50%' }}
                 >
                     ›
                 </button>

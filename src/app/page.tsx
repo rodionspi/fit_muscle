@@ -1,7 +1,7 @@
 "use client"
 
 import Footer from "@/components/Footer/Footer";
-import MusclesChart from "@/components/MusclesChart/MusclesChart";
+import MusclesChart from "@/components/MusclesChart/MusclesDisplay";
 import NavBar from "@/components/NavBar/NavBar";
 import Navigation from "@/types/Navigaton";
 import { usePathname } from "next/navigation";
