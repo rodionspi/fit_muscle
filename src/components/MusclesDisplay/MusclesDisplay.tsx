@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import musclesList from '../musclesList';
 import '../styles/index.css';
 import Image from 'next/image';
@@ -12,6 +12,27 @@ const MusclesChart = () => {
 
     const [currentMuscleTD, setCurrentMuscleTD] = useState<string>('');
     const [mode, setMode] = useState<'Table' | 'Carousel'>('Table');
+    const [displayMode, setDisplayMode] = useState<boolean>(true);
+
+    useEffect(() => {
+        const mediaQuery = window.matchMedia('(max-width: 650px)');
+        const handleMediaQueryChange = (e: MediaQueryListEvent) => {
+            if (e.matches) {
+                setMode('Table');
+                setDisplayMode(false);
+            }
+        };
+
+        if (mediaQuery.matches) {
+            setMode('Table');
+        }
+
+        mediaQuery.addEventListener('change', handleMediaQueryChange);
+
+        return () => {
+            mediaQuery.removeEventListener('change', handleMediaQueryChange);
+        };
+    }, []);
 
     const onMouseOver = (e: React.MouseEvent<HTMLTableCellElement | HTMLDivElement>) => {
         const targetElement = e.currentTarget;
@@ -77,7 +98,7 @@ const MusclesChart = () => {
     
     return (
         <>
-            <div className="flex justify-center mb-4">
+            <div className={`flex justify-center mb-4 ${displayMode === true ? 'block': 'hidden'}`}>
                 <button 
                     className="px-4 py-2 bg-slate-700 text-white rounded-lg hover:bg-slate-500 transition duration-300 ease-in-out"
                     onClick={() => setMode(mode === 'Table' ? 'Carousel' : 'Table')}
