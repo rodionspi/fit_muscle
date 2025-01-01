@@ -1,16 +1,38 @@
 "use client";
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import musclesList from '../musclesList';
 import '../styles/index.css';
 import Image from 'next/image';
 import Muscle from '@/types/Muscle';
 import React from 'react';
+import muscleRendering from '@/components/MuscleRendering/MuscleRendering';
 
 const MusclesChart = () => {
 
     const [currentMuscleTD, setCurrentMuscleTD] = useState<string>('');
     const [mode, setMode] = useState<'Table' | 'Carousel'>('Table');
+    const [displayMode, setDisplayMode] = useState<boolean>(true);
+
+    useEffect(() => {
+        const mediaQuery = window.matchMedia('(max-width: 650px)');
+        const handleMediaQueryChange = (e: MediaQueryListEvent) => {
+            if (e.matches) {
+                setMode('Table');
+                setDisplayMode(false);
+            }
+        };
+
+        if (mediaQuery.matches) {
+            setMode('Table');
+        }
+
+        mediaQuery.addEventListener('change', handleMediaQueryChange);
+
+        return () => {
+            mediaQuery.removeEventListener('change', handleMediaQueryChange);
+        };
+    }, []);
 
     const onMouseOver = (e: React.MouseEvent<HTMLTableCellElement | HTMLDivElement>) => {
         const targetElement = e.currentTarget;
@@ -25,38 +47,6 @@ const MusclesChart = () => {
     const onMouseOut = (e: React.MouseEvent<HTMLTableCellElement | HTMLDivElement>) => {
         setCurrentMuscleTD('');
     };
-
-    const musclesRendering = (muscle: Muscle, height: number = 130) => {
-        if (currentMuscleTD === muscle.name) {
-            return (
-                <div className="flex flex-col w-full text-slate-800 h-full" onMouseOut={(e) => onMouseOut(e)}>
-                    <div className="flex flex-1">
-                        <a href={muscle.links.web} className="flex-1 flex items-center justify-center border-r border-slate-700 hover:bg-slate-400">
-                            Web site
-                        </a>
-                        <a href={muscle.links.video} className="flex-1 flex items-center justify-center hover:bg-slate-400">
-                            Video
-                        </a>
-                    </div>
-                    <span className="mt-2 text-white font-semibold mb-2">{muscle.name}</span>
-                </div>
-            )
-        } else {
-            return (
-                <div className="muscle w-full flex flex-col items-center justify-between h-full" onMouseOut={(e) => onMouseOut(e)}>
-                    <div className="flex items-center justify-center overflow-hidden h-full">
-                        <Image 
-                            src={muscle.src} 
-                            alt={muscle.name}
-                            className='object-cover rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-110'
-                            height={height}
-                        />
-                    </div>
-                    <span className="mt-2 text-white font-semibold mb-2">{muscle.name}</span>
-                </div>
-            )
-        }
-    }
     
     const tableRendering = () => {
         return (
@@ -64,10 +54,10 @@ const MusclesChart = () => {
                 {musclesList.map((muscle: Muscle, i: number) => {
                     return (
                         <React.Fragment key={i}>
-                        <div
-                                className="border border-slate-700 rounded-lg shadow-lg text-center align-middle hover:bg-slate-500 flex items-center justify-center h-44 transition duration-300 ease-in-out transform hover:scale-105" 
+                            <div
+                                className="border border-slate-700 rounded-lg shadow-lg text-center align-middle hover:bg-slate-500 flex items-center justify-center h-44 transition duration-300 ease-in-out transform hover:scale-101" 
                                 onMouseOver={(e) => onMouseOver(e)}>
-                                {musclesRendering(muscle)}
+                                {muscleRendering(muscle, onMouseOut, currentMuscleTD)}
                             </div>
                         </React.Fragment>
                     );
@@ -83,10 +73,10 @@ const MusclesChart = () => {
                     {musclesList.map((muscle: Muscle, i: number) => (
                         <div
                             key={i}
-                            className="carousel-item flex-none w-96 border border-slate-700 rounded-lg shadow-lg text-center align-middle hover:bg-slate-500 flex items-center justify-center transition duration-300 ease-in-out transform hover:scale-105 mx-2 h-full"
+                            className="carousel-item flex-none w-96 border border-slate-700 rounded-lg shadow-lg text-center align-middle hover:bg-slate-500 hover:rounded-lg flex items-center justify-center transition duration-300 ease-in-out transform hover:scale-105 mx-2 h-full"
                             onMouseOver={(e) => onMouseOver(e)}
                         >
-                            {musclesRendering(muscle, 300)}
+                            {muscleRendering(muscle, onMouseOut, currentMuscleTD, 180)}
                         </div>
                     ))}
                 </div>
@@ -108,7 +98,7 @@ const MusclesChart = () => {
     
     return (
         <>
-            <div className="flex justify-center mb-4">
+            <div className={`flex justify-center mb-4 ${displayMode === true ? 'block': 'hidden'}`}>
                 <button 
                     className="px-4 py-2 bg-slate-700 text-white rounded-lg hover:bg-slate-500 transition duration-300 ease-in-out"
                     onClick={() => setMode(mode === 'Table' ? 'Carousel' : 'Table')}
