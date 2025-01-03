@@ -7,7 +7,7 @@ import Navigation from "@/types/Navigaton";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
-export default function Main({ children }: { children: React.ReactNode }) {
+export function Main({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   
   const [navigation, setNavigation] = useState<Navigation[]>([

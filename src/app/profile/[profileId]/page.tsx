@@ -1,7 +1,7 @@
 "use client"
 
 import { useUser } from "@/contexts/UserContext";
-import Main from "@/app/page";
+import { Main } from "@/app/page";
 import { useEffect } from "react";
 import logo_person from '@/../public/images/logos/logo_person.jpg';
 import { useRouter } from "next/navigation";
