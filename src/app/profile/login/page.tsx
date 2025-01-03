@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useUser } from "../../../contexts/UserContext";
 import { useRouter } from "next/navigation";
-import Main from "@/app/page";
+import { Main } from "@/app/page";
 import * as Yup from "yup";
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import { getUser } from "@/server/сollectionFunctions";
