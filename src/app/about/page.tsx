@@ -1,6 +1,6 @@
 "use client"
 
-import { Main } from "../page";
+import Main from "../page";
 
 const About = () => {
     return (
