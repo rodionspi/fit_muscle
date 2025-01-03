@@ -1,6 +1,6 @@
 "use client";
 
-import { Main } from "@/app/page";
+import Main from "@/app/page";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { useState } from "react";
 import * as Yup from "yup";
