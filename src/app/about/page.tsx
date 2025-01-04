@@ -1,10 +1,10 @@
 "use client"
 
-import Main from "../page";
+import PageWrapper from "@/components/PageWrapper/PageWrapper";
 
 const About = () => {
     return (
-        <Main>
+        <PageWrapper>
             <h1 className="text-4xl font-bold">About Trainer App</h1>
             <br />
             <h2 className="text-2xl font-medium">What can this app help you with?</h2>
@@ -21,7 +21,7 @@ const About = () => {
             I am a developer with two years of experience. I have experience with JavaScript and TypeScript languages. If you want to ask me something or you are interested in something, write to me at my e-mail below
             </p>
             <p>e-mail: rodionspirik48@gmail.com</p>
-        </Main>
+        </PageWrapper>
     )
 }
 

@@ -1,7 +1,7 @@
 "use client"
 
 import { useUser } from "@/contexts/UserContext";
-import Main from "@/app/page";
+import PageWrapper from "@/components/PageWrapper/PageWrapper";
 import { useEffect } from "react";
 import logo_person from '@/../public/images/logos/logo_person.jpg';
 import { useRouter } from "next/navigation";
@@ -24,7 +24,7 @@ const ProfilePage = () => {
   }, [userData])
 
   return (
-    <Main>
+    <PageWrapper>
       {!!userData ? (
         <div className="flex flex-col items-center space-y-6">
           <Image
@@ -43,7 +43,7 @@ const ProfilePage = () => {
           <div className="w-12 h-12 border-4 border-gray-300 border-t-blue-500 rounded-full animate-spin"></div>
         </div>
       )}
-    </Main>
+    </PageWrapper>
   )
 };
 
