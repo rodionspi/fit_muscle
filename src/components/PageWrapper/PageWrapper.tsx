@@ -1,18 +1,17 @@
 "use client"
 
 import Footer from "@/components/Footer/Footer";
-import MusclesChart from "@/components/MusclesDisplay/MusclesDisplay";
 import NavBar from "@/components/NavBar/NavBar";
 import Navigation from "@/types/Navigaton";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
-function Main({ children }: { children?: React.ReactNode }) {
+function PageWrapper({ children }: { children?: React.ReactNode }) {
   const pathname = usePathname();
   
   const [navigation, setNavigation] = useState<Navigation[]>([
-    { name: 'Muscle Chart', href: '/', current: true },
-    { name: 'About', href: '/about', current: false },
+    { name: 'Muscle Chart', href: '/profile/', current: true },
+    { name: 'About', href: '/about/', current: false },
   ]);
 
   useEffect(() => {
@@ -41,4 +40,4 @@ function Main({ children }: { children?: React.ReactNode }) {
   );
 }
 
-export default Main;
+export default PageWrapper;

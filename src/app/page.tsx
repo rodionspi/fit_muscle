@@ -1,12 +1,12 @@
 "use client"
 
-import Main from "@/components/Main/Main"
+import PageWrapper from "@/components/PageWrapper/PageWrapper";
 import MusclesDisplay from "@/components/MusclesDisplay/MusclesDisplay";
 
 export default function HomePage() {
   return (
-    <Main>
+    <PageWrapper>
       <MusclesDisplay />
-    </Main>
+    </PageWrapper>
   );
 }

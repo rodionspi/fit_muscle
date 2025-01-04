@@ -1,6 +1,6 @@
 "use client";
 
-import Main from "@/app/page";
+import PageWrapper from "@/components/PageWrapper/PageWrapper";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { useState } from "react";
 import * as Yup from "yup";
@@ -95,7 +95,7 @@ const Registration = () => {
       
 
     return (
-        <Main>
+        <PageWrapper>
             <div className="p-8 m-auto rounded-lg shadow-lg max-w-lg bg-gray-600 sm:p-12 md:p-16 lg:p-20 xl:p-24">
                 <h2 className="text-2xl font-semibold mb-6 text-center">Register</h2>
                 <Formik
@@ -222,7 +222,7 @@ const Registration = () => {
                     )}
                 </Formik>
             </div>
-        </Main>
+        </PageWrapper>
     );
 };
 
