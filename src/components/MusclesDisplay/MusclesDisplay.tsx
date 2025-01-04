@@ -7,8 +7,9 @@ import Image from 'next/image';
 import Muscle from '@/types/Muscle';
 import React from 'react';
 import muscleRendering from '@/components/MuscleRendering/MuscleRendering';
+import Main from '@/app/page';
 
-const MusclesChart = () => {
+const MusclesDisplay = () => {
 
     const [currentMuscleTD, setCurrentMuscleTD] = useState<string>('');
     const [mode, setMode] = useState<'Table' | 'Carousel'>('Table');
@@ -68,6 +69,7 @@ const MusclesChart = () => {
 
     const carouselRendering = () => {
         return (
+
             <div className="carousel-container relative h-full">
                 <div className="carousel flex overflow-x-scroll scrollbar-hide h-96">
                     {musclesList.map((muscle: Muscle, i: number) => (
@@ -114,4 +116,4 @@ const MusclesChart = () => {
     );
 }
 
-export default MusclesChart;
+export default MusclesDisplay;
