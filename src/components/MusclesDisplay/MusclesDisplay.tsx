@@ -8,30 +8,27 @@ import Muscle from '@/types/Muscle';
 import React from 'react';
 import muscleRendering from '@/components/MuscleRendering/MuscleRendering';
 import Main from '@/app/page';
+import styles from './MusclesDisplay.module.scss';
 
 const MusclesDisplay = () => {
 
     const [currentMuscleTD, setCurrentMuscleTD] = useState<string>('');
     const [mode, setMode] = useState<'Table' | 'Carousel'>('Table');
-    const [displayMode, setDisplayMode] = useState<boolean>(true);
 
     useEffect(() => {
-        const mediaQuery = window.matchMedia('(max-width: 650px)');
-        const handleMediaQueryChange = (e: MediaQueryListEvent) => {
-            if (e.matches) {
+        const handleResize = () => {
+            const mediaQuery = window.matchMedia('(max-width: 650px)');
+            if (mediaQuery.matches) {
                 setMode('Table');
-                setDisplayMode(false);
             }
         };
 
-        if (mediaQuery.matches) {
-            setMode('Table');
-        }
+        handleResize(); // Initial check
 
-        mediaQuery.addEventListener('change', handleMediaQueryChange);
+        window.addEventListener('resize', handleResize);
 
         return () => {
-            mediaQuery.removeEventListener('change', handleMediaQueryChange);
+            window.removeEventListener('resize', handleResize);
         };
     }, []);
 
@@ -69,7 +66,6 @@ const MusclesDisplay = () => {
 
     const carouselRendering = () => {
         return (
-
             <div className="carousel-container relative h-full">
                 <div className="carousel flex overflow-x-scroll scrollbar-hide h-96">
                     {musclesList.map((muscle: Muscle, i: number) => (
@@ -100,9 +96,9 @@ const MusclesDisplay = () => {
     
     return (
         <>
-            <div className={`flex justify-center mb-4 ${displayMode === true ? 'block': 'hidden'}`}>
+            <div className="flex justify-center mb-4">
                 <button 
-                    className="px-4 py-2 bg-slate-700 text-white rounded-lg hover:bg-slate-500 transition duration-300 ease-in-out"
+                    className={`px-4 py-2 bg-slate-700 text-white rounded-lg hover:bg-slate-500 transition duration-300 ease-in-out hidden sm:block`}
                     onClick={() => setMode(mode === 'Table' ? 'Carousel' : 'Table')}
                 >
                     {mode === 'Table' ? 'Carousel' : 'Table'}

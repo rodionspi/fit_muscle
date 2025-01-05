@@ -30,7 +30,7 @@ function PageWrapper({ children }: { children?: React.ReactNode }) {
       <header>
         <NavBar navigation={navigation} />
       </header>
-      <main className="flex-grow m-auto mt-8 mb-8 sm:w-full md:w-5/6 lg:w-3/4 p-4 h-full">
+      <main className="flex-grow m-auto mt-8 mb-8 w-full sm:w-full md:w-5/6 lg:w-3/4 p-4 h-full">
         {children || <div>Loading content...</div>}
       </main>
       <footer className="mt-auto">
