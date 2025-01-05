@@ -19,7 +19,7 @@ const musclesRendering = (muscle: Muscle, onMouseOut: React.MouseEventHandler<HT
         )
     } else {
         return (
-            <div className="muscle w-full flex flex-col items-center justify-between h-full">
+            <div className="muscle w-full flex flex-col items-center justify-between h-full mt-4">
                 <div className="flex items-center justify-center overflow-hidden h-full" onMouseOut={(e) => onMouseOut(e)}>
                     <Image 
                         src={muscle.src} 
