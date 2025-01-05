@@ -1,10 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    // Enable static generation
-    output: 'export',
-    // Specify the directory for export
-    distDir: 'out',
-    // Other settings if necessary
+    // Enable other settings if necessary
+    reactStrictMode: true,
+    swcMinify: true,
 };
 
 export default nextConfig;
