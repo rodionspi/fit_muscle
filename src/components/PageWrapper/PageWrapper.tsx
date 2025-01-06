@@ -12,6 +12,7 @@ function PageWrapper({ children }: { children?: React.ReactNode }) {
   const [navigation, setNavigation] = useState<Navigation[]>([
     { name: 'Muscle Chart', href: '/', current: true },
     { name: 'About', href: '/about/', current: false },
+    { name: 'Calendar', href: '/calendar/', current: false },
   ]);
 
   useEffect(() => {
