@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import musclesList from '../musclesList';
 import '../styles/index.css';
 import Image from 'next/image';
@@ -32,19 +32,18 @@ const MusclesDisplay = () => {
         };
     }, []);
 
-    const onMouseOver = (e: React.MouseEvent<HTMLTableCellElement | HTMLDivElement>) => {
+    const onMouseOver = useCallback((e: React.MouseEvent<HTMLTableCellElement | HTMLDivElement>) => {
         const targetElement = e.currentTarget;
-    
         const muscleName = targetElement.querySelector('.muscle')?.textContent;
-    
+
         if (muscleName && currentMuscleTD !== muscleName) {
             setCurrentMuscleTD(muscleName);
         }
-    };
+    }, [currentMuscleTD]);
 
-    const onMouseOut = (e: React.MouseEvent<HTMLTableCellElement | HTMLDivElement>) => {
+    const onMouseOut = useCallback(() => {
         setCurrentMuscleTD('');
-    };
+    }, []);
     
     const tableRendering = () => {
         return (
@@ -53,9 +52,11 @@ const MusclesDisplay = () => {
                     return (
                         <React.Fragment key={i}>
                             <div
-                                className="border border-slate-700 rounded-lg shadow-lg text-center align-middle hover:bg-slate-500 flex items-center justify-center h-44 transition duration-300 ease-in-out transform hover:scale-101" 
-                                onMouseOver={(e) => onMouseOver(e)}>
-                                {muscleRendering(muscle, onMouseOut, currentMuscleTD)}
+                                className="border border-slate-700 rounded-lg shadow-lg text-center align-middle hover:bg-slate-500 flex items-center justify-center h-44 transition duration-300 ease-in-out"
+                                onMouseOver={onMouseOver}
+                                onMouseOut={onMouseOut}
+                            >
+                                {muscleRendering(muscle, currentMuscleTD)}
                             </div>
                         </React.Fragment>
                     );
@@ -73,8 +74,9 @@ const MusclesDisplay = () => {
                             key={i}
                             className="carousel-item flex-none w-96 border border-slate-700 rounded-lg shadow-lg text-center align-middle hover:bg-slate-500 hover:rounded-lg flex items-center justify-center transition duration-300 ease-in-out transform hover:scale-105 mx-2 h-full"
                             onMouseOver={(e) => onMouseOver(e)}
+                            onMouseOut={(e) => onMouseOut()}
                         >
-                            {muscleRendering(muscle, onMouseOut, currentMuscleTD, 180)}
+                            {muscleRendering(muscle, currentMuscleTD, 180)}
                         </div>
                     ))}
                 </div>
