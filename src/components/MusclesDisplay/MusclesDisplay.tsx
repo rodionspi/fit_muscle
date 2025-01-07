@@ -32,16 +32,13 @@ const MusclesDisplay = () => {
         };
     }, []);
 
-    const onMouseOver = useCallback((e: React.MouseEvent<HTMLTableCellElement | HTMLDivElement>) => {
-        const targetElement = e.currentTarget;
-        const muscleName = targetElement.querySelector('.muscle')?.textContent;
-
+    const onMouseEnter = useCallback((muscleName: string) => {
         if (muscleName && currentMuscleTD !== muscleName) {
             setCurrentMuscleTD(muscleName);
         }
     }, [currentMuscleTD]);
 
-    const onMouseOut = useCallback(() => {
+    const onMouseLeave = useCallback(() => {
         setCurrentMuscleTD('');
     }, []);
     
@@ -52,9 +49,9 @@ const MusclesDisplay = () => {
                     return (
                         <React.Fragment key={i}>
                             <div
-                                className="border border-slate-700 rounded-lg shadow-lg text-center align-middle hover:bg-slate-500 flex items-center justify-center h-44 transition duration-300 ease-in-out"
-                                onMouseOver={onMouseOver}
-                                onMouseOut={onMouseOut}
+                                className="border border-slate-700 rounded-lg shadow-lg text-center align-middle hover:bg-slate-500 flex items-center justify-center h-44 transition duration-300 ease-in-out pt-4"
+                                onMouseEnter={() => onMouseEnter(muscle.name)}
+                                onMouseLeave={onMouseLeave}
                             >
                                 {muscleRendering(muscle, currentMuscleTD)}
                             </div>
@@ -73,8 +70,8 @@ const MusclesDisplay = () => {
                         <div
                             key={i}
                             className="carousel-item flex-none w-96 border border-slate-700 rounded-lg shadow-lg text-center align-middle hover:bg-slate-500 hover:rounded-lg flex items-center justify-center transition duration-300 ease-in-out transform hover:scale-105 mx-2 h-full"
-                            onMouseOver={(e) => onMouseOver(e)}
-                            onMouseOut={(e) => onMouseOut()}
+                            onMouseEnter={() => onMouseEnter(muscle.name)}
+                            onMouseLeave={onMouseLeave}
                         >
                             {muscleRendering(muscle, currentMuscleTD, 180)}
                         </div>
