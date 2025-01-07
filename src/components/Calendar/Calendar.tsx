@@ -17,7 +17,6 @@ const Calendar = () => {
                 ))}
                 {Array.from({ length: firstDayOfMonth }).map((_, i) => (
                     <div key={`empty-${i}`} className="text-gray-300">
-                        {/* Пустые ячейки для выравнивания дней */}
                     </div>
                 ))}
                 {daysArray.map((day) => (
