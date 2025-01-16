@@ -2,16 +2,19 @@
 
 import Footer from "@/components/Footer/Footer";
 import NavBar from "@/components/NavBar/NavBar";
+import { useUser } from "@/contexts/UserContext";
 import Navigation from "@/types/Navigaton";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
 function PageWrapper({ children }: { children?: React.ReactNode }) {
   const pathname = usePathname();
+  const {userData} = useUser();
   
   const [navigation, setNavigation] = useState<Navigation[]>([
     { name: 'Muscle Chart', href: '/', current: true },
-    { name: 'About', href: '/about', current: false },
+    { name: 'About', href: '/about/', current: false },
+    { name: 'Calendar', href: `/calendar/${userData?.id}`, current: false },
   ]);
 
   useEffect(() => {
