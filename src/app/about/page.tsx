@@ -22,7 +22,6 @@ const About = () => {
                     My <a href="https://github.com/rodionspi" className="text-sky-400 underline">github</a>. I am a developer with two years of experience. I have experience with JavaScript and TypeScript languages. If you want to ask me something or you are interested in something, write to me at my e-mail below
                 </p>
                 <p className="text-center text-gray-600">
-                    e-mail: <a href="mailto:rodionspirik48@gmail.com" className="text-sky-400 underline">rodionspirik48@gmail.com</a>
                 </p>
             </div> 
         </PageWrapper>  
