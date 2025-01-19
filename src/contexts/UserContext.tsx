@@ -6,7 +6,7 @@ interface UserContextType {
   userId: string | null;
   setUserId: Dispatch<SetStateAction<any>>;
   userData: User | null;
-  setUserData: Dispatch<SetStateAction<any>>;
+  setUserData: Dispatch<SetStateAction<User | null>>;
 }
 
 const UserContext = createContext<UserContextType | null>(null);
