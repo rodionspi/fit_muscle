@@ -38,11 +38,10 @@ const Login = () => {
       password: "",
   };
 
-    const handleEmailLogin = async (values: typeof initialValues) => {
-        try {
-            const user = await signInWithEmailAndPassword(auth, values.email, values.password);
+    const handleLoginSuccess = async (user: any) => {
+        if (user.email) {
             console.log("User info:", user);
-            const data = await getUser(values);
+            const data = await getUser({ email: user.email });
             if (data) {
                 setUserData(data);
                 setDataToLS(data);
@@ -52,6 +51,13 @@ const Login = () => {
                 console.error("User not found");
                 setError("User not found");
             }
+        }
+    };
+
+    const handleEmailLogin = async (values: typeof initialValues) => {
+        try {
+            const userCredential = await signInWithEmailAndPassword(auth, values.email, values.password);
+            await handleLoginSuccess(userCredential.user);
         } catch (error) {
             console.error("Login error:", error);
             setError("Login error");
@@ -61,20 +67,7 @@ const Login = () => {
     const handleGoogleLogin = async () => {
         try {
             const result = await signInWithPopup(auth, provider);
-            const user = result.user;
-            if (user.email) {
-                console.log("User info:", user);
-                const data = await getUser({ email: user.email });
-                if (data) {
-                    setUserData(data);
-                    setDataToLS(data);
-                    setUserId(data.id);
-                    router.push(`/profile/${data.id}`);
-                } else {
-                    console.error("User not found");
-                    setError("User not found");
-                }
-            }
+            await handleLoginSuccess(result.user);
         } catch (error) {
             console.error("Login error:", error);
             setError("Login error");

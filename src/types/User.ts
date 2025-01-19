@@ -1,7 +1,7 @@
-import Calendar from './Calendar';
+import Calendar from './CalendarType';
 
 interface User {
-    email: string;
+    email?: string;
     password?: string;
     id?: string;
     name?: string;

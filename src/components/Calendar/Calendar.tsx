@@ -2,15 +2,19 @@
 
 import { useUser } from '@/contexts/UserContext';
 import React from 'react';
+import CalendarType from '@/types/CalendarType';
 
 const daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 const daysInMonth = new Date(new Date().getFullYear(), new Date().getMonth() + 1, 0).getDate();
 
 const Calendar = () => {
-    const user = useUser();
+    const {userData, setUserData} = useUser();
+    const [calendar, setCalendar] = React.useState<CalendarType>({});
 
     const firstDayOfMonth = new Date(new Date().getFullYear(), new Date().getMonth(), 1).getDay();
     const daysArray = Array.from({ length: daysInMonth }, (_, i) => i + 1);
+
+
 
     return (
         <div>
@@ -33,29 +37,20 @@ const Calendar = () => {
                     ))}
                 </div>
                 </section>
-                <aside className="p-4 max-w-md rounded-lg shadow-md bg-gray-500">
-                <h2 className="text-xl font-bold mb-4">Today's Schedule</h2>
-                <ul className="space-y-2">
-                    <li className="p-2 border rounded-lg bg-gray-700 hover:bg-gray-200 hover:text-gray-700">
-                    <time className="font-semibold">09:00 AM:</time> Meeting with team
-                    </li>
-                    <li className="p-2 border rounded-lg bg-gray-700 hover:bg-gray-200 hover:text-gray-700">
-                    <time className="font-semibold">11:00 AM:</time> Code review
-                    </li>
-                    <li className="p-2 border rounded-lg bg-gray-700 hover:bg-gray-200 hover:text-gray-700">
-                    <time className="font-semibold">01:00 PM:</time> Lunch break
-                    </li>
-                    <li className="p-2 border rounded-lg bg-gray-700 hover:bg-gray-200 hover:text-gray-700">
-                    <time className="font-semibold">03:00 PM:</time> Project work
-                    </li>
-                    <li className="p-2 border rounded-lg bg-gray-700 hover:bg-gray-200 hover:text-gray-700">
-                    <time className="font-semibold">05:00 PM:</time> Wrap up
-                    </li>
-                </ul>
+                <aside className="p-4 w-96 rounded-lg shadow-md bg-gray-500">
+                    <h2 className="text-xl font-bold mb-4">Today's Schedule</h2>
+                    {/* <ul className="space-y-2">
+                        <li className="p-2 border rounded-lg bg-gray-700 hover:bg-gray-200 hover:text-gray-700">
+                        <time className="font-semibold">09:00 AM:</time> Meeting with team
+                        </li>
+                    </ul> */}
                 </aside>
             </div>
             <div className='flex justify-center mt-4'>
-                <button className='py-2 px-4 bg-slate-500 text-white font-semibold rounded-lg hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-blue-500 w-1/2'>Submit</button>
+                <button 
+                    className='py-2 px-4 bg-slate-500 text-white font-semibold rounded-lg hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-blue-500 w-1/2'
+                    onClick={() => setUserData({...userData, calendar: calendar})}
+                >Submit</button>
             </div>
         </div>
     );
