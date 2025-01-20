@@ -7,6 +7,7 @@ import logo_person from '../../../public/images/logos/logo_person.jpg';
 import Image from 'next/image';
 import Navigation from '@/types/Navigaton';
 import { useUser } from '@/contexts/UserContext';
+import { useEffect, useState } from 'react';
 
 const classNames = (...classes: string[]) => {
   return classes.filter(Boolean).join(' ')
@@ -19,6 +20,13 @@ interface NavBarComponentProps {
 const NavBar = ({ navigation }: NavBarComponentProps) => {
 
   const {userData, setUserData} = useUser();
+  const [localNavigation, setLocalNavigation] = useState(navigation);
+
+  useEffect(() => {
+    setLocalNavigation(navigation);
+  }, [navigation]);
+
+
 
   const handleSignOut = () => {
     setUserData(null);
@@ -47,20 +55,16 @@ const NavBar = ({ navigation }: NavBarComponentProps) => {
             </div>
             <div className="hidden sm:ml-6 sm:block">
               <div className="flex space-x-4">
-                {navigation.map((item) => (
-                  item.show ? (
-                    <a
-                      key={item.name}
-                      href={item.href}
-                      aria-current={item.current ? 'page' : undefined}
-                      className={classNames(
-                        item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-                        'rounded-md px-3 py-2 text-sm font-medium',
-                      )}
-                    >
-                      {item.name}
-                    </a>
-                  ) : null
+                {localNavigation.filter(item => item.show).map((item) => (
+                  <a
+                    key={item.name}
+                    href={item.href}
+                    className={`text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium ${
+                      item.current ? 'bg-gray-900 text-white' : ''
+                    }`}
+                  >
+                    {item.name}
+                  </a>
                 ))}
               </div>
             </div>
