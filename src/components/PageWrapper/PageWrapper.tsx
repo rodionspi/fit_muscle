@@ -9,11 +9,11 @@ import { useEffect, useState } from "react";
 
 function PageWrapper({ children }: { children?: React.ReactNode }) {
   const pathname = usePathname();
-  const {userData} = useUser();
+  const {userData, userId} = useUser();
   
   const [navigation, setNavigation] = useState<Navigation[]>([
     { name: 'Muscle Chart', href: '/', current: true, show: true },
-    { name: 'Calendar', href: `/calendar/${userData?.id}`, current: false, show: !!userData },
+    { name: 'Calendar', href: `/calendar/${userId}`, current: false, show: !!userData },
     { name: 'About', href: '/about/', current: false, show: true },
   ]);
 
@@ -27,6 +27,15 @@ function PageWrapper({ children }: { children?: React.ReactNode }) {
       );
     }
   }, [pathname]);
+
+  useEffect(() => {
+    setNavigation((prevNav) =>
+      prevNav.map((item) =>
+        item.name === 'Calendar' ? { ...item, show: !!userData, href: `/calendar/${userId}` } : item
+      )
+    );
+  }, [userData, userId]);
+
   
   return (
     <div className="flex flex-col min-h-screen">

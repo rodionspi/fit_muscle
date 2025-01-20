@@ -10,40 +10,86 @@ const daysInMonth = new Date(new Date().getFullYear(), new Date().getMonth() + 1
 const Calendar = () => {
     const {userData, setUserData} = useUser();
     const [calendar, setCalendar] = React.useState<CalendarType>({});
+    const [selectedMonth, setSelectedMonth] = React.useState<string>(new Date().toLocaleString('default', { month: 'long' }));
+    const [selectedDate, setSelectedDate] = React.useState();
 
     const firstDayOfMonth = new Date(new Date().getFullYear(), new Date().getMonth(), 1).getDay();
     const daysArray = Array.from({ length: daysInMonth }, (_, i) => i + 1);
-
-
 
     return (
         <div>
             <div className='grid grid-cols-2 gap-4 m-auto justify-items-center w-4/6'>
                 <section className="p-4 max-w-md rounded-lg shadow-md bg-gray-500">
+                <div className="flex justify-between items-center mb-4">
+                    <button 
+                        className="p-2 bg-gray-500 text-white rounded-lg hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        onClick={() => {
+                            const prevMonth = new Date(new Date().getFullYear(), new Date().getMonth() - 1, 1);
+                            setSelectedMonth(prevMonth.toLocaleString('default', { month: 'long' }));
+                        }}
+                    >
+                        &lt;
+                    </button>
+                    <h2 className="text-xl font-bold">
+                        {selectedMonth}
+                    </h2>
+                    <button 
+                        className="p-2 bg-gray-500 text-white rounded-lg hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        onClick={() => {
+                            const nextMonth = new Date(new Date().getFullYear(), new Date().getMonth() + 1, 1);
+                            setSelectedMonth(nextMonth.toLocaleString('default', { month: 'long' }));
+                        }}
+                    >
+                        &gt;
+                    </button>
+                </div>
                 <div className="grid grid-cols-7 gap-2 text-center">
                     {daysOfWeek.map((day) => (
-                    <header key={day} className="font-bold">
-                        {day}
-                    </header>
+                        <header key={day} className="font-bold">
+                            {day}
+                        </header>
                     ))}
                     {Array.from({ length: firstDayOfMonth }).map((_, i) => (
-                    <div key={`empty-${i}`} className="text-gray-300">
-                    </div>
+                        <div key={`empty-${i}`} className="text-gray-300">
+                        </div>
                     ))}
                     {daysArray.map((day) => (
-                    <time key={day} className="p-2 border rounded-lg bg-gray-700 hover:bg-gray-200 hover:text-gray-700">
-                        {day}
-                    </time>
+                        <time 
+                            key={day} 
+                            className="p-2 border rounded-lg bg-gray-700 hover:bg-gray-200 hover:text-gray-700"
+                            // onClick={() => {
+                            //     setSelectedDate(day);}}
+                            >
+                            {day}
+                        </time>
                     ))}
                 </div>
                 </section>
                 <aside className="p-4 w-96 rounded-lg shadow-md bg-gray-500">
                     <h2 className="text-xl font-bold mb-4">Today's Schedule</h2>
-                    {/* <ul className="space-y-2">
-                        <li className="p-2 border rounded-lg bg-gray-700 hover:bg-gray-200 hover:text-gray-700">
+                    <ul className="space-y-2">
+                        {/* <li className="p-2 border rounded-lg bg-gray-700 hover:bg-gray-200 hover:text-gray-700">
                         <time className="font-semibold">09:00 AM:</time> Meeting with team
+                        </li> */}
+                        <li className="p-2 border rounded-lg bg-gray-700 hover:bg-gray-200 hover:text-gray-700">
+                            <input 
+                                type="text" 
+                                className="w-5/6 p-2 bg-gray-600 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" 
+                                placeholder="Add new task" 
+                            />
+                            <button 
+                                className="ml-2 p-2 bg-gray-500 text-white rounded-lg hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                // onClick={() => {
+                                //     setCalendar((prevCalendar: Calendar)=> ({
+                                //         ...prevCalendar,
+                                //         tasks: [...(prevCalendar.tasks || []), newTask]
+                                //     }));
+                                // }}
+                            >
+                                +
+                            </button>
                         </li>
-                    </ul> */}
+                    </ul>
                 </aside>
             </div>
             <div className='flex justify-center mt-4'>
