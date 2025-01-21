@@ -1,21 +1,29 @@
 'use client';
 
 import { useUser } from '@/contexts/UserContext';
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import CalendarType from '@/types/CalendarType';
 
 const daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+const months = Array.from({ length: 12 }, (_, i) => 
+    new Date(0, i).toLocaleString('default', { month: 'long' })
+);
 const daysInMonth = new Date(new Date().getFullYear(), new Date().getMonth() + 1, 0).getDate();
 
 const Calendar = () => {
     const {userData, setUserData} = useUser();
     const [calendar, setCalendar] = React.useState<CalendarType>({});
-    const [selectedMonth, setSelectedMonth] = React.useState<string>(new Date().toLocaleString('default', { month: 'long' }));
-    const [selectedDate, setSelectedDate] = React.useState();
+    const [selectedMonth, setSelectedMonth] = React.useState<string>('');
+    const [selectedDate, setSelectedDate] = React.useState<number | null>();
 
     const firstDayOfMonth = new Date(new Date().getFullYear(), new Date().getMonth(), 1).getDay();
     const daysArray = Array.from({ length: daysInMonth }, (_, i) => i + 1);
 
+    useEffect(() => {
+        const currentMonthIndex = new Date().getMonth();
+        setSelectedMonth(months[currentMonthIndex]);
+    }, []);
+    
     return (
         <div>
             <div className='grid grid-cols-2 gap-4 m-auto justify-items-center w-4/6'>
@@ -24,8 +32,9 @@ const Calendar = () => {
                     <button 
                         className="p-2 bg-gray-500 text-white rounded-lg hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
                         onClick={() => {
-                            const prevMonth = new Date(new Date().getFullYear(), new Date().getMonth() - 1, 1);
-                            setSelectedMonth(prevMonth.toLocaleString('default', { month: 'long' }));
+                            const currentMonthIndex = months.indexOf(selectedMonth);
+                            const prevMonthIndex = (currentMonthIndex - 1 + months.length) % months.length;
+                            setSelectedMonth(months[prevMonthIndex]);
                         }}
                     >
                         &lt;
@@ -35,10 +44,10 @@ const Calendar = () => {
                     </h2>
                     <button 
                         className="p-2 bg-gray-500 text-white rounded-lg hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                        onClick={() => {
-                            const nextMonth = new Date(new Date().getFullYear(), new Date().getMonth() + 1, 1);
-                            setSelectedMonth(nextMonth.toLocaleString('default', { month: 'long' }));
-                        }}
+                        // onClick={() => {
+                        //     const nextMonth = new Date(new Date().getFullYear(), new Date().getMonth() + 1, 1);
+                        //     setSelectedMonth(nextMonth.toLocaleString('default', { month: 'long' }));
+                        // }}
                     >
                         &gt;
                     </button>
@@ -90,13 +99,13 @@ const Calendar = () => {
                             </button>
                         </li>
                     </ul>
+                    <div className='flex justify-center mt-4'>
+                        <button 
+                            className='py-2 px-4 bg-slate-500 text-white font-semibold rounded-lg hover:bg-slate-800 border focus:outline-none focus:ring-2 focus:ring-blue-500 w-1/2'
+                            onClick={() => setUserData({...userData, calendar: calendar})}
+                        >Submit</button>
+                    </div>
                 </aside>
-            </div>
-            <div className='flex justify-center mt-4'>
-                <button 
-                    className='py-2 px-4 bg-slate-500 text-white font-semibold rounded-lg hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-blue-500 w-1/2'
-                    onClick={() => setUserData({...userData, calendar: calendar})}
-                >Submit</button>
             </div>
         </div>
     );
