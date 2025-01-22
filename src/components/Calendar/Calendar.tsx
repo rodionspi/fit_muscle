@@ -3,6 +3,7 @@
 import { useUser } from '@/contexts/UserContext';
 import React, {useState, useEffect} from 'react';
 import CalendarType from '@/types/CalendarType';
+import { projectOnExit } from 'next/dist/build/swc/generated-native';
 
 const daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 const months = Array.from({ length: 12 }, (_, i) => 
@@ -13,6 +14,7 @@ const daysInMonth = new Date(new Date().getFullYear(), new Date().getMonth() + 1
 const Calendar = () => {
     const {userData, setUserData} = useUser();
     const [calendar, setCalendar] = React.useState<CalendarType>({});
+    const [selectedYear, setSelectedYear] = React.useState<number>();
     const [selectedMonth, setSelectedMonth] = React.useState<string>('');
     const [selectedDate, setSelectedDate] = React.useState<number | null>();
 
@@ -20,8 +22,8 @@ const Calendar = () => {
     const daysArray = Array.from({ length: daysInMonth }, (_, i) => i + 1);
 
     useEffect(() => {
-        const currentMonthIndex = new Date().getMonth();
-        setSelectedMonth(months[currentMonthIndex]);
+        setSelectedMonth(months[new Date().getMonth()]);
+        setSelectedYear(new Date().getFullYear());
     }, []);
     
     return (
@@ -35,19 +37,26 @@ const Calendar = () => {
                             const currentMonthIndex = months.indexOf(selectedMonth);
                             const prevMonthIndex = (currentMonthIndex - 1 + months.length) % months.length;
                             setSelectedMonth(months[prevMonthIndex]);
+                            if (prevMonthIndex === 11 && selectedYear !== undefined) {
+                                setSelectedYear(selectedYear - 1);
+                            }
                         }}
                     >
                         &lt;
                     </button>
                     <h2 className="text-xl font-bold">
-                        {selectedMonth}
+                        {selectedMonth} {selectedYear}
                     </h2>
                     <button 
                         className="p-2 bg-gray-500 text-white rounded-lg hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                        // onClick={() => {
-                        //     const nextMonth = new Date(new Date().getFullYear(), new Date().getMonth() + 1, 1);
-                        //     setSelectedMonth(nextMonth.toLocaleString('default', { month: 'long' }));
-                        // }}
+                        onClick={() => {
+                            const currentMonthIndex = months.indexOf(selectedMonth);
+                            const nextMonthIndex = (currentMonthIndex + 1 + months.length) % months.length;
+                            setSelectedMonth(months[nextMonthIndex]);
+                            if (nextMonthIndex === 0 && selectedYear !== undefined) {
+                                setSelectedYear(selectedYear + 1);
+                            }
+                        }}
                     >
                         &gt;
                     </button>
@@ -66,8 +75,9 @@ const Calendar = () => {
                         <time 
                             key={day} 
                             className="p-2 border rounded-lg bg-gray-700 hover:bg-gray-200 hover:text-gray-700"
-                            // onClick={() => {
-                            //     setSelectedDate(day);}}
+                            onClick={() => {
+                                setSelectedDate(day);
+                            }}
                             >
                             {day}
                         </time>
@@ -80,14 +90,17 @@ const Calendar = () => {
                         {/* <li className="p-2 border rounded-lg bg-gray-700 hover:bg-gray-200 hover:text-gray-700">
                         <time className="font-semibold">09:00 AM:</time> Meeting with team
                         </li> */}
-                        <li className="p-2 border rounded-lg bg-gray-700 hover:bg-gray-200 hover:text-gray-700">
-                            <input 
-                                type="text" 
+                        <li className="p-2 border rounded-lg bg-gray-700">
+                            <div className="text-lg font-semibold text-white">
+                                {!!selectedDate ? `${selectedDate} ${selectedMonth} ${selectedYear}` : 'Select a date'}
+                            </div>
+                            <textarea 
                                 className="w-5/6 p-2 bg-gray-600 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" 
                                 placeholder="Add new task" 
+                                rows={3}
                             />
                             <button 
-                                className="ml-2 p-2 bg-gray-500 text-white rounded-lg hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                className="ml-2 p-2 bg-gray-500 text-white rounded-lg hover:bg-gray-200 hover:text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 mt-2"
                                 // onClick={() => {
                                 //     setCalendar((prevCalendar: Calendar)=> ({
                                 //         ...prevCalendar,
