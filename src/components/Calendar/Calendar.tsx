@@ -134,7 +134,10 @@ const Calendar = () => {
                         <button 
                             className='py-2 px-4 bg-slate-500 text-white font-semibold rounded-lg hover:bg-slate-800 border focus:outline-none focus:ring-2 focus:ring-blue-500 w-1/2'
                             onClick={
-                                () => setUserData({...userData, calendar: calendar})
+                                () => {
+                                    setUserData({...userData, calendar: calendar})
+                                    console.log({...userData, calendar: calendar})
+                                }
                             }
                         >Submit</button>
                     </div>
