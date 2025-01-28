@@ -28,7 +28,7 @@ function PageWrapper({ children }: { children?: React.ReactNode }) {
   }, [pathname]);
 
   useEffect(() => {
-    if (userData && userData.id) {
+    if (userData && userData.id && navigation.length === 2) {
       setNavigation((prevNav) => [
         ...prevNav,
         { name: 'Calendar', href: `/calendar/${userData?.id}`, current: false, show: !!userData }
