@@ -1,7 +1,7 @@
 "use client"
 
-import Footer from "@/components/Footer/Footer";
-import NavBar from "@/components/NavBar/NavBar";
+import Footer from "@/components/custom/Footer";
+import NavBar from "@/components/custom/NavBar";
 import { useUser } from "@/contexts/UserContext";
 import Navigation from "@/types/Navigaton";
 import { usePathname } from "next/navigation";

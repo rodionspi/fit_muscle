@@ -1,6 +1,6 @@
 "use client";
 
-import PageWrapper from "@/components/PageWrapper/PageWrapper";
+import PageWrapper from "@/components/custom/PageWrapper";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { useState } from "react";
 import * as Yup from "yup";
