@@ -1,7 +1,7 @@
 "use client"
 
-import PageWrapper from "@/components/PageWrapper/PageWrapper";
-import MusclesDisplay from "@/components/MusclesDisplay/MusclesDisplay";
+import PageWrapper from "@/components/custom/PageWrapper";
+import { MusclesDisplay } from "@/components/custom";
 
 export default function HomePage() {
   return (

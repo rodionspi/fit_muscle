@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Head from 'next/head';
-import PageWrapper from "@/components/PageWrapper/PageWrapper";
+import PageWrapper from "@/components/custom/PageWrapper";
 
 const About = () => {
     return (
