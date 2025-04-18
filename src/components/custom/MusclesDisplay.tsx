@@ -2,13 +2,9 @@
 
 import { useState, useEffect, useCallback } from 'react';
 import musclesList from '../musclesList';
-import '../styles/index.css';
-import Image from 'next/image';
 import Muscle from '@/types/Muscle';
 import React from 'react';
-import muscleRendering from '@/components/MuscleRendering/MuscleRendering';
-import Main from '@/app/page';
-import styles from './MusclesDisplay.module.scss';
+import muscleRendering from '@/components/custom/MuscleRendering';
 
 const MusclesDisplay = () => {
 
@@ -96,16 +92,17 @@ const MusclesDisplay = () => {
     return (
         <>
             <div className="flex justify-center mb-4">
-                <button 
-                    className={`px-4 py-2 bg-slate-700 text-white rounded-lg hover:bg-slate-500 transition duration-300 ease-in-out hidden sm:block`}
-                    onClick={() => setMode(mode === 'Table' ? 'Carousel' : 'Table')}
+                <button
+                onClick={() => setMode(mode === "Table" ? "Carousel" : "Table")}
+                className="px-4 py-2 bg-slate-700 text-white rounded-lg hover:bg-slate-500 transition duration-300 ease-in-out md:block hidden"
                 >
-                    {mode === 'Table' ? 'Carousel' : 'Table'}
+                {mode === "Table" ? "Carousel" : "Table"}
                 </button>
             </div>
-            <div className="musclesChart border border-separate border-spacing-3 border-slate-500 m-auto mt-8 bg-slate-600 mb-8 p-4 h-full">
+
+            <div className="musclesChart border border-slate-500 bg-slate-600 p-4 mt-8 mb-8 m-auto h-full">
                 <h2 className="text-center font-bold text-2xl mb-4 mt-4">Muscles Chart</h2>
-                {mode === 'Table' ? tableRendering() : carouselRendering()}
+                {mode === "Table" ? tableRendering() : carouselRendering()}
             </div>
         </>
     );
