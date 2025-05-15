@@ -1,11 +1,9 @@
 "use client";
 
-import { useState, useEffect, useCallback } from 'react';
+import { useState } from 'react';
 import musclesList from '../musclesList';
-import Muscle from '@/types/Muscle';
 import React from 'react';
 import Image from "next/image"
-import muscleRendering from '@/components/custom/MuscleRendering';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { motion } from "framer-motion"
 import { Info, Calendar, ChevronRight } from "lucide-react"
@@ -14,36 +12,36 @@ import { Button } from "@/components/ui/button"
 
 const MusclesDisplay = () => {
 
-    const [currentMuscleTD, setCurrentMuscleTD] = useState<string>('');
-    const [mode, setMode] = useState<'Table' | 'Carousel'>('Table');
+    // const [currentMuscleTD, setCurrentMuscleTD] = useState<string>('');
+    // const [mode, setMode] = useState<'Table' | 'Carousel'>('Table');
     const [selectedMuscle, setSelectedMuscle] = useState<number | null>(null);
 
-    useEffect(() => {
-        const handleResize = () => {
-            const mediaQuery = window.matchMedia('(max-width: 650px)');
-            if (mediaQuery.matches) {
-                setMode('Table');
-            }
-        };
+    // useEffect(() => {
+    //     const handleResize = () => {
+    //         const mediaQuery = window.matchMedia('(max-width: 650px)');
+    //         if (mediaQuery.matches) {
+    //             setMode('Table');
+    //         }
+    //     };
 
-        handleResize();
+    //     handleResize();
 
-        window.addEventListener('resize', handleResize);
+    //     window.addEventListener('resize', handleResize);
 
-        return () => {
-            window.removeEventListener('resize', handleResize);
-        };
-    }, []);
+    //     return () => {
+    //         window.removeEventListener('resize', handleResize);
+    //     };
+    // }, []);
 
-    const onMouseEnter = useCallback((muscleName: string) => {
-        if (muscleName && currentMuscleTD !== muscleName) {
-            setCurrentMuscleTD(muscleName);
-        }
-    }, [currentMuscleTD]);
+    // const onMouseEnter = useCallback((muscleName: string) => {
+    //     if (muscleName && currentMuscleTD !== muscleName) {
+    //         setCurrentMuscleTD(muscleName);
+    //     }
+    // }, [currentMuscleTD]);
 
-    const onMouseLeave = useCallback(() => {
-        setCurrentMuscleTD('');
-    }, []);
+    // const onMouseLeave = useCallback(() => {
+    //     setCurrentMuscleTD('');
+    // }, []);
     
     return (
             <Tabs defaultValue="grid" className="mb-8">

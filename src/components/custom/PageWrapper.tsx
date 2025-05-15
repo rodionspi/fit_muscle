@@ -2,7 +2,6 @@
 
 import React from "react";
 import Footer from "@/components/custom/Footer";
-import NavBar from "@/components/custom/NavBar";
 import { useUser } from "@/contexts/UserContext";
 import Navigation from "@/types/Navigaton";
 import { usePathname } from "next/navigation";
