@@ -1,5 +1,6 @@
 "use client";
 
+import React from 'react';
 import PageWrapper from "@/components/custom/PageWrapper";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { useState } from "react";
@@ -101,7 +102,7 @@ const Registration = () => {
                 <Formik
                     initialValues={initialValues}
                     validationSchema={validationSchema}
-                    onSubmit={(values, e) => handleSubmit(values)}
+                    onSubmit={(values) => handleSubmit(values)}
                 >
                     {() => (
                         <Form className="w-full">
