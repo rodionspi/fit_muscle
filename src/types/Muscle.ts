@@ -6,6 +6,8 @@ interface MuscleLink {
 }
 
 interface Muscle {
+    id: number;
+    image: string;
     name: string;
     src: StaticImageData;
     links: MuscleLink;
