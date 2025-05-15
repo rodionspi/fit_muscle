@@ -11,6 +11,7 @@ const months = Array.from({ length: 12 }, (_, i) =>
 );
 const daysInMonth = new Date(new Date().getFullYear(), new Date().getMonth() + 1, 0).getDate();
 
+
 const Calendar = () => {
     const {userData, setUserData} = useUser();
     const [calendar, setCalendar] = React.useState<CalendarType>({});
@@ -26,10 +27,6 @@ const Calendar = () => {
         setSelectedMonth(months[new Date().getMonth()]);
         setSelectedYear(new Date().getFullYear());
     }, []);
-    
-    function uuidv4(): string {
-        throw new Error('Function not implemented.');
-    }
 
     return (
         <div>
@@ -90,14 +87,14 @@ const Calendar = () => {
                 </div>
                 </section>
                 <aside className="p-4 w-96 rounded-lg shadow-md bg-gray-500">
-                    <h2 className="text-xl font-bold mb-4">Today's Schedule</h2>
+                    <h2 className="text-xl font-bold mb-4">Today&apos;s Schedule</h2>
                     <ul className="space-y-2">
                         {/* <li className="p-2 border rounded-lg bg-gray-700 hover:bg-gray-200 hover:text-gray-700">
                         <time className="font-semibold">09:00 AM:</time> Meeting with team
                         </li> */}
                         <li className="p-2 border rounded-lg bg-gray-700">
                             <div className="text-lg font-semibold text-white">
-                                {!!selectedDate ? `${selectedDate} ${selectedMonth} ${selectedYear}` : 'Select a date'}
+                                {selectedDate ? `${selectedDate} ${selectedMonth} ${selectedYear}` : 'Select a date'}
                             </div>
                             <textarea 
                                 className="w-5/6 p-2 bg-gray-600 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" 
@@ -184,6 +181,7 @@ const Calendar = () => {
             </ul>
             </aside>
         </div>
+    </div>
     );
 };
 
