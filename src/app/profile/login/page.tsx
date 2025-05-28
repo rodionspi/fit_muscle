@@ -13,6 +13,7 @@ import { auth, provider, signInWithPopup } from "../../../../firebaseConfig";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import Image from "next/image";
 import google_logo from "@/../public/images/logos/google_logo.png";
+import User from "@/types/User";
 
 const Login = () => {
   const [isHidden, setIsHidden] = useState<boolean>(true);
@@ -39,10 +40,10 @@ const Login = () => {
       password: "",
   };
 
-    const handleLoginSuccess = async (user: any) => {
-        if (user.email) {
-            console.log("User info:", user);
-            const data = await getUser({ email: user.email });
+    const handleLoginSuccess = async (acount: User) => {
+        if (acount.email) {
+            console.log("User info:", acount);
+            const data = await getUser({ email: acount.email });
             if (data) {
                 setUserData(data);
                 setDataToLS(data);
@@ -58,7 +59,7 @@ const Login = () => {
     const handleEmailLogin = async (values: typeof initialValues) => {
         try {
             const userCredential = await signInWithEmailAndPassword(auth, values.email, values.password);
-            await handleLoginSuccess(userCredential.user);
+            await handleLoginSuccess({ ...userCredential.user, email: userCredential.user.email || undefined });
         } catch (error) {
             console.error("Login error:", error);
             setError("Login error");
@@ -68,7 +69,7 @@ const Login = () => {
     const handleGoogleLogin = async () => {
         try {
             const result = await signInWithPopup(auth, provider);
-            await handleLoginSuccess(result.user);
+            await handleLoginSuccess({ ...result.user, email: result.user.email || undefined });
         } catch (error) {
             console.error("Login error:", error);
             setError("Login error");
