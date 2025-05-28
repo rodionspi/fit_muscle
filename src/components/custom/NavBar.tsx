@@ -1,13 +1,13 @@
 'use client';
 
 import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react';
-import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline';
+import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 import logo_muscle from '../../../public/images/logos/Biceps_Muscle.png';
 import logo_person from '../../../public/images/logos/logo_person.jpg';
 import Image from 'next/image';
 import Navigation from '@/types/Navigaton';
 import { useUser } from '@/contexts/UserContext';
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 const classNames = (...classes: string[]) => {
   return classes.filter(Boolean).join(' ')

@@ -1,5 +1,6 @@
 import Muscle from "@/types/Muscle";
 import Image from 'next/image';
+import React from "react";
 
 const musclesRendering = (muscle: Muscle, currentMuscleTD: string, height: number = 130) => {
 
