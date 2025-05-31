@@ -5,7 +5,6 @@ interface User {
     password?: string;
     id?: string;
     name?: string;
-    [key: string]: any;
     calendar?: Calendar;
 }
 

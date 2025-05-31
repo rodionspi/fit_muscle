@@ -23,7 +23,7 @@ const addUser = async (formValues: User) => {
 };
 
 const getUser = async (formValues: User) => {
-  const {email, password} = formValues;
+  const {email} = formValues;
   try {
     const querySnapshot = await getDocs(collection(db, "users"));
     for (const doc of querySnapshot.docs) {

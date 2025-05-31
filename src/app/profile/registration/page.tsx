@@ -53,7 +53,7 @@ const Registration = () => {
             
             if (newUser) {
               setUserData(values);
-              setUserId(newUser.id);
+              setUserId(parseInt(newUser.id));
               router.push(`/profile/${newUser.id}`);
             }
           }
@@ -84,7 +84,7 @@ const Registration = () => {
                     const newUser = await addUser(userData);
                     if (newUser) {
                         setUserData(userData);
-                        setUserId(newUser.id);
+                        setUserId(parseInt(newUser.id));
                         router.push(`/profile/${newUser.id}`);
                     }
                 }
