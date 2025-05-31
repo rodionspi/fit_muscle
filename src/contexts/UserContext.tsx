@@ -1,18 +1,19 @@
 import { getDataFromLS } from "@/server/localStorageFunctions";
 import User from "@/types/User";
+import React from "react";
 import { createContext, Dispatch, ReactNode, SetStateAction, useContext, useEffect, useState } from "react";
 
 interface UserContextType {
-  userId: string | null;
-  setUserId: Dispatch<SetStateAction<any>>;
+  userId: number | null;
+  setUserId: Dispatch<SetStateAction<number | null>>;
   userData: User | null;
-  setUserData: Dispatch<SetStateAction<any>>;
+  setUserData: Dispatch<SetStateAction<User | null>>;
 }
 
 const UserContext = createContext<UserContextType | null>(null);
 
 export function UserProvider({ children }: { children: ReactNode }) {
-  const [userId, setUserId] = useState<string | null>(null);
+  const [userId, setUserId] = useState<number | null>(null);
   const [userData, setUserData] = useState<User | null>(null)
 
   useEffect(() => {

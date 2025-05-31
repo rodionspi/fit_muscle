@@ -3,6 +3,7 @@
 import { useUser } from "@/contexts/UserContext";
 import PageWrapper from "@/components/custom/PageWrapper";
 import { useEffect } from "react";
+import React from "react";
 import logo_person from '@/../public/images/logos/logo_person.jpg';
 import { useRouter } from "next/navigation";
 import Image from 'next/image';
@@ -25,7 +26,7 @@ const ProfilePage = () => {
 
   return (
     <PageWrapper>
-      {!!userData ? (
+      {userData ? (
         <div className="flex flex-col items-center space-y-6">
           <Image
           alt="Account logo"

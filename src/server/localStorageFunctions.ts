@@ -2,7 +2,7 @@ import User from "@/types/User";
 import { DocumentData } from "firebase/firestore";
 
 const getDataFromLS = (): User | null => {
-  const localStorageData: Record<string, any> = {};
+  const localStorageData: { [key: string]: User  } = {};
 
   for (let i = 0; i < localStorage.length; i++) {
     const key: string | null = localStorage.key(i);
@@ -11,7 +11,7 @@ const getDataFromLS = (): User | null => {
         localStorageData[key] = JSON.parse(localStorage.getItem(key)!);
       } catch (error) {
         console.error(`Error parsing key "${key}":`, error);
-        localStorageData[key] = localStorage.getItem(key);
+        continue;
       }
     }
   }

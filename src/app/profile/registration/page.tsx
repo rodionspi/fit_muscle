@@ -1,5 +1,6 @@
 "use client";
 
+import React from 'react';
 import PageWrapper from "@/components/custom/PageWrapper";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { useState } from "react";
@@ -52,7 +53,7 @@ const Registration = () => {
             
             if (newUser) {
               setUserData(values);
-              setUserId(newUser.id);
+              setUserId(parseInt(newUser.id));
               router.push(`/profile/${newUser.id}`);
             }
           }
@@ -83,7 +84,7 @@ const Registration = () => {
                     const newUser = await addUser(userData);
                     if (newUser) {
                         setUserData(userData);
-                        setUserId(newUser.id);
+                        setUserId(parseInt(newUser.id));
                         router.push(`/profile/${newUser.id}`);
                     }
                 }
@@ -101,7 +102,7 @@ const Registration = () => {
                 <Formik
                     initialValues={initialValues}
                     validationSchema={validationSchema}
-                    onSubmit={(values, e) => handleSubmit(values)}
+                    onSubmit={(values) => handleSubmit(values)}
                 >
                     {() => (
                         <Form className="w-full">
