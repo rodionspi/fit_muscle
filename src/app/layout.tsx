@@ -1,6 +1,6 @@
 "use client"
 
-import { metadata } from "@/types/metadata";
+import React from "react";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { UserProvider } from "../contexts/UserContext";

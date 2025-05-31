@@ -1,5 +1,6 @@
 "use client";
 
+import React from "react";
 import { useState } from "react";
 import { useUser } from "../../../contexts/UserContext";
 import { useRouter } from "next/navigation";
@@ -12,6 +13,7 @@ import { auth, provider, signInWithPopup } from "../../../../firebaseConfig";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import Image from "next/image";
 import google_logo from "@/../public/images/logos/google_logo.png";
+import User from "@/types/User";
 
 const Login = () => {
   const [isHidden, setIsHidden] = useState<boolean>(true);
@@ -38,11 +40,10 @@ const Login = () => {
       password: "",
   };
 
-    const handleEmailLogin = async (values: typeof initialValues) => {
-        try {
-            const user = await signInWithEmailAndPassword(auth, values.email, values.password);
-            console.log("User info:", user);
-            const data = await getUser(values);
+    const handleLoginSuccess = async (acount: User) => {
+        if (acount.email) {
+            console.log("User info:", acount);
+            const data = await getUser({ email: acount.email });
             if (data) {
                 setUserData(data);
                 setDataToLS(data);
@@ -52,6 +53,13 @@ const Login = () => {
                 console.error("User not found");
                 setError("User not found");
             }
+        }
+    };
+
+    const handleEmailLogin = async (values: typeof initialValues) => {
+        try {
+            const userCredential = await signInWithEmailAndPassword(auth, values.email, values.password);
+            await handleLoginSuccess({ ...userCredential.user, email: userCredential.user.email || undefined });
         } catch (error) {
             console.error("Login error:", error);
             setError("Login error");
@@ -61,20 +69,7 @@ const Login = () => {
     const handleGoogleLogin = async () => {
         try {
             const result = await signInWithPopup(auth, provider);
-            const user = result.user;
-            if (user.email) {
-                console.log("User info:", user);
-                const data = await getUser({ email: user.email });
-                if (data) {
-                    setUserData(data);
-                    setDataToLS(data);
-                    setUserId(data.id);
-                    router.push(`/profile/${data.id}`);
-                } else {
-                    console.error("User not found");
-                    setError("User not found");
-                }
-            }
+            await handleLoginSuccess({ ...result.user, email: result.user.email || undefined });
         } catch (error) {
             console.error("Login error:", error);
             setError("Login error");

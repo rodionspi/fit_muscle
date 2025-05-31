@@ -1,3 +1,5 @@
+import React from 'react';
+
 const Footer = () => {
     return (
         <div className="h-auto bg-gray-800 pt-8 pb-4">
