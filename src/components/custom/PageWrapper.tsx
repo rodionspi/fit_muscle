@@ -9,6 +9,7 @@ import { useEffect, useState } from "react";
 import { Input } from "../ui/input";
 import { Search, User } from "lucide-react";
 import { Button } from "../ui/button";
+import NavBar from "./NavBar";
 
 function PageWrapper({ children }: { children?: React.ReactNode }) {
   const pathname = usePathname();
@@ -59,17 +60,7 @@ function PageWrapper({ children }: { children?: React.ReactNode }) {
             <h1 className="text-xl font-bold">FitMuscle</h1>
           </div>
 
-          <nav className="hidden md:flex items-center gap-8">
-            <a href="#" className="font-medium border-b-2 border-white py-1">
-              Muscle Chart
-            </a>
-            <a href="#" className="font-medium text-slate-300 hover:text-white transition-colors py-1">
-              About
-            </a>
-            <a href="#" className="font-medium text-slate-300 hover:text-white transition-colors py-1">
-              Calendar
-            </a>
-          </nav>
+          <NavBar navigation={navigation}/>
 
           <div className="flex items-center gap-4">
             <div className="relative hidden md:block">
@@ -87,10 +78,6 @@ function PageWrapper({ children }: { children?: React.ReactNode }) {
       </header>
 
       <main className="container mx-auto px-4 py-8">
-        <div className="mb-8">
-          <h2 className="text-3xl font-bold mb-2">Muscle Chart</h2>
-          <p className="text-slate-300">Explore different muscle groups and learn about targeted exercises</p>
-        </div>
         {children || <div>Loading content...</div>}
       </main>
 
