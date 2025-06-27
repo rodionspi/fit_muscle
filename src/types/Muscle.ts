@@ -7,10 +7,14 @@ interface MuscleLink {
 
 interface Muscle {
     id: number;
-    image: string;
     name: string;
     src: StaticImageData;
     links: MuscleLink;
+    description: string;
+    anatomy: string;
+    function: string;
+    shortName: string;
+    relatedMuscles: string[];
 }
  
 export default Muscle
