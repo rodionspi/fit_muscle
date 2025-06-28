@@ -15,7 +15,6 @@ import Anatomy from "@/components/custom/TabsContent/MuscleReview/Anatomy";
 import Injuries from "@/components/custom/TabsContent/MuscleReview/Injuries";
 
 const MusclePage = () => {
-  //   const [activeExercise, setActiveExercise] = useState(0)
   const { muscleId } = useParams(); // takes a parameter from the useParams hook
   const [muscleInfo, setMuscleInfo] = useState<Muscle | null>(null);
   const [loading, setLoading] = useState(true);

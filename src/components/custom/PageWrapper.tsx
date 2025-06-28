@@ -16,7 +16,7 @@ function PageWrapper({ children }: { children?: React.ReactNode }) {
   const {userData, userId} = useUser();
   
   const [navigation, setNavigation] = useState<Navigation[]>([
-    { name: 'Muscle Chart', href: '/', current: true, show: true },
+    { name: 'Muscles', href: '/', current: true, show: true },
     { name: 'About', href: '/about/', current: false, show: true },
   ]);
 

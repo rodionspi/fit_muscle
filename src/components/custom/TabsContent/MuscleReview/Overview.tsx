@@ -1,6 +1,7 @@
 import React from 'react';
 import { Info, Target } from "lucide-react";
 import Muscle from '@/types/Muscle';
+import { Progress } from "@/components/ui/progress"
 
 interface OverviewProps {
   muscleInfo: Muscle;
@@ -36,21 +37,21 @@ const Overview: React.FC<OverviewProps> = ({ muscleInfo }) => {
                         <span className="text-sm text-slate-400">Beginner</span>
                         <span className="text-sm text-slate-400">1-2 times per week</span>
                       </div>
-                      {/* <Progress value={40} className="h-2 bg-slate-700" indicatorClassName="bg-emerald-500" /> */}
+                      <Progress value={40} className="h-2 bg-slate-700" />
                     </div>
                     <div>
                       <div className="flex justify-between mb-1">
                         <span className="text-sm text-slate-400">Intermediate</span>
                         <span className="text-sm text-slate-400">2-3 times per week</span>
                       </div>
-                      {/* <Progress value={60} className="h-2 bg-slate-700" indicatorClassName="bg-amber-500" /> */}
+                      <Progress value={60} className="h-2 bg-slate-700" />
                     </div>
                     <div>
                       <div className="flex justify-between mb-1">
                         <span className="text-sm text-slate-400">Advanced</span>
                         <span className="text-sm text-slate-400">3-4 times per week</span>
                       </div>
-                      {/* <Progress value={80} className="h-2 bg-slate-700" indicatorClassName="bg-red-500" /> */}
+                      <Progress value={80} className="h-2 bg-slate-700" />
                     </div>
                   </div>
                 </div>

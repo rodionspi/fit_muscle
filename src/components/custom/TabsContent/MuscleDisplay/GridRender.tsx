@@ -34,15 +34,17 @@ const GridRender = ({ musclesList }: { musclesList: Muscle[] }) => {
           </div>
 
           <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end justify-center p-4">
-            <Button
-              variant="secondary"
-              size="sm"
-              className="w-full"
-              // Prevent propagation so the parent click doesn't fire
-            >
-              <Link href={`/muscles/${muscle.id}`}>View Details</Link>
-              <ChevronRight size={16} className="ml-1" />
-            </Button>
+            <Link href={`/muscles/${muscle.id}`}>
+              <Button
+                variant="secondary"
+                size="sm"
+                className="w-full"
+                // Prevent propagation so the parent click doesn't fire
+              >
+                View Details
+                <ChevronRight size={16} className="ml-1" />
+              </Button>
+            </Link>
           </div>
         </motion.div>
       ))}
