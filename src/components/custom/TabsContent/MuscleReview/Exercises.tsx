@@ -1,18 +1,22 @@
-import Muscle from '@/types/Muscle';
-import React from 'react';
+import Muscle, { Exercise } from '@/types/Muscle';
+import React, { useState } from 'react';
+import { motion } from "framer-motion";
+import { Button } from '@/components/ui/button';
+import { Play, BarChart3, Flame, Info, Badge } from 'lucide-react';
+import Image from "next/image";
 
 interface ExercisesProps {
   muscleInfo: Muscle;
 }
 
 const Exercises: React.FC<ExercisesProps> = ({ muscleInfo }) => {
-  console.log(muscleInfo);
+  const [activeExercise, setActiveExercise] = useState(0)
   return (
     <div className="grid md:grid-cols-3 gap-8">
         <div className="md:col-span-1">
         <h2 className="text-2xl font-bold mb-4">Exercises</h2>
         <div className="bg-slate-800 rounded-xl border border-slate-700 overflow-hidden">
-            {/* {muscleInfo.exercises.map((exercise: any, index: number) => (
+            {muscleInfo.exercises.map((exercise: Exercise, index: number) => (
             <div
                 key={index}
                 className={`border-b border-slate-700 last:border-0 p-4 cursor-pointer hover:bg-slate-700/50 transition-colors ${activeExercise === index ? "bg-slate-700/70" : ""}`}
@@ -39,12 +43,12 @@ const Exercises: React.FC<ExercisesProps> = ({ muscleInfo }) => {
                 {activeExercise === index && <div className="w-1.5 h-8 bg-emerald-500 rounded-full"></div>}
                 </div>
             </div>
-            ))} */}
+            ))}
         </div>
         </div>
 
         <div className="md:col-span-2">
-        {/* {muscleInfo.exercises[activeExercise] && (
+        {muscleInfo.exercises[activeExercise] && (
             <motion.div
             key={activeExercise}
             initial={{ opacity: 0, y: 20 }}
@@ -140,7 +144,7 @@ const Exercises: React.FC<ExercisesProps> = ({ muscleInfo }) => {
                 </Button>
             </div>
             </motion.div>
-        )} */}
+        )}
         </div>
     </div>
   );
