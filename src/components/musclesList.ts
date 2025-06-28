@@ -49,6 +49,18 @@ const musclesList: Muscle[] = [
                 reps: 10,
                 tips: 'Keep wrists straight and don’t use excessive weight.'
             }
+        ],
+        commonInjuries: [
+            {
+                name: 'Strain',
+                description: 'Overstretching or tearing of muscle fibers, often due to excessive load or improper form.',
+                prevention: 'Warm up properly, use correct technique, and avoid lifting too heavy.'
+            },
+            {
+                name: 'Tendinitis',
+                description: 'Inflammation of the tendon, usually from repetitive movements or overuse.',
+                prevention: 'Allow adequate rest, avoid repetitive strain, and strengthen supporting muscles.'
+            }
         ]
     },
     {
@@ -86,6 +98,18 @@ const musclesList: Muscle[] = [
                 sets: 3,
                 reps: 12,
                 tips: 'Use light weight and control the movement.'
+            }
+        ],
+        commonInjuries: [
+            {
+                name: 'Rotator Cuff Injury',
+                description: 'Damage to the muscles or tendons around the shoulder joint, often from overhead movements.',
+                prevention: 'Strengthen rotator cuff muscles, avoid excessive overhead lifting, and use proper form.'
+            },
+            {
+                name: 'Impingement Syndrome',
+                description: 'Compression of shoulder tendons or bursa, causing pain and limited movement.',
+                prevention: 'Maintain good posture, strengthen shoulder stabilizers, and avoid repetitive overhead activity.'
             }
         ]
     },
@@ -125,6 +149,18 @@ const musclesList: Muscle[] = [
                 reps: 10,
                 tips: 'Keep your back straight and don’t lean back.'
             }
+        ],
+        commonInjuries: [
+            {
+                name: 'Muscle Spasms',
+                description: 'Involuntary contractions of back muscles, often due to fatigue or overuse.',
+                prevention: 'Stay hydrated, stretch regularly, and avoid overexertion.'
+            },
+            {
+                name: 'Herniated Disc',
+                description: 'A spinal disc bulges out and presses on nerves, causing pain or numbness.',
+                prevention: 'Use proper lifting technique, strengthen core, and avoid sudden twisting.'
+            }
         ]
     },
     {
@@ -162,6 +198,18 @@ const musclesList: Muscle[] = [
                 sets: 3,
                 reps: 10,
                 tips: 'Keep your upper arms stationary.'
+            }
+        ],
+        commonInjuries: [
+            {
+                name: 'Tendinitis',
+                description: 'Inflammation of the tendon, usually from repetitive movements or overuse.',
+                prevention: 'Allow adequate rest, avoid repetitive strain, and strengthen supporting muscles.'
+            },
+            {
+                name: 'Strain',
+                description: 'Overstretching or tearing of muscle fibers, often due to excessive load or improper form.',
+                prevention: 'Warm up properly, use correct technique, and avoid lifting too heavy.'
             }
         ]
     },
@@ -201,6 +249,18 @@ const musclesList: Muscle[] = [
                 reps: 12,
                 tips: 'Squeeze your glutes at the top of the movement.'
             }
+        ],
+        commonInjuries: [
+            {
+                name: 'Strain',
+                description: 'Overstretching or tearing of muscle fibers, often due to excessive load or improper form.',
+                prevention: 'Warm up properly, use correct technique, and avoid lifting too heavy.'
+            },
+            {
+                name: 'Tendinitis',
+                description: 'Inflammation of the tendon, usually from repetitive movements or overuse.',
+                prevention: 'Allow adequate rest, avoid repetitive strain, and strengthen supporting muscles.'
+            }
         ]
     },
     {
@@ -238,6 +298,18 @@ const musclesList: Muscle[] = [
                 sets: 3,
                 reps: 12,
                 tips: 'Adjust the machine to fit your leg length.'
+            }
+        ],
+        commonInjuries: [
+            {
+                name: 'Strain',
+                description: 'Overstretching or tearing of muscle fibers, often due to excessive load or improper form.',
+                prevention: 'Warm up properly, use correct technique, and avoid lifting too heavy.'
+            },
+            {
+                name: 'Tendinitis',
+                description: 'Inflammation of the tendon, usually from repetitive movements or overuse.',
+                prevention: 'Allow adequate rest, avoid repetitive strain, and strengthen supporting muscles.'
             }
         ]
     },
@@ -277,6 +349,18 @@ const musclesList: Muscle[] = [
                 reps: 12,
                 tips: 'Adjust the machine to your height and use a full range of motion.'
             }
+        ],
+        commonInjuries: [
+            {
+                name: 'Strain',
+                description: 'Overstretching or tearing of muscle fibers, often due to excessive load or improper form.',
+                prevention: 'Warm up properly, use correct technique, and avoid lifting too heavy.'
+            },
+            {
+                name: 'Tendinitis',
+                description: 'Inflammation of the tendon, usually from repetitive movements or overuse.',
+                prevention: 'Allow adequate rest, avoid repetitive strain, and strengthen supporting muscles.'
+            }
         ]
     },
     {
@@ -314,6 +398,18 @@ const musclesList: Muscle[] = [
                 sets: 3,
                 reps: 15,
                 tips: 'Keep your elbows at a 45-degree angle to your body.'
+            }
+        ],
+        commonInjuries: [
+            {
+                name: 'Strain',
+                description: 'Overstretching or tearing of muscle fibers, often due to excessive load or improper form.',
+                prevention: 'Warm up properly, use correct technique, and avoid lifting too heavy.'
+            },
+            {
+                name: 'Tendinitis',
+                description: 'Inflammation of the tendon, usually from repetitive movements or overuse.',
+                prevention: 'Allow adequate rest, avoid repetitive strain, and strengthen supporting muscles.'
             }
         ]
     },
@@ -353,6 +449,18 @@ const musclesList: Muscle[] = [
                 reps: 10,
                 tips: 'Keep your elbows stationary and focus on your biceps.'
             }
+        ],
+        commonInjuries: [
+            {
+                name: 'Strain',
+                description: 'Overstretching or tearing of muscle fibers, often due to excessive load or improper form.',
+                prevention: 'Warm up properly, use correct technique, and avoid lifting too heavy.'
+            },
+            {
+                name: 'Tendinitis',
+                description: 'Inflammation of the tendon, usually from repetitive movements or overuse.',
+                prevention: 'Allow adequate rest, avoid repetitive strain, and strengthen supporting muscles.'
+            }
         ]
     },
     {
@@ -390,6 +498,18 @@ const musclesList: Muscle[] = [
                 sets: 3,
                 reps: 15,
                 tips: 'Keep your core engaged and don’t rush the movement.'
+            }
+        ],
+        commonInjuries: [
+            {
+                name: 'Strain',
+                description: 'Overstretching or tearing of muscle fibers, often due to excessive load or improper form.',
+                prevention: 'Warm up properly, use correct technique, and avoid lifting too heavy.'
+            },
+            {
+                name: 'Tendinitis',
+                description: 'Inflammation of the tendon, usually from repetitive movements or overuse.',
+                prevention: 'Allow adequate rest, avoid repetitive strain, and strengthen supporting muscles.'
             }
         ]
     },
@@ -429,6 +549,18 @@ const musclesList: Muscle[] = [
                 reps: 15,
                 tips: 'Focus on the contraction at the top of the movement.'
             }
+        ],
+        commonInjuries: [
+            {
+                name: 'Strain',
+                description: 'Overstretching or tearing of muscle fibers, often due to excessive load or improper form.',
+                prevention: 'Warm up properly, use correct technique, and avoid lifting too heavy.'
+            },
+            {
+                name: 'Tendinitis',
+                description: 'Inflammation of the tendon, usually from repetitive movements or overuse.',
+                prevention: 'Allow adequate rest, avoid repetitive strain, and strengthen supporting muscles.'
+            }
         ]
     },
     {
@@ -466,6 +598,18 @@ const musclesList: Muscle[] = [
                 sets: 3,
                 reps: 12,
                 tips: 'Keep your front knee over your ankle and don’t let it cave in.'
+            }
+        ],
+        commonInjuries: [
+            {
+                name: 'Strain',
+                description: 'Overstretching or tearing of muscle fibers, often due to excessive load or improper form.',
+                prevention: 'Warm up properly, use correct technique, and avoid lifting too heavy.'
+            },
+            {
+                name: 'Tendinitis',
+                description: 'Inflammation of the tendon, usually from repetitive movements or overuse.',
+                prevention: 'Allow adequate rest, avoid repetitive strain, and strengthen supporting muscles.'
             }
         ]
     }
