@@ -5,7 +5,6 @@ interface MuscleLink {
     web: string;
 }
 
-// New Exercise type
 export interface Exercise {
     image: string;
     name: string;
@@ -18,6 +17,13 @@ export interface Exercise {
     tips: string;
 }
 
+// New CommonInjury type
+export interface CommonInjury {
+    name: string;
+    description: string;
+    prevention: string;
+}
+
 interface Muscle {
     id: number;
     name: string;
@@ -28,7 +34,8 @@ interface Muscle {
     function: string;
     shortName: string;
     relatedMuscles: string[];
-    exercises: Exercise[]; // New property
+    exercises: Exercise[];
+    commonInjuries: CommonInjury[]; // New property
 }
  
 export default Muscle

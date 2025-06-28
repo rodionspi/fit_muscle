@@ -1,4 +1,6 @@
-import Muscle from '@/types/Muscle';
+import { Card, CardContent } from '@/components/ui/card';
+import Muscle, { CommonInjury } from '@/types/Muscle';
+import { AlertTriangle } from 'lucide-react';
 import React from 'react';
 
 interface InjuriesProps {
@@ -11,7 +13,7 @@ const Injuries: React.FC<InjuriesProps> = ({ muscleInfo }) => {
         <div>
         <h2 className="text-2xl font-bold mb-6">Common Injuries & Prevention</h2>
             <div className="grid md:grid-cols-2 gap-8">
-              {/* {muscleInfo.commonInjuries.map((injury: any, index: number) => (
+              {muscleInfo.commonInjuries.map((injury: CommonInjury, index: number) => (
                 <Card key={index} className="bg-slate-800 border-slate-700">
                   <CardContent className="p-6">
                     <div className="flex items-start gap-4">
@@ -27,7 +29,7 @@ const Injuries: React.FC<InjuriesProps> = ({ muscleInfo }) => {
                     </div>
                   </CardContent>
                 </Card>
-              ))} */}
+              ))}
             </div>
                 </div>
     )
