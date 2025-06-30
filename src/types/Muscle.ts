@@ -44,6 +44,11 @@ interface Muscle {
     exercises: Exercise[];
     commonInjuries: CommonInjury[]; // New property
     stretchingExercises: StretchingExercise[]; // New property for stretch routines
+    frequency: {
+        beginner: string;
+        intermediate: string;
+        advanced: string;
+    };
 }
  
 export default Muscle
