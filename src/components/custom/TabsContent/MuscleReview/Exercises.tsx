@@ -127,20 +127,20 @@ const Exercises: React.FC<ExercisesProps> = ({ muscleInfo }) => {
 
             <div className="flex justify-between">
                 <Button
-                variant="outline"
-                className="border-slate-700"
-                onClick={() => setActiveExercise(Math.max(0, activeExercise - 1))}
-                disabled={activeExercise === 0}
+                  variant="outline"
+                  className="border-slate-700 text-slate-700 hover:text-slate-400"
+                  onClick={() => setActiveExercise(Math.max(0, activeExercise - 1))}
+                  disabled={activeExercise === 0}
                 >
-                Previous Exercise
+                  Previous Exercise
                 </Button>
                 <Button
-                variant="outline"
-                className="border-slate-700"
-                onClick={() => setActiveExercise(Math.min(muscleInfo.exercises.length - 1, activeExercise + 1))}
-                disabled={activeExercise === muscleInfo.exercises.length - 1}
+                  variant="outline"
+                  className="border-slate-700 text-slate-700 hover:text-slate-400"
+                  onClick={() => setActiveExercise(Math.min(muscleInfo.exercises.length - 1, activeExercise + 1))}
+                  disabled={activeExercise === muscleInfo.exercises.length - 1}
                 >
-                Next Exercise
+                  Next Exercise
                 </Button>
             </div>
             </motion.div>
