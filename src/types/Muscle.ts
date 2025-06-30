@@ -24,6 +24,13 @@ export interface CommonInjury {
     prevention: string;
 }
 
+// New StretchingExercise type
+export interface StretchingExercise {
+    name: string;
+    description: string;
+    duration: string;
+}
+
 interface Muscle {
     id: number;
     name: string;
@@ -36,6 +43,7 @@ interface Muscle {
     relatedMuscles: string[];
     exercises: Exercise[];
     commonInjuries: CommonInjury[]; // New property
+    stretchingExercises: StretchingExercise[]; // New property for stretch routines
 }
  
 export default Muscle

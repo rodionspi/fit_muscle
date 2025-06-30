@@ -1,6 +1,6 @@
 import React from 'react';
-import { Info, Target } from "lucide-react";
-import Muscle from '@/types/Muscle';
+import { Clock, Info, Target } from "lucide-react";
+import Muscle, { StretchingExercise } from '@/types/Muscle';
 import { Progress } from "@/components/ui/progress"
 
 interface OverviewProps {
@@ -58,7 +58,7 @@ const Overview: React.FC<OverviewProps> = ({ muscleInfo }) => {
 
                 <h3 className="text-xl font-semibold mb-3">Stretching Exercises</h3>
                 <div className="space-y-3 mb-6">
-                  {/* {muscleInfo.stretchingExercises.map((stretch: any, index: number) => (
+                  {muscleInfo.stretchingExercises.map((stretch: StretchingExercise, index: number) => (
                     <div key={index} className="bg-slate-800/50 p-4 rounded-lg border border-slate-700">
                       <h4 className="font-medium mb-1">{stretch.name}</h4>
                       <p className="text-sm text-slate-300 mb-2">{stretch.description}</p>
@@ -67,19 +67,7 @@ const Overview: React.FC<OverviewProps> = ({ muscleInfo }) => {
                         <span>{stretch.duration}</span>
                       </div>
                     </div>
-                  ))} */}
-                </div>
-
-                <h3 className="text-xl font-semibold mb-3">Related Muscles</h3>
-                <div className="flex flex-wrap gap-2">
-                  {/* {muscleInfo.relatedMuscles.map((muscle: string) => (
-                    <Link key={muscle} href={`/muscles/${muscle}`} passHref>
-                      <Button size="sm" className="border-slate-700 hover:border-slate-500">
-                        {muscle.charAt(0).toUpperCase() + muscle.slice(1)}
-                        <ChevronRight className="w-3 h-3 ml-1" />
-                      </Button>
-                    </Link>
-                  ))} */}
+                  ))}
                 </div>
               </div>
             </div>

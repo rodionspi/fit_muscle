@@ -5,7 +5,7 @@ import musclesList from "@/components/musclesList";
 import { useParams } from "next/navigation";
 import { Button } from "@headlessui/react";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
-import { AlertTriangle, Link, ArrowLeft, BicepsFlexed, Play, Dumbbell, ChevronRight } from "lucide-react";
+import { AlertTriangle, Link, ArrowLeft, BicepsFlexed, Play, Dumbbell } from "lucide-react";
 import Image from "next/image";
 import Muscle from "@/types/Muscle";
 import { PageWrapper } from "@/components/custom";
@@ -20,7 +20,6 @@ const MusclePage = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Simulate loading data from an API
     setLoading(true);
     setMuscleInfo(
       musclesList.find((m: Muscle) => m.id === Number(muscleId)) || null
@@ -101,11 +100,11 @@ const MusclePage = () => {
                 </div>
               </div>
               <div className="flex flex-wrap gap-3">
-                <Button className="bg-gradient-to-r from-emerald-600 to-emerald-500 hover:from-emerald-700 hover:to-emerald-600">
+                <Button className="bg-gradient-to-r from-emerald-600 to-emerald-500 hover:from-emerald-700 hover:to-emerald-600 rounded-md p-2">
                   <Play className="w-4 h-4 mr-2" />
                   Start Workout
                 </Button>
-                <Button className="border-slate-600">
+                <Button className="border-slate-600 p-2">
                   <Dumbbell className="w-4 h-4 mr-2" />
                   View Exercises
                 </Button>
@@ -143,31 +142,6 @@ const MusclePage = () => {
             <Injuries muscleInfo={muscleInfo} />
           </TabsContent>
         </Tabs>
-
-        {/* Related Muscles Section */}
-        <div className="mt-12">
-          <div className="flex items-center justify-between mb-6">
-            <h2 className="text-2xl font-bold">Related Muscle Groups</h2>
-            <Button className="border-slate-700">
-              View All
-              <ChevronRight size={16} className="ml-1" />
-            </Button>
-          </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {/* {muscleInfo.relatedMuscles.map((muscle: string) => (
-              <Link key={muscle} href={`/muscles/${muscle}`} passHref>
-                <Card className="bg-slate-800 border-slate-700 hover:border-slate-500 transition-all cursor-pointer">
-                  <CardContent className="p-4">
-                    <div className="aspect-square relative rounded-lg overflow-hidden mb-3">
-                      <Image src="/placeholder.svg?height=200&width=200" alt={muscle} fill className="object-cover" />
-                    </div>
-                    <h3 className="font-medium text-center capitalize">{muscle}</h3>
-                  </CardContent>
-                </Card>
-              </Link>
-            ))} */}
-          </div>
-        </div>
       </main>
       </PageWrapper>
     </div>

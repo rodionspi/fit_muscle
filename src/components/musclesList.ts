@@ -61,6 +61,18 @@ const musclesList: Muscle[] = [
                 description: 'Inflammation of the tendon, usually from repetitive movements or overuse.',
                 prevention: 'Allow adequate rest, avoid repetitive strain, and strengthen supporting muscles.'
             }
+        ],
+        stretchingExercises: [
+            {
+                name: 'Static Stretch',
+                description: 'Hold a static stretch targeting this muscle group.',
+                duration: '30s'
+            },
+            {
+                name: 'Dynamic Stretch',
+                description: 'Perform slow, controlled movements through the muscle’s range of motion.',
+                duration: '30s'
+            }
         ]
     },
     {
@@ -110,6 +122,18 @@ const musclesList: Muscle[] = [
                 name: 'Impingement Syndrome',
                 description: 'Compression of shoulder tendons or bursa, causing pain and limited movement.',
                 prevention: 'Maintain good posture, strengthen shoulder stabilizers, and avoid repetitive overhead activity.'
+            }
+        ],
+        stretchingExercises: [
+            {
+                name: 'Static Stretch',
+                description: 'Hold a static stretch targeting this muscle group.',
+                duration: '30s'
+            },
+            {
+                name: 'Dynamic Stretch',
+                description: 'Perform slow, controlled movements through the muscle’s range of motion.',
+                duration: '30s'
             }
         ]
     },
@@ -161,6 +185,18 @@ const musclesList: Muscle[] = [
                 description: 'A spinal disc bulges out and presses on nerves, causing pain or numbness.',
                 prevention: 'Use proper lifting technique, strengthen core, and avoid sudden twisting.'
             }
+        ],
+        stretchingExercises: [
+            {
+                name: 'Static Stretch',
+                description: 'Hold a static stretch targeting this muscle group.',
+                duration: '30s'
+            },
+            {
+                name: 'Dynamic Stretch',
+                description: 'Perform slow, controlled movements through the muscle’s range of motion.',
+                duration: '30s'
+            }
         ]
     },
     {
@@ -210,6 +246,18 @@ const musclesList: Muscle[] = [
                 name: 'Strain',
                 description: 'Overstretching or tearing of muscle fibers, often due to excessive load or improper form.',
                 prevention: 'Warm up properly, use correct technique, and avoid lifting too heavy.'
+            }
+        ],
+        stretchingExercises: [
+            {
+                name: 'Static Stretch',
+                description: 'Hold a static stretch targeting this muscle group.',
+                duration: '30s'
+            },
+            {
+                name: 'Dynamic Stretch',
+                description: 'Perform slow, controlled movements through the muscle’s range of motion.',
+                duration: '30s'
             }
         ]
     },
@@ -261,6 +309,18 @@ const musclesList: Muscle[] = [
                 description: 'Inflammation of the tendon, usually from repetitive movements or overuse.',
                 prevention: 'Allow adequate rest, avoid repetitive strain, and strengthen supporting muscles.'
             }
+        ],
+        stretchingExercises: [
+            {
+                name: 'Static Stretch',
+                description: 'Hold a static stretch targeting this muscle group.',
+                duration: '30s'
+            },
+            {
+                name: 'Dynamic Stretch',
+                description: 'Perform slow, controlled movements through the muscle’s range of motion.',
+                duration: '30s'
+            }
         ]
     },
     {
@@ -310,6 +370,18 @@ const musclesList: Muscle[] = [
                 name: 'Tendinitis',
                 description: 'Inflammation of the tendon, usually from repetitive movements or overuse.',
                 prevention: 'Allow adequate rest, avoid repetitive strain, and strengthen supporting muscles.'
+            }
+        ],
+        stretchingExercises: [
+            {
+                name: 'Static Stretch',
+                description: 'Hold a static stretch targeting this muscle group.',
+                duration: '30s'
+            },
+            {
+                name: 'Dynamic Stretch',
+                description: 'Perform slow, controlled movements through the muscle’s range of motion.',
+                duration: '30s'
             }
         ]
     },
@@ -361,6 +433,18 @@ const musclesList: Muscle[] = [
                 description: 'Inflammation of the tendon, usually from repetitive movements or overuse.',
                 prevention: 'Allow adequate rest, avoid repetitive strain, and strengthen supporting muscles.'
             }
+        ],
+        stretchingExercises: [
+            {
+                name: 'Static Stretch',
+                description: 'Hold a static stretch targeting this muscle group.',
+                duration: '30s'
+            },
+            {
+                name: 'Dynamic Stretch',
+                description: 'Perform slow, controlled movements through the muscle’s range of motion.',
+                duration: '30s'
+            }
         ]
     },
     {
@@ -410,6 +494,18 @@ const musclesList: Muscle[] = [
                 name: 'Tendinitis',
                 description: 'Inflammation of the tendon, usually from repetitive movements or overuse.',
                 prevention: 'Allow adequate rest, avoid repetitive strain, and strengthen supporting muscles.'
+            }
+        ],
+        stretchingExercises: [
+            {
+                name: 'Static Stretch',
+                description: 'Hold a static stretch targeting this muscle group.',
+                duration: '30s'
+            },
+            {
+                name: 'Dynamic Stretch',
+                description: 'Perform slow, controlled movements through the muscle’s range of motion.',
+                duration: '30s'
             }
         ]
     },
@@ -461,6 +557,18 @@ const musclesList: Muscle[] = [
                 description: 'Inflammation of the tendon, usually from repetitive movements or overuse.',
                 prevention: 'Allow adequate rest, avoid repetitive strain, and strengthen supporting muscles.'
             }
+        ],
+        stretchingExercises: [
+            {
+                name: 'Static Stretch',
+                description: 'Hold a static stretch targeting this muscle group.',
+                duration: '30s'
+            },
+            {
+                name: 'Dynamic Stretch',
+                description: 'Perform slow, controlled movements through the muscle’s range of motion.',
+                duration: '30s'
+            }
         ]
     },
     {
@@ -510,6 +618,18 @@ const musclesList: Muscle[] = [
                 name: 'Tendinitis',
                 description: 'Inflammation of the tendon, usually from repetitive movements or overuse.',
                 prevention: 'Allow adequate rest, avoid repetitive strain, and strengthen supporting muscles.'
+            }
+        ],
+        stretchingExercises: [
+            {
+                name: 'Static Stretch',
+                description: 'Hold a static stretch targeting this muscle group.',
+                duration: '30s'
+            },
+            {
+                name: 'Dynamic Stretch',
+                description: 'Perform slow, controlled movements through the muscle’s range of motion.',
+                duration: '30s'
             }
         ]
     },
@@ -561,6 +681,18 @@ const musclesList: Muscle[] = [
                 description: 'Inflammation of the tendon, usually from repetitive movements or overuse.',
                 prevention: 'Allow adequate rest, avoid repetitive strain, and strengthen supporting muscles.'
             }
+        ],
+        stretchingExercises: [
+            {
+                name: 'Static Stretch',
+                description: 'Hold a static stretch targeting this muscle group.',
+                duration: '30s'
+            },
+            {
+                name: 'Dynamic Stretch',
+                description: 'Perform slow, controlled movements through the muscle’s range of motion.',
+                duration: '30s'
+            }
         ]
     },
     {
@@ -610,6 +742,18 @@ const musclesList: Muscle[] = [
                 name: 'Tendinitis',
                 description: 'Inflammation of the tendon, usually from repetitive movements or overuse.',
                 prevention: 'Allow adequate rest, avoid repetitive strain, and strengthen supporting muscles.'
+            }
+        ],
+        stretchingExercises: [
+            {
+                name: 'Static Stretch',
+                description: 'Hold a static stretch targeting this muscle group.',
+                duration: '30s'
+            },
+            {
+                name: 'Dynamic Stretch',
+                description: 'Perform slow, controlled movements through the muscle’s range of motion.',
+                duration: '30s'
             }
         ]
     }
