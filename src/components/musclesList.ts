@@ -18,14 +18,14 @@ const musclesList: Muscle[] = [
         name: 'Traps',
         shortName: 'Trapezius',
         relatedMuscles: ['Deltoids', 'Rhomboids', 'Lats'],
-        function: 'Elevates, retracts, and rotates the scapula; supports neck movement.',
-        anatomy: 'A large triangular muscle extending from the neck to the middle of the back.',
+        function: 'Supports scapular movement, neck stability, and posture.',
+        anatomy: 'A large triangular muscle extending from the base of the skull to the middle of the back.',
         src: traps,
         links: {
             video: 'https://www.youtube.com/watch?v=C6sYjDFuq9I',
-            web: 'https://athleanx.com/articles/back-for-men/trap-workouts'
+            web: 'https://www.verywellfit.com/trapezius-muscle-anatomy-5186820'
         },
-        description: 'The trapezius is a large, triangular muscle located in the upper back and neck. It helps with shoulder elevation, scapular retraction, and neck movement, playing a key role in posture and upper body strength.',
+        description: 'The trapezius is a key muscle for upper body movement and posture, aiding in scapular elevation, retraction, and rotation.',
         exercises: [
             {
                 image: '/images/for_muscles_chart/traps.png',
@@ -73,21 +73,26 @@ const musclesList: Muscle[] = [
                 description: 'Perform slow, controlled movements through the muscle’s range of motion.',
                 duration: '30s'
             }
-        ]
+        ],
+        frequency: {
+            beginner: '1-2',
+            intermediate: '2-3',
+            advanced: '3-4'
+        }
     },
     {
         id: 2,
         name: 'Shoulders',
         shortName: 'Deltoids',
         relatedMuscles: ['Traps', 'Pecs', 'Biceps'],
-        function: 'Abducts, flexes, and rotates the arm.',
+        function: 'Facilitates arm abduction, flexion, and rotation.',
         anatomy: 'A rounded muscle forming the contour of the shoulder.',
         src: sholders,
         links: {
             video: 'https://www.youtube.com/watch?v=ufrFCjERMDc',
-            web: 'https://www.goldsgym.com/blog/7-shoulder-exercises-for-strength-and-stability/?srsltid=AfmBOor42mcdOChboaLNg6oXWmKv0RInNr6FFx1lzyzbjAnDSuDclKrm'
+            web: 'https://www.verywellfit.com/deltoid-muscle-anatomy-5186821'
         },
-        description: 'The deltoid muscles form the rounded contour of the shoulder. They are responsible for arm abduction, flexion, and rotation, making them essential for overhead movements and stability.',
+        description: 'The deltoid muscles are essential for arm movement and shoulder stability, playing a key role in overhead activities.',
         exercises: [
             {
                 image: '/images/for_muscles_chart/sholders.png',
@@ -135,7 +140,12 @@ const musclesList: Muscle[] = [
                 description: 'Perform slow, controlled movements through the muscle’s range of motion.',
                 duration: '30s'
             }
-        ]
+        ],
+        frequency: {
+            beginner: '1-2',
+            intermediate: '2-3',
+            advanced: '3-4'
+        }
     },
     {
         id: 3,
@@ -197,7 +207,12 @@ const musclesList: Muscle[] = [
                 description: 'Perform slow, controlled movements through the muscle’s range of motion.',
                 duration: '30s'
             }
-        ]
+        ],
+        frequency: {
+            beginner: '1-2',
+            intermediate: '2-3',
+            advanced: '3-4'
+        }
     },
     {
         id: 4,
@@ -259,7 +274,12 @@ const musclesList: Muscle[] = [
                 description: 'Perform slow, controlled movements through the muscle’s range of motion.',
                 duration: '30s'
             }
-        ]
+        ],
+        frequency: {
+            beginner: '1-2',
+            intermediate: '2-3',
+            advanced: '3-4'
+        }
     },
     {
         id: 5,
@@ -321,7 +341,12 @@ const musclesList: Muscle[] = [
                 description: 'Perform slow, controlled movements through the muscle’s range of motion.',
                 duration: '30s'
             }
-        ]
+        ],
+        frequency: {
+            beginner: '1-2',
+            intermediate: '2-3',
+            advanced: '3-4'
+        }
     },
     {
         id: 6,
@@ -383,7 +408,12 @@ const musclesList: Muscle[] = [
                 description: 'Perform slow, controlled movements through the muscle’s range of motion.',
                 duration: '30s'
             }
-        ]
+        ],
+        frequency: {
+            beginner: '1-2',
+            intermediate: '2-3',
+            advanced: '3-4'
+        }
     },
     {
         id: 7,
@@ -445,7 +475,12 @@ const musclesList: Muscle[] = [
                 description: 'Perform slow, controlled movements through the muscle’s range of motion.',
                 duration: '30s'
             }
-        ]
+        ],
+        frequency: {
+            beginner: '1-2',
+            intermediate: '2-3',
+            advanced: '3-4'
+        }
     },
     {
         id: 8,
@@ -507,7 +542,12 @@ const musclesList: Muscle[] = [
                 description: 'Perform slow, controlled movements through the muscle’s range of motion.',
                 duration: '30s'
             }
-        ]
+        ],
+        frequency: {
+            beginner: '1-2',
+            intermediate: '2-3',
+            advanced: '3-4'
+        }
     },
     {
         id: 9,
@@ -569,7 +609,12 @@ const musclesList: Muscle[] = [
                 description: 'Perform slow, controlled movements through the muscle’s range of motion.',
                 duration: '30s'
             }
-        ]
+        ],
+        frequency: {
+            beginner: '1-2',
+            intermediate: '2-3',
+            advanced: '3-4'
+        }
     },
     {
         id: 10,
@@ -631,7 +676,12 @@ const musclesList: Muscle[] = [
                 description: 'Perform slow, controlled movements through the muscle’s range of motion.',
                 duration: '30s'
             }
-        ]
+        ],
+        frequency: {
+            beginner: '1-2',
+            intermediate: '2-3',
+            advanced: '3-4'
+        }
     },
     {
         id: 11,
@@ -693,7 +743,12 @@ const musclesList: Muscle[] = [
                 description: 'Perform slow, controlled movements through the muscle’s range of motion.',
                 duration: '30s'
             }
-        ]
+        ],
+        frequency: {
+            beginner: '1-2',
+            intermediate: '2-3',
+            advanced: '3-4'
+        }
     },
     {
         id: 12,
@@ -755,7 +810,12 @@ const musclesList: Muscle[] = [
                 description: 'Perform slow, controlled movements through the muscle’s range of motion.',
                 duration: '30s'
             }
-        ]
+        ],
+        frequency: {
+            beginner: '1-2',
+            intermediate: '2-3',
+            advanced: '3-4'
+        }
     }
 ];
 
