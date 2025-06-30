@@ -8,10 +8,9 @@ interface InjuriesProps {
 }
 
 const Injuries: React.FC<InjuriesProps> = ({ muscleInfo }) => {
-  console.log(muscleInfo);
     return (
         <div>
-        <h2 className="text-2xl font-bold mb-6">Common Injuries & Prevention</h2>
+            <h2 className="text-2xl font-bold mb-6">Common Injuries & Prevention</h2>
             <div className="grid md:grid-cols-2 gap-8">
               {muscleInfo.commonInjuries.map((injury: CommonInjury, index: number) => (
                 <Card key={index} className="bg-slate-800 border-slate-700">
@@ -21,7 +20,7 @@ const Injuries: React.FC<InjuriesProps> = ({ muscleInfo }) => {
                         <AlertTriangle className="w-6 h-6 text-red-500" />
                       </div>
                       <div>
-                        <h3 className="text-xl font-semibold mb-2">{injury.name}</h3>
+                        <h3 className="text-xl font-semibold mb-2 text-slate-200">{injury.name}</h3>
                         <p className="text-slate-300 mb-4">{injury.description}</p>
                         <h4 className="font-medium text-emerald-400 mb-2">Prevention</h4>
                         <p className="text-slate-300">{injury.prevention}</p>
@@ -31,7 +30,7 @@ const Injuries: React.FC<InjuriesProps> = ({ muscleInfo }) => {
                 </Card>
               ))}
             </div>
-                </div>
+        </div>
     )
 }
 

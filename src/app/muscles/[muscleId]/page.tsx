@@ -64,12 +64,12 @@ const MusclePage = () => {
         <div className="container mx-auto px-4 py-12">
           <div className="flex flex-col md:flex-row items-center gap-8">
             <div className="w-full md:w-1/3 relative">
-              <div className="aspect-square relative rounded-xl overflow-hidden border-4 border-slate-600 shadow-xl">
+              <div className="w-full h-auto relative">
                 <Image
                   src={muscleInfo.src || "/placeholder.svg"}
                   alt={muscleInfo.name}
-                  fill
-                  className="object-cover"
+                  sizes="100vw"
+                  className="object-contain h-100 rounded-xl overflow-hidden border-4 border-slate-600 shadow-xl"
                 />
               </div>
             </div>
