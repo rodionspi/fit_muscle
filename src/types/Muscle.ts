@@ -1,9 +1,5 @@
 import { StaticImageData } from "next/image";
 
-interface MuscleLink {
-    video: string;
-    web: string;
-}
 
 export interface Exercise {
     image: string;
@@ -15,6 +11,7 @@ export interface Exercise {
     sets: number;
     reps: number;
     tips: string;
+    videoLink: string;
 }
 
 // New CommonInjury type
@@ -35,7 +32,6 @@ interface Muscle {
     id: number;
     name: string;
     src: StaticImageData;
-    links: MuscleLink;
     description: string;
     anatomy: string;
     function: string;
