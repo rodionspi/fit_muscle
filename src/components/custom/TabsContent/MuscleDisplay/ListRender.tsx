@@ -2,6 +2,7 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import Muscle from "@/types/Muscle";
 import React from "react";
+import Link from "next/link";
 
 const ListRender = ({ musclesList }: { musclesList: Muscle[] }) => {
     return (
@@ -35,9 +36,11 @@ const ListRender = ({ musclesList }: { musclesList: Muscle[] }) => {
                         <td className="p-4 text-slate-300 hidden md:table-cell">Movement and stability</td>
                         <td className="p-4 text-slate-300 hidden lg:table-cell">Bench press, Flyes, Push-ups</td>
                         <td className="p-4">
-                          <Button variant="ghost" size="sm">
-                            View Details
-                          </Button>
+                          <Link href={`/muscles/${muscle.id}`} className="flex items-center gap-2 text-emerald-400 hover:text-emerald-300">
+                            <Button variant="ghost" size="sm">
+                              View Details
+                            </Button>
+                          </Link>
                         </td>
                       </tr>
                     ))}
