@@ -62,16 +62,14 @@ const MusclePage = () => {
       <div className="relative bg-gradient-to-r from-slate-800 to-slate-700 overflow-hidden">
         <div className="absolute inset-0 bg-[url('/placeholder.svg?height=600&width=1200')] opacity-10 bg-cover bg-center"></div>
         <div className="container mx-auto px-4 py-12">
-          <div className="flex flex-col md:flex-row items-center gap-8">
-            <div className="w-full md:w-1/3 relative">
-              <div className="w-full h-auto relative">
-                <Image
-                  src={muscleInfo.src || "/placeholder.svg"}
-                  alt={muscleInfo.name}
-                  sizes="100vw"
-                  className="object-contain h-100 rounded-xl overflow-hidden border-4 border-slate-600 shadow-xl"
-                />
-              </div>
+          <div className="flex flex-col md:flex-row items-center h-full">
+            <div className="w-full md:w-1/3 relative h-96 m-8">
+              <Image
+                src={muscleInfo.src || "/placeholder.svg"}
+                alt={muscleInfo.name}
+                fill
+                className="object-cover rounded-xl overflow-hidden border-4 border-slate-600 shadow-xl"
+              />
             </div>
             <div className="w-full md:w-2/3">
               <div className="flex items-center gap-3 mb-2">
@@ -103,10 +101,6 @@ const MusclePage = () => {
                 <Button className="bg-gradient-to-r from-emerald-600 to-emerald-500 hover:from-emerald-700 hover:to-emerald-600 rounded-md p-2">
                   <Play className="w-4 h-4 mr-2" />
                   Start Workout
-                </Button>
-                <Button className="border-slate-600 p-2">
-                  <Dumbbell className="w-4 h-4 mr-2" />
-                  View Exercises
                 </Button>
               </div>
             </div>
