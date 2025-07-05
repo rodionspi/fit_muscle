@@ -2,11 +2,11 @@
 
 import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
-import logo_person from '../../../public/images/logos/logo_person.jpg';
-import Image from 'next/image';
 import Navigation from '@/types/Navigaton';
+import { Input } from "../ui/input";
 import { useUser } from '@/contexts/UserContext';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+import { Search, User } from 'lucide-react';
 
 const classNames = (...classes: string[]) => {
   return classes.filter(Boolean).join(' ')
@@ -19,13 +19,6 @@ interface NavBarComponentProps {
 const NavBar = ({ navigation }: NavBarComponentProps) => {
 
   const {userData, setUserData} = useUser();
-  const [localNavigation, setLocalNavigation] = useState(navigation);
-
-  useEffect(() => {
-    setLocalNavigation(navigation);
-  }, [navigation]);
-
-
 
   const handleSignOut = () => {
     setUserData(null);
@@ -44,22 +37,12 @@ const NavBar = ({ navigation }: NavBarComponentProps) => {
               <XMarkIcon aria-hidden="true" className="hidden h-6 w-6 group-data-[open]:block" />
             </DisclosureButton>
           </div>
-          <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
-            <div className="hidden sm:ml-6 sm:block">
-              <div className="flex space-x-4">
-                {localNavigation.filter(item => item.show).map((item) => (
-                  <a
-                    key={item.name}
-                    href={item.href}
-                    className={`text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium ${
-                      item.current ? 'bg-gray-900 text-white' : ''
-                    }`}
-                  >
-                    {item.name}
-                  </a>
-                ))}
-              </div>
-            </div>
+          <div className="relative hidden md:block">
+            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-slate-400" size={18} />
+            <Input
+              className="w-64 pl-10 bg-slate-800 border-slate-700 text-white placeholder:text-slate-400 focus:border-slate-500"
+              placeholder="Search muscles or exercises..."
+            />
           </div>
           <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
 
@@ -67,13 +50,7 @@ const NavBar = ({ navigation }: NavBarComponentProps) => {
             <Menu as="div" className="relative ml-3">
               <div>
                 <MenuButton className="relative flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
-                  <span className="absolute -inset-1.5" />
-                  <span className="sr-only">Open user menu</span>
-                  <Image
-                    alt="Acount_logo"
-                    src={logo_person}
-                    className="h-8 w-8 rounded-full"
-                  />
+                  <User/>
                 </MenuButton>
               </div>
               <MenuItems
