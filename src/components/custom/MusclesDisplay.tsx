@@ -5,8 +5,8 @@ import React from 'react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Info, Calendar } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import GridRender from './TabsContent/GridRender';
-import ListRender from './TabsContent/ListRender';
+import GridRender from './TabsContent/MuscleDisplay/GridRender';
+import ListRender from './TabsContent/MuscleDisplay/ListRender';
 // import { Input } from "@/components/ui/input"
 
 const MusclesDisplay = () => {
