@@ -5,7 +5,7 @@ import musclesList from "@/components/musclesList";
 import { useParams } from "next/navigation";
 import { Button } from "@headlessui/react";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
-import { AlertTriangle, Link, ArrowLeft, BicepsFlexed, Play, Dumbbell } from "lucide-react";
+import { AlertTriangle, Link, ArrowLeft, BicepsFlexed, Play } from "lucide-react";
 import Image from "next/image";
 import Muscle from "@/types/Muscle";
 import { PageWrapper } from "@/components/custom";
