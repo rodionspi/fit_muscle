@@ -11,38 +11,39 @@ interface ExercisesProps {
 
 const Exercises: React.FC<ExercisesProps> = ({ muscleInfo }) => {
   const [activeExercise, setActiveExercise] = useState(0)
+
   return (
     <div className="grid md:grid-cols-3 gap-8">
         <div className="md:col-span-1">
         <h2 className="text-2xl font-bold mb-4">Exercises</h2>
         <div className="bg-slate-800 rounded-xl border border-slate-700 overflow-hidden">
             {muscleInfo.exercises.map((exercise: Exercise, index: number) => (
-            <div
-                key={index}
-                className={`border-b border-slate-700 last:border-0 p-4 cursor-pointer hover:bg-slate-700/50 transition-colors ${activeExercise === index ? "bg-slate-700/70" : ""}`}
-                onClick={() => setActiveExercise(index)}
-            >
-                <div className="flex items-center gap-3">
-                <div className="w-12 h-12 relative rounded-md overflow-hidden bg-slate-700 flex-shrink-0">
-                    <Image
-                    src={exercise.image || "/placeholder.svg"}
-                    alt={exercise.name}
-                    fill
-                    className="object-cover"
-                    />
-                </div>
-                <div className="flex-1">
-                    <h3 className="font-medium">{exercise.name}</h3>
-                    <div className="flex items-center gap-2 text-sm text-slate-400">
-                    <Badge className="text-xs border-slate-600">
-                        {exercise.difficulty}
-                    </Badge>
-                    <span>{exercise.target}</span>
+                <div
+                    key={index}
+                    className={`border-b border-slate-700 last:border-0 p-4 cursor-pointer hover:bg-slate-700/50 transition-colors ${activeExercise === index ? "bg-slate-700/70" : ""}`}
+                    onClick={() => setActiveExercise(index)}
+                >
+                    <div className="flex items-center gap-3">
+                    <div className="w-12 h-12 relative rounded-md overflow-hidden bg-slate-700 flex-shrink-0">
+                        <Image
+                        src={exercise.image || "/placeholder.svg"}
+                        alt={exercise.name}
+                        fill
+                        className="object-cover"
+                        />
+                    </div>
+                    <div className="flex-1">
+                        <h3 className="font-medium">{exercise.name}</h3>
+                        <div className="flex items-center gap-2 text-sm text-slate-400">
+                        <Badge className="text-xs border-slate-600">
+                            {exercise.difficulty}
+                        </Badge>
+                        <span>{exercise.target}</span>
+                        </div>
+                    </div>
+                    {activeExercise === index && <div className="w-1.5 h-8 bg-emerald-500 rounded-full"></div>}
                     </div>
                 </div>
-                {activeExercise === index && <div className="w-1.5 h-8 bg-emerald-500 rounded-full"></div>}
-                </div>
-            </div>
             ))}
         </div>
         </div>
@@ -57,25 +58,25 @@ const Exercises: React.FC<ExercisesProps> = ({ muscleInfo }) => {
             >
             <div className="flex items-center justify-between mb-4">
                 <h2 className="text-2xl font-bold">{muscleInfo.exercises[activeExercise].name}</h2>
-                <Button>
-                <Play className="w-4 h-4 mr-2" />
-                Watch Video
+                <Button onClick={() => window.open(muscleInfo.exercises[activeExercise].videoLink, "_blank")} className="bg-emerald-600 hover:bg-emerald-700 text-white">
+                    <Play className="w-4 h-4 mr-2" />
+                    Watch Video
                 </Button>
             </div>
 
             <div className="bg-slate-800 rounded-xl border border-slate-700 overflow-hidden mb-6">
-                <div className="aspect-video relative">
-                <Image
-                    src={muscleInfo.exercises[activeExercise].image || "/placeholder.svg"}
-                    alt={muscleInfo.exercises[activeExercise].name}
-                    fill
-                    className="object-cover"
-                />
-                <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="w-16 h-16 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center cursor-pointer hover:bg-white/30 transition-colors">
-                    <Play className="w-8 h-8 text-white" fill="white" />
+                <div className="aspect-video relative" onClick={() => window.open(muscleInfo.exercises[activeExercise].videoLink, "_blank")}>
+                    <Image
+                        src={muscleInfo.exercises[activeExercise].image || "/placeholder.svg"}
+                        alt={muscleInfo.exercises[activeExercise].name}
+                        fill
+                        className="object-cover"
+                    />
+                    <div className="absolute inset-0 flex items-center justify-center">
+                        <div className="w-16 h-16 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center cursor-pointer hover:bg-white/30 transition-colors">
+                            <Play className="w-8 h-8 text-white" fill="white" />
+                        </div>
                     </div>
-                </div>
                 </div>
                 <div className="p-6">
                 <div className="grid grid-cols-3 gap-4 mb-6">
