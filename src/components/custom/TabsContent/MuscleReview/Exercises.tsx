@@ -24,14 +24,15 @@ const Exercises: React.FC<ExercisesProps> = ({ muscleInfo }) => {
                     onClick={() => setActiveExercise(index)}
                 >
                     <div className="flex items-center gap-3">
-                    <div className="w-12 h-12 relative rounded-md overflow-hidden bg-slate-700 flex-shrink-0">
-                        <Image
-                        src={exercise.image || "/placeholder.svg"}
-                        alt={exercise.name}
-                        fill
-                        className="object-cover"
-                        />
-                    </div>
+                        <div className="w-12 h-12 relative rounded-md overflow-hidden bg-slate-700 flex-shrink-0">
+                            <Image
+                            src={exercise.image || "/placeholder.svg"}
+                            alt={exercise.name}
+                            fill
+                            unoptimized
+                            className="object-cover w-full h-full"
+                            />
+                        </div>
                     <div className="flex-1">
                         <h3 className="font-medium">{exercise.name}</h3>
                         <div className="flex items-center gap-2 text-sm text-slate-400">
@@ -70,6 +71,7 @@ const Exercises: React.FC<ExercisesProps> = ({ muscleInfo }) => {
                         src={muscleInfo.exercises[activeExercise].image || "/placeholder.svg"}
                         alt={muscleInfo.exercises[activeExercise].name}
                         fill
+                        unoptimized
                         className="object-cover"
                     />
                     <div className="absolute inset-0 flex items-center justify-center">
