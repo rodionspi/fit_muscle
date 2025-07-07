@@ -3,7 +3,7 @@
 import React, {useState, useEffect} from "react";
 import musclesList from "@/components/musclesList";
 import { useParams } from "next/navigation";
-import { Button } from "@headlessui/react";
+import { Button } from "@/components/ui/button";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { AlertTriangle, Link, ArrowLeft, BicepsFlexed, Play } from "lucide-react";
 import Image from "next/image";
@@ -18,6 +18,7 @@ const MusclePage = () => {
   const { muscleId } = useParams(); // takes a parameter from the useParams hook
   const [muscleInfo, setMuscleInfo] = useState<Muscle | null>(null);
   const [loading, setLoading] = useState(true);
+  const [activeTab, setActiveTab] = useState("overview");
 
   useEffect(() => {
     setLoading(true);
@@ -60,9 +61,9 @@ const MusclePage = () => {
     <div className="min-h-screen bg-gradient-to-b from-slate-900 to-slate-800 text-white">
       <PageWrapper>
       <div className="relative bg-gradient-to-r from-slate-800 to-slate-700 overflow-hidden">
-        <div className="absolute inset-0 bg-[url('/placeholder.svg?height=600&width=1200')] opacity-10 bg-cover bg-center"></div>
+        <div className="absolute inset-0 bg-[url('/placeholder.svg?height=600&width=1200')] opacity-10 bg-cover bg-center pointer-events-none"></div>
         <div className="container mx-auto px-4 py-12">
-          <div className="flex flex-col md:flex-row items-center h-full">
+          <div className="flex flex-col md:flex-row md:items-start h-full">
             <div className="w-full md:w-1/3 relative h-96 m-8">
               <Image
                 src={muscleInfo.src || "/placeholder.svg"}
@@ -97,8 +98,12 @@ const MusclePage = () => {
                   </div>
                 </div>
               </div>
-              <div className="flex flex-wrap gap-3">
-                <Button className="bg-gradient-to-r from-emerald-600 to-emerald-500 hover:from-emerald-700 hover:to-emerald-600 rounded-md p-2">
+              <div className="fe">
+                <Button 
+                  className="bg-gradient-to-r from-emerald-600 to-emerald-500 hover:from-emerald-700 hover:to-emerald-600 rounded-md p-2"
+                  onClick={() => setActiveTab("exercises")}
+                  type="button"
+                >
                   <Play className="w-4 h-4 mr-2" />
                   Start Workout
                 </Button>
@@ -110,30 +115,18 @@ const MusclePage = () => {
 
       {/* Main Content */}
       <main className="container mx-auto px-4 py-8">
-        <Tabs defaultValue="grid" className="mb-8">
+        <Tabs value={activeTab} onValueChange={setActiveTab} className="mb-8" key={activeTab}>
           <TabsList className="bg-slate-800">
             <TabsTrigger value="overview">Overview</TabsTrigger>
             <TabsTrigger value="exercises">Exercises</TabsTrigger>
             <TabsTrigger value="anatomy">Anatomy</TabsTrigger>
             <TabsTrigger value="injuries">Common Injuries</TabsTrigger>
           </TabsList>
-
-
-
-          <TabsContent value="overview">
-            <Overview muscleInfo={muscleInfo} />
-          </TabsContent>
-
-          <TabsContent value="exercises">
-            <Exercises muscleInfo={muscleInfo} />
-          </TabsContent>
-
-          <TabsContent value="anatomy">
-            <Anatomy muscleInfo={muscleInfo} />
-          </TabsContent>
-
-          <TabsContent value="injuries">
-            <Injuries muscleInfo={muscleInfo} />
+          <TabsContent value={activeTab}>
+            {activeTab === "overview"  && <Overview   muscleInfo={muscleInfo} />}
+            {activeTab === "exercises" && <Exercises  muscleInfo={muscleInfo} />}
+            {activeTab === "anatomy"    && <Anatomy    muscleInfo={muscleInfo} />}
+            {activeTab === "injuries"   && <Injuries   muscleInfo={muscleInfo} />}
           </TabsContent>
         </Tabs>
       </main>
