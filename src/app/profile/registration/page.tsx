@@ -11,7 +11,7 @@ import google_logo from "@/../public/images/logos/google_logo.png";
 import "firebase/compat/auth";
 import { useUser } from "@/contexts/UserContext";
 import { useRouter } from "next/navigation";
-import { auth, provider, signInWithPopup } from "../../../../firebaseConfig";
+import { auth, provider, signInWithPopup } from "../../../../firebaseConfig.cjs";
 
 const Registration = () => {
     const [isHidden, setIsHidden] = useState<boolean>(true);

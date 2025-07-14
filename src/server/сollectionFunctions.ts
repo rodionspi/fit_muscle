@@ -1,4 +1,4 @@
-import { db } from "../../firebaseConfig";
+import { db } from "../../firebaseConfig.cjs";
 import { collection, addDoc, getDocs } from "firebase/firestore";
 import User from "@/types/User";
 import { v4 as generateUuid } from "uuid";
