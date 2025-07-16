@@ -19,7 +19,7 @@ const getDataFromLS = (): User | null => {
 };
 
 
-const setDataToLS = (data: any) => {
+const setDataToLS = (data: Record<string, User>) => {
     try {
       for (const [key, value] of Object.entries(data)) {
         localStorage.setItem(key, JSON.stringify(value));
