@@ -38,7 +38,8 @@ const Header = () => {
             </div>
             <h1 className="text-xl font-bold">FitMuscle</h1>
           </div>
-          <div className="flex flex-1 items-center justify-around gap-4">
+          {/* скрыть на телефонах, показывать с sm и выше */}
+          <div className="hidden sm:flex flex-1 items-center justify-around gap-4">
             <div className="w-full">
               <div className="flex space-x-4 justify-center">
                 {navigation.filter(item => item.show).map((item) => (
@@ -55,7 +56,7 @@ const Header = () => {
               </div>
             </div>
           </div>
-          <div className="flex items-center gap-4">
+          <div className="flex items-center">
             <NavBar navigation={navigation}/>
           </div>
         </div>

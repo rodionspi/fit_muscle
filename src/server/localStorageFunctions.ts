@@ -1,5 +1,4 @@
 import User from "@/types/User";
-import { DocumentData } from "firebase/firestore";
 
 const getDataFromLS = (): User | null => {
   const localStorageData: { [key: string]: User  } = {};
@@ -20,7 +19,7 @@ const getDataFromLS = (): User | null => {
 };
 
 
-const setDataToLS = (data: DocumentData) => {
+const setDataToLS = (data: Record<string, User>) => {
     try {
       for (const [key, value] of Object.entries(data)) {
         localStorage.setItem(key, JSON.stringify(value));
