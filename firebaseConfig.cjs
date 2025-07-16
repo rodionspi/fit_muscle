@@ -12,9 +12,17 @@ const firebaseConfig = {
   measurementId: "G-NRRM1BBV3P"
 };
 
+// Initialize Firebase
 const app = initializeApp(firebaseConfig);
+
+// Initialize Firebase services
 const auth = getAuth(app);
 const provider = new GoogleAuthProvider();
 const db = getFirestore(app);
+
+// Configure Google Auth Provider
+provider.setCustomParameters({
+  prompt: 'select_account'
+});
 
 export { auth, provider, db, signInWithPopup };
