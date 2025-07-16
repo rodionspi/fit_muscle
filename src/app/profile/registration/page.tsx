@@ -11,7 +11,7 @@ import google_logo from "@/../public/images/logos/google_logo.png";
 import "firebase/compat/auth";
 import { useUser } from "@/contexts/UserContext";
 import { useRouter } from "next/navigation";
-import { auth, provider, signInWithPopup } from "../../../../firebaseConfig.cjs";
+import { auth, provider, signInWithPopup } from "../../../../firebaseConfig.js";
 
 const Registration = () => {
     const [isHidden, setIsHidden] = useState<boolean>(true);
@@ -53,12 +53,13 @@ const Registration = () => {
             
             if (newUser) {
               setUserData(values);
-              setUserId(parseInt(newUser.id));
+              setUserId(newUser.id);
               router.push(`/profile/${newUser.id}`);
             }
           }
         } catch (error) {
           console.error("Error during submission:", error);
+          setError('An error occurred during registration. Please try again.');
         }
     };
 
@@ -84,7 +85,7 @@ const Registration = () => {
                     const newUser = await addUser(userData);
                     if (newUser) {
                         setUserData(userData);
-                        setUserId(parseInt(newUser.id));
+                        setUserId(newUser.id);
                         router.push(`/profile/${newUser.id}`);
                     }
                 }
@@ -123,7 +124,7 @@ const Registration = () => {
                                     name="name"
                                     type="text"
                                     placeholder="Enter user name"
-                                    className="mt-2 mb-4 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                    className="mt-2 mb-4 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white text-gray-900"
                                 />
                                 <ErrorMessage
                                     name="name"
@@ -144,7 +145,7 @@ const Registration = () => {
                                     name="email"
                                     type="email"
                                     placeholder="Enter your e-mail"
-                                    className="mt-2 mb-4 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                    className="mt-2 mb-4 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white text-gray-900"
                                 />
                                 <ErrorMessage
                                     name="email"
@@ -165,7 +166,7 @@ const Registration = () => {
                                     name="password"
                                     type={isHidden ? "password" : "text"}
                                     placeholder="Enter user password"
-                                    className="mt-2 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                    className="mt-2 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white text-gray-900"
                                 />
                                 <ErrorMessage
                                     name="password"
