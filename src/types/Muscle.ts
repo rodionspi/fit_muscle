@@ -28,7 +28,7 @@ export interface StretchingExercise {
     duration: string;
 }
 
-interface Muscle {
+export interface Muscle {
     id: number;
     name: string;
     src: StaticImageData;
@@ -46,5 +46,3 @@ interface Muscle {
         advanced: string;
     };
 }
- 
-export default Muscle
