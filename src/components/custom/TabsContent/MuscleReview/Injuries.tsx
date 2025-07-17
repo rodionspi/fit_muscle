@@ -1,5 +1,5 @@
 import { Card, CardContent } from '@/components/ui/card';
-import Muscle, { CommonInjury } from '@/types/Muscle';
+import { Muscle, CommonInjury } from '@/types/Muscle';
 import { AlertTriangle } from 'lucide-react';
 import React from 'react';
 
