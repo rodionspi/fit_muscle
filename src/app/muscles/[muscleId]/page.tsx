@@ -64,7 +64,7 @@ const MusclePage = () => {
         <div className="absolute inset-0 bg-[url('/placeholder.svg?height=600&width=1200')] opacity-10 bg-cover bg-center pointer-events-none"></div>
         <div className="container mx-auto px-4 py-12">
           <div className="flex flex-col md:flex-row md:items-start h-full">
-            <div className="w-full md:w-1/3 relative h-96 m-8">
+            <div className="w-full md:w-1/3 relative h-96 mr-8 sm:mb-8 mb-4">
               <Image
                 src={muscleInfo.src || "/placeholder.svg"}
                 alt={muscleInfo.name}
