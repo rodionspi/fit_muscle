@@ -64,7 +64,7 @@ const MusclePage = () => {
         <div className="absolute inset-0 bg-[url('/placeholder.svg?height=600&width=1200')] opacity-10 bg-cover bg-center pointer-events-none"></div>
         <div className="container mx-auto px-4 py-12">
           <div className="flex flex-col md:flex-row md:items-start h-full">
-            <div className="w-full md:w-1/3 relative h-96 m-8">
+            <div className="w-full md:w-1/3 relative h-96 mr-8 sm:mb-8 mb-4">
               <Image
                 src={muscleInfo.src || "/placeholder.svg"}
                 alt={muscleInfo.name}
@@ -114,13 +114,13 @@ const MusclePage = () => {
       </div>
 
       {/* Main Content */}
-      <main className="container mx-auto px-4 py-8">
+      <main className="container mx-auto sm:px-4 py-8">
         <Tabs value={activeTab} onValueChange={setActiveTab} className="mb-8" key={activeTab}>
           <TabsList className="bg-slate-800">
-            <TabsTrigger value="overview">Overview</TabsTrigger>
-            <TabsTrigger value="exercises">Exercises</TabsTrigger>
-            <TabsTrigger value="anatomy">Anatomy</TabsTrigger>
-            <TabsTrigger value="injuries">Common Injuries</TabsTrigger>
+            <TabsTrigger value="overview" className="text-xs p-2 sm:text-sm sm:p-3 md:text-base ">Overview</TabsTrigger>
+            <TabsTrigger value="exercises" className="text-xs p-2 sm:text-sm sm:p-3 md:text-base ">Exercises</TabsTrigger>
+            <TabsTrigger value="anatomy" className="text-xs p-2 sm:text-sm sm:p-3 md:text-base ">Anatomy</TabsTrigger>
+            <TabsTrigger value="injuries" className="text-xs p-2 sm:text-sm sm:p-3 md:text-base ">Common Injuries</TabsTrigger>
           </TabsList>
           <TabsContent value={activeTab}>
             {activeTab === "overview"  && <Overview   muscleInfo={muscleInfo} />}
