@@ -1,7 +1,6 @@
 import Link from "next/link";
-import { Github, Mail, Heart, Phone, Clock } from "lucide-react";
+import { Github, Heart } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import { Separator } from "@/components/ui/separator";
 import React from "react";
 
@@ -66,7 +65,7 @@ export default function Footer() {
                   Exercise Library
                 </Link>
               </li>
-              <li>
+              {/* <li>
                 <Link href="/workouts" className="text-slate-400 hover:text-white transition-colors">
                   Workout Plans
                 </Link>
@@ -80,12 +79,12 @@ export default function Footer() {
                 <Link href="/nutrition" className="text-slate-400 hover:text-white transition-colors">
                   Nutrition Guide
                 </Link>
-              </li>
+              </li> */}
             </ul>
           </div>
 
           {/* Resources */}
-          <div>
+          {/* <div>
             <h4 className="text-lg font-semibold text-white mb-4">Resources</h4>
             <ul className="space-y-3">
               <li>
@@ -119,10 +118,10 @@ export default function Footer() {
                 </Link>
               </li>
             </ul>
-          </div>
+          </div> */}
 
           {/* Contact & Newsletter */}
-          <div>
+          {/* <div>
             <h4 className="text-lg font-semibold text-white mb-4">Stay Connected</h4>
             <div className="space-y-4 mb-6">
               <div className="flex items-center gap-3 text-slate-400">
@@ -156,7 +155,8 @@ export default function Footer() {
               </p>
             </div>
           </div>
-        </div>
+        </div> */}
+      </div>
       </div>
 
       <Separator className="bg-slate-800" />
@@ -164,7 +164,7 @@ export default function Footer() {
       {/* Bottom Footer */}
       <div className="container mx-auto px-4 py-6">
         <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-          <div className="flex flex-col md:flex-row items-center gap-4 text-sm text-slate-400">
+          {/* <div className="flex flex-col md:flex-row items-center gap-4 text-sm text-slate-400">
             <p>&copy; 2024 FitMuscle. All rights reserved.</p>
             <div className="flex items-center gap-4">
               <Link href="/privacy" className="hover:text-white transition-colors">
@@ -177,7 +177,7 @@ export default function Footer() {
                 Cookie Policy
               </Link>
             </div>
-          </div>
+          </div> */}
 
           <div className="flex items-center gap-4">
             <div className="flex items-center gap-2 text-sm text-slate-400">
