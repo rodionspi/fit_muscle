@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import Muscle from "@/types/Muscle";
+import { Muscle } from "@/types/Muscle";
 import React from "react";
 import Link from "next/link";
 

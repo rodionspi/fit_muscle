@@ -1,6 +1,6 @@
 import React from 'react';
 import { Clock, Info, Target } from "lucide-react";
-import Muscle, { StretchingExercise } from '@/types/Muscle';
+import { Muscle, StretchingExercise } from '@/types/Muscle';
 import { Progress } from "@/components/ui/progress"
 
 interface OverviewProps {
