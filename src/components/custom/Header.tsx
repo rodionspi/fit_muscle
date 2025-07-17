@@ -9,6 +9,7 @@ const Header = () => {
     const [navigation, setNavigation] = useState<Navigation[]>([
         { name: 'Muscles', href: '/', current: true, show: true },
         { name: 'About', href: '/about/', current: false, show: true },
+        { name: 'Exercises', href: '/exercises/', current: false, show: true },
     ]);
 
     useEffect(() => {
@@ -57,7 +58,7 @@ const Header = () => {
             </div>
           </div>
           <div className="flex items-center">
-            <NavBar navigation={navigation}/>
+            <NavBar navigation={navigation} setNavigation={setNavigation}/>
           </div>
         </div>
     );

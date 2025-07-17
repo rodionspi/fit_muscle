@@ -9,9 +9,11 @@ import Navigation from '@/types/Navigaton';
 
 interface MainMenubarComponentProps {
   navigation: Navigation[];
+  setNavigation: React.Dispatch<React.SetStateAction<Navigation[]>>
 }
 
-const MainMenubar = ({ navigation }: MainMenubarComponentProps) => {
+const MainMenubar = ({ navigation, setNavigation}: MainMenubarComponentProps) => {
+        
     return (
         <Menubar className="sm:hidden">
             <MenubarMenu>
@@ -36,17 +38,28 @@ const MainMenubar = ({ navigation }: MainMenubarComponentProps) => {
             <MenubarContent className="sm:hidden">
                 <div className="space-y-1 px-2 pb-3 pt-2">
                     {navigation.map((item) => (
-                    <Link href={item.href} key={item.name}>
-                        <MenubarItem
-                            aria-current={item.current ? 'page' : undefined}
-                            className={
-                            (item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white') +
-                            ' block rounded-md px-3 py-2 text-base font-medium'
+                        <Link
+                            href={item.href}
+                            key={item.name}
+                            onClick={() =>
+                                setNavigation((prevNav) =>
+                                    prevNav.map((navItem) => ({
+                                        ...navItem,
+                                        current: navItem.name === item.name,
+                                    }))
+                                )
                             }
                         >
-                            {item.name}
-                        </MenubarItem>
-                    </Link>
+                            <MenubarItem
+                                aria-current={item.current ? 'page' : undefined}
+                                className={
+                                    (item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white') +
+                                    ' block rounded-md px-3 py-2 text-base font-medium'
+                                }
+                            >
+                                {item.name}
+                            </MenubarItem>
+                        </Link>
                     ))}
                 </div>
             </MenubarContent>

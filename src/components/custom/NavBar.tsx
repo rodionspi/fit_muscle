@@ -7,12 +7,13 @@ import MainMenubar from './Menubars/MainMenubar';
 
 interface NavBarComponentProps {
   navigation: Navigation[];
+  setNavigation: React.Dispatch<React.SetStateAction<Navigation[]>>
 }
 
-const NavBar = ({ navigation }: NavBarComponentProps) => {
+const NavBar = ({ navigation, setNavigation }: NavBarComponentProps) => {
   return (
     <>
-      <MainMenubar navigation={navigation} />
+      <MainMenubar navigation={navigation} setNavigation={setNavigation}/>
       <UserMenubar />
     </>
   )
