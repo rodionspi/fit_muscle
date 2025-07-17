@@ -10,7 +10,7 @@ import glutes from "../../public/images/for_muscles_chart/glutes.png";
 import hamstrings from "../../public/images/for_muscles_chart/hamstrings.png";
 import quads from "../../public/images/for_muscles_chart/quads.png";
 import calf_muscles from "../../public/images/for_muscles_chart/calf_muscles.png";
-import Muscle from "@/types/Muscle";
+import {Muscle} from "@/types/Muscle";
 
 const musclesList: Muscle[] = [
     {
@@ -33,7 +33,7 @@ const musclesList: Muscle[] = [
                 sets: 3,
                 reps: 12,
                 tips: "Avoid rolling your shoulders. Focus on squeezing at the top.",
-                videoLink: "https://www.youtube.com/watch?v=NAqCVe2mwzM"
+                videoLink: "https://www.youtube.com/watch?v=NAqCVe2mwzM",
             },
             {
                 image: "https://www.dmoose.com/cdn/shop/articles/1_8db57df7-b8f2-412e-a364-745224090211.jpg?v=1647872727",

@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { AlertTriangle, Link, ArrowLeft, BicepsFlexed, Play } from "lucide-react";
 import Image from "next/image";
-import Muscle from "@/types/Muscle";
+import { Muscle } from "@/types/Muscle";
 import { PageWrapper } from "@/components/custom";
 import Overview from "@/components/custom/TabsContent/MuscleReview/Overview";
 import Exercises from "@/components/custom/TabsContent/MuscleReview/Exercises";
