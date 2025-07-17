@@ -17,14 +17,14 @@ const MusclesDisplay = () => {
             <p className="text-slate-300">Explore different muscle groups and learn about targeted exercises</p>
         </div>
         <Tabs defaultValue="grid" className="mb-8">
-          <div className="flex justify-between items-center">
-              <TabsList className="bg-slate-800">
+            <div className="flex flex-col sm:flex-row justify-between items-center">
+              <TabsList className="bg-slate-800 w-full sm:w-auto mb-4 sm:mb-0">
                 <TabsTrigger value="grid">Grid View</TabsTrigger>
                 <TabsTrigger value="list">List View</TabsTrigger>
                 <TabsTrigger value="3d">3D View</TabsTrigger>
               </TabsList>
 
-              <div className="flex gap-2">
+              <div className="flex gap-2 w-full sm:w-auto justify-center sm:justify-start">
                 <Button variant="outline" size="sm" className="text-slate-300 border-slate-700">
                   <Info size={16} className="mr-2" />
                   Beginner Guide
