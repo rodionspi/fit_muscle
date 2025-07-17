@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from 'next/link'
-import Muscle from '@/types/Muscle';
+import { Muscle } from '@/types/Muscle';
 import { Button } from "@/components/ui/button";
 import { ChevronRight } from "lucide-react";
 

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Github, Mail, Heart, Facebook, Twitter, Instagram, Youtube, Phone, Clock } from "lucide-react";
+import { Github, Mail, Heart, Phone, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Separator } from "@/components/ui/separator";
@@ -31,7 +31,7 @@ export default function Footer() {
               Your ultimate companion for muscle growth, strength gains, and fitness progression. Train smarter, not
               harder.
             </p>
-            <div className="flex space-x-4">
+            {/* <div className="flex space-x-4">
               <Button variant="ghost" size="icon" className="text-slate-400 hover:text-white hover:bg-slate-800">
                 <Facebook size={20} />
               </Button>
@@ -44,7 +44,7 @@ export default function Footer() {
               <Button variant="ghost" size="icon" className="text-slate-400 hover:text-white hover:bg-slate-800">
                 <Youtube size={20} />
               </Button>
-            </div>
+            </div> */}
           </div>
 
           {/* Quick Links */}
