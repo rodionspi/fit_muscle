@@ -114,13 +114,13 @@ const MusclePage = () => {
       </div>
 
       {/* Main Content */}
-      <main className="container mx-auto px-4 py-8">
+      <main className="container mx-auto sm:px-4 py-8">
         <Tabs value={activeTab} onValueChange={setActiveTab} className="mb-8" key={activeTab}>
           <TabsList className="bg-slate-800">
-            <TabsTrigger value="overview">Overview</TabsTrigger>
-            <TabsTrigger value="exercises">Exercises</TabsTrigger>
-            <TabsTrigger value="anatomy">Anatomy</TabsTrigger>
-            <TabsTrigger value="injuries">Common Injuries</TabsTrigger>
+            <TabsTrigger value="overview" className="text-xs p-2 sm:text-sm sm:p-3 md:text-base ">Overview</TabsTrigger>
+            <TabsTrigger value="exercises" className="text-xs p-2 sm:text-sm sm:p-3 md:text-base ">Exercises</TabsTrigger>
+            <TabsTrigger value="anatomy" className="text-xs p-2 sm:text-sm sm:p-3 md:text-base ">Anatomy</TabsTrigger>
+            <TabsTrigger value="injuries" className="text-xs p-2 sm:text-sm sm:p-3 md:text-base ">Common Injuries</TabsTrigger>
           </TabsList>
           <TabsContent value={activeTab}>
             {activeTab === "overview"  && <Overview   muscleInfo={muscleInfo} />}
