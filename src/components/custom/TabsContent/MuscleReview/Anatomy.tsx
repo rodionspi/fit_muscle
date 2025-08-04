@@ -16,8 +16,8 @@ const Anatomy: React.FC<AnatomyProps> = ({ muscleInfo }) => {
                 <h2 className="text-2xl font-bold mb-4">Muscle Anatomy</h2>
                 <div className="w-full h-auto relative">
                     <Image
-                        src={muscleInfo.src || "/placeholder.svg"}
-                        alt={muscleInfo.name}
+                        src={muscleInfo.img || "/placeholder.svg"}
+                        alt={muscleInfo.n}
                         sizes="100vw"
                         className="object-contain h-100 rounded-xl overflow-hidden border-4 border-slate-600 shadow-xl"
                     />
@@ -50,23 +50,23 @@ const Anatomy: React.FC<AnatomyProps> = ({ muscleInfo }) => {
                     <AccordionItem value="structure" className="border-b border-slate-700">
                         <AccordionTrigger className="px-6 py-4 hover:bg-slate-700/50 w-full">Muscle Structure</AccordionTrigger>
                         <AccordionContent className="px-6 pb-4">
-                            <p className="text-slate-300 mb-4">{muscleInfo.anatomy}</p>
+                            <p className="text-slate-300 mb-4">{muscleInfo.anat}</p>
                         </AccordionContent>
                     </AccordionItem>
                     <AccordionItem value="function" className="border-b border-slate-700">
                         <AccordionTrigger className="px-6 py-4 hover:bg-slate-700/50 w-full">Function & Movement</AccordionTrigger>
                         <AccordionContent className="px-6 pb-4">
-                            <p className="text-slate-300 mb-4">{muscleInfo.function}</p>
+                            <p className="text-slate-300 mb-4">{muscleInfo.func}</p>
                         </AccordionContent>
                     </AccordionItem>
                     <AccordionItem value="synergists" className="border-b border-slate-700">
                         <AccordionTrigger className="px-6 py-4 hover:bg-slate-700/50 w-full">Synergist Muscles</AccordionTrigger>
                         <AccordionContent className="px-6 pb-4">
                             <p className="text-slate-300 mb-4">
-                            Synergist muscles that work with the {muscleInfo.name} include:
+                            Synergist muscles that work with the {muscleInfo.n} include:
                             </p>
                             <ul className="list-disc list-inside text-slate-300 space-y-1">
-                            {muscleInfo.relatedMuscles.map((muscle: string) => {
+                            {muscleInfo.rel.map((muscle: string) => {
                                 console.log(muscle);
                                 return (
                                 <li key={muscle} className="capitalize">
@@ -82,7 +82,7 @@ const Anatomy: React.FC<AnatomyProps> = ({ muscleInfo }) => {
                         </AccordionTrigger>
                         <AccordionContent className="px-6 pb-4">
                             <p className="text-slate-300 mb-4">
-                            When training the {muscleInfo.name}, consider the following:
+                            When training the {muscleInfo.n}, consider the following:
                             </p>
                             <ul className="space-y-2">
                             <li className="flex items-start gap-2">

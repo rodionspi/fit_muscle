@@ -30,24 +30,24 @@ const ExercisesPage = () => {
             {/* Grid of exercise cards */}
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
                 {musclesList.flatMap((muscle: Muscle) =>
-                    muscle.exercises.map((exercise: Exercise, idx: number) => (
+                    muscle.ex.map((exercise: Exercise, idx: number) => (
                         <Card key={`${muscle.id}-${idx}`}>
                             <CardHeader className="flex items-center space-x-3">
                                 <Image
-                                src={exercise.image || "/placeholder.svg"}
-                                alt={exercise.name}
+                                src={exercise.img || "/placeholder.svg"}
+                                alt={exercise.n}
                                 width={40}
                                 height={40}
                                 className="rounded-full"
                                 />
-                                <CardTitle>{exercise.name}</CardTitle>
+                                <CardTitle>{exercise.n}</CardTitle>
                             </CardHeader>
                             <CardContent>
                                 <CardDescription>
-                                    {exercise.description}
+                                    {exercise.desc}
                                 </CardDescription>
                                 <CardDescription className="mt-2 hidden lg:block">
-                                    Equipment: {exercise.equipment}
+                                    Equipment: {exercise.eq}
                                 </CardDescription>
                             </CardContent>
                             <CardFooter className="pb-0 mb-0">
