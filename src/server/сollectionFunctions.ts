@@ -4,7 +4,7 @@ import User from "@/types/User";
 import { v4 as generateUuid } from "uuid";
 
 const addUser = async (formValues: User) => {
-  const {name, email, password} = formValues;
+  const {name, email} = formValues;
   try {
     // Check if db is properly initialized
     if (!db) {
@@ -16,7 +16,6 @@ const addUser = async (formValues: User) => {
     const docRef = await addDoc(collection(db, "users"), {
       name: name,
       email: email,
-      password: password,
       id: userId
     });
     
