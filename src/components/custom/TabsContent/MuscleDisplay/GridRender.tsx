@@ -11,8 +11,9 @@ const GridRender = ({ musclesList }: { musclesList: Muscle[] }) => {
 
   return (
     <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-      {musclesList.map((muscle) => (
-        <motion.div
+      {musclesList.map((muscle) => {
+        return (
+          <motion.div
           key={muscle.id}
           className={`relative overflow-hidden rounded-xl bg-gradient-to-br from-slate-800 to-slate-700 border border-slate-700 hover:border-slate-500 transition-all cursor-pointer group`}
           whileHover={{ scale: 1.03 }}
@@ -47,7 +48,7 @@ const GridRender = ({ musclesList }: { musclesList: Muscle[] }) => {
             </Link>
           </div>
         </motion.div>
-      ))}
+      )})}
     </div>
   );
 };

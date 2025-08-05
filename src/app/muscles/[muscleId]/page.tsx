@@ -13,18 +13,6 @@ import Overview from "@/components/custom/TabsContent/MuscleReview/Overview";
 import Exercises from "@/components/custom/TabsContent/MuscleReview/Exercises";
 import Anatomy from "@/components/custom/TabsContent/MuscleReview/Anatomy";
 import Injuries from "@/components/custom/TabsContent/MuscleReview/Injuries";
-import { getMuscles } from "@/server/muscles/musclesDataFunctions"; // Adjust the import path as necessary
-
-async function main() {
-  try {
-    const muscles = await getMuscles();
-    console.log(muscles);
-  } catch (error) {
-    console.error('Ошибка загрузки данных:', error);
-  }
-}
-
-main();
 
 const MusclePage = () => {
   const { muscleId } = useParams(); // takes a parameter from the useParams hook
@@ -97,7 +85,11 @@ const MusclePage = () => {
                 </div>
                 <div className="bg-slate-800/50 p-4 rounded-lg border border-slate-700">
                   <h3 className="text-sm text-slate-400 mb-1">Related Muscles</h3>
-                  <p className="font-medium capitalize">{muscleInfo.rel.join(", ")}</p>
+                  <p className="font-medium capitalize">
+                    {muscleInfo.rel?.length
+                      ? muscleInfo.rel.join(", ")
+                      : "-"}
+                  </p>
                 </div>
                 <div className="bg-slate-800/50 p-4 rounded-lg border border-slate-700">
                   <h3 className="text-sm text-slate-400 mb-1">Difficulty Level</h3>

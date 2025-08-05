@@ -8,6 +8,7 @@ interface OverviewProps {
 }
 
 const Overview: React.FC<OverviewProps> = ({ muscleInfo }) => {
+  console.log(muscleInfo)
   return (
     <div className="grid md:grid-cols-2 gap-8">
               <div>
@@ -35,21 +36,21 @@ const Overview: React.FC<OverviewProps> = ({ muscleInfo }) => {
                     <div>
                       <div className="flex justify-between mb-1">
                         <span className="text-sm text-slate-400">Beginner</span>
-                        <span className="text-sm text-slate-400">{muscleInfo.freq.b} times per week</span>
+                        <span className="text-sm text-slate-400">{muscleInfo.freq?.b ?? "-"} times per week</span>
                       </div>
                       <Progress value={40} className="h-2 bg-slate-700" />
                     </div>
                     <div>
                       <div className="flex justify-between mb-1">
                         <span className="text-sm text-slate-400">Intermediate</span>
-                        <span className="text-sm text-slate-400">{muscleInfo.freq.i} times per week</span>
+                        <span className="text-sm text-slate-400">{muscleInfo.freq?.i ?? "-"} times per week</span>
                       </div>
                       <Progress value={60} className="h-2 bg-slate-700" />
                     </div>
                     <div>
                       <div className="flex justify-between mb-1">
                         <span className="text-sm text-slate-400">Advanced</span>
-                        <span className="text-sm text-slate-400">{muscleInfo.freq.a} times per week</span>
+                        <span className="text-sm text-slate-400">{muscleInfo.freq?.a ?? "-"} times per week</span>
                       </div>
                       <Progress value={80} className="h-2 bg-slate-700" />
                     </div>
@@ -58,16 +59,20 @@ const Overview: React.FC<OverviewProps> = ({ muscleInfo }) => {
 
                 <h3 className="text-xl font-semibold mb-3">Stretching Exercises</h3>
                 <div className="space-y-3 mb-6">
-                  {muscleInfo.str.map((stretch: StretchingExercise, index: number) => (
-                    <div key={index} className="bg-slate-800/50 p-4 rounded-lg border border-slate-700">
-                      <h4 className="font-medium mb-1">{stretch.n}</h4>
-                      <p className="text-sm text-slate-300 mb-2">{stretch.desc}</p>
-                      <div className="flex items-center text-sm text-slate-400">
-                        <Clock className="w-3 h-3 mr-1" />
-                        <span>{stretch.dur}</span>
+                  {muscleInfo.str?.length ? (
+                    muscleInfo.str.map((stretch: StretchingExercise, index: number) => (
+                      <div key={index} className="bg-slate-800/50 p-4 rounded-lg border border-slate-700">
+                        <h4 className="font-medium mb-1">{stretch.n}</h4>
+                        <p className="text-sm text-slate-300 mb-2">{stretch.desc}</p>
+                        <div className="flex items-center text-sm text-slate-400">
+                          <Clock className="w-3 h-3 mr-1" />
+                          <span>{stretch.dur}</span>
+                        </div>
                       </div>
-                    </div>
-                  ))}
+                    ))
+                  ) : (
+                    <p className="text-slate-400">No stretching exercises available.</p>
+                  )}
                 </div>
               </div>
             </div>
