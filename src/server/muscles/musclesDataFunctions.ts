@@ -2,8 +2,10 @@ import { db } from "../../firebaseConfig.js"
 import { collection, getDocs } from 'firebase/firestore';
 
 // Check if cached data exists and is fresh (e.g., <24 hours old)
+// Check if cached data exists and is fresh (client-side only)
 const getCachedMuscles = () => {
-  const cached = localStorage.getItem("muscles");
+  if (typeof window === 'undefined' || !window.localStorage) return null;
+  const cached = window.localStorage.getItem("muscles");
   if (cached) {
     const { timestamp, data } = JSON.parse(cached);
     if (Date.now() - timestamp < 86400000) { // 24h cache
@@ -22,11 +24,13 @@ export const getMuscles = async () => {
   const snapshot = await getDocs(musclesCol);
   const data = snapshot.docs.map(doc => doc.data());
 
-  // Cache with timestamp
-  localStorage.setItem("muscles", JSON.stringify({
-    data,
-    timestamp: Date.now()
-  }));
+  // Cache with timestamp (client-side only)
+  if (typeof window !== 'undefined' && window.localStorage) {
+    window.localStorage.setItem(
+      "muscles",
+      JSON.stringify({ data, timestamp: Date.now() })
+    );
+  }
 
   return data;
 };
