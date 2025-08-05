@@ -5,13 +5,13 @@ import PageWrapper from "@/components/custom/PageWrapper";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { useState } from "react";
 import * as Yup from "yup";
-import { addUser, getUser } from "@/server/сollectionFunctions";
+import { addUser, getUser } from "@/server/user/userDataFunctions";
 import Image from "next/image";
-import google_logo from "@/../public/images/logos/google_logo.png";
+// import google_logo from "@/../public/images/logos/google_logo.png";
 import "firebase/compat/auth";
 import { useUser } from "@/contexts/UserContext";
 import { useRouter } from "next/navigation";
-import { auth, provider, signInWithPopup } from "../../../../firebaseConfig.js";
+import { auth, provider, signInWithPopup } from "../../../firebaseConfig";
 
 const Registration = () => {
     const [isHidden, setIsHidden] = useState<boolean>(true);
@@ -203,7 +203,7 @@ const Registration = () => {
                                     className="w-full py-2 px-4 bg-white text-gray-700 font-semibold rounded-lg border border-gray-300 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-300 flex items-center justify-center"
                                 >
                                     <Image
-                                        src={google_logo}
+                                        src={''}
                                         alt="Google logo"
                                         className="w-5 h-5 mr-2"
                                     />
