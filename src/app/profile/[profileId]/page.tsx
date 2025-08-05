@@ -4,10 +4,10 @@ import { useUser } from "@/contexts/UserContext";
 import PageWrapper from "@/components/custom/PageWrapper";
 import { useEffect } from "react";
 import React from "react";
-import logo_person from '@/../public/images/logos/logo_person.jpg';
+// import logo_person from '@/../public/images/logos/logo_person.jpg';
 import { useRouter } from "next/navigation";
 import Image from 'next/image';
-import { getDataFromLS } from "@/server/localStorageFunctions";
+import { getDataFromLS } from "@/server/user/localStorageFunctions";
 
 
 const ProfilePage = () => {
@@ -30,7 +30,7 @@ const ProfilePage = () => {
         <div className="flex flex-col items-center space-y-6">
           <Image
           alt="Account logo"
-          src={logo_person}
+          src={''}
           className="h-32 w-32 rounded-full shadow-lg"
           priority
           />

@@ -13,6 +13,18 @@ import Overview from "@/components/custom/TabsContent/MuscleReview/Overview";
 import Exercises from "@/components/custom/TabsContent/MuscleReview/Exercises";
 import Anatomy from "@/components/custom/TabsContent/MuscleReview/Anatomy";
 import Injuries from "@/components/custom/TabsContent/MuscleReview/Injuries";
+import { getMuscles } from "@/server/muscles/musclesDataFunctions"; // Adjust the import path as necessary
+
+async function main() {
+  try {
+    const muscles = await getMuscles();
+    console.log(muscles);
+  } catch (error) {
+    console.error('Ошибка загрузки данных:', error);
+  }
+}
+
+main();
 
 const MusclePage = () => {
   const { muscleId } = useParams(); // takes a parameter from the useParams hook
