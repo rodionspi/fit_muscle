@@ -10,7 +10,7 @@
 // import hamstrings from "../../public/images/for_muscles_chart/hamstrings.png";
 // import quads from "../../public/images/for_muscles_chart/quads.png";
 // import calf_muscles from "../../public/images/for_muscles_chart/calf_muscles.png";
-import { getMuscles } from "@/server/muscles/musclesDataFunctions";
+import { getMuscles } from "../server/muscles/musclesDataFunctions";
 import { Muscle } from "@/types/Muscle";
 
 // resolve the promise into a plain array
