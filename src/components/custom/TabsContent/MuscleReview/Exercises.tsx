@@ -11,13 +11,13 @@ interface ExercisesProps {
 
 const Exercises: React.FC<ExercisesProps> = ({ muscleInfo }) => {
   const [activeExercise, setActiveExercise] = useState(0)
-
+  console.log("Muscle Info:", muscleInfo);
   return (
     <div className="grid md:grid-cols-3 gap-8">
         <div className="md:col-span-1">
         <h2 className="text-2xl font-bold mb-4">Exercises</h2>
         <div className="bg-slate-800 rounded-xl border border-slate-700 overflow-hidden">
-            {muscleInfo.ex.map((exercise: Exercise, index: number) => (
+            {muscleInfo.ex && muscleInfo.ex.map((exercise: Exercise, index: number) => (
                 <div
                     key={index}
                     className={`border-b border-slate-700 last:border-0 p-4 cursor-pointer hover:bg-slate-700/50 transition-colors ${activeExercise === index ? "bg-slate-700/70" : ""}`}
@@ -50,7 +50,7 @@ const Exercises: React.FC<ExercisesProps> = ({ muscleInfo }) => {
         </div>
 
         <div className="md:col-span-2">
-        {muscleInfo.ex[activeExercise] && (
+        {muscleInfo.ex && muscleInfo.ex[activeExercise] && (
             <motion.div
             key={activeExercise}
             initial={{ opacity: 0, y: 20 }}

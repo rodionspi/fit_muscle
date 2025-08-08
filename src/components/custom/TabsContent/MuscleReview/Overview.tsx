@@ -8,7 +8,6 @@ interface OverviewProps {
 }
 
 const Overview: React.FC<OverviewProps> = ({ muscleInfo }) => {
-  console.log(muscleInfo)
   return (
     <div className="grid md:grid-cols-2 gap-8">
               <div>
