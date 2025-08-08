@@ -33,7 +33,7 @@
   "include": [
     "src/**/*.ts",
     "src/**/*.tsx",
-    "src/firebaseConfig.js",
+    "firebaseConfig.js",
     ".next/types/**/*.ts"
   ],
   "exclude": [
