@@ -34,17 +34,17 @@ export const getMuscles = async () => {
       JSON.stringify({ data, timestamp: Date.now() })
     );
   }
-
+  console.log("Fetched muscles from Firestore", data);
   return data;
 };
 
-export const getMuscleWithExercises = async (
-  muscleId: string
-): Promise<unknown | null> => {
-  const exCol = collection(db, "muscles", muscleId, "exercises");
-  const exSnap = await getDocs(exCol);
-  const exercises = exSnap.docs.map(d => ({ id: d.id, ...d.data() }));
+// export const getMuscleWithExercises = async (
+//   muscleId: string
+// ): Promise<unknown | null> => {
+//   const exCol = collection(db, "muscles", muscleId, "exercises");
+//   const exSnap = await getDocs(exCol);
+//   const exercises = exSnap.docs.map(d => ({ id: d.id, ...d.data() }));
 
-  // 3) merge and return
-  return { exercises };
-};
+//   // 3) merge and return
+//   return { exercises };
+// };

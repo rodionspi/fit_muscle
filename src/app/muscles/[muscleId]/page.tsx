@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 "use client";
 
 import React, {useState, useEffect} from "react";
@@ -14,7 +13,7 @@ import Overview from "@/components/custom/TabsContent/MuscleReview/Overview";
 import Exercises from "@/components/custom/TabsContent/MuscleReview/Exercises";
 import Anatomy from "@/components/custom/TabsContent/MuscleReview/Anatomy";
 import Injuries from "@/components/custom/TabsContent/MuscleReview/Injuries";
-import { getMuscleWithExercises } from "@/server/muscles/musclesDataFunctions";
+// import { getMuscleWithExercises } from "@/server/muscles/musclesDataFunctions";
 
 const MusclePage = () => {
   const { muscleId } = useParams(); // takes a parameter from the useParams hook
@@ -30,19 +29,19 @@ const MusclePage = () => {
     setLoading(false);
   }, [muscleId]);
 
-  useEffect(() => {
-    if (muscleId) {
-      getMuscleWithExercises(muscleId as string)
-        .then((data) => {
-          console.log("Fetched muscle data:", data);
-          setLoading(false);
-        })
-        .catch((error) => {
-          console.error("Error fetching muscle data:", error);
-          setLoading(false);
-        });
-    }
-  }, [muscleId]);
+  // useEffect(() => {
+  //   if (muscleId) {
+  //     getMuscleWithExercises(muscleId as string)
+  //       .then((data) => {
+  //         console.log("Fetched muscle data:", data);
+  //         setLoading(false);
+  //       })
+  //       .catch((error) => {
+  //         console.error("Error fetching muscle data:", error);
+  //         setLoading(false);
+  //       });
+  //   }
+  // }, [muscleId]);
 
   if (loading) {
     return (
