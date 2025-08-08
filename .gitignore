@@ -37,4 +37,5 @@ next-env.d.ts
 
 # data-base
 firebaseConfig.js
+firebaseConfig.сjs
 .env
