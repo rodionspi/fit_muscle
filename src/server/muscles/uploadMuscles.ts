@@ -1,9 +1,9 @@
 // uploadMuscles.ts
-import { db } from "../../firebaseConfig.js" // Your Firebase config file
-import { doc, setDoc, collection, addDoc } from "firebase/firestore";
-import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
-import { Muscle } from "../../types/Muscle.js";
-import musclesList from "../../components/musclesList.js";
+// import { db } from "../../firebaseConfig.js" // Your Firebase config file
+// import { doc, setDoc, collection, addDoc } from "firebase/firestore";
+// import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
+// import { Muscle } from "../../types/Muscle.js";
+// import musclesList from "../../components/musclesList.js";
 
 // // Initialize Firebase Storage
 // const storage = getStorage();
@@ -27,9 +27,9 @@ import musclesList from "../../components/musclesList.js";
 //   }
 // }
 
-// Main function to upload a Muscle object
-async function uploadMuscle(muscle: Muscle) {
-  try {
+// // Main function to upload a Muscle object
+// async function uploadMuscle(muscle: Muscle) {
+//   try {
     // 1. Upload muscle metadata (top-level fields)
     // await setDoc(doc(db, "muscles", muscle.id.toString()), {
     //   n: muscle.n,          // Shortened field names
@@ -42,24 +42,24 @@ async function uploadMuscle(muscle: Muscle) {
     // });
 
     // 2. Upload exercises as a subcollection
-    const exRef = collection(db, "muscles", muscle.id.toString(), "strechingExercises");
-    for (const ex of muscle.str) {
-      await addDoc(exRef, {
-        n: ex.n,
-        desc: ex.desc,
-        dur: ex.dur,
-      });
-    }
+//     const exRef = collection(db, "muscles", muscle.id.toString(), "strechingExercises");
+//     for (const ex of muscle.str) {
+//       await addDoc(exRef, {
+//         n: ex.n,
+//         desc: ex.desc,
+//         dur: ex.dur,
+//       });
+//     }
 
-    console.log(`Successfully uploaded muscle ${muscle.id}: ${muscle.n}`);
-  } catch (error) {
-    console.error(`Error uploading muscle ${muscle.id}:`, error);
-  }
-}
+//     console.log(`Successfully uploaded muscle ${muscle.id}: ${muscle.n}`);
+//   } catch (error) {
+//     console.error(`Error uploading muscle ${muscle.id}:`, error);
+//   }
+// }
 
-for (const muscle of musclesList) {
-    uploadMuscle(muscle);
-}
+// for (const muscle of musclesList) {
+//     uploadMuscle(muscle);
+// }
 
 // Or upload an array of muscles
 // const allMuscles: Muscle[] = [...];
