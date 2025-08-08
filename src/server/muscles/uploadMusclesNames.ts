@@ -1,6 +1,6 @@
 import { db } from "../../../firebaseConfig.js" // Your Firebase config file
 import { doc, setDoc } from "firebase/firestore";
-import { Muscle } from "/types/Muscle";
+import { Muscle } from "@/types/Muscle";
 import musclesList from "../../components/musclesList.js";
 
 async function uploadMusclesNames(muscle: Muscle) {
