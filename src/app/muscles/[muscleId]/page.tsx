@@ -143,9 +143,9 @@ const MusclePage = () => {
           </TabsList>
           <TabsContent value={activeTab}>
             {activeTab === "overview"  && <Overview   muscleInfo={muscleInfo} />}
-            {activeTab === "exercises" && <Exercises  muscleInfo={muscleInfo} />}
-            {activeTab === "anatomy"    && <Anatomy    muscleInfo={muscleInfo} />}
-            {activeTab === "injuries"   && <Injuries   muscleInfo={muscleInfo} />}
+            {activeTab === "exercises" && <Exercises  muscleId={Array.isArray(muscleId) ? muscleId[0] : muscleId} />}
+            {/* {activeTab === "anatomy"    && <Anatomy    muscleId={muscleId} />}
+            {activeTab === "injuries"   && <Injuries   muscleId={muscleId} />} */}
           </TabsContent>
         </Tabs>
       </main>

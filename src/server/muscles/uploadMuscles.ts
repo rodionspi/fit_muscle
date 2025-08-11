@@ -1,66 +1,75 @@
-// uploadMuscles.ts
-// import { db } from "../../firebaseConfig.js" // Your Firebase config file
-// import { doc, setDoc, collection, addDoc } from "firebase/firestore";
+// // uploadMuscles.ts
+// import { db } from "../../../firebaseConfig.js"; // Firebase config
+// import { doc, collection, addDoc, getDocs } from "firebase/firestore";
 // import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
-// import { Muscle } from "../../types/Muscle.js";
-// import musclesList from "../../components/musclesList.js";
+// import { Muscle } from "../../types/Muscle";
+// import musclesList from "./muscleList"; // source with exercises arrays
 
-// // Initialize Firebase Storage
-// const storage = getStorage();
+// // // Initialize Firebase Storage (optional for images/videos)
+// // const storage = getStorage();
 
-// // Function to upload images/videos and return their URLs
-// async function uploadImage(filePath: string): Promise<string> {
-//   try {
-//     // Convert StaticImageData to Blob (example for Next.js)
-//     const response = await fetch(filePath);
-//     const blob = await response.blob();
+// // // Helper to maybe upload a local/static asset to storage and return a URL (placeholder implementation)
+// // async function maybeUploadAsset(localPath?: string): Promise<string | undefined> {
+// //     if (!localPath) return undefined;
+// //     try {
+// //         const res = await fetch(localPath);
+// //         const blob = await res.blob();
+// //         const storageRef = ref(storage, `muscles/${Date.now()}-${Math.random().toString(36).slice(2)}.bin`);
+// //         await uploadBytes(storageRef, blob);
+// //         return await getDownloadURL(storageRef);
+// //     } catch (e) {
+// //         console.warn("Asset upload failed, fallback to original path", e);
+// //         return localPath; // fallback
+// //     }
+// // }
 
-//     // Upload to Firebase Storage
-//     const storageRef = ref(storage, `images/${Date.now()}.jpg`);
-//     await uploadBytes(storageRef, blob);
+// // Upload only exercises subcollection for an existing muscle document.
+// export async function uploadExercisesForMuscle(muscleId: string, { overwrite = false } = {}) {
+//     try {
+//         const exColPath = collection(db, "muscles", muscleId, "exercises");
 
-//     // Get the public URL
-//     return await getDownloadURL(storageRef);
-//   } catch (error) {
-//     console.error("Error uploading image:", error);
-//     return ""; // Fallback
-//   }
-// }
+//         // Skip if already populated and not overwriting
+//         if (!overwrite) {
+//             const existing = await getDocs(exColPath);
+//             if (!existing.empty) {
+//                 console.log(`Exercises already exist for muscle ${muscleId}, skipping (use overwrite=true to force).`);
+//                 return;
+//             }
+//         }
 
-// // Main function to upload a Muscle object
-// async function uploadMuscle(muscle: Muscle) {
-//   try {
-    // 1. Upload muscle metadata (top-level fields)
-    // await setDoc(doc(db, "muscles", muscle.id.toString()), {
-    //   n: muscle.n,          // Shortened field names
-    //   desc: muscle.desc,
-    //   anat: muscle.anat,
-    //   func: muscle.func,
-    //   sn: muscle.sn,
-    //   rel: muscle.rel,
-    //   freq: muscle.freq,
-    // });
-
-    // 2. Upload exercises as a subcollection
-//     const exRef = collection(db, "muscles", muscle.id.toString(), "strechingExercises");
-//     for (const ex of muscle.str) {
-//       await addDoc(exRef, {
-//         n: ex.n,
-//         desc: ex.desc,
-//         dur: ex.dur,
-//       });
+//         for (const ex of musclesList.find(m => m.id.toString() === muscleId)?.ex || []) {
+//             await addDoc(exColPath, {
+//                 n: ex.n,
+//                 diff: ex.diff,
+//                 eq: ex.eq,
+//                 tgt: ex.tgt,
+//                 desc: ex.desc,
+//                 s: ex.s,
+//                 r: ex.r,
+//                 tips: ex.tips,
+//                 vid: ex.vid,
+//                 img: ex.img || null
+//             });
+//         }
+//         console.log(`Uploaded ${musclesList.find(m => m.id.toString() === muscleId)?.ex.length || 0} exercises for muscle ${muscleId}`);
+//     } catch (e) {
+//         console.error(`Failed uploading exercises for muscle ${muscleId}:`, e);
 //     }
-
-//     console.log(`Successfully uploaded muscle ${muscle.id}: ${muscle.n}`);
-//   } catch (error) {
-//     console.error(`Error uploading muscle ${muscle.id}:`, error);
-//   }
 // }
 
-// for (const muscle of musclesList) {
-//     uploadMuscle(muscle);
+// // Bulk helper
+// export async function uploadAllExercises(list: Muscle[] = musclesList, opts: { overwrite?: boolean } = {}) {
+//     for (const m of list) {
+//         await uploadExercisesForMuscle(m.id.toString(), opts);
+//     }
+//     console.log("Finished uploading exercises for all muscles");
 // }
 
-// Or upload an array of muscles
-// const allMuscles: Muscle[] = [...];
-// allMuscles.forEach(muscle => uploadMuscle(muscle));
+// uploadAllExercises();
+
+// // If you want to trigger immediately when this script runs (Node context):
+// // (async () => { await uploadAllMuscles(); })();
+
+// // Or upload an array of muscles
+// // const allMuscles: Muscle[] = [...];
+// // allMuscles.forEach(muscle => uploadMuscle(muscle));
