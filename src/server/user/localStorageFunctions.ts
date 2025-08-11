@@ -16,7 +16,6 @@ const getDataFromLS = (): User | null => {
   }
 
   const returnObject = Object.keys(localStorageData).length > 0 ? localStorageData as User : null;
-  console.log(returnObject);
   return returnObject;
 };
 
