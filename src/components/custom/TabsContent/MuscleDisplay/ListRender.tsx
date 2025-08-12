@@ -25,13 +25,13 @@ const ListRender = ({ musclesList }: { musclesList: Muscle[] }) => {
                         <td className="p-4 flex items-center gap-3">
                           <div className="w-10 h-10 relative rounded-md overflow-hidden bg-slate-700 flex-shrink-0">
                             <Image
-                              src={muscle.src || "/placeholder.svg"}
-                              alt={muscle.name}
+                              src={muscle.img || "/placeholder.svg"}
+                              alt={muscle.n}
                               fill
                               className="object-cover"
                             />
                           </div>
-                          <span className="font-medium">{muscle.name}</span>
+                          <span className="font-medium">{muscle.n}</span>
                         </td>
                         <td className="p-4 text-slate-300 hidden md:table-cell">Movement and stability</td>
                         <td className="p-4 text-slate-300 hidden lg:table-cell">Bench press, Flyes, Push-ups</td>

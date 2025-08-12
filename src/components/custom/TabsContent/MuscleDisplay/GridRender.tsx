@@ -11,8 +11,9 @@ const GridRender = ({ musclesList }: { musclesList: Muscle[] }) => {
 
   return (
     <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-      {musclesList.map((muscle) => (
-        <motion.div
+      {musclesList.map((muscle) => {
+        return (
+          <motion.div
           key={muscle.id}
           className={`relative overflow-hidden rounded-xl bg-gradient-to-br from-slate-800 to-slate-700 border border-slate-700 hover:border-slate-500 transition-all cursor-pointer group`}
           whileHover={{ scale: 1.03 }}
@@ -24,13 +25,13 @@ const GridRender = ({ musclesList }: { musclesList: Muscle[] }) => {
           <div className="aspect-square p-4 flex flex-col items-center justify-center">
             <div className="relative w-full h-3/4 mb-4">
               <Image
-                src={muscle.src || "/placeholder.svg"}
-                alt={muscle.name}
+                src={muscle.img || "/placeholder.svg"}
+                alt={muscle.n}
                 fill
                 className="object-contain"
               />
             </div>
-            <h3 className="text-lg font-semibold text-center">{muscle.name}</h3>
+            <h3 className="text-lg font-semibold text-center">{muscle.n}</h3>
           </div>
 
           <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end justify-center p-4">
@@ -47,7 +48,7 @@ const GridRender = ({ musclesList }: { musclesList: Muscle[] }) => {
             </Link>
           </div>
         </motion.div>
-      ))}
+      )})}
     </div>
   );
 };

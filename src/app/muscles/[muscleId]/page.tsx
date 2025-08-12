@@ -13,6 +13,7 @@ import Overview from "@/components/custom/TabsContent/MuscleReview/Overview";
 import Exercises from "@/components/custom/TabsContent/MuscleReview/Exercises";
 import Anatomy from "@/components/custom/TabsContent/MuscleReview/Anatomy";
 import Injuries from "@/components/custom/TabsContent/MuscleReview/Injuries";
+// import { getMuscleWithExercises } from "@/server/muscles/musclesDataFunctions";
 
 const MusclePage = () => {
   const { muscleId } = useParams(); // takes a parameter from the useParams hook
@@ -27,6 +28,20 @@ const MusclePage = () => {
     );
     setLoading(false);
   }, [muscleId]);
+
+  // useEffect(() => {
+  //   if (muscleId) {
+  //     getMuscleWithExercises(muscleId as string)
+  //       .then((data) => {
+  //         console.log("Fetched muscle data:", data);
+  //         setLoading(false);
+  //       })
+  //       .catch((error) => {
+  //         console.error("Error fetching muscle data:", error);
+  //         setLoading(false);
+  //       });
+  //   }
+  // }, [muscleId]);
 
   if (loading) {
     return (
@@ -66,8 +81,8 @@ const MusclePage = () => {
           <div className="flex flex-col md:flex-row md:items-start h-full">
             <div className="w-full md:w-1/3 relative h-96 mr-8 sm:mb-8 mb-4">
               <Image
-                src={muscleInfo.src || "/placeholder.svg"}
-                alt={muscleInfo.name}
+                src={muscleInfo.img || "/placeholder.svg"}
+                alt={muscleInfo.n}
                 fill
                 className="object-cover rounded-xl overflow-hidden border-4 border-slate-600 shadow-xl"
               />
@@ -76,16 +91,20 @@ const MusclePage = () => {
               <div className="flex items-center gap-3 mb-2">
                 <BicepsFlexed className="w-10 h-10 text-emerald-400" />
               </div>
-              <h1 className="text-4xl md:text-5xl font-bold mb-4">{muscleInfo.name}</h1>
-              <p className="text-xl text-slate-300 mb-6">{muscleInfo.description}</p>
+              <h1 className="text-4xl md:text-5xl font-bold mb-4">{muscleInfo.n}</h1>
+              <p className="text-xl text-slate-300 mb-6">{muscleInfo.desc}</p>
               <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-6">
                 <div className="bg-slate-800/50 p-4 rounded-lg border border-slate-700">
                   <h3 className="text-sm text-slate-400 mb-1">Also Known As</h3>
-                  <p className="font-medium">{muscleInfo.shortName}</p>
+                  <p className="font-medium">{muscleInfo.sn}</p>
                 </div>
                 <div className="bg-slate-800/50 p-4 rounded-lg border border-slate-700">
                   <h3 className="text-sm text-slate-400 mb-1">Related Muscles</h3>
-                  <p className="font-medium capitalize">{muscleInfo.relatedMuscles.join(", ")}</p>
+                  <p className="font-medium capitalize">
+                    {muscleInfo.rel?.length
+                      ? muscleInfo.rel.join(", ")
+                      : "-"}
+                  </p>
                 </div>
                 <div className="bg-slate-800/50 p-4 rounded-lg border border-slate-700">
                   <h3 className="text-sm text-slate-400 mb-1">Difficulty Level</h3>
@@ -124,9 +143,9 @@ const MusclePage = () => {
           </TabsList>
           <TabsContent value={activeTab}>
             {activeTab === "overview"  && <Overview   muscleInfo={muscleInfo} />}
-            {activeTab === "exercises" && <Exercises  muscleInfo={muscleInfo} />}
-            {activeTab === "anatomy"    && <Anatomy    muscleInfo={muscleInfo} />}
-            {activeTab === "injuries"   && <Injuries   muscleInfo={muscleInfo} />}
+            {activeTab === "exercises" && <Exercises  muscleId={Array.isArray(muscleId) ? muscleId[0] : muscleId} />}
+            {activeTab === "anatomy" && <Anatomy muscleInfo={muscleInfo} />}
+            {activeTab === "injuries" && <Injuries muscleId={Array.isArray(muscleId) ? muscleId[0] : muscleId} />}
           </TabsContent>
         </Tabs>
       </main>

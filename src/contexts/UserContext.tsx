@@ -1,4 +1,4 @@
-import { getDataFromLS } from "@/server/localStorageFunctions";
+import { getDataFromLS } from "@/server/user/localStorageFunctions";
 import User from "@/types/User";
 import React from "react";
 import { createContext, Dispatch, ReactNode, SetStateAction, useContext, useEffect, useState } from "react";
