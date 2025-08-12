@@ -1,18 +1,38 @@
 import { Card, CardContent } from '@/components/ui/card';
+import { getCommonInjuriesOfMuscle } from '@/server/muscles/musclesDataFunctions';
 import { Muscle, CommonInjury } from '@/types/Muscle';
 import { AlertTriangle } from 'lucide-react';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 interface InjuriesProps {
-  muscleInfo: Muscle;
+  muscleId: string | undefined;
 }
 
-const Injuries: React.FC<InjuriesProps> = ({ muscleInfo }) => {
-    return (
+const Injuries: React.FC<InjuriesProps> = ({ muscleId }) => {
+  const [commonInjuries, setCommonInjuries] = useState<CommonInjury[]>([]);
+
+  useEffect(() => {
+       const fetchCommonInjuries = async () => {
+         if (!muscleId) return;
+
+         getCommonInjuriesOfMuscle(muscleId)
+           .then((data) => {
+             return setCommonInjuries(data ?? []);
+           })
+           .catch((err) => {
+             console.error(err);
+             setCommonInjuries([]);
+           });
+       };
+       fetchCommonInjuries();
+     }, [])
+
+  console.log("Common Injuries:", commonInjuries);
+  return (
         <div>
             <h2 className="text-2xl font-bold mb-6">Common Injuries & Prevention</h2>
             <div className="grid md:grid-cols-2 gap-8">
-              {muscleInfo.inj.map((injury: CommonInjury, index: number) => (
+              {commonInjuries.map((injury: CommonInjury, index: number) => (
                 <Card key={index} className="bg-slate-800 border-slate-700">
                   <CardContent className="p-6">
                     <div className="flex items-start gap-4">

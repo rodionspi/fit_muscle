@@ -1,13 +1,33 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Clock, Info, Target } from "lucide-react";
-import { Muscle, StretchingExercise } from '@/types/Muscle';
+import { Exercise, Muscle, StretchingExercise } from '@/types/Muscle';
 import { Progress } from "@/components/ui/progress"
+import { getStrechingExOfMuscle } from '@/server/muscles/musclesDataFunctions';
 
 interface OverviewProps {
   muscleInfo: Muscle;
 }
 
 const Overview: React.FC<OverviewProps> = ({ muscleInfo }) => {
+
+   const [stretchingExercises, setStretchingExercises] = useState<StretchingExercise[]>([]);
+
+   useEffect(() => {
+     const fetchStretchingExercises = async () => {
+       if (!muscleInfo.id) return;
+
+       getStrechingExOfMuscle(muscleInfo.id.toString())
+         .then((data) => {
+           return setStretchingExercises(data ?? []);
+         })
+         .catch((err) => {
+           console.error(err);
+           setStretchingExercises([]);
+         });
+     };
+     fetchStretchingExercises();
+   }, []);
+
   return (
     <div className="grid md:grid-cols-2 gap-8">
               <div>
@@ -58,8 +78,7 @@ const Overview: React.FC<OverviewProps> = ({ muscleInfo }) => {
 
                 <h3 className="text-xl font-semibold mb-3">Stretching Exercises</h3>
                 <div className="space-y-3 mb-6">
-                  {muscleInfo.str?.length ? (
-                    muscleInfo.str.map((stretch: StretchingExercise, index: number) => (
+                  {stretchingExercises.map((stretch: StretchingExercise, index: number) => (
                       <div key={index} className="bg-slate-800/50 p-4 rounded-lg border border-slate-700">
                         <h4 className="font-medium mb-1">{stretch.n}</h4>
                         <p className="text-sm text-slate-300 mb-2">{stretch.desc}</p>
@@ -69,9 +88,7 @@ const Overview: React.FC<OverviewProps> = ({ muscleInfo }) => {
                         </div>
                       </div>
                     ))
-                  ) : (
-                    <p className="text-slate-400">No stretching exercises available.</p>
-                  )}
+                  }
                 </div>
               </div>
             </div>

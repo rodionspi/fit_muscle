@@ -16,7 +16,7 @@ const Anatomy: React.FC<AnatomyProps> = ({ muscleInfo }) => {
                 <h2 className="text-2xl font-bold mb-4">Muscle Anatomy</h2>
                 <div className="w-full h-auto relative">
                     <Image
-                        src={muscleInfo.img || "/placeholder.svg"}
+                        src={muscleInfo.img}
                         alt={muscleInfo.n}
                         sizes="100vw"
                         className="object-contain h-100 rounded-xl overflow-hidden border-4 border-slate-600 shadow-xl"
