@@ -1,56 +1,75 @@
-import { Muscle, Exercise } from '@/types/Muscle';
-import React, { useState } from 'react';
+import { Exercise } from '@/types/Muscle';
+import React, { useEffect, useState } from 'react';
 import { motion } from "framer-motion";
 import { Button } from '@/components/ui/button';
 import { Play, BarChart3, Flame, Info, Badge } from 'lucide-react';
 import Image from "next/image";
+import { getMuscleExercisesById } from '@/server/muscles/musclesDataFunctions';
 
 interface ExercisesProps {
-  muscleInfo: Muscle;
+  muscleId: string | undefined;
 }
 
-const Exercises: React.FC<ExercisesProps> = ({ muscleInfo }) => {
+const Exercises: React.FC<ExercisesProps> = ({ muscleId }) => {
   const [activeExercise, setActiveExercise] = useState(0)
+  const [exercises, setExercises] = useState<Exercise[]>([]);
+
+  useEffect(() => {
+    const fetchExercises = async () => {
+      if (!muscleId) return;
+
+      getMuscleExercisesById(muscleId)
+        .then((data) => {
+          setExercises(data ?? []);
+        })
+        .catch((err) => {
+          console.error(err);
+          setExercises([]);
+        });
+    };
+    fetchExercises();
+  }, []);
 
   return (
     <div className="grid md:grid-cols-3 gap-8">
         <div className="md:col-span-1">
         <h2 className="text-2xl font-bold mb-4">Exercises</h2>
         <div className="bg-slate-800 rounded-xl border border-slate-700 overflow-hidden">
-            {muscleInfo.exercises.map((exercise: Exercise, index: number) => (
-                <div
-                    key={index}
-                    className={`border-b border-slate-700 last:border-0 p-4 cursor-pointer hover:bg-slate-700/50 transition-colors ${activeExercise === index ? "bg-slate-700/70" : ""}`}
-                    onClick={() => setActiveExercise(index)}
-                >
+            {exercises.map((exercise: Exercise, index: number) => {
+                return (
+                    <div
+                        key={index}
+                        className={`border-b border-slate-700 last:border-0 p-4 cursor-pointer hover:bg-slate-700/50 transition-colors ${activeExercise === index ? "bg-slate-700/70" : ""}`}
+                        onClick={() => setActiveExercise(index)}
+                    >
                     <div className="flex items-center gap-3">
                         <div className="w-12 h-12 relative rounded-md overflow-hidden bg-slate-700 flex-shrink-0">
                             <Image
-                            src={exercise.image || "/placeholder.svg"}
-                            alt={exercise.name}
+                            src={exercise.img || "/placeholder.svg"}
+                            alt={exercise.n}
                             fill
                             unoptimized
                             className="object-cover w-full h-full"
                             />
                         </div>
                     <div className="flex-1">
-                        <h3 className="font-medium">{exercise.name}</h3>
+                        <h3 className="font-medium">{exercise.n}</h3>
                         <div className="flex items-center gap-2 text-sm text-slate-400">
                         <Badge className="text-xs border-slate-600">
-                            {exercise.difficulty}
+                            {exercise.diff}
                         </Badge>
-                        <span>{exercise.target}</span>
+                        <span>{exercise.tgt}</span>
                         </div>
                     </div>
                     {activeExercise === index && <div className="w-1.5 h-8 bg-emerald-500 rounded-full"></div>}
                     </div>
                 </div>
-            ))}
+            )})}
         </div>
         </div>
 
         <div className="md:col-span-2">
-        {muscleInfo.exercises[activeExercise] && (
+        {exercises[activeExercise] && (
             <motion.div
             key={activeExercise}
             initial={{ opacity: 0, y: 20 }}
@@ -58,18 +77,18 @@ const Exercises: React.FC<ExercisesProps> = ({ muscleInfo }) => {
             transition={{ duration: 0.3 }}
             >
             <div className="flex items-center justify-between mb-4">
-                <h2 className="text-2xl font-bold">{muscleInfo.exercises[activeExercise].name}</h2>
-                <Button onClick={() => window.open(muscleInfo.exercises[activeExercise].videoLink, "_blank")} className="bg-emerald-600 hover:bg-emerald-700 text-white">
+                <h2 className="text-2xl font-bold">{exercises[activeExercise].n}</h2>
+                <Button onClick={() => window.open(exercises[activeExercise].vid, "_blank")} className="bg-emerald-600 hover:bg-emerald-700 text-white">
                     <Play className="w-4 h-4 mr-2" />
                     Watch Video
                 </Button>
             </div>
 
             <div className="bg-slate-800 rounded-xl border border-slate-700 overflow-hidden mb-6">
-                <div className="aspect-video relative" onClick={() => window.open(muscleInfo.exercises[activeExercise].videoLink, "_blank")}>
+                <div className="aspect-video relative" onClick={() => window.open(exercises[activeExercise].vid, "_blank")}>
                     <Image
-                        src={muscleInfo.exercises[activeExercise].image || "/placeholder.svg"}
-                        alt={muscleInfo.exercises[activeExercise].name}
+                        src={exercises[activeExercise].img || "/placeholder.svg"}
+                        alt={exercises[activeExercise].n}
                         fill
                         unoptimized
                         className="object-cover"
@@ -84,20 +103,20 @@ const Exercises: React.FC<ExercisesProps> = ({ muscleInfo }) => {
                 <div className="grid grid-cols-3 gap-4 mb-6">
                     <div>
                     <h4 className="text-sm text-slate-400 mb-1">Difficulty</h4>
-                    <p className="font-medium">{muscleInfo.exercises[activeExercise].difficulty}</p>
+                    <p className="font-medium">{exercises[activeExercise].diff}</p>
                     </div>
                     <div>
                     <h4 className="text-sm text-slate-400 mb-1">Equipment</h4>
-                    <p className="font-medium">{muscleInfo.exercises[activeExercise].equipment}</p>
+                    <p className="font-medium">{exercises[activeExercise].eq}</p>
                     </div>
                     <div>
                     <h4 className="text-sm text-slate-400 mb-1">Target</h4>
-                    <p className="font-medium">{muscleInfo.exercises[activeExercise].target}</p>
+                    <p className="font-medium">{exercises[activeExercise].tgt}</p>
                     </div>
                 </div>
 
                 <h3 className="text-lg font-semibold mb-2">How to Perform</h3>
-                <p className="text-slate-300 mb-4">{muscleInfo.exercises[activeExercise].description}</p>
+                <p className="text-slate-300 mb-4">{exercises[activeExercise].desc}</p>
 
                 <div className="grid grid-cols-2 gap-4 mb-6">
                     <div className="bg-slate-700/50 p-4 rounded-lg flex items-center gap-3">
@@ -106,7 +125,7 @@ const Exercises: React.FC<ExercisesProps> = ({ muscleInfo }) => {
                     </div>
                     <div>
                         <h4 className="text-sm text-slate-400">Sets</h4>
-                        <p className="font-medium">{muscleInfo.exercises[activeExercise].sets}</p>
+                        <p className="font-medium">{exercises[activeExercise].s}</p>
                     </div>
                     </div>
                     <div className="bg-slate-700/50 p-4 rounded-lg flex items-center gap-3">
@@ -115,7 +134,7 @@ const Exercises: React.FC<ExercisesProps> = ({ muscleInfo }) => {
                     </div>
                     <div>
                         <h4 className="text-sm text-slate-400 mb-1">Reps</h4>
-                        <p className="font-medium">{muscleInfo.exercises[activeExercise].reps}</p>
+                        <p className="font-medium">{exercises[activeExercise].r}</p>
                     </div>
                     </div>
                 </div>
@@ -124,7 +143,7 @@ const Exercises: React.FC<ExercisesProps> = ({ muscleInfo }) => {
                     <Info className="w-4 h-4 mr-2 text-amber-400" />
                     Tips
                 </h3>
-                <p className="text-slate-300">{muscleInfo.exercises[activeExercise].tips}</p>
+                <p className="text-slate-300">{exercises[activeExercise].tips}</p>
                 </div>
             </div>
 
@@ -140,8 +159,8 @@ const Exercises: React.FC<ExercisesProps> = ({ muscleInfo }) => {
                 <Button
                   variant="outline"
                   className="border-slate-700 text-slate-700 hover:text-slate-400"
-                  onClick={() => setActiveExercise(Math.min(muscleInfo.exercises.length - 1, activeExercise + 1))}
-                  disabled={activeExercise === muscleInfo.exercises.length - 1}
+                  onClick={() => setActiveExercise(Math.min(exercises.length - 1, activeExercise + 1))}
+                  disabled={activeExercise === exercises.length - 1}
                 >
                   Next Exercise
                 </Button>
