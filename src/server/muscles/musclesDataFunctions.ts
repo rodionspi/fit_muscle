@@ -5,7 +5,7 @@ import {
   doc,
   getDoc
 } from "firebase/firestore";
-import { Exercise, Muscle } from "../../types/Muscle";
+import { Exercise, Muscle, CommonInjury, StretchingExercise } from "../../types/Muscle";
 
 // Check if cached data exists and is fresh (e.g., <24 hours old)
 // Check if cached data exists and is fresh (client-side only)
@@ -46,6 +46,52 @@ const setCachedExercises = (muscleId: string, exercises: Exercise[]) => {
   } catch {
     // ignore quota errors
   }
+};
+
+// Per-muscle common injuries cache (client-side only, 24h TTL)
+const getCachedInjuries = (muscleId: string): CommonInjury[] | null => {
+  if (typeof window === 'undefined' || !window.localStorage) return null;
+  const key = `muscle_injuries_${muscleId}`;
+  const cached = window.localStorage.getItem(key);
+  if (!cached) return null;
+  try {
+    const { timestamp, data } = JSON.parse(cached);
+    if (Date.now() - timestamp < 86400000) {
+      return data as CommonInjury[];
+    }
+  } catch {}
+  return null;
+};
+
+const setCachedInjuries = (muscleId: string, injuries: CommonInjury[]) => {
+  if (typeof window === 'undefined' || !window.localStorage) return;
+  const key = `muscle_injuries_${muscleId}`;
+  try {
+    window.localStorage.setItem(key, JSON.stringify({ data: injuries, timestamp: Date.now() }));
+  } catch {}
+};
+
+// Per-muscle stretching cache (client-side only, 24h TTL)
+const getCachedStretching = (muscleId: string): StretchingExercise[] | null => {
+  if (typeof window === 'undefined' || !window.localStorage) return null;
+  const key = `muscle_stretching_${muscleId}`;
+  const cached = window.localStorage.getItem(key);
+  if (!cached) return null;
+  try {
+    const { timestamp, data } = JSON.parse(cached);
+    if (Date.now() - timestamp < 86400000) {
+      return data as StretchingExercise[];
+    }
+  } catch {}
+  return null;
+};
+
+const setCachedStretching = (muscleId: string, stretches: StretchingExercise[]) => {
+  if (typeof window === 'undefined' || !window.localStorage) return;
+  const key = `muscle_stretching_${muscleId}`;
+  try {
+    window.localStorage.setItem(key, JSON.stringify({ data: stretches, timestamp: Date.now() }));
+  } catch {}
 };
 
 // Fetch from Firestore if no valid cache exists
@@ -90,6 +136,55 @@ export const getMuscleExercisesById = async (muscleId: string): Promise<Exercise
   setCachedExercises(muscleId, exercises);
   return exercises;
 };
+
+export const getCommonInjuriesOfMuscle = async (muscleId: string): Promise<CommonInjury[]> => {
+  // 0) per-muscle cached
+  const cachedInj = getCachedInjuries(muscleId);
+  if (cachedInj) return cachedInj;
+
+  // 1) from cached full muscle data
+  const cached = getCachedMuscles() as Muscle[] | null;
+  if (cached) {
+    const found = cached.find((m) => m.id.toString() === muscleId);
+    if (found?.inj?.length) {
+      setCachedInjuries(muscleId, found.inj as CommonInjury[]);
+      return found.inj as CommonInjury[];
+    }
+  }
+
+  // 2) Firestore subcollection
+  const injCol = collection(db, "muscles", muscleId, "commonInjuries");
+  const injSnap = await getDocs(injCol);
+  const injuries: CommonInjury[] = injSnap.docs.map((d) => d.data() as CommonInjury);
+  setCachedInjuries(muscleId, injuries);
+  return injuries;
+};
+
+export const getStretchingExOfMuscle = async (muscleId: string): Promise<StretchingExercise[]> => {
+  // 0) per-muscle cached
+  const cachedStr = getCachedStretching(muscleId);
+  if (cachedStr) return cachedStr;
+
+  // 1) from cached full muscle data
+  const cached = getCachedMuscles() as Muscle[] | null;
+  if (cached) {
+    const found = cached.find((m) => m.id.toString() === muscleId);
+    if (found?.str?.length) {
+      setCachedStretching(muscleId, found.str as StretchingExercise[]);
+      return found.str as StretchingExercise[];
+    }
+  }
+
+  // 2) Firestore subcollection (named "stretching")
+  const strCol = collection(db, "muscles", muscleId, "stretching");
+  const strSnap = await getDocs(strCol);
+  const stretches: StretchingExercise[] = strSnap.docs.map((d) => d.data() as StretchingExercise);
+  setCachedStretching(muscleId, stretches);
+  return stretches;
+};
+
+// alias for common misspelling
+export const getStrechingExOfMuscle = getStretchingExOfMuscle;
 
 /**
  * Fetch list of muscle names (id and name) from 'muscleNames' collection
