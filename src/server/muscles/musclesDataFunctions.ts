@@ -59,7 +59,9 @@ const getCachedInjuries = (muscleId: string): CommonInjury[] | null => {
     if (Date.now() - timestamp < 86400000) {
       return data as CommonInjury[];
     }
-  } catch {}
+  } catch (error) {
+    console.error("Failed to parse cached injuries:", error);
+  }
   return null;
 };
 
@@ -68,7 +70,9 @@ const setCachedInjuries = (muscleId: string, injuries: CommonInjury[]) => {
   const key = `muscle_injuries_${muscleId}`;
   try {
     window.localStorage.setItem(key, JSON.stringify({ data: injuries, timestamp: Date.now() }));
-  } catch {}
+  } catch (error) {
+    console.error("Failed to set cached injuries:", error);
+  }
 };
 
 // Per-muscle stretching cache (client-side only, 24h TTL)
@@ -82,7 +86,9 @@ const getCachedStretching = (muscleId: string): StretchingExercise[] | null => {
     if (Date.now() - timestamp < 86400000) {
       return data as StretchingExercise[];
     }
-  } catch {}
+  } catch (error) {
+    console.error("Failed to parse cached stretching:", error);
+  }
   return null;
 };
 
@@ -91,7 +97,9 @@ const setCachedStretching = (muscleId: string, stretches: StretchingExercise[]) 
   const key = `muscle_stretching_${muscleId}`;
   try {
     window.localStorage.setItem(key, JSON.stringify({ data: stretches, timestamp: Date.now() }));
-  } catch {}
+  } catch (error) {
+    console.error("Failed to set cached stretching:", error);
+  }
 };
 
 // Fetch from Firestore if no valid cache exists

@@ -1,4 +1,4 @@
-import { Muscle, Exercise } from '@/types/Muscle';
+import { Exercise } from '@/types/Muscle';
 import React, { useEffect, useState } from 'react';
 import { motion } from "framer-motion";
 import { Button } from '@/components/ui/button';

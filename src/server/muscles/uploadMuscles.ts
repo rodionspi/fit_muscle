@@ -1,6 +1,6 @@
 // uploadMuscles.ts
 import { db } from "../../../firebaseConfig.js"; // Firebase config
-import { doc, collection, addDoc, getDocs } from "firebase/firestore";
+import { collection, addDoc, getDocs } from "firebase/firestore";
 import { Muscle } from "../../types/Muscle";
 import musclesList from "./muscleList.js"; // source with exercises arrays
 

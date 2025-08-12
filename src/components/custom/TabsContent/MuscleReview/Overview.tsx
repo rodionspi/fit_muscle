@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Clock, Info, Target } from "lucide-react";
-import { Exercise, Muscle, StretchingExercise } from '@/types/Muscle';
+import { Muscle, StretchingExercise } from '@/types/Muscle';
 import { Progress } from "@/components/ui/progress"
 import { getStrechingExOfMuscle } from '@/server/muscles/musclesDataFunctions';
 
