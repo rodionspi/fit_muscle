@@ -1,6 +1,6 @@
 import { Card, CardContent } from '@/components/ui/card';
 import { getCommonInjuriesOfMuscle } from '@/server/muscles/musclesDataFunctions';
-import { Muscle, CommonInjury } from '@/types/Muscle';
+import { CommonInjury } from '@/types/Muscle';
 import { AlertTriangle } from 'lucide-react';
 import React, { useEffect, useState } from 'react';
 
@@ -25,9 +25,8 @@ const Injuries: React.FC<InjuriesProps> = ({ muscleId }) => {
            });
        };
        fetchCommonInjuries();
-     }, [])
+     }, []);
 
-  console.log("Common Injuries:", commonInjuries);
   return (
         <div>
             <h2 className="text-2xl font-bold mb-6">Common Injuries & Prevention</h2>
