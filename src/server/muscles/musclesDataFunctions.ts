@@ -118,7 +118,6 @@ export const getMuscles = async () => {
       JSON.stringify({ data, timestamp: Date.now() })
     );
   }
-  console.log("Fetched muscles from Firestore", data);
   return data;
 };
 
@@ -146,7 +145,7 @@ export const getMuscleExercisesById = async (muscleId: string): Promise<Exercise
 };
 
 export const getCommonInjuriesOfMuscle = async (muscleId: string): Promise<CommonInjury[]> => {
-  // 0) per-muscle cached
+  // 0) per-Muscle cached
   const cachedInj = getCachedInjuries(muscleId);
   if (cachedInj) return cachedInj;
 
