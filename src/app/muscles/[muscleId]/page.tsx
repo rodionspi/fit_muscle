@@ -1,7 +1,6 @@
 "use client";
 
 import React, {useState, useEffect} from "react";
-import musclesList from "@/components/musclesList";
 import { useParams } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
@@ -13,37 +12,25 @@ import Overview from "@/components/custom/TabsContent/MuscleReview/Overview";
 import Exercises from "@/components/custom/TabsContent/MuscleReview/Exercises";
 import Anatomy from "@/components/custom/TabsContent/MuscleReview/Anatomy";
 import Injuries from "@/components/custom/TabsContent/MuscleReview/Injuries";
-// import { getMuscleWithExercises } from "@/server/muscles/musclesDataFunctions";
+import { useMuscles } from "@/contexts/MusclesContext";
 
 const MusclePage = () => {
   const { muscleId } = useParams(); // takes a parameter from the useParams hook
   const [muscleInfo, setMuscleInfo] = useState<Muscle | null>(null);
-  const [loading, setLoading] = useState(true);
-  const [activeTab, setActiveTab] = useState("overview");
+  const { loading: musclesLoading, getById, error } = useMuscles();
+   const [activeTab, setActiveTab] = useState("overview");
 
   useEffect(() => {
-    setLoading(true);
-    setMuscleInfo(
-      musclesList.find((m: Muscle) => m.id === Number(muscleId)) || null
-    );
-    setLoading(false);
-  }, [muscleId]);
+    const id = Array.isArray(muscleId) ? muscleId[0] : muscleId;
+    if (id) {
+      const m = getById(id);
+      setMuscleInfo(m ?? null);
+    } else {
+      setMuscleInfo(null);
+    }
+  }, [muscleId, getById]);
 
-  // useEffect(() => {
-  //   if (muscleId) {
-  //     getMuscleWithExercises(muscleId as string)
-  //       .then((data) => {
-  //         console.log("Fetched muscle data:", data);
-  //         setLoading(false);
-  //       })
-  //       .catch((error) => {
-  //         console.error("Error fetching muscle data:", error);
-  //         setLoading(false);
-  //       });
-  //   }
-  // }, [muscleId]);
-
-  if (loading) {
+  if (musclesLoading) {
     return (
       <div className="min-h-screen bg-gradient-to-b from-slate-900 to-slate-800 text-white flex items-center justify-center">
         <div className="text-center">
@@ -52,6 +39,18 @@ const MusclePage = () => {
         </div>
       </div>
     )
+  }
+
+  if (error) {
+    return (
+      <div className="min-h-screen bg-gradient-to-b from-slate-900 to-slate-800 text-white flex items-center justify-center">
+        <div className="text-center max-w-md mx-auto p-8 bg-slate-800 rounded-xl border border-slate-700">
+          <AlertTriangle className="w-16 h-16 text-amber-500 mx-auto mb-4" />
+          <h2 className="text-2xl font-bold mb-4">Error</h2>
+          <p className="text-slate-300 mb-6">{error}</p>
+        </div>
+      </div>
+    );
   }
 
   if (!muscleInfo) {
