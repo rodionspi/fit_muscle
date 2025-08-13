@@ -11,7 +11,7 @@ import Image from "next/image";
 import "firebase/compat/auth";
 import { useUser } from "@/contexts/UserContext";
 import { useRouter } from "next/navigation";
-import { auth, provider, signInWithPopup } from "../../../../firebaseConfig.js";
+import { auth, provider, signInWithPopup } from "@/firebaseConfig";
 
 const Registration = () => {
     const [isHidden, setIsHidden] = useState<boolean>(true);
