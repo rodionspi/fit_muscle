@@ -9,7 +9,7 @@ import * as Yup from "yup";
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import { getUser } from "@/server/user/userDataFunctions";
 import { setDataToLS } from "@/server/user/localStorageFunctions";
-import { auth, provider, signInWithPopup } from "../../../../firebaseConfig.js";
+import { auth, provider, signInWithPopup } from "@/firebaseConfig";
 import { signInWithEmailAndPassword } from "firebase/auth";
 // import Image from "next/image";
 // import google_logo from "@/../public/images/logos/google_logo.png";
