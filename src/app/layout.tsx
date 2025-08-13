@@ -5,6 +5,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { UserProvider } from "../contexts/UserContext";
 import { BrowserRouter } from "react-router-dom";
+import { MusclesProvider } from "@/contexts/MusclesContext";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -23,10 +24,14 @@ export default function RootLayout({
               v7_relativeSplatPath: true,
             }}
           >
-            <UserProvider>{children}</UserProvider>
+            <UserProvider>
+              <MusclesProvider>{children}</MusclesProvider>
+            </UserProvider>
           </BrowserRouter>
         ) : (
-          <UserProvider>{children}</UserProvider>
+          <UserProvider>
+            <MusclesProvider>{children}</MusclesProvider>
+          </UserProvider>
         )}
       </body>
     </html>

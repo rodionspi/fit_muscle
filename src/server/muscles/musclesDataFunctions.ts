@@ -105,12 +105,12 @@ const setCachedStretching = (muscleId: string, stretches: StretchingExercise[]) 
 // Fetch from Firestore if no valid cache exists
 export const getMuscles = async () => {
   const cached = getCachedMuscles();
-  if (cached) return cached;
+  if (cached[0]) return cached;
 
   const musclesCol = collection(db, "muscles");
   const snapshot = await getDocs(musclesCol);
   const data = snapshot.docs.map(doc => doc.data());
-
+  console.log("Fetched muscles from Firestore:", data);
   // Cache with timestamp (client-side only)
   if (typeof window !== 'undefined' && window.localStorage) {
     window.localStorage.setItem(

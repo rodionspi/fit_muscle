@@ -1,15 +1,26 @@
 "use client";
 
-import musclesList from '../musclesList';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Info, Calendar } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import GridRender from './TabsContent/MuscleDisplay/GridRender';
 import ListRender from './TabsContent/MuscleDisplay/ListRender';
+import { getMuscles } from '@/server/muscles/musclesDataFunctions';
 // import { Input } from "@/components/ui/input"
 
 const MusclesDisplay = () => {
+    const [musclesList, setMusclesList] = useState([]);
+
+    useEffect(() => {
+        const fetchMuscles = async () => {
+            const muscles = await getMuscles();
+            setMusclesList(muscles);
+            console.log("Fetched muscles:", muscles);
+        };
+        fetchMuscles();
+    }, []);
+
     return (
       <>
         <div className="mb-8">
