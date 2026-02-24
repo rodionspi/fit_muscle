@@ -8,6 +8,7 @@ import { AlertTriangle, Link, ArrowLeft, BicepsFlexed, Play } from "lucide-react
 import Image from "next/image";
 import { Muscle } from "@/types/Muscle";
 import { PageWrapper } from "@/components/custom";
+import { getMuscleImageWithFallback } from "@/lib/muscleImageMapper";
 import Overview from "@/components/custom/TabsContent/MuscleReview/Overview";
 import Exercises from "@/components/custom/TabsContent/MuscleReview/Exercises";
 import Anatomy from "@/components/custom/TabsContent/MuscleReview/Anatomy";
@@ -24,9 +25,9 @@ const MusclePage = () => {
     const id = Array.isArray(muscleId) ? muscleId[0] : muscleId;
     if (id) {
       const m = getById(id);
+      console.log("Fetched muscle info:", m);
+      console.log("Local image path:", getMuscleImageWithFallback(id, m?.img));
       setMuscleInfo(m ?? null);
-    } else {
-      setMuscleInfo(null);
     }
   }, [muscleId, getById]);
 
@@ -75,16 +76,26 @@ const MusclePage = () => {
     <div className="min-h-screen bg-gradient-to-b from-slate-900 to-slate-800 text-white">
       <PageWrapper>
       <div className="relative bg-gradient-to-r from-slate-800 to-slate-700 overflow-hidden">
-        <div className="absolute inset-0 bg-[url('/placeholder.svg?height=600&width=1200')] opacity-10 bg-cover bg-center pointer-events-none"></div>
+        <div className="absolute inset-0 opacity-10 bg-cover bg-center pointer-events-none"></div>
         <div className="container mx-auto px-4 py-12">
           <div className="flex flex-col md:flex-row md:items-start h-full">
             <div className="w-full md:w-1/3 relative h-96 mr-8 sm:mb-8 mb-4">
-              <Image
-                src={muscleInfo.img || "/placeholder.svg"}
-                alt={muscleInfo.n}
-                fill
-                className="object-cover rounded-xl overflow-hidden border-4 border-slate-600 shadow-xl"
-              />
+              {(() => {
+                const id = Array.isArray(muscleId) ? muscleId[0] : muscleId;
+                const imagePath = getMuscleImageWithFallback(id, muscleInfo.img);
+                return imagePath ? (
+                  <Image
+                    src={imagePath}
+                    alt={muscleInfo.n}
+                    fill
+                    className="object-cover rounded-xl overflow-hidden border-4 border-slate-600 shadow-xl"
+                  />
+                ) : (
+                  <div className="w-full h-full flex items-center justify-center bg-slate-700 rounded-xl border-4 border-slate-600">
+                    <BicepsFlexed className="w-24 h-24 text-slate-500" />
+                  </div>
+                );
+              })()}
             </div>
             <div className="w-full md:w-2/3">
               <div className="flex items-center gap-3 mb-2">
