@@ -6,6 +6,7 @@ import {
   getDoc
 } from "firebase/firestore";
 import { Exercise, Muscle, CommonInjury, StretchingExercise } from "../../types/Muscle";
+import { get } from "http";
 
 // Check if cached data exists and is fresh (e.g., <24 hours old)
 // Check if cached data exists and is fresh (client-side only)
@@ -104,8 +105,9 @@ const setCachedStretching = (muscleId: string, stretches: StretchingExercise[]) 
 
 // Fetch from Firestore if no valid cache exists
 export const getMuscles = async () => {
+  console.log("Attempting to fetch muscles...", getCachedMuscles());
   const cached = getCachedMuscles();
-  if (cached[0]) return cached;
+  if (cached) return cached;
 
   const musclesCol = collection(db, "muscles");
   const snapshot = await getDocs(musclesCol);

@@ -4,7 +4,8 @@ import Image from "next/image";
 import Link from 'next/link'
 import { Muscle } from '@/types/Muscle';
 import { Button } from "@/components/ui/button";
-import { ChevronRight } from "lucide-react";
+import { ChevronRight, BicepsFlexed } from "lucide-react";
+import { getMuscleImageWithFallback } from '@/lib/muscleImageMapper';
 
 const GridRender = ({ musclesList }: { musclesList: Muscle[] }) => {
   const [selectedMuscle, setSelectedMuscle] = useState<number | null>(null);
@@ -24,12 +25,21 @@ const GridRender = ({ musclesList }: { musclesList: Muscle[] }) => {
         >
           <div className="aspect-square p-4 flex flex-col items-center justify-center">
             <div className="relative w-full h-3/4 mb-4">
-              <Image
-                src={muscle.img || "/placeholder.svg"}
-                alt={muscle.n}
-                fill
-                className="object-contain"
-              />
+              {(() => {
+                const imagePath = getMuscleImageWithFallback(muscle.id, muscle.img);
+                return imagePath ? (
+                  <Image
+                    src={imagePath}
+                    alt={muscle.n}
+                    fill
+                    className="object-contain"
+                  />
+                ) : (
+                  <div className="w-full h-full flex items-center justify-center">
+                    <BicepsFlexed className="w-16 h-16 text-slate-500" />
+                  </div>
+                );
+              })()}
             </div>
             <h3 className="text-lg font-semibold text-center">{muscle.n}</h3>
           </div>

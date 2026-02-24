@@ -3,6 +3,8 @@ import { Button } from "@/components/ui/button";
 import { Muscle } from "@/types/Muscle";
 import React from "react";
 import Link from "next/link";
+import { getMuscleImageWithFallback } from '@/lib/muscleImageMapper';
+import { BicepsFlexed } from "lucide-react";
 
 const ListRender = ({ musclesList }: { musclesList: Muscle[] }) => {
     return (
@@ -24,12 +26,21 @@ const ListRender = ({ musclesList }: { musclesList: Muscle[] }) => {
                       >
                         <td className="p-4 flex items-center gap-3">
                           <div className="w-10 h-10 relative rounded-md overflow-hidden bg-slate-700 flex-shrink-0">
-                            <Image
-                              src={muscle.img || "/placeholder.svg"}
-                              alt={muscle.n}
-                              fill
-                              className="object-cover"
-                            />
+                            {(() => {
+                              const imagePath = getMuscleImageWithFallback(muscle.id, muscle.img);
+                              return imagePath ? (
+                                <Image
+                                  src={imagePath}
+                                  alt={muscle.n}
+                                  fill
+                                  className="object-cover"
+                                />
+                              ) : (
+                                <div className="w-full h-full flex items-center justify-center">
+                                  <BicepsFlexed className="w-5 h-5 text-slate-500" />
+                                </div>
+                              );
+                            })()}
                           </div>
                           <span className="font-medium">{muscle.n}</span>
                         </td>

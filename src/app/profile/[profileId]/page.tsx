@@ -18,6 +18,7 @@ const ProfilePage = () => {
   useEffect(() => {
     if (!userData) {
       const localStorageUserData = getDataFromLS();
+      console.log("Checking localStorage for user data:", localStorageUserData);
       if(!localStorageUserData) {
         router.push(`/profile/login`)
       }
