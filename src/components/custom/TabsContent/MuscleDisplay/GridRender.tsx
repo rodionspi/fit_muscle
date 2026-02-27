@@ -11,54 +11,61 @@ const GridRender = ({ musclesList }: { musclesList: Muscle[] }) => {
   const [selectedMuscle, setSelectedMuscle] = useState<number | null>(null);
 
   return (
-    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
       {musclesList.map((muscle) => {
+        const imagePath = getMuscleImageWithFallback(muscle.id, muscle.img);
         return (
           <motion.div
-          key={muscle.id}
-          className={`relative overflow-hidden rounded-xl bg-gradient-to-br from-slate-800 to-slate-700 border border-slate-700 hover:border-slate-500 transition-all cursor-pointer group`}
-          whileHover={{ scale: 1.03 }}
-          whileTap={{ scale: 0.98 }}
-          onClick={() =>
-            setSelectedMuscle(muscle.id === selectedMuscle ? null : muscle.id)
-          }
-        >
-          <div className="aspect-square p-4 flex flex-col items-center justify-center">
-            <div className="relative w-full h-3/4 mb-4">
-              {(() => {
-                const imagePath = getMuscleImageWithFallback(muscle.id, muscle.img);
-                return imagePath ? (
-                  <Image
-                    src={imagePath}
-                    alt={muscle.n}
-                    fill
-                    className="object-contain"
-                  />
-                ) : (
-                  <div className="w-full h-full flex items-center justify-center">
-                    <BicepsFlexed className="w-16 h-16 text-slate-500" />
-                  </div>
-                );
-              })()}
-            </div>
-            <h3 className="text-lg font-semibold text-center">{muscle.n}</h3>
-          </div>
+            key={muscle.id}
+            className="relative rounded-2xl bg-zinc-900 border border-white/[0.06] overflow-hidden cursor-pointer group shadow-xl"
+            whileHover={{ y: -4 }}
+            whileTap={{ scale: 0.98 }}
+            transition={{ duration: 0.2, ease: "easeOut" }}
+            onClick={() =>
+              setSelectedMuscle(muscle.id === selectedMuscle ? null : muscle.id)
+            }
+          >
+            {/* Image area */}
+            <div className="relative w-full aspect-square bg-zinc-800/60">
+              {imagePath ? (
+                <Image
+                  src={imagePath}
+                  alt={muscle.n}
+                  fill
+                  className="object-contain p-5 transition-transform duration-300 group-hover:scale-105"
+                />
+              ) : (
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <BicepsFlexed className="w-16 h-16 text-zinc-600" />
+                </div>
+              )}
 
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end justify-center p-4">
-            <Link href={`/muscles/${muscle.id}`}>
-              <Button
-                variant="secondary"
-                size="sm"
-                className="w-full"
-                // Prevent propagation so the parent click doesn't fire
-              >
-                View Details
-                <ChevronRight size={16} className="ml-1" />
-              </Button>
-            </Link>
-          </div>
-        </motion.div>
-      )})}
+              {/* Subtle top highlight*/}
+              <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+
+              {/* Hover overlay */}
+              <div className="absolute inset-0 bg-zinc-950/70 opacity-0 group-hover:opacity-100 transition-opacity duration-250 flex items-center justify-center">
+                <Link href={`/muscles/${muscle.id}`} onClick={(e) => e.stopPropagation()}>
+                  <Button
+                    size="sm"
+                    className="bg-white text-zinc-900 hover:bg-zinc-100 font-semibold shadow-lg px-5 rounded-xl"
+                  >
+                    View Details
+                    <ChevronRight size={15} className="ml-1" />
+                  </Button>
+                </Link>
+              </div>
+            </div>
+
+            {/* Title bar */}
+            <div className="px-4 py-3 border-t border-white/[0.05]">
+              <p className="text-sm font-semibold text-zinc-100 text-center tracking-wide truncate">
+                {muscle.n}
+              </p>
+            </div>
+          </motion.div>
+        );
+      })}
     </div>
   );
 };
