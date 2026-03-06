@@ -6,6 +6,7 @@ import { Muscle } from '@/types/Muscle';
 import { Button } from "@/components/ui/button";
 import { ChevronRight, BicepsFlexed } from "lucide-react";
 import { getMuscleImageWithFallback } from '@/lib/muscleImageMapper';
+import { Fullscreen } from 'lucide-react';
 
 const GridRender = ({ musclesList }: { musclesList: Muscle[] }) => {
   const [selectedMuscle, setSelectedMuscle] = useState<number | null>(null);
@@ -26,13 +27,13 @@ const GridRender = ({ musclesList }: { musclesList: Muscle[] }) => {
             }
           >
             {/* Image area */}
-            <div className="relative w-full aspect-square bg-zinc-800/60">
+            <div className="relative aspect-square bg-zinc-800/60">
               {imagePath ? (
                 <Image
                   src={imagePath}
                   alt={muscle.n}
                   fill
-                  className="object-contain p-5 transition-transform duration-300 group-hover:scale-105"
+                  className="object-cover  duration-300"
                 />
               ) : (
                 <div className="absolute inset-0 flex items-center justify-center">
