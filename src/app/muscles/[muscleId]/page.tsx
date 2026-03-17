@@ -25,8 +25,6 @@ const MusclePage = () => {
     const id = Array.isArray(muscleId) ? muscleId[0] : muscleId;
     if (id) {
       const m = getById(id);
-      console.log("Fetched muscle info:", m);
-      console.log("Local image path:", getMuscleImageWithFallback(id, m?.img));
       setMuscleInfo(m ?? null);
     }
   }, [muscleId, getById]);
@@ -151,7 +149,7 @@ const MusclePage = () => {
             <TabsTrigger value="anatomy" className="text-xs p-2 sm:text-sm sm:p-3 md:text-base ">Anatomy</TabsTrigger>
             <TabsTrigger value="injuries" className="text-xs p-2 sm:text-sm sm:p-3 md:text-base ">Common Injuries</TabsTrigger>
           </TabsList>
-          <TabsContent value={activeTab}>
+          <TabsContent value={activeTab} className="mt-10">
             {activeTab === "overview"  && <Overview   muscleInfo={muscleInfo} />}
             {activeTab === "exercises" && <Exercises  muscleId={Array.isArray(muscleId) ? muscleId[0] : muscleId} />}
             {activeTab === "anatomy" && <Anatomy muscleInfo={muscleInfo} />}

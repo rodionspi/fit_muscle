@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from 'react';
+import dynamic from 'next/dynamic';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Info, Calendar } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -8,6 +9,10 @@ import GridRender from './TabsContent/MuscleDisplay/GridRender';
 import ListRender from './TabsContent/MuscleDisplay/ListRender';
 import { getMuscles } from '@/server/muscles/musclesDataFunctions';
 // import { Input } from "@/components/ui/input"
+
+const ThreeDView = dynamic(() => import('./TabsContent/MuscleDisplay/ThreeDView'), {
+  ssr: false,
+});
 
 const MusclesDisplay = () => {
     const [musclesList, setMusclesList] = useState([]);
@@ -55,11 +60,7 @@ const MusclesDisplay = () => {
           </TabsContent>
 
           <TabsContent value="3d" className="mt-6">
-            <div className="bg-slate-800 rounded-xl border border-slate-700 p-8 text-center">
-              <h3 className="text-xl font-semibold mb-4">3D Muscle Viewer</h3>
-              <p className="text-slate-300 mb-6">Interactive 3D model coming soon! Explore muscles from all angles.</p>
-              <Button>Get Notified</Button>
-            </div>
+            <ThreeDView />
           </TabsContent>
         </Tabs>
       </>

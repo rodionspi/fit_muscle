@@ -14,14 +14,6 @@ const Anatomy: React.FC<AnatomyProps> = ({ muscleInfo }) => {
         <div className="grid md:grid-cols-2 gap-8">
             <div>
                 <h2 className="text-2xl font-bold mb-4">Muscle Anatomy</h2>
-                <div className="w-full h-auto relative">
-                    <Image
-                        src={muscleInfo.img}
-                        alt={muscleInfo.n}
-                        sizes="100vw"
-                        className="object-contain h-100 rounded-xl overflow-hidden border-4 border-slate-600 shadow-xl"
-                    />
-                </div>
                 <div className="grid grid-cols-2 gap-4 mt-6">
                     <Card className="bg-slate-800 border-slate-700">
                         <CardContent className="p-4">
