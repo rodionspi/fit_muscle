@@ -1,171 +1,165 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
+import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
+
+const isMesh = (object: THREE.Object3D): object is THREE.Mesh => {
+    return (object as THREE.Mesh).isMesh === true;
+};
+
+const disposeMeshMaterial = (material: THREE.Material | THREE.Material[]) => {
+    if (Array.isArray(material)) {
+        material.forEach((mat: THREE.Material) => mat.dispose());
+        return;
+    }
+    material.dispose();
+};
 
 const ThreeDView = () => {
     const containerRef = useRef<HTMLDivElement | null>(null);
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
         const container = containerRef.current;
         if (!container) return;
 
         const scene = new THREE.Scene();
-        scene.background = new THREE.Color("#0b1220");
+        scene.background = new THREE.Color("#0b1220"); // Dunkler Hintergrund beibehalten
 
-        const camera = new THREE.PerspectiveCamera(45, container.clientWidth / container.clientHeight, 0.1, 100);
-        camera.position.set(0, 1.5, 4.5); // Leicht zurückgesetzt für besseren Überblick
+        const camera = new THREE.PerspectiveCamera(
+            45,
+            container.clientWidth / container.clientHeight,
+            0.1,
+            100
+        );
+        camera.position.set(0, 1.45, 4.2); // Kamera-Position beibehalten
 
         const renderer = new THREE.WebGLRenderer({ antialias: true });
         renderer.setPixelRatio(window.devicePixelRatio);
         renderer.setSize(container.clientWidth, container.clientHeight);
         renderer.outputColorSpace = THREE.SRGBColorSpace;
+        
+        // --- 1. SCHATTEN AKTIVIEREN FÜR REALISMUS ---
+        // Dies ist der Schlüssel, um die Muskeln wie im Bild hervorzuheben.
+        renderer.shadowMap.enabled = true;
+        renderer.shadowMap.type = THREE.PCFSoftShadowMap; // Sanfte Schatten
+        
         container.appendChild(renderer.domElement);
 
         const controls = new OrbitControls(camera, renderer.domElement);
         controls.enableDamping = true;
         controls.dampingFactor = 0.06;
-        controls.target.set(0, 1.0, 0);
+        controls.target.set(0, 1.1, 0);
         controls.minDistance = 2.2;
         controls.maxDistance = 8;
         controls.maxPolarAngle = Math.PI * 0.9;
 
-        // --- BELEUCHTUNG ---
-        // Angepasste Beleuchtung, um "Muskeln" (Rundungen) besser hervorzuheben
+        // --- 2. BELEUCHTUNG FÜR MUSKEL-DEFINITION ---
+        // Ein Studio-Beleuchtungs-Setup, das Schatten wirft und Highlights setzt.
+
         const hemiLight = new THREE.HemisphereLight(0xdbeafe, 0x0f172a, 0.4);
         scene.add(hemiLight);
 
-        const keyLight = new THREE.DirectionalLight(0xffffff, 1.8);
-        keyLight.position.set(3, 5, 4);
-        scene.add(keyLight);
+        // Die Haupt-Lichtquelle, die Schatten wirft (key light)
+        const directionalLight = new THREE.DirectionalLight(0xffffff, 2.5); // Erhöhte Intensität
+        directionalLight.position.set(2, 5, 4); // Positioniert, um Schatten unter den Muskeln zu werfen
+        directionalLight.castShadow = true; // Aktiviert Schattenwerfen
+        
+        // Schatten-Einstellungen für bessere Qualität
+        directionalLight.shadow.mapSize.width = 1024;
+        directionalLight.shadow.mapSize.height = 1024;
+        directionalLight.shadow.camera.near = 0.5;
+        directionalLight.shadow.camera.far = 50;
+        directionalLight.shadow.camera.left = -5;
+        directionalLight.shadow.camera.right = 5;
+        directionalLight.shadow.camera.top = 5;
+        directionalLight.shadow.camera.bottom = -5;
+        scene.add(directionalLight);
 
-        const fillLight = new THREE.DirectionalLight(0x9cc7ff, 0.6);
-        fillLight.position.set(-3, 2, -3);
-        scene.add(fillLight);
+        // Subtiles Fülllicht für die Rückseite
+        const backLight = new THREE.DirectionalLight(0x9cc7ff, 1.0);
+        backLight.position.set(-2, 1, -3);
+        scene.add(backLight);
 
-        const floor = new THREE.Mesh(
-            new THREE.CircleGeometry(3.4, 48),
-            new THREE.MeshStandardMaterial({ color: 0x111827, roughness: 0.92 })
+        // --- 3. DER BODEN (BEIBEHALTEN, ABER SCHATTEN EMPFANGEND) ---
+        const floorGeometry = new THREE.CircleGeometry(3.4, 48);
+        const floorMaterial = new THREE.MeshStandardMaterial({
+            color: 0x111827,
+            roughness: 0.92,
+        });
+        const floorMesh = new THREE.Mesh(floorGeometry, floorMaterial);
+        floorMesh.rotation.x = -Math.PI / 2;
+        floorMesh.position.y = -0.72; // Boden tiefer gesetzt
+        floorMesh.receiveShadow = true; // Empfängt Schatten des Modells
+        scene.add(floorMesh);
+
+        // --- 4. DAS MUSKELMODELL LADEN ---
+        const loader = new GLTFLoader();
+        
+        // PLATZHALTER-PFAD: Ändere dies zu deiner tatsächlichen Modelldatei.
+        const modelUrl = "/models/muscle_man.glb"; 
+
+        loader.load(
+            modelUrl,
+            (gltf) => {
+                const modelScene = gltf.scene;
+
+                // --- MODELL-OPTIMIERUNGEN ---
+                // a) Skalierung & Zentrierung (unvorhersehbare Modellgrößen handhaben)
+                const box = new THREE.Box3().setFromObject(modelScene);
+                const size = box.getSize(new THREE.Vector3());
+                const center = box.getCenter(new THREE.Vector3());
+
+                // Modell skalieren, um in die Szene zu passen (angenommen, es ist zu groß oder klein)
+                const desiredHeight = 1.8; // Zielhöhe in Metern
+                const scaleFactor = desiredHeight / size.y;
+                modelScene.scale.set(scaleFactor, scaleFactor, scaleFactor);
+
+                // Modell zentrieren
+                modelScene.position.sub(center.multiplyScalar(scaleFactor));
+                // Positionierung in der Szene, passend zur Kamera und zum Boden
+                modelScene.position.y = size.y * scaleFactor / 2 - 0.72; 
+
+                // b) Materialien und Schatten
+                modelScene.traverse((child) => {
+                    if (isMesh(child)) {
+                        child.castShadow = true; // Jedes Teil wirft Schatten
+                        child.receiveShadow = true; // Jedes Teil empfängt Schatten
+                        // Stellen Sie sicher, dass das Material PBR-kompatibel ist (Standard in GLTF)
+                        // und nicht zu glänzend oder dunkel ist.
+                    }
+                });
+
+                scene.add(modelScene);
+                setIsLoading(false); // Ladezustand beenden
+
+                console.log("Muskelmodell erfolgreich geladen!");
+            },
+            // Fortschritts-Callback (optional)
+            (xhr) => {
+                console.log((xhr.loaded / xhr.total * 100) + '% loaded');
+            },
+            // Fehler-Callback
+            (error) => {
+                console.error("Fehler beim Laden des Modells:", error);
+                setIsLoading(false); // Ladezustand beenden
+            }
         );
-        floor.rotation.x = -Math.PI / 2;
-        floor.position.y = -1.0; // Boden tiefer gesetzt
-        scene.add(floor);
 
-        // --- MATERIALIEN ---
-        const skinMaterial = new THREE.MeshStandardMaterial({ color: 0xf2c8ad, roughness: 0.6, metalness: 0.1 });
-        const bodyMaterial = new THREE.MeshStandardMaterial({ color: 0x3b82c4, roughness: 0.4, metalness: 0.1 });
-        const darkMaterial = new THREE.MeshStandardMaterial({ color: 0x1e293b, roughness: 0.65, metalness: 0.1 });
-
-        const human = new THREE.Group();
-        human.position.y = 0.2;
-        scene.add(human);
-
-        // --- OBERKÖRPER (V-Form für muskulöses Aussehen) ---
-        const torsoProfile = [
-            new THREE.Vector2(0.20, -0.38), // Schmale Taille
-            new THREE.Vector2(0.28, -0.15), // Bauch
-            new THREE.Vector2(0.40, 0.15),  // Untere Brust/Latissimus
-            new THREE.Vector2(0.48, 0.35),  // Breite obere Brust
-            new THREE.Vector2(0.32, 0.48),  // Nackenansatz
+        // --- 5. AUFRÄUMEN UND UNMOUNTING (Verbessert) ---
+        const disposableObjects: (THREE.BufferGeometry | THREE.Material)[] = [
+            floorGeometry,
+            floorMaterial
         ];
-        const torso = new THREE.Mesh(new THREE.LatheGeometry(torsoProfile, 44), bodyMaterial);
-        torso.position.set(0, 0.78, 0);
-        // Tiefe (Z) etwas flacher für eine menschlichere Brustform
-        torso.scale.set(1.15, 1.05, 0.7); 
-        human.add(torso);
-
-        const pelvis = new THREE.Mesh(new THREE.CapsuleGeometry(0.18, 0.15, 10, 18), bodyMaterial);
-        pelvis.position.set(0, 0.36, 0.0);
-        pelvis.scale.set(1.3, 1, 0.8);
-        human.add(pelvis);
-
-        // --- KOPF & HALS ---
-        const neck = new THREE.Mesh(new THREE.CylinderGeometry(0.09, 0.12, 0.15, 24), skinMaterial); // Dickerer Hals
-        neck.position.set(0, 1.28, 0.01);
-        human.add(neck);
-
-        const head = new THREE.Mesh(new THREE.SphereGeometry(0.165, 36, 28), skinMaterial);
-        head.position.set(0, 1.52, 0.02);
-        head.scale.set(0.95, 1.1, 0.95);
-        human.add(head);
-
-        const shoulderSpan = 0.48; // Breitere Schultern
-        const hipOffset = 0.15;
-
-        // --- ARME (Mit "Bizeps") ---
-        const buildArm = (side: number) => {
-            const shoulder = new THREE.Mesh(new THREE.SphereGeometry(0.12, 24, 18), bodyMaterial); // Große Schultermuskeln (Deltamuskel)
-            shoulder.position.set(side * shoulderSpan, 1.15, 0.0);
-            human.add(shoulder);
-
-            const upperArm = new THREE.Mesh(new THREE.CylinderGeometry(0.09, 0.07, 0.38, 20), skinMaterial); // Dickerer Oberarm
-            upperArm.position.set(side * (shoulderSpan + 0.1), 0.92, 0.0);
-            upperArm.rotation.z = side * -0.2;
-            human.add(upperArm);
-
-            const elbow = new THREE.Mesh(new THREE.SphereGeometry(0.065, 20, 14), skinMaterial);
-            elbow.position.set(side * (shoulderSpan + 0.16), 0.74, 0.0);
-            human.add(elbow);
-
-            const forearm = new THREE.Mesh(new THREE.CylinderGeometry(0.065, 0.045, 0.32, 20), skinMaterial);
-            forearm.position.set(side * (shoulderSpan + 0.2), 0.58, 0.02);
-            forearm.rotation.z = side * -0.15;
-            human.add(forearm);
-
-            const hand = new THREE.Mesh(new THREE.BoxGeometry(0.09, 0.12, 0.06), skinMaterial);
-            hand.position.set(side * (shoulderSpan + 0.24), 0.38, 0.03);
-            hand.rotation.z = side * -0.08;
-            human.add(hand);
-
-            return { shoulder, upperArm, elbow, forearm, hand };
-        };
-
-        const leftArm = buildArm(-1);
-        const rightArm = buildArm(1);
-
-        // --- BEINE (Kräftige Oberschenkel) ---
-        const buildLeg = (side: number) => {
-            const hip = new THREE.Mesh(new THREE.SphereGeometry(0.1, 22, 16), bodyMaterial);
-            hip.position.set(side * hipOffset, 0.22, 0.0);
-            human.add(hip);
-
-            const thigh = new THREE.Mesh(new THREE.CylinderGeometry(0.13, 0.09, 0.48, 22), bodyMaterial); // Muskulöse Oberschenkel
-            thigh.position.set(side * hipOffset, -0.08, 0.0);
-            human.add(thigh);
-
-            const knee = new THREE.Mesh(new THREE.SphereGeometry(0.08, 20, 14), skinMaterial);
-            knee.position.set(side * hipOffset, -0.34, 0.01);
-            human.add(knee);
-
-            const calf = new THREE.Mesh(new THREE.CylinderGeometry(0.085, 0.06, 0.48, 22), skinMaterial); // Kräftige Waden
-            calf.position.set(side * hipOffset, -0.60, 0.02);
-            human.add(calf);
-
-            const ankle = new THREE.Mesh(new THREE.SphereGeometry(0.055, 18, 12), skinMaterial);
-            ankle.position.set(side * hipOffset, -0.86, 0.02);
-            human.add(ankle);
-
-            const foot = new THREE.Mesh(new THREE.BoxGeometry(0.16, 0.1, 0.32), darkMaterial);
-            foot.position.set(side * hipOffset, -0.93, 0.12);
-            human.add(foot);
-
-            return { hip, thigh, knee, calf, ankle, foot };
-        };
-
-        const leftLeg = buildLeg(-1);
-        const rightLeg = buildLeg(1);
-
-        // --- AUFRÄUMEN (Unverändert) ---
-        const disposableGeometries = [ /* ... deine bisherige Liste ... */ ];
-        const disposableMaterials = [ floor.material, skinMaterial, bodyMaterial, darkMaterial ];
 
         let frameId = 0;
         const clock = new THREE.Clock();
         const animate = () => {
             const elapsed = clock.getElapsedTime();
-            human.rotation.y = Math.sin(elapsed * 0.4) * 0.1;
-            torso.scale.y = 1 + Math.sin(elapsed * 1.5) * 0.015; // "Atmen" etwas präsenter
-            leftArm.forearm.rotation.x = Math.sin(elapsed * 2) * 0.1; // Leichte Armbewegung
-            rightArm.forearm.rotation.x = Math.sin(elapsed * 2) * 0.1;
+            
+            // Die spezifischen Teil-Rotationen (Arm, Bein, Kopf) sind weg,
+            // da wir jetzt ein einzelnes geladenes Modell haben, nicht eine Gruppe von Primitiven.
+
             controls.update();
             renderer.render(scene, camera);
             frameId = requestAnimationFrame(animate);
@@ -184,7 +178,18 @@ const ThreeDView = () => {
             cancelAnimationFrame(frameId);
             window.removeEventListener("resize", onResize);
             controls.dispose();
-            // In einer vollständigen App hier alle Geometrien disposesn (wie in deinem Code)
+            
+            // Dispose alle statischen Geometrien/Materialien
+            disposableObjects.forEach((obj) => obj.dispose());
+            
+            // Dispose das geladene Modell (muss traversiert werden)
+            scene.traverse((child) => {
+                if (isMesh(child)) {
+                    child.geometry.dispose();
+                    disposeMeshMaterial(child.material);
+                }
+            });
+
             renderer.dispose();
             if (renderer.domElement.parentNode === container) {
                 container.removeChild(renderer.domElement);
@@ -193,7 +198,21 @@ const ThreeDView = () => {
     }, []);
 
     return (
-        <div ref={containerRef} style={{ height: "400px", width: "100%" }} className="rounded-xl border border-slate-700 overflow-hidden" />
+        <div
+            ref={containerRef}
+            style={{ height: "400px", width: "100%", position: "relative" }}
+            className="rounded-xl border border-slate-700 overflow-hidden"
+        >
+            {isLoading && (
+                <div style={{
+                    position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)",
+                    color: "white", fontSize: "1.2rem", textAlign: "center", zIndex: 10
+                }}>
+                    Lade fotorealistisches Muskelmodell...
+                    <p style={{ fontSize: "0.8rem", color: "#64748b" }}>Dies kann einen Moment dauern.</p>
+                </div>
+            )}
+        </div>
     );
 };
 
