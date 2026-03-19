@@ -32,7 +32,7 @@ const ThreeDView = () => {
             0.1,
             100
         );
-        camera.position.set(0, 1.45, 4.2); // Kamera-Position beibehalten
+        camera.position.set(0, 1, 4.2); // Kamera-Position beibehalten
 
         const renderer = new THREE.WebGLRenderer({ antialias: true });
         renderer.setPixelRatio(window.devicePixelRatio);
@@ -49,7 +49,7 @@ const ThreeDView = () => {
         const controls = new OrbitControls(camera, renderer.domElement);
         controls.enableDamping = true;
         controls.dampingFactor = 0.06;
-        controls.target.set(0, 1.1, 0);
+        controls.target.set(0, 0, 0);
         controls.minDistance = 2.2;
         controls.maxDistance = 8;
         controls.maxPolarAngle = Math.PI * 0.9;
@@ -200,7 +200,7 @@ const ThreeDView = () => {
     return (
         <div
             ref={containerRef}
-            style={{ height: "400px", width: "100%", position: "relative" }}
+            style={{ height: "700px", width: "100%", position: "relative" }}
             className="rounded-xl border border-slate-700 overflow-hidden"
         >
             {isLoading && (
