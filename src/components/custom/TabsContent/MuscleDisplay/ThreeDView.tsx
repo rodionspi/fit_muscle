@@ -153,10 +153,7 @@ const ThreeDView = () => {
         ];
 
         let frameId = 0;
-        const clock = new THREE.Clock();
-        const animate = () => {
-            const elapsed = clock.getElapsedTime();
-            
+        const animate = () => {            
             // Die spezifischen Teil-Rotationen (Arm, Bein, Kopf) sind weg,
             // da wir jetzt ein einzelnes geladenes Modell haben, nicht eine Gruppe von Primitiven.
 
