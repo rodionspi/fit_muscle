@@ -19,10 +19,6 @@ export default function RootLayout({
       <body className={`${inter.className} bg-zinc-950 text-zinc-100 antialiased`}>
         {typeof window !== "undefined" ? (
           <BrowserRouter
-            future={{
-              v7_startTransition: true,
-              v7_relativeSplatPath: true,
-            }}
           >
             <UserProvider>
               <MusclesProvider>{children}</MusclesProvider>

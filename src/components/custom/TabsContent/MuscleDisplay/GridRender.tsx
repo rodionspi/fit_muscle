@@ -6,7 +6,6 @@ import { Muscle } from '@/types/Muscle';
 import { Button } from "@/components/ui/button";
 import { ChevronRight, BicepsFlexed } from "lucide-react";
 import { getMuscleImageWithFallback } from '@/lib/muscleImageMapper';
-import { Fullscreen } from 'lucide-react';
 
 const GridRender = ({ musclesList }: { musclesList: Muscle[] }) => {
   const [selectedMuscle, setSelectedMuscle] = useState<number | null>(null);

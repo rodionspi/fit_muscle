@@ -6,7 +6,6 @@ import {
   getDoc
 } from "firebase/firestore";
 import { Exercise, Muscle, CommonInjury, StretchingExercise } from "../../types/Muscle";
-import { get } from "http";
 
 // Check if cached data exists and is fresh (e.g., <24 hours old)
 // Check if cached data exists and is fresh (client-side only)

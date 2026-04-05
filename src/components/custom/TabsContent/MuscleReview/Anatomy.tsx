@@ -2,7 +2,6 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Muscle } from "@/types/Muscle";
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@radix-ui/react-accordion";
 import { Check } from "lucide-react";
-import Image from "next/image";
 import React from "react";
 
 interface AnatomyProps {
