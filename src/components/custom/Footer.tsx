@@ -9,7 +9,7 @@ export default function Footer() {
     <footer className="bg-slate-900 border-t border-slate-800">
       {/* Main Footer Content */}
       <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2  gap-8 mx-auto w-[50%]">
+        <div className="grid grid-cols-2  gap-8 mx-auto lg:w-[50%]">
           {/* Brand Section */}
           <div className="lg:col-span-1">
             <div className="flex items-center gap-2 mb-4">
@@ -30,25 +30,11 @@ export default function Footer() {
               Your ultimate companion for muscle growth, strength gains, and fitness progression. Train smarter, not
               harder.
             </p>
-            {/* <div className="flex space-x-4">
-              <Button variant="ghost" size="icon" className="text-slate-400 hover:text-white hover:bg-slate-800">
-                <Facebook size={20} />
-              </Button>
-              <Button variant="ghost" size="icon" className="text-slate-400 hover:text-white hover:bg-slate-800">
-                <Twitter size={20} />
-              </Button>
-              <Button variant="ghost" size="icon" className="text-slate-400 hover:text-white hover:bg-slate-800">
-                <Instagram size={20} />
-              </Button>
-              <Button variant="ghost" size="icon" className="text-slate-400 hover:text-white hover:bg-slate-800">
-                <Youtube size={20} />
-              </Button>
-            </div> */}
           </div>
 
           {/* Quick Links */}
           <div className="px-auto">
-            <h4 className="text-lg font-semibold text-white mb-4 text-center">Quick Links</h4>
+            <h4 className="text-lg font-semibold text-white mb-8 text-center">Quick Links</h4>
             <ul className="space-y-3 mx-auto w-full text-center">
               <li>
                 <Link href="/" className="text-slate-400 hover:text-white transition-colors">
@@ -65,21 +51,6 @@ export default function Footer() {
                   Exercise Library
                 </Link>
               </li>
-              {/* <li>
-                <Link href="/workouts" className="text-slate-400 hover:text-white transition-colors">
-                  Workout Plans
-                </Link>
-              </li>
-              <li>
-                <Link href="/progress" className="text-slate-400 hover:text-white transition-colors">
-                  Progress Tracker
-                </Link>
-              </li>
-              <li>
-                <Link href="/nutrition" className="text-slate-400 hover:text-white transition-colors">
-                  Nutrition Guide
-                </Link>
-              </li> */}
             </ul>
           </div>
 

@@ -17,7 +17,7 @@ const GridRender = ({ musclesList }: { musclesList: Muscle[] }) => {
         return (
           <motion.div
             key={muscle.id}
-            className="relative rounded-2xl bg-zinc-900 border border-white/[0.06] overflow-hidden cursor-pointer group shadow-xl"
+            className="relative rounded-2xl bg-indigo-950 border border-gray-600 overflow-hidden cursor-pointer group shadow-xl"
             whileHover={{ y: -4 }}
             whileTap={{ scale: 0.98 }}
             transition={{ duration: 0.2, ease: "easeOut" }}
