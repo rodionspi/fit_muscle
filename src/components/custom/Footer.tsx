@@ -9,7 +9,7 @@ export default function Footer() {
     <footer className="bg-slate-900 border-t border-slate-800">
       {/* Main Footer Content */}
       <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2  gap-8 mx-auto w-[50%]">
           {/* Brand Section */}
           <div className="lg:col-span-1">
             <div className="flex items-center gap-2 mb-4">
@@ -47,9 +47,9 @@ export default function Footer() {
           </div>
 
           {/* Quick Links */}
-          <div>
-            <h4 className="text-lg font-semibold text-white mb-4">Quick Links</h4>
-            <ul className="space-y-3">
+          <div className="px-auto">
+            <h4 className="text-lg font-semibold text-white mb-4 text-center">Quick Links</h4>
+            <ul className="space-y-3 mx-auto w-full text-center">
               <li>
                 <Link href="/" className="text-slate-400 hover:text-white transition-colors">
                   Muscle Chart
@@ -181,24 +181,17 @@ export default function Footer() {
 
           <div className="flex items-center gap-4">
             <div className="flex items-center gap-2 text-sm text-slate-400">
-              <span>Made with</span>
-              <Heart className="w-4 h-4 text-red-500 fill-current" />
+              <span>Made</span>
               <span>by</span>
               <Link
                 href="https://github.com/rodionspi"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-emerald-400 hover:text-emerald-300 transition-colors font-medium"
+                className="text-blue-400 hover:text-blue-300 transition-colors font-medium"
               >
                 Rodion
               </Link>
             </div>
-            <Button variant="ghost" size="sm" className="text-slate-400 hover:text-white" asChild>
-              <Link href="https://github.com/rodionspi" target="_blank" rel="noopener noreferrer">
-                <Github className="w-4 h-4 mr-2" />
-                GitHub
-              </Link>
-            </Button>
           </div>
         </div>
       </div>
