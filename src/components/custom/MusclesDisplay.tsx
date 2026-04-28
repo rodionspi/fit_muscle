@@ -34,13 +34,13 @@ const MusclesDisplay = () => {
         </div>
         <Tabs defaultValue="grid" className="mb-8">
             <div className="flex flex-col sm:flex-row justify-between items-center">
-              <TabsList className="bg-slate-800 w-full sm:w-auto mb-4 sm:mb-0">
+              <TabsList className="bg-slate-800 w-auto mb-4 sm:mb-0">
                 <TabsTrigger value="grid" className='rounded-s-md'>Grid View</TabsTrigger>
                 <TabsTrigger value="list">List View</TabsTrigger>
                 <TabsTrigger value="3d" className='rounded-e-md'>3D View</TabsTrigger>
               </TabsList>
 
-              <div className="flex gap-2 w-full sm:w-auto justify-center sm:justify-start">
+              <div className="flex gap-2 w-auto justify-center sm:justify-start">
                 <Button variant="outline" size="sm" className="text-slate-300 border-slate-700">
                   <Info size={16} className="mr-2" />
                   Beginner Guide

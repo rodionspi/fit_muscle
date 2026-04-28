@@ -1,218 +1,358 @@
 import PageWrapper from "@/components/custom/PageWrapper"
-import { Github, Mail, Heart, Users, TrendingUp, Target } from "lucide-react"
+import { Github, Heart, Users, TrendingUp, Target } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card";
-import React from "react";
+import { Card, CardContent } from "@/components/ui/card"
+import { Fraunces, Space_Grotesk } from "next/font/google"
+
+const fraunces = Fraunces({
+  subsets: ["latin"],
+  weight: ["400", "600", "700"],
+  variable: "--font-display",
+})
+
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-body",
+})
 
 const About = () => {
   return (
     <PageWrapper>
-      <div className="min-h-screen">
-        {/* Hero Section */}
-        <div className="relative overflow-hidden via-slate-800 to-slate-900 text-white">
-          <div className="absolute inset-0 bg-[url('/placeholder.svg?height=600&width=1200')] opacity-10 bg-cover bg-center"></div>
-          <div className="relative max-w-4xl mx-auto px-6 py-16 text-center">
-            <div className="inline-flex items-center justify-center w-20 h-20 bg-white/10 rounded-full mb-6 backdrop-blur-sm">
-              <Target className="w-10 h-10" />
+      <div className={`${spaceGrotesk.variable} ${fraunces.variable}`} style={{ fontFamily: "var(--font-body)" }}>
+        <div className="min-h-screen bg-gradient-to-b from-stone-50 via-amber-50/60 to-emerald-50 text-slate-900">
+          <section className="relative overflow-hidden">
+            <div className="absolute inset-0">
+              {/* Decorative gradients */}
+              <div className="absolute -top-28 right-0 h-72 w-72 rounded-full bg-amber-300/40 blur-3xl animate-[pulse_10s_ease-in-out_infinite]"></div>
+              <div className="absolute -bottom-36 -left-10 h-96 w-96 rounded-full bg-emerald-300/40 blur-3xl animate-[pulse_12s_ease-in-out_infinite]"></div>
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(15,23,42,0.08),transparent_60%)]"></div>
             </div>
-            <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white to-slate-300 bg-clip-text text-transparent">
-              About Trainer App
-            </h1>
-            <p className="text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed">
-              Your ultimate companion for muscle growth, strength gains, and fitness progression
-            </p>
-          </div>
-        </div>
-
-        {/* Main Content */}
-        <div className="max-w-6xl mx-auto px-6 py-16 rounded-md">
-          {/* Features Grid */}
-          <div className="grid md:grid-cols-3 gap-8 mb-16">
-            <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-              <CardContent className="p-8 text-center">
-                <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full mb-6">
-                  <TrendingUp className="w-8 h-8 text-white" />
-                </div>
-                <h3 className="text-xl font-bold mb-4 text-slate-800">Progress Tracking</h3>
-                <p className="text-slate-600 leading-relaxed">
-                  Advanced analytics to help you progress faster and more effectively in muscle growth and strength
-                  gains.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-              <CardContent className="p-8 text-center">
-                <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-green-500 to-green-600 rounded-full mb-6">
-                  <Target className="w-8 h-8 text-white" />
-                </div>
-                <h3 className="text-xl font-bold mb-4 text-slate-800">Custom Programs</h3>
-                <p className="text-slate-600 leading-relaxed">
-                  Find the best training program that suits your goals, experience level, and preferences.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-              <CardContent className="p-8 text-center">
-                <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-purple-500 to-purple-600 rounded-full mb-6">
-                  <Users className="w-8 h-8 text-white" />
-                </div>
-                <h3 className="text-xl font-bold mb-4 text-slate-800">Visual Learning</h3>
-                <p className="text-slate-600 leading-relaxed">
-                  Choose from muscle displays including interactive tables, graphs, and detailed anatomical charts.
-                </p>
-              </CardContent>
-            </Card>
-          </div>
-
-          {/* What We Offer Section */}
-          <div className="mb-16">
-            <Card className="border-0 shadow-lg overflow-hidden">
-              <div className="bg-gradient-to-r from-slate-800 to-slate-700 p-8">
-                <h2 className="text-3xl font-bold text-white mb-4 flex items-center">
-                  <TrendingUp className="w-8 h-8 mr-3" />
-                  What can this app help you with?
-                </h2>
-              </div>
-              <CardContent className="p-8">
-                <div className="prose prose-lg max-w-none">
-                  <p className="text-slate-700 text-lg leading-relaxed mb-6">
-                    This app will help you figure out how to progress faster and more effectively in muscle growth and
-                    strength gains. You can find the best training program that suits you. You can also choose from
-                    muscle displays such as a table, graph, and more.
+            <div className="relative max-w-6xl mx-auto px-6 py-20 lg:py-28">
+              <div className="grid items-center gap-12 lg:grid-cols-[1.1fr,0.9fr]">
+                <div className="animate-fade-up" style={{ animationDelay: "50ms" }}>
+                  <div className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white/80 px-4 py-2 text-xs uppercase tracking-[0.24em] text-slate-600 shadow-sm">
+                    <span className="h-2 w-2 rounded-full bg-emerald-500"></span>
+                    Built for real training
+                  </div>
+                  <h1
+                    style={{ fontFamily: "var(--font-display)" }}
+                    className="mt-6 text-4xl font-semibold leading-tight text-slate-900 md:text-6xl"
+                  >
+                    About Trainer App
+                  </h1>
+                  <p className="mt-6 max-w-xl text-lg text-slate-700 md:text-xl">
+                    A focused companion for muscle growth, strength gains, and clear weekly training plans.
                   </p>
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <div className="flex items-start space-x-3">
-                      <div className="w-2 h-2 bg-blue-500 rounded-full mt-3 flex-shrink-0"></div>
-                      <p className="text-slate-600">Personalized training programs</p>
-                    </div>
-                    <div className="flex items-start space-x-3">
-                      <div className="w-2 h-2 bg-blue-500 rounded-full mt-3 flex-shrink-0"></div>
-                      <p className="text-slate-600">Interactive muscle visualization</p>
-                    </div>
-                    <div className="flex items-start space-x-3">
-                      <div className="w-2 h-2 bg-blue-500 rounded-full mt-3 flex-shrink-0"></div>
-                      <p className="text-slate-600">Progress tracking and analytics</p>
-                    </div>
-                    <div className="flex items-start space-x-3">
-                      <div className="w-2 h-2 bg-blue-500 rounded-full mt-3 flex-shrink-0"></div>
-                      <p className="text-slate-600">Evidence-based recommendations</p>
-                    </div>
+                  <div className="mt-8 flex flex-wrap gap-4">
+                    <Button size="lg" className="bg-slate-900 text-white hover:bg-slate-800" asChild>
+                      <a href="/exercises">Browse exercises</a>
+                    </Button>
+                    <Button
+                      size="lg"
+                      variant="outline"
+                      className="border-slate-300 text-slate-700 hover:bg-white"
+                      asChild
+                    >
+                      <a href="/profile/registration">Create profile</a>
+                    </Button>
                   </div>
                 </div>
-              </CardContent>
-            </Card>
-          </div>
+                <Card
+                  className="animate-fade-up border border-white/60 bg-white/80 shadow-2xl backdrop-blur"
+                  style={{ animationDelay: "140ms" }}
+                >
+                  <CardContent className="p-8">
+                    <div className="flex items-center justify-between">
+                      <div>
+                        <p className="text-xs uppercase tracking-[0.24em] text-slate-500">Focus</p>
+                        <p className="text-2xl font-semibold text-slate-900">Muscle growth</p>
+                      </div>
+                      <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-emerald-500 text-white shadow-lg">
+                        <Target className="h-6 w-6" />
+                      </div>
+                    </div>
+                    <div className="mt-8 grid gap-4">
+                      <div className="rounded-2xl border border-emerald-100 bg-emerald-50/80 p-4">
+                        <p className="text-sm font-semibold text-emerald-900">Progress snapshots</p>
+                        <p className="mt-1 text-sm text-emerald-900/70">
+                          Keep volume, intensity, and recovery in view.
+                        </p>
+                      </div>
+                      <div className="rounded-2xl border border-amber-100 bg-amber-50/80 p-4">
+                        <p className="text-sm font-semibold text-amber-900">Training clarity</p>
+                        <p className="mt-1 text-sm text-amber-900/70">
+                          See what to train next without the noise.
+                        </p>
+                      </div>
+                      <div className="rounded-2xl border border-slate-200 bg-white/80 p-4">
+                        <p className="text-sm font-semibold text-slate-900">Visual muscle maps</p>
+                        <p className="mt-1 text-sm text-slate-600">
+                          Tables, charts, and anatomy views in one place.
+                        </p>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
+            </div>
+          </section>
 
-          {/* Support Section */}
-          <div className="mb-16">
-            <Card className="border-0 shadow-lg overflow-hidden">
-              <div className="bg-gradient-to-r from-green-600 to-green-500 p-8">
-                <h2 className="text-3xl font-bold text-white mb-4 flex items-center">
-                  <Heart className="w-8 h-8 mr-3" />
-                  How can you help this app grow?
+          <section className="max-w-6xl mx-auto px-6 py-16">
+            <div className="mb-10 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+              <div className="max-w-2xl animate-fade-up" style={{ animationDelay: "120ms" }}>
+                <p className="text-xs uppercase tracking-[0.24em] text-slate-500">Core features</p>
+                <h2
+                  style={{ fontFamily: "var(--font-display)" }}
+                  className="mt-3 text-3xl font-semibold text-slate-900 md:text-4xl"
+                >
+                  Train with intent, not guesswork.
                 </h2>
               </div>
-              <CardContent className="p-8">
-                <p className="text-slate-700 text-lg leading-relaxed mb-8">
-                  I would be glad if you could share this application with colleagues, friends, relatives and so on. You
-                  can also send me donations if you want to contribute to the development of this application (the card
-                  number is attached in my github, see below)
+              <p
+                className="max-w-md text-slate-600 animate-fade-up"
+                style={{ animationDelay: "180ms" }}
+              >
+                Every screen keeps you focused on progression, balance, and smarter programming.
+              </p>
+            </div>
+            <div className="grid gap-8 md:grid-cols-3">
+              <Card
+                className="group animate-fade-up border border-white/60 bg-white/80 shadow-lg backdrop-blur transition duration-300 hover:-translate-y-1 hover:shadow-xl"
+                style={{ animationDelay: "220ms" }}
+              >
+                <CardContent className="p-7">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-emerald-500 text-white shadow-md">
+                    <TrendingUp className="h-6 w-6" />
+                  </div>
+                  <h3 className="mt-6 text-xl font-semibold text-slate-900">Progress tracking</h3>
+                  <p className="mt-3 text-slate-600">
+                    Stay accountable with session history, volume trends, and clear recovery cues.
+                  </p>
+                </CardContent>
+              </Card>
+              <Card
+                className="group animate-fade-up border border-white/60 bg-white/80 shadow-lg backdrop-blur transition duration-300 hover:-translate-y-1 hover:shadow-xl"
+                style={{ animationDelay: "280ms" }}
+              >
+                <CardContent className="p-7">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-amber-500 text-white shadow-md">
+                    <Target className="h-6 w-6" />
+                  </div>
+                  <h3 className="mt-6 text-xl font-semibold text-slate-900">Custom programs</h3>
+                  <p className="mt-3 text-slate-600">
+                    Build routines that match your goals, time, and training experience.
+                  </p>
+                </CardContent>
+              </Card>
+              <Card
+                className="group animate-fade-up border border-white/60 bg-white/80 shadow-lg backdrop-blur transition duration-300 hover:-translate-y-1 hover:shadow-xl"
+                style={{ animationDelay: "340ms" }}
+              >
+                <CardContent className="p-7">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-slate-900 text-white shadow-md">
+                    <Users className="h-6 w-6" />
+                  </div>
+                  <h3 className="mt-6 text-xl font-semibold text-slate-900">Visual learning</h3>
+                  <p className="mt-3 text-slate-600">
+                    Choose tables, charts, or anatomy views that explain each muscle group fast.
+                  </p>
+                </CardContent>
+              </Card>
+            </div>
+          </section>
+
+          <section className="max-w-6xl mx-auto px-6 pb-16">
+            <div className="grid items-center gap-10 lg:grid-cols-[1.05fr,0.95fr]">
+              <div className="animate-fade-up" style={{ animationDelay: "120ms" }}>
+                <p className="text-xs uppercase tracking-[0.24em] text-slate-500">What you get</p>
+                <h2
+                  style={{ fontFamily: "var(--font-display)" }}
+                  className="mt-3 text-3xl font-semibold text-slate-900 md:text-4xl"
+                >
+                  A clear path from goal to daily action.
+                </h2>
+                <p className="mt-4 text-lg text-slate-600">
+                  The app helps you plan ahead, train with purpose, and understand what each session is doing for you.
                 </p>
-                <div className="flex flex-wrap gap-4">
-                  <Button className="bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white">
-                    <Users className="w-4 h-4 mr-2" />
-                    Share with Friends
-                  </Button>
-                  <Button variant="outline" className="border-green-500 text-green-600 hover:bg-green-50">
-                    <Heart className="w-4 h-4 mr-2" />
-                    Support Development
-                  </Button>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-
-          {/* Developer Section */}
-          <div className="mb-16">
-            <Card className="border-0 shadow-lg overflow-hidden">
-              <div className="bg-gradient-to-r from-purple-600 to-purple-500 p-8">
-                <h2 className="text-3xl font-bold text-white mb-4 flex items-center">
-                  <Github className="w-8 h-8 mr-3" />
-                  Who is working on the website development?
-                </h2>
-              </div>
-              <CardContent className="p-8">
-                <div className="flex flex-col md:flex-row items-start md:items-center gap-8">
-                  <div className="flex-1">
-                    <p className="text-slate-700 text-lg leading-relaxed mb-6">
-                      My{" "}
-                      <a
-                        href="https://github.com/rodionspi"
-                        className="text-purple-600 hover:text-purple-700 font-semibold underline decoration-2 underline-offset-2 transition-colors"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        github
-                      </a>
-                      . I am a developer with two years of experience. I have experience with JavaScript and TypeScript
-                      languages. If you want to ask me something or you are interested in something, write to me at my
-                      e-mail below
+                <div className="mt-8 grid gap-4 sm:grid-cols-2">
+                  <div className="rounded-2xl border border-slate-200 bg-white/70 p-4">
+                    <p className="text-sm font-semibold text-slate-900">Personalized programs</p>
+                    <p className="mt-2 text-sm text-slate-600">
+                      Adjust volume and focus based on your goals.
                     </p>
-                    <div className="flex flex-wrap gap-3">
-                      <span className="px-3 py-1 bg-yellow-100 text-yellow-800 rounded-full text-sm font-medium">
+                  </div>
+                  <div className="rounded-2xl border border-slate-200 bg-white/70 p-4">
+                    <p className="text-sm font-semibold text-slate-900">Muscle visualization</p>
+                    <p className="mt-2 text-sm text-slate-600">
+                      Understand what is trained and what needs attention.
+                    </p>
+                  </div>
+                  <div className="rounded-2xl border border-slate-200 bg-white/70 p-4">
+                    <p className="text-sm font-semibold text-slate-900">Progress analytics</p>
+                    <p className="mt-2 text-sm text-slate-600">
+                      See performance changes across weeks.
+                    </p>
+                  </div>
+                  <div className="rounded-2xl border border-slate-200 bg-white/70 p-4">
+                    <p className="text-sm font-semibold text-slate-900">Evidence-based cues</p>
+                    <p className="mt-2 text-sm text-slate-600">
+                      Practical guidance based on training science.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <Card
+                className="animate-fade-up border border-emerald-100 bg-white/80 shadow-xl backdrop-blur"
+                style={{ animationDelay: "200ms" }}
+              >
+                <CardContent className="p-8">
+                  <div className="flex items-center gap-3">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-slate-900 text-white">
+                      <TrendingUp className="h-6 w-6" />
+                    </div>
+                    <div>
+                      <p className="text-xs uppercase tracking-[0.24em] text-slate-500">Training loop</p>
+                      <p className="text-xl font-semibold text-slate-900">Plan. Train. Review.</p>
+                    </div>
+                  </div>
+                  <div className="mt-6 space-y-4">
+                    <div className="flex items-start gap-3">
+                      <span className="mt-1 inline-flex h-6 w-6 items-center justify-center rounded-full bg-emerald-500 text-xs font-semibold text-white">
+                        1
+                      </span>
+                      <div>
+                        <p className="text-sm font-semibold text-slate-900">Set your weekly focus</p>
+                        <p className="text-sm text-slate-600">Pick muscle groups and goal intensity.</p>
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <span className="mt-1 inline-flex h-6 w-6 items-center justify-center rounded-full bg-amber-500 text-xs font-semibold text-white">
+                        2
+                      </span>
+                      <div>
+                        <p className="text-sm font-semibold text-slate-900">Train with structure</p>
+                        <p className="text-sm text-slate-600">Use templates that adapt to your sessions.</p>
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <span className="mt-1 inline-flex h-6 w-6 items-center justify-center rounded-full bg-slate-900 text-xs font-semibold text-white">
+                        3
+                      </span>
+                      <div>
+                        <p className="text-sm font-semibold text-slate-900">Review and adjust</p>
+                        <p className="text-sm text-slate-600">See progress, then refine your plan.</p>
+                      </div>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+          </section>
+
+          <section className="max-w-6xl mx-auto px-6 pb-16">
+            <Card className="overflow-hidden border-0 bg-gradient-to-r from-emerald-700 via-teal-700 to-slate-800 text-white shadow-2xl">
+              <div className="p-8 md:p-10">
+                <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+                  <div className="max-w-2xl animate-fade-up" style={{ animationDelay: "120ms" }}>
+                    <div className="flex items-center gap-3 text-emerald-100">
+                      <Heart className="h-6 w-6" />
+                      <p className="text-xs uppercase tracking-[0.24em]">Support</p>
+                    </div>
+                    <h2
+                      style={{ fontFamily: "var(--font-display)" }}
+                      className="mt-4 text-3xl font-semibold text-white"
+                    >
+                      Help the app grow with the community.
+                    </h2>
+                    <p className="mt-4 text-lg text-emerald-100/90">
+                      Share the platform with friends or support development on GitHub.
+                    </p>
+                  </div>
+                  <div className="flex flex-wrap gap-4">
+                    <Button className="bg-white text-slate-900 hover:bg-emerald-50">
+                      <Users className="mr-2 h-4 w-4" />
+                      Share with friends
+                    </Button>
+                    <Button variant="outline" className="border-white text-white hover:bg-white/10" asChild>
+                      <a href="https://github.com/rodionspi" target="_blank" rel="noopener noreferrer">
+                        <Heart className="mr-2 h-4 w-4" />
+                        Support development
+                      </a>
+                    </Button>
+                  </div>
+                </div>
+              </div>
+            </Card>
+          </section>
+
+          <section className="max-w-6xl mx-auto px-6 pb-16">
+            <Card className="border border-white/60 bg-white/80 shadow-xl backdrop-blur">
+              <CardContent className="p-8 md:p-10">
+                <div className="flex flex-col gap-8 md:flex-row md:items-center md:justify-between">
+                  <div className="max-w-2xl animate-fade-up" style={{ animationDelay: "100ms" }}>
+                    <p className="text-xs uppercase tracking-[0.24em] text-slate-500">Developer</p>
+                    <h2
+                      style={{ fontFamily: "var(--font-display)" }}
+                      className="mt-3 text-3xl font-semibold text-slate-900"
+                    >
+                      Built by an independent developer.
+                    </h2>
+                    <p className="mt-4 text-lg text-slate-600">
+                      I build with JavaScript and TypeScript, focusing on thoughtful UI and clear training flows. Reach
+                      out on GitHub if you want to collaborate or share ideas.
+                    </p>
+                    <div className="mt-6 flex flex-wrap gap-3">
+                      <span className="rounded-full bg-amber-100 px-3 py-1 text-sm font-medium text-amber-800">
                         JavaScript
                       </span>
-                      <span className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-medium">
+                      <span className="rounded-full bg-blue-100 px-3 py-1 text-sm font-medium text-blue-800">
                         TypeScript
                       </span>
-                      <span className="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm font-medium">
+                      <span className="rounded-full bg-emerald-100 px-3 py-1 text-sm font-medium text-emerald-800">
                         React
                       </span>
-                      <span className="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm font-medium">
-                        2+ Years Experience
+                      <span className="rounded-full bg-slate-100 px-3 py-1 text-sm font-medium text-slate-700">
+                        2+ years experience
                       </span>
                     </div>
                   </div>
                   <div className="flex flex-col gap-3">
-                    <Button variant="outline" className="border-purple-500 text-purple-600 hover:bg-purple-50" asChild>
+                    <Button variant="outline" className="border-slate-300 text-slate-700 hover:bg-white" asChild>
                       <a href="https://github.com/rodionspi" target="_blank" rel="noopener noreferrer">
-                        <Github className="w-4 h-4 mr-2" />
+                        <Github className="mr-2 h-4 w-4" />
                         View GitHub
                       </a>
                     </Button>
-                    <Button variant="outline" className="border-slate-500 text-slate-600 hover:bg-slate-50">
-                      <Mail className="w-4 h-4 mr-2" />
-                      Send Email
+                    <Button className="bg-slate-900 text-white hover:bg-slate-800" asChild>
+                      <a href="/profile/login">Sign in</a>
                     </Button>
                   </div>
                 </div>
               </CardContent>
             </Card>
-          </div>
+          </section>
 
-          {/* Call to Action */}
-          <div className="text-center">
-            <Card className="border-0 shadow-lg bg-gradient-to-r from-slate-900 to-slate-800 text-white">
+          <section className="max-w-6xl mx-auto px-6 pb-20 text-center">
+            <Card className="border-0 bg-gradient-to-r from-slate-900 via-slate-800 to-emerald-900 text-white shadow-2xl">
               <CardContent className="p-12">
-                <h3 className="text-3xl font-bold mb-4">Ready to Start Your Fitness Journey?</h3>
-                <p className="text-slate-300 text-lg mb-8 max-w-2xl mx-auto">
-                  Join thousands of users who are already achieving their fitness goals with our comprehensive training
-                  platform.
+                <h3
+                  style={{ fontFamily: "var(--font-display)" }}
+                  className="text-3xl font-semibold"
+                >
+                  Ready to start your next training block?
+                </h3>
+                <p className="mx-auto mt-4 max-w-2xl text-lg text-slate-200">
+                  Organize your plan, visualize your progress, and stay consistent week after week.
                 </p>
-                <div className="flex flex-wrap justify-center gap-4">
-                  <Button
-                    size="lg"
-                    variant="outline"
-                    className="border-white text-slate-900"
-                  >
-                    View Muscle Chart
+                <div className="mt-8 flex flex-wrap justify-center gap-4">
+                  <Button size="lg" className="bg-white text-slate-900 hover:bg-emerald-50" asChild>
+                    <a href="/exercises">Start with exercises</a>
                   </Button>
                 </div>
               </CardContent>
             </Card>
-          </div>
+          </section>
         </div>
       </div>
     </PageWrapper>
