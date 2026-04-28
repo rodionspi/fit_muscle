@@ -24,7 +24,7 @@ function PageWrapper({ children }: { children?: React.ReactNode }) {
         <Header />
       </header>
 
-      <main className="container mx-auto px-4 py-8">
+      <main className="container mx-auto px-20 py-8">
         {children || <div>Loading content...</div>}
       </main>
 
