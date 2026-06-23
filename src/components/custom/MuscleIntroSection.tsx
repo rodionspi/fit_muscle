@@ -90,10 +90,15 @@ const MuscleIntroSection = () => {
 
   useLayoutEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
+    // Tell GSAP: "Use ScrollTrigger, we need it."
 
-    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches; 
+    // We check whether the user has enabled the "minimum animations" setting in the system.
+    // If yes, prefersReducedMotion = true.
     const cards = stepRefs.current.filter(Boolean) as HTMLDivElement[];
     const panels = panelRefs.current.filter(Boolean) as HTMLDivElement[];
+    // We take arrays of React refs and turn them into pure arrays of DOM elements.
+    // filter(Boolean) — removes null and undefined elements.
 
     if (prefersReducedMotion) {
       gsap.set([headerRef.current, previewCardRef.current, footerRef.current, cards], {
@@ -101,8 +106,13 @@ const MuscleIntroSection = () => {
       });
       return;
     }
+    // If the user does NOT want animations:
+    // Remove ALL GSAP styles (clearProps: "all")
+    // Exit the function (return)
+    // In other words: no animations, everything is static.
 
     const ctx = gsap.context(() => {
+      // It's like a sandbox for animations.
       gsap.set(panels, { autoAlpha: 0, y: 18 });
       gsap.set(panels[0], { autoAlpha: 1, y: 0 });
       gsap.set(cards, { autoAlpha: 0, y: 34, scale: 0.98 });
@@ -160,10 +170,11 @@ const MuscleIntroSection = () => {
       cards.forEach((card, index) => {
         ScrollTrigger.create({
           trigger: card,
-          start: "top 58%",
-          end: "bottom 42%",
+          start: "top 35%",
+          end: "top 35%",
           onEnter: () => setActiveStep(index),
           onEnterBack: () => setActiveStep(index),
+          markers: true,
         });
 
         gsap.from(card.querySelectorAll("[data-gsap-step-child]"), {
@@ -269,7 +280,7 @@ const MuscleIntroSection = () => {
   const activeAccent = introSteps[activeStep]?.accent ?? "#94a3b8";
 
   return (
-    <section ref={sectionRef} className="relative mb-12 overflow-hidden">
+    <section ref={sectionRef} className="relative mb-12">
       <div className="top-0 flex items-center w-full">
         <div
           className={`relative py-10 ${spaceGrotesk.variable} ${fraunces.variable} w-full`}
@@ -285,7 +296,7 @@ const MuscleIntroSection = () => {
             </p>
           </div>
 
-          <div className="mt-10 grid w-full gap-10 lg:grid-cols-[1.1fr,0.9fr]">
+          <div className="mt-10 w-full gap-10">
             <div className="relative order-2 pl-8 lg:order-1">
               <div className="absolute left-3 top-4 bottom-4 w-px bg-slate-800">
                 <span
@@ -349,59 +360,6 @@ const MuscleIntroSection = () => {
             </div>
 
             <div className="relative order-1 sticky top-24 lg:order-2">
-              <div ref={previewCardRef} className="rounded-3xl border border-slate-800 bg-slate-900/80 p-6 shadow-xl md:p-8">
-                <div className="flex items-start justify-between gap-4">
-                  <div ref={previewContentRef}>
-                    <p className="text-xs uppercase tracking-[0.32em] text-slate-400">Live preview</p>
-                    <h4
-                      style={{ fontFamily: "var(--font-display)" }}
-                      className="mt-3 text-2xl font-semibold text-white md:text-3xl"
-                    >
-                      {introSteps[activeStep]?.panelTitle}
-                    </h4>
-                  </div>
-                  <div
-                    ref={previewDotRef}
-                    className="flex h-12 w-12 items-center justify-center rounded-2xl bg-slate-900/90 shadow-inner"
-                    style={{ boxShadow: `0 0 0 1px ${activeAccent}55` }}
-                  >
-                    <span className="h-2.5 w-2.5 rounded-full" style={{ backgroundColor: activeAccent }} />
-                  </div>
-                </div>
-
-                <div className="relative mt-6 min-h-[260px]">
-                  {introSteps.map((step, index) => (
-                    <div
-                      key={step.panelTitle}
-                      ref={(element) => {
-                        panelRefs.current[index] = element;
-                      }}
-                      className={`absolute inset-0 ${
-                        activeStep === index ? "opacity-100" : "opacity-0 pointer-events-none"
-                      }`}
-                    >
-                      <p data-gsap-panel-child className="text-base text-slate-300 md:text-lg">
-                        {step.panelDescription}
-                      </p>
-                      <div className="mt-6 grid gap-3">
-                        {step.panelBullets.map((bullet) => (
-                          <div
-                            key={bullet}
-                            data-gsap-panel-child
-                            className="flex items-start gap-3 rounded-2xl border border-slate-800 bg-slate-900/70 p-3 text-sm text-slate-200"
-                          >
-                            <span className="mt-1 h-2 w-2 rounded-full" style={{ backgroundColor: step.accent }} />
-                            <span>{bullet}</span>
-                          </div>
-                        ))}
-                      </div>
-                      <div data-gsap-panel-child className="mt-6 rounded-2xl border border-slate-800 bg-slate-900/70 p-4 text-sm text-slate-300">
-                        <span className="text-slate-200">Tip:</span> {step.panelTip}
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
 
               <div ref={footerRef} className="mt-6 flex flex-wrap items-center gap-3 text-xs uppercase tracking-[0.32em] text-slate-400">
                 <span>Scroll to continue</span>
