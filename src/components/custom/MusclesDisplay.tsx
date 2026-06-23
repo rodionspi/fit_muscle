@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import GridRender from './TabsContent/MuscleDisplay/GridRender';
 import ListRender from './TabsContent/MuscleDisplay/ListRender';
 import { getMuscles } from '@/server/muscles/musclesDataFunctions';
+import MuscleIntroSection from './MuscleIntroSection';
 // import { Input } from "@/components/ui/input"
 
 const ThreeDView = dynamic(() => import('./TabsContent/MuscleDisplay/ThreeDView'), {
@@ -28,6 +29,8 @@ const MusclesDisplay = () => {
 
     return (
       <>
+        <MuscleIntroSection />
+
         <div className="mb-8">
             <h2 className="text-3xl font-bold mb-2">Muscle Chart</h2>
             <p className="text-slate-300">Explore different muscle groups and learn about targeted exercises</p>
