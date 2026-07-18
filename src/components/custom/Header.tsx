@@ -1,7 +1,7 @@
 import Navigation from "@/types/Navigaton";
 import { usePathname } from "next/navigation";
 import React, { useEffect, useState } from "react";
-import NavBar from "./NavBar";
+import UserMenubar from "./Menubars/UserMenubar";
 
 const Header = () => {
     const pathname = usePathname();
@@ -56,8 +56,8 @@ const Header = () => {
               </div>
             </div>
           </div>
-          <div className="flex items-center justify-center">
-            <NavBar navigation={navigation}/>
+          <div className="flex items-center justify-end">
+            <UserMenubar />
           </div>
       </div>
     );
