@@ -23,7 +23,7 @@ const Header = () => {
     }, [pathname]);
 
   return (
-    <div className="container mx-auto px-4 lg:px-20 py-4 flex items-center justify-between bg-slate-900/80 backdrop-blur-sm">
+      <div className="container mx-auto px-4 lg:px-20 py-4 grid grid-cols-3 bg-slate-900/80 backdrop-blur-sm">
           <div className="flex items-center gap-2">
             <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -56,10 +56,10 @@ const Header = () => {
               </div>
             </div>
           </div>
-          <div className="flex items-center">
+          <div className="flex items-center justify-center">
             <NavBar navigation={navigation}/>
           </div>
-        </div>
+      </div>
     );
 };
 
