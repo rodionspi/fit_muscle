@@ -12,6 +12,8 @@ const UserMenubar = () => {
         localStorage.clear();
     } 
 
+    console.log(userData);
+
     return (
         <Menubar>
             {/* Profile dropdown */}
