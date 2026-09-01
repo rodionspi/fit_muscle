@@ -117,11 +117,14 @@ const MusclePage = () => {
                 <div className="bg-slate-800/50 p-4 rounded-lg border border-slate-700">
                   <h3 className="text-sm text-slate-400 mb-1">Difficulty Level</h3>
                   <div className="flex items-center gap-1">
-                    <span className="w-2 h-2 bg-emerald-500 rounded-full"></span>
-                    <span className="w-2 h-2 bg-emerald-500 rounded-full"></span>
-                    <span className="w-2 h-2 bg-emerald-500 rounded-full"></span>
-                    <span className="w-2 h-2 bg-slate-600 rounded-full"></span>
-                    <span className="w-2 h-2 bg-slate-600 rounded-full"></span>
+                    {Array.from({ length: 5 }, (_, i) => (
+                      <span
+                        key={i}
+                        className={`w-2 h-2 rounded-full ${
+                          i < (muscleInfo.lvl ?? 3) ? "bg-emerald-500" : "bg-slate-600"
+                        }`}
+                      ></span>
+                    ))}
                   </div>
                 </div>
               </div>

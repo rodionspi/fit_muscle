@@ -13,19 +13,20 @@ const Anatomy: React.FC<AnatomyProps> = ({ muscleInfo }) => {
         <div className="grid md:grid-cols-2 gap-8">
             <div>
                 <h2 className="text-2xl font-bold mb-4">Muscle Anatomy</h2>
-                <div className="grid grid-cols-2 gap-4 mt-6">
+                <p className="text-slate-300">{muscleInfo.anat}</p>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6">
                     <Card className="bg-slate-800 border-slate-700">
                         <CardContent className="p-4">
-                            <h3 className="font-semibold mb-2 text-slate-300">Origin</h3>
-                            <p className="text-sm text-slate-300">
-                                The point where the muscle attaches to the stationary bone.
-                            </p>
+                            <h3 className="font-semibold mb-1 text-slate-300">Origin</h3>
+                            <p className="text-xs text-slate-500 mb-2">Attachment on the stationary bone</p>
+                            <p className="text-sm text-slate-300">{muscleInfo.org ?? "-"}</p>
                         </CardContent>
                     </Card>
                     <Card className="bg-slate-800 border-slate-700">
                         <CardContent className="p-4">
-                            <h3 className="font-semibold mb-2 text-slate-300">Insertion</h3>
-                            <p className="text-sm text-slate-300">The point where the muscle attaches to the moving bone.</p>
+                            <h3 className="font-semibold mb-1 text-slate-300">Insertion</h3>
+                            <p className="text-xs text-slate-500 mb-2">Attachment on the moving bone</p>
+                            <p className="text-sm text-slate-300">{muscleInfo.ins ?? "-"}</p>
                         </CardContent>
                     </Card>
                 </div>
@@ -57,13 +58,11 @@ const Anatomy: React.FC<AnatomyProps> = ({ muscleInfo }) => {
                             Synergist muscles that work with the {muscleInfo.n} include:
                             </p>
                             <ul className="list-disc list-inside text-slate-300 space-y-1">
-                            {muscleInfo.rel.map((muscle: string) => {
-                                console.log(muscle);
-                                return (
+                            {muscleInfo.rel.map((muscle: string) => (
                                 <li key={muscle} className="capitalize">
                                 {muscle}
                                 </li>
-                            )})}
+                            ))}
                             </ul>
                         </AccordionContent>
                     </AccordionItem>
@@ -76,22 +75,19 @@ const Anatomy: React.FC<AnatomyProps> = ({ muscleInfo }) => {
                             When training the {muscleInfo.n}, consider the following:
                             </p>
                             <ul className="space-y-2">
-                            <li className="flex items-start gap-2">
-                                <Check className="w-5 h-5 text-emerald-400 mt-0.5 flex-shrink-0" />
-                                <span className="text-slate-300">
-                                Train with a variety of exercises to target all parts of the muscle
-                                </span>
-                            </li>
-                            <li className="flex items-start gap-2">
-                                <Check className="w-5 h-5 text-emerald-400 mt-0.5 flex-shrink-0" />
-                                <span className="text-slate-300">Include both compound and isolation exercises</span>
-                            </li>
-                            <li className="flex items-start gap-2">
-                                <Check className="w-5 h-5 text-emerald-400 mt-0.5 flex-shrink-0" />
-                                <span className="text-slate-300">
-                                Allow 48-72 hours of recovery between intense training sessions
-                                </span>
-                            </li>
+                            {(muscleInfo.train?.length
+                                ? muscleInfo.train
+                                : [
+                                    "Train with a variety of exercises to target all parts of the muscle",
+                                    "Include both compound and isolation exercises",
+                                    "Allow 48-72 hours of recovery between intense training sessions",
+                                  ]
+                            ).map((tip: string) => (
+                                <li key={tip} className="flex items-start gap-2">
+                                    <Check className="w-5 h-5 text-emerald-400 mt-0.5 flex-shrink-0" />
+                                    <span className="text-slate-300">{tip}</span>
+                                </li>
+                            ))}
                             </ul>
                         </AccordionContent>
                     </AccordionItem>
