@@ -1,13 +1,13 @@
 "use client";
 
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import dynamic from 'next/dynamic';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Info, Calendar } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import GridRender from './TabsContent/MuscleDisplay/GridRender';
 import ListRender from './TabsContent/MuscleDisplay/ListRender';
-import { getMuscles } from '@/server/muscles/musclesDataFunctions';
+import { useMuscles } from '@/contexts/MusclesContext';
 // import { Input } from "@/components/ui/input"
 
 const ThreeDView = dynamic(() => import('./TabsContent/MuscleDisplay/ThreeDView'), {
@@ -15,16 +15,7 @@ const ThreeDView = dynamic(() => import('./TabsContent/MuscleDisplay/ThreeDView'
 });
 
 const MusclesDisplay = () => {
-    const [musclesList, setMusclesList] = useState([]);
-
-    useEffect(() => {
-        const fetchMuscles = async () => {
-            const muscles = await getMuscles();
-            setMusclesList(muscles);
-            console.log("Fetched muscles:", muscles);
-        };
-        fetchMuscles();
-    }, []);
+    const { muscles: musclesList } = useMuscles();
 
     return (
       <>

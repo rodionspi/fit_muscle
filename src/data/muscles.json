@@ -1,0 +1,1519 @@
+[
+  {
+    "id": 1,
+    "n": "Traps",
+    "sn": "Trapezius",
+    "img": "",
+    "lvl": 2,
+    "desc": "The trapezius is the large superficial muscle of the upper back, running from the base of the skull down to the middle of the spine and out to the shoulder blade. Its three sections work as one unit to move and stabilise the scapula, which is why it is involved in almost every pulling, carrying and overhead movement - and why poorly conditioned traps are one of the most common sources of neck and shoulder pain.",
+    "func": "Elevates, retracts, depresses and upwardly rotates the scapula, and extends, rotates and side-bends the neck. The upper fibres lift the shoulder girdle, the middle fibres pull the shoulder blades together, and the lower fibres pull them down and contribute to the upward rotation that lets you press overhead safely.",
+    "anat": "A flat, diamond-shaped muscle covering the back of the neck and the upper thorax, made up of three functionally separate parts: upper (descending), middle (transverse) and lower (ascending) fibres. It is the most superficial muscle of the back and is innervated by the accessory nerve (CN XI), with sensory supply from the C3-C4 cervical nerves.",
+    "org": "External occipital protuberance, medial third of the superior nuchal line, the nuchal ligament, and the spinous processes of C7-T12.",
+    "ins": "Lateral third of the clavicle (upper fibres), the acromion (middle fibres) and the spine of the scapula (middle and lower fibres).",
+    "rel": ["Levator scapulae", "Rhomboids", "Posterior deltoid", "Serratus anterior", "Erector spinae"],
+    "train": [
+      "Train all three sections: shrugs for the upper fibres, rows and face pulls for the middle, and prone Y-raises or overhead work for the lower fibres.",
+      "Most lifters are already upper-trap dominant from desk posture, so give the middle and lower fibres more volume than shrugs.",
+      "The traps respond to a hard squeeze at the top - a full range of motion beats extra load.",
+      "Do not roll the shoulders during shrugs; the scapula moves up and down, not in a circle.",
+      "Loaded carries train the traps isometrically while building grip and posture at the same time."
+    ],
+    "ex": [
+      {
+        "img": "https://fitnessprogramer.com/wp-content/uploads/2021/02/Barbell-Shrug.gif",
+        "n": "Barbell Shrug",
+        "diff": "Beginner",
+        "eq": "Barbell",
+        "tgt": "Upper trapezius",
+        "desc": "Hold a barbell at arm's length in front of the thighs with a shoulder-width grip. Keeping the arms straight and the chin tucked, lift the shoulders straight up toward the ears, pause, then lower under control into a full stretch.",
+        "s": 4,
+        "r": 12,
+        "tips": "Do not roll the shoulders or pull with the biceps. A one-second squeeze at the top is worth more than extra weight, and straps let the traps fail before the grip does.",
+        "vid": "https://www.youtube.com/watch?v=NAqCVe2mwzM"
+      },
+      {
+        "img": "https://fitnessprogramer.com/wp-content/uploads/2021/04/Dumbbell-Shrug.gif",
+        "n": "Dumbbell Shrug",
+        "diff": "Beginner",
+        "eq": "Dumbbells",
+        "tgt": "Upper trapezius",
+        "desc": "Stand tall with a dumbbell in each hand at your sides. Shrug the shoulders vertically toward the ears without bending the elbows, hold briefly, then lower until you feel the traps lengthen.",
+        "s": 3,
+        "r": 15,
+        "tips": "Dumbbells at your sides allow a slightly longer range than a barbell held in front. Keep the neck long and the ribs down instead of leaning back.",
+        "vid": "https://www.youtube.com/results?search_query=how+to+dumbbell+shrug"
+      },
+      {
+        "img": "https://fitnessprogramer.com/wp-content/uploads/2021/02/Face-Pull.gif",
+        "n": "Face Pull",
+        "diff": "Beginner",
+        "eq": "Cable machine with rope",
+        "tgt": "Middle and lower trapezius, rear deltoid",
+        "desc": "Set a rope attachment at roughly face height. Pull the rope toward your forehead, driving the elbows high and wide and separating your hands as you finish, then return under control.",
+        "s": 3,
+        "r": 15,
+        "tips": "The best single exercise for balancing out a shrug-and-bench-heavy programme. Use light weight and finish each rep with the shoulder blades pulled down and together.",
+        "vid": "https://www.youtube.com/results?search_query=how+to+cable+face+pull"
+      },
+      {
+        "img": "https://fitnessprogramer.com/wp-content/uploads/2021/02/barbell-uprightrow.gif",
+        "n": "Barbell Upright Row",
+        "diff": "Intermediate",
+        "eq": "Barbell",
+        "tgt": "Upper trapezius, lateral deltoid",
+        "desc": "Hold a barbell with a grip slightly wider than shoulder width. Pull it up along the front of the body by leading with the elbows, stopping when the upper arms reach roughly chest height, then lower slowly.",
+        "s": 3,
+        "r": 12,
+        "tips": "Do not pull above chest height - a narrow grip with a high finish compresses the shoulder and is a known impingement risk. If it pinches, widen the grip or swap in face pulls.",
+        "vid": "https://www.youtube.com/watch?v=amCU-ziHITM"
+      },
+      {
+        "img": "https://fitnessprogramer.com/wp-content/uploads/2022/02/Farmers-walk_Cardio.gif",
+        "n": "Farmer's Walk",
+        "diff": "Beginner",
+        "eq": "Heavy dumbbells or kettlebells",
+        "tgt": "Trapezius, forearms, core",
+        "desc": "Pick up a heavy weight in each hand, stand tall with the shoulder blades set down and back, and walk in a straight line with short controlled steps until your grip or posture starts to fail.",
+        "s": 4,
+        "r": 1,
+        "tips": "Work in distance or time rather than reps - 30 to 40 metres, or 30 to 45 seconds per set. The moment the shoulders slump forward, the set is over.",
+        "vid": "https://www.youtube.com/results?search_query=how+to+farmers+walk+carry"
+      }
+    ],
+    "inj": [
+      {
+        "n": "Upper trapezius strain",
+        "desc": "Overstretching or tearing of the upper fibres, usually from a sudden heavy shrug, a whiplash-type movement, or carrying a heavy bag on one shoulder. It produces sharp pain between the neck and shoulder that worsens when you turn the head.",
+        "prev": "Warm the neck and shoulder girdle up before heavy pulling, add load gradually, and carry loads evenly on both sides rather than on one shoulder."
+      },
+      {
+        "n": "Tension neck syndrome (trigger points)",
+        "desc": "Sustained low-level contraction from long hours at a desk creates tender knots in the upper trapezius, causing a deep ache in the neck and shoulder and often a referred headache behind the eye or at the temple.",
+        "prev": "Break up static sitting every 30 to 45 minutes, set your monitor at eye height and armrests so the shoulders can rest down, and strengthen the lower traps rather than only stretching the upper ones."
+      },
+      {
+        "n": "Scapular dyskinesis",
+        "desc": "An overactive upper trapezius paired with a weak lower trapezius and serratus anterior changes how the shoulder blade rotates. The result is a shoulder that shrugs to press overhead and a much higher risk of subacromial impingement.",
+        "prev": "Prioritise lower-trap and serratus work such as prone Y-raises, wall slides and face pulls, and keep the shoulder blades down when pressing overhead instead of letting them ride up."
+      }
+    ],
+    "str": [
+      {
+        "n": "Upper trapezius stretch",
+        "desc": "Sit tall and hold the edge of the chair with one hand to anchor the shoulder down. Tilt the opposite ear toward the shoulder and add gentle pressure with your free hand until you feel a stretch along the side of the neck.",
+        "dur": "30 seconds per side"
+      },
+      {
+        "n": "Levator scapulae stretch",
+        "desc": "Turn the head about 45 degrees away from the tight side, then look down toward your armpit. Anchor the shoulder on the stretched side and draw the head gently forward with the opposite hand.",
+        "dur": "30 seconds per side"
+      },
+      {
+        "n": "Chin tuck",
+        "desc": "Sit or stand tall and glide the head straight back, making a double chin, without tipping it up or down. This wakes up the deep neck flexors that go quiet when the upper traps take over.",
+        "dur": "10 reps with 5 second holds"
+      },
+      {
+        "n": "Shoulder rolls",
+        "desc": "Roll the shoulders slowly backward through the biggest circle you can make, then forward. Use this as a dynamic warm-up before pulling work rather than as a static stretch.",
+        "dur": "2 sets of 10 each direction"
+      }
+    ],
+    "freq": { "b": "2", "i": "2-3", "a": "3-4" }
+  },
+  {
+    "id": 2,
+    "n": "Shoulders",
+    "sn": "Deltoid",
+    "img": "",
+    "lvl": 3,
+    "desc": "The deltoid caps the shoulder joint and gives the upper body its width. It is made of three heads that pull the arm in different directions, so building a complete shoulder means training all three rather than just pressing. The shoulder is also the most mobile joint in the body, which makes it the least stable - the deltoid and the rotator cuff underneath it have to work together to keep the head of the humerus centred.",
+    "func": "The anterior fibres flex and internally rotate the arm, the lateral fibres abduct it from roughly 15 degrees up to shoulder height, and the posterior fibres extend and externally rotate it. All three heads work together to stabilise the head of the humerus during pressing and overhead movement.",
+    "anat": "A thick, triangular muscle formed by three heads: anterior (clavicular), lateral (acromial) and posterior (spinal). The lateral head is multipennate, which makes it strong but short-ranged. Innervated by the axillary nerve (C5-C6). Supraspinatus initiates the first 15 degrees of abduction before the lateral deltoid takes over.",
+    "org": "Lateral third of the clavicle (anterior head), the acromion (lateral head) and the spine of the scapula (posterior head).",
+    "ins": "Deltoid tuberosity on the lateral shaft of the humerus.",
+    "rel": ["Rotator cuff", "Trapezius", "Pectoralis major", "Triceps brachii", "Serratus anterior"],
+    "train": [
+      "The anterior head already gets heavy work from every bench press and push-up, so most people need extra volume on the lateral and posterior heads, not the front.",
+      "The lateral head responds better to moderate loads for 12 to 20 reps than to heavy swinging - the leverage is worst at the top of a raise.",
+      "Train the rotator cuff (external rotations, face pulls) alongside the deltoid; it is what keeps heavy pressing pain-free.",
+      "Warm up the shoulder through its full range before overhead work - band pull-aparts and light external rotations take two minutes.",
+      "Keep the shoulder blades set down and slightly back when pressing so the humerus has room under the acromion."
+    ],
+    "ex": [
+      {
+        "img": "https://fitnessprogramer.com/wp-content/uploads/2021/07/Barbell-Standing-Military-Press.gif",
+        "n": "Standing Overhead Press",
+        "diff": "Intermediate",
+        "eq": "Barbell",
+        "tgt": "Anterior and lateral deltoid",
+        "desc": "Hold the bar at collarbone height with the elbows slightly in front. Brace the core, press the bar in a straight line past the face, and finish with the bar over the middle of the foot with the head pushed through.",
+        "s": 4,
+        "r": 8,
+        "tips": "Squeeze the glutes and keep the ribs down so you press with the shoulders instead of arching the lower back. Pull the head back to let the bar pass, then push it through at lockout.",
+        "vid": "https://www.youtube.com/watch?v=2yjwXTZQDDI"
+      },
+      {
+        "img": "https://fitnessprogramer.com/wp-content/uploads/2021/02/Dumbbell-Lateral-Raise.gif",
+        "n": "Dumbbell Lateral Raise",
+        "diff": "Beginner",
+        "eq": "Dumbbells",
+        "tgt": "Lateral deltoid",
+        "desc": "Stand with a slight forward lean and a small bend in the elbows. Raise the dumbbells out to the sides until the arms reach shoulder height, lead with the elbows rather than the hands, then lower slowly.",
+        "s": 4,
+        "r": 15,
+        "tips": "Light weight, strict form. Do not shrug as you lift and do not swing the weight up - three seconds down on every rep will do more for the side delt than adding 5 kg.",
+        "vid": "https://www.youtube.com/watch?v=3VcKaXpzqRo"
+      },
+      {
+        "img": "https://fitnessprogramer.com/wp-content/uploads/2021/02/Dumbbell-Reverse-Fly.gif",
+        "n": "Dumbbell Reverse Fly",
+        "diff": "Beginner",
+        "eq": "Dumbbells",
+        "tgt": "Posterior deltoid",
+        "desc": "Hinge forward at the hips until the torso is close to parallel with the floor, arms hanging with a soft elbow. Sweep the dumbbells out and slightly back until they reach shoulder height, then lower under control.",
+        "s": 3,
+        "r": 15,
+        "tips": "Think about moving the upper arms, not the hands. The rear delt is the most neglected head in almost every programme - give it at least as much volume as the side delt.",
+        "vid": "https://www.youtube.com/results?search_query=how+to+dumbbell+reverse+fly+rear+delt"
+      },
+      {
+        "img": "https://fitnessprogramer.com/wp-content/uploads/2021/02/Arnold-Press.gif",
+        "n": "Arnold Press",
+        "diff": "Intermediate",
+        "eq": "Dumbbells",
+        "tgt": "Anterior and lateral deltoid",
+        "desc": "Start seated with the dumbbells in front of the chest, palms facing you. As you press up, rotate the palms to face forward, finishing with the arms extended overhead, then reverse the path on the way down.",
+        "s": 3,
+        "r": 10,
+        "tips": "The rotation adds range for the anterior head but also loads the shoulder in external rotation, so start lighter than you would on a normal dumbbell press.",
+        "vid": "https://www.youtube.com/results?search_query=how+to+arnold+press"
+      },
+      {
+        "img": "https://fitnessprogramer.com/wp-content/uploads/2021/02/Dumbbell-Front-Raise.gif",
+        "n": "Dumbbell Front Raise",
+        "diff": "Beginner",
+        "eq": "Dumbbells",
+        "tgt": "Anterior deltoid",
+        "desc": "Stand tall with dumbbells resting against the thighs. Raise one or both arms straight forward to shoulder height, keeping a slight bend in the elbow, then lower slowly.",
+        "s": 3,
+        "r": 12,
+        "tips": "Optional for most lifters - the front delt is already heavily worked by pressing. Do not lean back to get the weight up.",
+        "vid": "https://www.youtube.com/results?search_query=how+to+dumbbell+front+raise"
+      }
+    ],
+    "inj": [
+      {
+        "n": "Rotator cuff tendinopathy",
+        "desc": "Irritation of the supraspinatus or infraspinatus tendon under the acromion, usually from repeated overhead work. It shows up as a painful arc when raising the arm between roughly 60 and 120 degrees and as night pain when lying on that shoulder.",
+        "prev": "Build overhead volume gradually, strengthen the cuff and lower traps, and avoid grinding out reps with an already fatigued shoulder. Vary press angles instead of doing every set overhead."
+      },
+      {
+        "n": "Subacromial impingement",
+        "desc": "The space between the head of the humerus and the acromion narrows, pinching the tendon and bursa. Common causes are shrugging during overhead presses, upright rows pulled too high, and a stiff thoracic spine that prevents the arms from reaching overhead cleanly.",
+        "prev": "Fix scapular control before adding load, keep upright rows at chest height or lower, work on thoracic extension mobility, and use a neutral grip when overhead pressing hurts."
+      },
+      {
+        "n": "Anterior shoulder instability",
+        "desc": "The head of the humerus slides forward in the socket, either partially (subluxation) or fully (dislocation), most often when the arm is abducted and externally rotated - the behind-the-neck press position. It leaves a persistent feeling that the shoulder might give way.",
+        "prev": "Avoid behind-the-neck pressing and deep, uncontrolled stretching of the front of the shoulder, and strengthen the subscapularis and the muscles around the scapula."
+      },
+      {
+        "n": "AC joint sprain",
+        "desc": "Injury to the small joint where the collarbone meets the acromion, from a fall onto the shoulder or from heavy dipping and benching. Pain is pinpoint on top of the shoulder and worst when reaching across the body.",
+        "prev": "Limit very deep dips and wide-grip bench pressing if the joint is sensitive, and build up pressing volume slowly rather than in jumps."
+      }
+    ],
+    "str": [
+      {
+        "n": "Cross-body posterior deltoid stretch",
+        "desc": "Bring one arm straight across the chest and pull it in with the opposite forearm just above the elbow. Keep the shoulder pulled down rather than letting it ride up toward the ear.",
+        "dur": "30 seconds per side"
+      },
+      {
+        "n": "Doorway chest and front delt stretch",
+        "desc": "Place the forearm on a door frame with the elbow at shoulder height and step through gently. Repeat with the elbow low and high to cover the different fibre directions.",
+        "dur": "30 seconds at each of 3 heights"
+      },
+      {
+        "n": "Sleeper stretch",
+        "desc": "Lie on the side of the tight shoulder with the arm out in front at 90 degrees. Use the top hand to press the forearm down toward the floor, opening up internal rotation.",
+        "dur": "30 seconds per side"
+      },
+      {
+        "n": "Band pull-apart",
+        "desc": "Hold a light band at shoulder height with straight arms and pull it apart until it touches the chest, squeezing the shoulder blades together. A dynamic warm-up rather than a stretch.",
+        "dur": "2 sets of 15"
+      }
+    ],
+    "freq": { "b": "2", "i": "2-3", "a": "3" }
+  },
+  {
+    "id": 3,
+    "n": "Back muscles",
+    "sn": "Latissimus Dorsi, Rhomboids & Erector Spinae",
+    "img": "",
+    "lvl": 3,
+    "desc": "The back is not one muscle but several layers working together. The latissimus dorsi is the broad sheet that gives the torso its V-shape and drives every pulling movement; the rhomboids and middle traps pull the shoulder blades together; and the erector spinae columns run either side of the spine and hold you upright under load. A strong back is what protects the lower spine during deadlifts, squats and everyday lifting.",
+    "func": "The latissimus dorsi extends, adducts and internally rotates the humerus - the pull-down and pull-back action. The rhomboids retract and downwardly rotate the scapula. The erector spinae extend the spine and, more importantly in training, resist it bending forward under load.",
+    "anat": "Layered from superficial to deep: latissimus dorsi covers the lower and middle back; beneath it lie the rhomboid major and minor and teres major; and running alongside the spine are the three erector spinae columns - iliocostalis, longissimus and spinalis. The lats are innervated by the thoracodorsal nerve (C6-C8) and the rhomboids by the dorsal scapular nerve (C5).",
+    "org": "Latissimus dorsi: spinous processes of T7-L5, the thoracolumbar fascia, the iliac crest, the lower three or four ribs and the inferior angle of the scapula. Erector spinae: sacrum, iliac crest and lumbar spinous processes.",
+    "ins": "Latissimus dorsi: the intertubercular (bicipital) groove of the humerus. Rhomboids: the medial border of the scapula. Erector spinae: ribs, and the transverse and spinous processes further up the spine.",
+    "rel": ["Trapezius", "Teres major", "Posterior deltoid", "Biceps brachii", "Erector spinae", "Gluteus maximus"],
+    "train": [
+      "Train both pulling directions: vertical pulls (pull-ups, pulldowns) build lat width, horizontal pulls (rows) build thickness through the mid-back.",
+      "Start each rep by pulling the shoulder blade down and back, then bend the elbow - leading with the arms turns a row into a biceps exercise.",
+      "Do not shorten the range to add weight. A full stretch at the top of a pulldown is where most of the lat growth comes from.",
+      "The erector spinae is trained isometrically by deadlifts, carries and squats; direct extension work is only needed if it is a clear weak point.",
+      "Because the lats attach to the pelvis via the thoracolumbar fascia, tight lats can limit overhead reach - stretch them if you struggle to press straight overhead."
+    ],
+    "ex": [
+      {
+        "img": "https://fitnessprogramer.com/wp-content/uploads/2021/02/Pull-up.gif",
+        "n": "Pull-Up",
+        "diff": "Intermediate",
+        "eq": "Pull-up bar",
+        "tgt": "Latissimus dorsi",
+        "desc": "Hang from the bar with an overhand grip slightly wider than shoulder width. Pull the shoulder blades down first, then drive the elbows to the ribs until the chin clears the bar, and lower all the way to a dead hang.",
+        "s": 4,
+        "r": 8,
+        "tips": "Full range beats extra reps - come to a complete hang each time. If you cannot do 5 clean reps, use a band or do slow negatives from the top.",
+        "vid": "https://www.youtube.com/watch?v=eGo4IYlbE5g"
+      },
+      {
+        "img": "https://fitnessprogramer.com/wp-content/uploads/2021/02/Barbell-Bent-Over-Row.gif",
+        "n": "Barbell Bent-Over Row",
+        "diff": "Intermediate",
+        "eq": "Barbell",
+        "tgt": "Latissimus dorsi, rhomboids, middle trapezius",
+        "desc": "Hinge at the hips until the torso is around 45 degrees or lower, back flat and knees soft. Pull the bar to the lower ribs or upper stomach, squeeze the shoulder blades, then lower under control.",
+        "s": 4,
+        "r": 10,
+        "tips": "Keep the torso angle fixed - if you have to stand up to move the bar, the weight is too heavy. Brace the core hard so the lower back is not doing the work.",
+        "vid": "https://www.youtube.com/results?search_query=how+to+barbell+bent+over+row"
+      },
+      {
+        "img": "https://fitnessprogramer.com/wp-content/uploads/2021/02/Lat-Pulldown.gif",
+        "n": "Lat Pulldown",
+        "diff": "Beginner",
+        "eq": "Cable machine",
+        "tgt": "Latissimus dorsi",
+        "desc": "Sit with the thighs locked under the pads and grip the bar wider than shoulder width. Lean back slightly, pull the bar to the upper chest by driving the elbows down, then let it rise until the lats are fully stretched.",
+        "s": 3,
+        "r": 12,
+        "tips": "Never pull behind the neck - it forces the shoulder into extreme external rotation for no extra benefit. Keep the chest up and stop pulling once the bar reaches the collarbone.",
+        "vid": "https://www.youtube.com/results?search_query=how+to+lat+pulldown"
+      },
+      {
+        "img": "https://fitnessprogramer.com/wp-content/uploads/2021/02/Seated-Cable-Row.gif",
+        "n": "Seated Cable Row",
+        "diff": "Beginner",
+        "eq": "Cable machine",
+        "tgt": "Rhomboids, middle trapezius, latissimus dorsi",
+        "desc": "Sit tall with a slight knee bend and pull the handle to the stomach, keeping the elbows close to the body and the torso still. Squeeze the shoulder blades together, then let the arms extend fully.",
+        "s": 3,
+        "r": 12,
+        "tips": "Keep the back straight and avoid rocking backward to move the weight. Let the shoulder blades travel forward at the end of each rep for a full stretch.",
+        "vid": "https://www.youtube.com/watch?v=GZbfZ033f74"
+      },
+      {
+        "img": "https://fitnessprogramer.com/wp-content/uploads/2021/04/t-bar-rows.gif",
+        "n": "T-Bar Row",
+        "diff": "Intermediate",
+        "eq": "T-bar or landmine",
+        "tgt": "Mid-back, latissimus dorsi",
+        "desc": "Straddle the bar, hinge forward with a flat back, and pull the handle to the lower chest with the elbows tracking close to the body. Lower until the arms are straight without letting the back round.",
+        "s": 3,
+        "r": 10,
+        "tips": "The chest-supported version removes the lower back from the equation entirely and is the better choice if your back is already fatigued from deadlifts.",
+        "vid": "https://www.youtube.com/results?search_query=how+to+t+bar+row"
+      },
+      {
+        "img": "https://fitnessprogramer.com/wp-content/uploads/2021/02/Barbell-Deadlift.gif",
+        "n": "Conventional Deadlift",
+        "diff": "Advanced",
+        "eq": "Barbell",
+        "tgt": "Erector spinae, latissimus dorsi, glutes, hamstrings",
+        "desc": "Stand with the bar over mid-foot, hinge down and grip just outside the knees. Take the slack out of the bar, brace, then push the floor away and stand up with the bar tight against the legs.",
+        "s": 4,
+        "r": 5,
+        "tips": "Set the lats by squeezing an orange under each armpit before you pull - it keeps the bar close and the spine neutral. Never round the lower back to finish a rep.",
+        "vid": "https://www.youtube.com/watch?v=1ZXobu7JvvE"
+      }
+    ],
+    "inj": [
+      {
+        "n": "Lumbar disc herniation",
+        "desc": "The soft inner core of a spinal disc pushes through its outer ring and presses on a nerve root, causing back pain plus pain, numbness or weakness travelling down the leg. Repeated loaded spinal flexion - rounding the back under a heavy bar - is the classic mechanism.",
+        "prev": "Learn to hinge at the hips rather than round the spine, brace the core before every heavy lift, increase load gradually, and avoid heavy lifting immediately after long periods of sitting."
+      },
+      {
+        "n": "Lumbar muscle strain",
+        "desc": "Tearing of the erector spinae or the surrounding fascia, usually from a sudden twist, an awkward lift, or a set taken far past the point where form broke down. It gives a sharp, localised ache with painful spasm and stiffness for several days.",
+        "prev": "Warm up the hips and spine before heavy work, keep the load over mid-foot, and end sets when technique degrades rather than grinding out one more rep."
+      },
+      {
+        "n": "Latissimus dorsi or teres major strain",
+        "desc": "A tear near the armpit or along the outer back, typically from an explosive pull-up, a heavy kipping movement, or a snatch. It causes sharp pain when reaching overhead and when pulling.",
+        "prev": "Warm up with light pulling and lat stretching before heavy or explosive work, and add ballistic pulling volume slowly."
+      },
+      {
+        "n": "Rhomboid strain and mid-back tightness",
+        "desc": "Aching between the shoulder blade and the spine, common in people who sit at a desk with rounded shoulders and then load pressing far more than pulling.",
+        "prev": "Keep a pulling-to-pressing ratio of at least 1:1, add face pulls and band pull-aparts, and set up your workstation so the shoulders are not held forward all day."
+      }
+    ],
+    "str": [
+      {
+        "n": "Overhead lat stretch",
+        "desc": "Grip a rack or the edge of a bench at hip height, step back and sink the hips down while keeping the arms straight. Let the chest drop toward the floor until you feel the stretch along the side of the ribcage.",
+        "dur": "45 seconds"
+      },
+      {
+        "n": "Child's pose with side reach",
+        "desc": "Kneel and sit back on the heels with the arms stretched forward, then walk both hands to one side to bias the stretch into one lat and the side of the torso.",
+        "dur": "45 seconds per side"
+      },
+      {
+        "n": "Cat-camel",
+        "desc": "On hands and knees, alternate slowly between rounding the spine toward the ceiling and letting it sag while lifting the chest. A gentle way to restore spinal movement after heavy pulling.",
+        "dur": "10 slow reps"
+      },
+      {
+        "n": "Thread the needle",
+        "desc": "From hands and knees, slide one arm under the body and across, letting the shoulder and side of the head rest on the floor to rotate the thoracic spine.",
+        "dur": "30 seconds per side"
+      }
+    ],
+    "freq": { "b": "2", "i": "2-3", "a": "3-4" }
+  },
+  {
+    "id": 4,
+    "n": "Triceps",
+    "sn": "Triceps Brachii",
+    "img": "",
+    "lvl": 2,
+    "desc": "The triceps brachii sits on the back of the upper arm and makes up roughly two thirds of its total mass - if you want bigger arms, this is the muscle to train, not the biceps. It is the sole prime mover for straightening the elbow, so it takes heavy work from every push-up, bench press, dip and overhead press.",
+    "func": "Extends the elbow. The long head also crosses the shoulder joint, so it assists with shoulder extension and adduction, and it is the only head that reaches a full stretch when the arm is overhead - which is why overhead extensions train it best.",
+    "anat": "A three-headed muscle on the back of the upper arm: the long head (which crosses both shoulder and elbow), the lateral head (the visible horseshoe on the outside of the arm) and the deep medial head. All three converge into a common tendon at the elbow. Innervated by the radial nerve (C6-C8).",
+    "org": "Long head: infraglenoid tubercle of the scapula. Lateral head: posterior surface of the humerus above the radial groove. Medial head: posterior surface of the humerus below the radial groove.",
+    "ins": "Olecranon process of the ulna, via the common triceps tendon.",
+    "rel": ["Anconeus", "Anterior deltoid", "Pectoralis major", "Latissimus dorsi", "Biceps brachii"],
+    "train": [
+      "Include at least one overhead movement - it is the only way to fully lengthen the long head, and the stretched position drives most of the growth.",
+      "Balance overhead work with a pushdown or close-grip press so the lateral and medial heads get direct load too.",
+      "The elbow is a small joint with a big tendon; keep isolation work in the 8 to 15 rep range rather than going as heavy as possible.",
+      "Keep the upper arm still during extensions - if the elbows drift forward, the shoulders take over.",
+      "Heavy pressing already provides substantial triceps volume, so count it when planning weekly sets."
+    ],
+    "ex": [
+      {
+        "img": "https://fitnessprogramer.com/wp-content/uploads/2021/02/Close-Grip-Bench-Press.gif",
+        "n": "Close-Grip Bench Press",
+        "diff": "Intermediate",
+        "eq": "Barbell",
+        "tgt": "Triceps (all heads), chest",
+        "desc": "Lie on a bench and grip the bar at roughly shoulder width. Lower it to the lower chest with the elbows tucked at about 45 degrees, then press back up by driving through the triceps.",
+        "s": 4,
+        "r": 8,
+        "tips": "Shoulder width is close enough - a grip narrower than that strains the wrists without adding triceps work. Keep the elbows tucked, not flared.",
+        "vid": "https://www.youtube.com/results?search_query=how+to+close+grip+bench+press"
+      },
+      {
+        "img": "https://fitnessprogramer.com/wp-content/uploads/2021/02/Barbell-Triceps-Extension.gif",
+        "n": "Skull Crusher",
+        "diff": "Intermediate",
+        "eq": "EZ bar",
+        "tgt": "Triceps, long head",
+        "desc": "Lie on a bench holding an EZ bar over the chest with straight arms. Bend only at the elbows to lower the bar toward the forehead or just behind the head, then extend back to the start.",
+        "s": 3,
+        "r": 10,
+        "tips": "Lowering behind the head instead of to the forehead keeps constant tension on the long head and is easier on the elbows. Keep the upper arms angled slightly back and completely still.",
+        "vid": "https://www.youtube.com/watch?v=d_KZxkY_0cM"
+      },
+      {
+        "img": "https://fitnessprogramer.com/wp-content/uploads/2021/06/Rope-Pushdown.gif",
+        "n": "Rope Pushdown",
+        "diff": "Beginner",
+        "eq": "Cable machine with rope",
+        "tgt": "Lateral and medial head",
+        "desc": "Stand facing a high cable with the rope in both hands and the elbows pinned to your sides. Extend the elbows fully, spreading the rope apart at the bottom, then return until the forearms are just past parallel.",
+        "s": 3,
+        "r": 15,
+        "tips": "Do not lean over the weight or let the elbows travel forward. A hard one-second squeeze at full extension is what makes this exercise work.",
+        "vid": "https://www.youtube.com/results?search_query=how+to+rope+triceps+pushdown"
+      },
+      {
+        "img": "https://fitnessprogramer.com/wp-content/uploads/2021/02/Dumbbell-Triceps-Extension.gif",
+        "n": "Overhead Dumbbell Extension",
+        "diff": "Beginner",
+        "eq": "Dumbbell",
+        "tgt": "Triceps, long head",
+        "desc": "Hold one dumbbell overhead with both hands, elbows pointing forward and close to the head. Lower the weight behind the head until you feel a deep stretch, then extend back to the top.",
+        "s": 3,
+        "r": 12,
+        "tips": "This is the best exercise for the long head because the shoulder is flexed. Keep the elbows narrow and the ribs down so the lower back does not arch.",
+        "vid": "https://www.youtube.com/results?search_query=how+to+overhead+dumbbell+triceps+extension"
+      },
+      {
+        "img": "https://fitnessprogramer.com/wp-content/uploads/2021/02/Bench-Dips.gif",
+        "n": "Bench Dip",
+        "diff": "Beginner",
+        "eq": "Bench",
+        "tgt": "Triceps",
+        "desc": "Sit on the edge of a bench with the hands beside the hips and slide the hips forward off the bench. Bend the elbows to lower the body until the upper arms are about parallel to the floor, then press back up.",
+        "s": 3,
+        "r": 12,
+        "tips": "Keep the elbows pointing straight back and do not drop deeper than parallel - bench dips put the shoulder in internal rotation, which becomes risky at depth. Parallel-bar dips are the safer progression.",
+        "vid": "https://www.youtube.com/watch?v=0326dy_-CzM"
+      }
+    ],
+    "inj": [
+      {
+        "n": "Triceps tendinopathy",
+        "desc": "Degeneration and irritation of the triceps tendon where it attaches at the back of the elbow, from high-volume pressing, dips and heavy lockout work. It aches at the point of the elbow, is worst at the start of a session, and hurts most on the final few degrees of extension.",
+        "prev": "Increase pressing and dip volume gradually, avoid repeated maximal lockouts such as heavy board presses, and keep some slow eccentric extension work in your programme."
+      },
+      {
+        "n": "Olecranon bursitis",
+        "desc": "Swelling of the fluid-filled sac over the point of the elbow, from a direct knock or from repeated pressure - resting the elbows on a hard bench or floor. It looks like a soft lump at the back of the elbow and is often more alarming than painful.",
+        "prev": "Pad the elbows during floor and bench work, avoid leaning on the point of the elbow, and give a swollen bursa time to settle rather than training through it."
+      },
+      {
+        "n": "Distal triceps tendon rupture",
+        "desc": "A rare but serious tear of the tendon at the elbow, usually during a maximal lockout attempt or a fall onto an outstretched hand. It causes a sudden pop, immediate weakness in extension and swelling at the back of the elbow, and requires surgical repair.",
+        "prev": "Never jump straight to maximal loads without a proper warm-up, respect long-standing tendon pain instead of pushing through it, and build lockout strength progressively."
+      }
+    ],
+    "str": [
+      {
+        "n": "Overhead triceps stretch",
+        "desc": "Raise one arm overhead and bend the elbow so the hand drops behind the head. Use the opposite hand to gently draw the elbow further back until you feel the stretch down the back of the arm.",
+        "dur": "30 seconds per side"
+      },
+      {
+        "n": "Towel stretch behind the back",
+        "desc": "Hold a towel with the top hand behind the head and the bottom hand behind the lower back, then gently pull down with the lower hand to stretch the top arm's triceps and shoulder.",
+        "dur": "30 seconds per side"
+      },
+      {
+        "n": "Kneeling lat and triceps stretch",
+        "desc": "Kneel in front of a bench, place both elbows on it with the hands together behind the head, and sink the chest toward the floor. This stretches the long head along with the lats.",
+        "dur": "45 seconds"
+      }
+    ],
+    "freq": { "b": "2", "i": "2-3", "a": "3" }
+  },
+  {
+    "id": 5,
+    "n": "Glutes",
+    "sn": "Gluteus Maximus, Medius & Minimus",
+    "img": "",
+    "lvl": 2,
+    "desc": "The gluteal group is the engine of the hip. Gluteus maximus is the largest and heaviest single muscle in the human body and produces the force behind sprinting, jumping and standing up from a deep squat. Gluteus medius and minimus sit underneath and to the side, and their job is quieter but just as important: stopping the pelvis from collapsing every time you stand on one leg.",
+    "func": "Gluteus maximus extends and externally rotates the hip and posteriorly tilts the pelvis. Gluteus medius and minimus abduct the hip and, most importantly, prevent the pelvis dropping on the unsupported side during walking, running and any single-leg movement.",
+    "anat": "Three overlapping muscles. Gluteus maximus is the superficial, coarse-fibred layer that gives the buttock its shape; gluteus medius lies partly beneath it on the outer hip; gluteus minimus is the deepest and smallest. Maximus is innervated by the inferior gluteal nerve (L5-S2), medius and minimus by the superior gluteal nerve (L4-S1).",
+    "org": "Gluteus maximus: the posterior gluteal line of the ilium, the dorsal surface of the sacrum and coccyx, and the sacrotuberous ligament. Medius and minimus: the outer surface of the ilium.",
+    "ins": "Gluteus maximus: the iliotibial tract (about three quarters of its fibres) and the gluteal tuberosity of the femur. Medius and minimus: the greater trochanter of the femur.",
+    "rel": ["Hamstrings", "Erector spinae", "Adductor magnus", "Tensor fasciae latae", "Deep hip rotators"],
+    "train": [
+      "Squats and deadlifts load the glutes hardest at the bottom; hip thrusts and bridges load them hardest at lockout. A complete programme needs both.",
+      "Do not neglect the abductors - gluteus medius weakness is what shows up as the knee caving inward during squats and running.",
+      "Include single-leg work such as split squats and step-ups; it exposes side-to-side differences that a barbell hides.",
+      "Squeeze and pause at full hip extension. The glutes reach peak contraction when the hip is straight, which is a position most lifters rush through.",
+      "Long hours of sitting leave the glutes underused - a few minutes of bridges or band walks before leg day noticeably improves how they fire."
+    ],
+    "ex": [
+      {
+        "img": "https://fitnessprogramer.com/wp-content/uploads/2021/02/Barbell-Hip-Thrust.gif",
+        "n": "Barbell Hip Thrust",
+        "diff": "Intermediate",
+        "eq": "Barbell and bench",
+        "tgt": "Gluteus maximus",
+        "desc": "Sit with the upper back against a bench and a padded barbell across the hips. Drive through the heels to lift the hips until the torso is parallel with the floor, squeeze hard at the top, then lower under control.",
+        "s": 4,
+        "r": 10,
+        "tips": "Finish with the ribs down and the chin tucked - if you feel it in the lower back, you are hyperextending rather than extending the hip. Pause for a full second at the top of every rep.",
+        "vid": "https://www.youtube.com/watch?v=Zp26q4BY5HE"
+      },
+      {
+        "img": "https://fitnessprogramer.com/wp-content/uploads/2021/02/BARBELL-SQUAT.gif",
+        "n": "Barbell Back Squat",
+        "diff": "Intermediate",
+        "eq": "Barbell",
+        "tgt": "Glutes, quadriceps",
+        "desc": "With the bar on the upper back, brace the core and sit down and back, keeping the chest up and the knees tracking over the toes. Descend to at least parallel, then drive up through the whole foot.",
+        "s": 4,
+        "r": 8,
+        "tips": "Depth is what makes the squat a glute exercise - stopping high shifts the work almost entirely onto the quads. A slightly wider stance increases glute involvement further.",
+        "vid": "https://www.youtube.com/watch?v=aclHkVaku9U"
+      },
+      {
+        "img": "https://fitnessprogramer.com/wp-content/uploads/2021/05/Dumbbell-Bulgarian-Split-Squat.gif",
+        "n": "Bulgarian Split Squat",
+        "diff": "Intermediate",
+        "eq": "Dumbbells and bench",
+        "tgt": "Gluteus maximus, quadriceps",
+        "desc": "Place the rear foot on a bench and step the front foot far enough forward that the shin stays near vertical. Lower until the back knee is close to the floor, then drive up through the front heel.",
+        "s": 3,
+        "r": 10,
+        "tips": "A longer stance and a slight forward torso lean bias the glutes; a shorter stance and upright torso bias the quads. Expect the working leg to be humbled by surprisingly light dumbbells.",
+        "vid": "https://www.youtube.com/results?search_query=how+to+bulgarian+split+squat"
+      },
+      {
+        "img": "https://fitnessprogramer.com/wp-content/uploads/2021/02/Glute-Bridge-.gif",
+        "n": "Glute Bridge",
+        "diff": "Beginner",
+        "eq": "Bodyweight",
+        "tgt": "Gluteus maximus",
+        "desc": "Lie on your back with the knees bent and the feet flat, heels close to the hips. Push through the heels to lift the hips until the body forms a straight line from knees to shoulders, then lower slowly.",
+        "s": 3,
+        "r": 15,
+        "tips": "The best starting point if hip thrusts are not available. Press the lower back gently into the floor before you lift so the hamstrings and lower back do not take over.",
+        "vid": "https://www.youtube.com/results?search_query=how+to+glute+bridge"
+      },
+      {
+        "img": "https://fitnessprogramer.com/wp-content/uploads/2021/02/Barbell-Romanian-Deadlift.gif",
+        "n": "Romanian Deadlift",
+        "diff": "Intermediate",
+        "eq": "Barbell",
+        "tgt": "Glutes, hamstrings",
+        "desc": "Stand holding the bar at hip height. Push the hips back and let the bar slide down the thighs with a flat back and soft knees, until you feel a strong stretch in the hamstrings, then drive the hips forward to stand.",
+        "s": 3,
+        "r": 10,
+        "tips": "The movement is a hip hinge, not a squat - the knees stay in a fixed soft bend throughout. Stop lowering the moment the back starts to round.",
+        "vid": "https://www.youtube.com/results?search_query=how+to+romanian+deadlift"
+      }
+    ],
+    "inj": [
+      {
+        "n": "Gluteal tendinopathy",
+        "desc": "Irritation of the gluteus medius and minimus tendons where they attach to the greater trochanter, the most common cause of lateral hip pain. It hurts to lie on that side, to cross the legs, and to climb stairs.",
+        "prev": "Avoid standing with the hip pushed out to one side, skip aggressive IT band stretching and deep side-lying compression, and build abductor strength with isometrics and controlled side-lying work."
+      },
+      {
+        "n": "Deep gluteal (piriformis) syndrome",
+        "desc": "The sciatic nerve is compressed or irritated as it passes through the deep buttock, producing a deep ache and sometimes shooting pain, tingling or numbness down the back of the leg. Prolonged sitting and sudden increases in running volume are typical triggers.",
+        "prev": "Break up long periods of sitting, avoid sitting on a wallet, strengthen the glutes rather than only stretching them, and increase running volume by no more than about 10 percent per week."
+      },
+      {
+        "n": "Gluteus medius weakness",
+        "desc": "Not an injury itself, but the underlying cause of many others. When the abductors cannot hold the pelvis level, the knee drifts inward during squats, running and landing, loading the kneecap, the IT band and the lower back.",
+        "prev": "Include single-leg work and banded abduction, and check your squat and running form for the knee collapsing inward before adding load."
+      }
+    ],
+    "str": [
+      {
+        "n": "Figure-four stretch",
+        "desc": "Lie on your back, cross one ankle over the opposite knee, then pull the supporting thigh toward the chest until you feel a stretch deep in the buttock of the crossed leg.",
+        "dur": "45 seconds per side"
+      },
+      {
+        "n": "90/90 hip stretch",
+        "desc": "Sit with the front leg bent at 90 degrees in front of you and the rear leg bent at 90 degrees out to the side. Keep the chest tall, then lean forward over the front shin.",
+        "dur": "45 seconds per side"
+      },
+      {
+        "n": "Pigeon pose",
+        "desc": "From all fours, bring one shin forward across the body and extend the other leg straight back. Keep the hips square and lower the torso over the front leg as far as is comfortable.",
+        "dur": "45 seconds per side"
+      },
+      {
+        "n": "Standing glute squeeze",
+        "desc": "Stand tall, tuck the pelvis slightly under and squeeze the glutes as hard as you can, then release. An activation drill for before leg training rather than a stretch.",
+        "dur": "10 reps with 5 second holds"
+      }
+    ],
+    "freq": { "b": "2", "i": "2-3", "a": "3" }
+  },
+  {
+    "id": 6,
+    "n": "Hamstrings",
+    "sn": "Biceps Femoris, Semitendinosus & Semimembranosus",
+    "img": "",
+    "lvl": 3,
+    "desc": "The hamstrings are the three muscles on the back of the thigh. Because they cross both the hip and the knee, they do two jobs at once - extending the hip and bending the knee - and they act as the brake that slows the shin down at the end of every sprinting stride. That braking role is exactly where most hamstring tears happen, and it is why eccentric training matters so much for this group.",
+    "func": "Flex the knee and extend the hip. During running they also decelerate the lower leg as it swings forward, working hard while being lengthened. The short head of biceps femoris crosses only the knee, so it contributes to knee flexion alone.",
+    "anat": "Three muscles running down the back of the thigh: biceps femoris (long and short heads) on the outside, and semitendinosus and semimembranosus on the inside. All except the short head of biceps femoris arise from the ischial tuberosity, the bone you sit on. Innervated by the tibial division of the sciatic nerve, with the short head supplied by the common fibular division.",
+    "org": "Ischial tuberosity, except the short head of biceps femoris, which arises from the linea aspera on the shaft of the femur.",
+    "ins": "Biceps femoris: the head of the fibula. Semitendinosus: the medial tibia via the pes anserinus. Semimembranosus: the medial condyle of the tibia.",
+    "rel": ["Gluteus maximus", "Gastrocnemius", "Adductor magnus", "Erector spinae", "Quadriceps"],
+    "train": [
+      "Train both functions: hip-hinge movements such as Romanian deadlifts and good mornings, and knee-flexion movements such as leg curls and Nordic curls.",
+      "Eccentric work is the strongest evidence-based protection against hamstring tears - Nordic curls or slow negatives on leg curls reduce injury rates substantially in athletes.",
+      "Hamstrings recover more slowly than most muscles after heavy eccentric work; two hard sessions a week is usually plenty.",
+      "Warm up thoroughly before any sprinting or explosive lower-body work - cold hamstrings are the ones that tear.",
+      "If your hamstrings are tight rather than weak, the problem is often an anteriorly tilted pelvis; strengthening the glutes and abs helps more than more stretching."
+    ],
+    "ex": [
+      {
+        "img": "https://fitnessprogramer.com/wp-content/uploads/2021/02/Barbell-Romanian-Deadlift.gif",
+        "n": "Romanian Deadlift",
+        "diff": "Intermediate",
+        "eq": "Barbell",
+        "tgt": "Hamstrings, glutes",
+        "desc": "Start standing with the bar at hip height. Push the hips backward, letting the bar travel down the thighs with a flat back and a fixed soft knee bend, until you feel a deep hamstring stretch, then drive the hips forward.",
+        "s": 4,
+        "r": 10,
+        "tips": "The best hamstring builder in most programmes. Depth is dictated by your hamstring flexibility, not by the floor - stop where the back would otherwise round.",
+        "vid": "https://www.youtube.com/results?search_query=how+to+romanian+deadlift"
+      },
+      {
+        "img": "https://fitnessprogramer.com/wp-content/uploads/2021/02/Leg-Curl.gif",
+        "n": "Lying Leg Curl",
+        "diff": "Beginner",
+        "eq": "Leg curl machine",
+        "tgt": "Hamstrings (knee flexion)",
+        "desc": "Lie face down with the pad just above the heels and the knees just off the edge of the bench. Curl the heels toward the glutes, squeeze, then lower slowly under control.",
+        "s": 3,
+        "r": 12,
+        "tips": "Keep the hips pressed into the bench - lifting them shortens the range and shifts work to the lower back. Take three seconds on every negative.",
+        "vid": "https://www.youtube.com/results?search_query=how+to+lying+leg+curl"
+      },
+      {
+        "img": "https://fitnessprogramer.com/wp-content/uploads/2021/08/Seated-Leg-Curl.gif",
+        "n": "Seated Leg Curl",
+        "diff": "Beginner",
+        "eq": "Leg curl machine",
+        "tgt": "Hamstrings (knee flexion)",
+        "desc": "Sit with the back against the pad, legs extended and the roller just above the heels. Curl the legs down and under, hold the contraction, then return until the knees are almost straight.",
+        "s": 3,
+        "r": 12,
+        "tips": "The seated version keeps the hip flexed, which puts the hamstrings on more stretch than the lying version - research suggests it produces more growth for the same effort.",
+        "vid": "https://www.youtube.com/watch?v=ELOCsoDSmrg"
+      },
+      {
+        "img": "https://fitnessprogramer.com/wp-content/uploads/2021/02/Barbell-Deadlift.gif",
+        "n": "Conventional Deadlift",
+        "diff": "Advanced",
+        "eq": "Barbell",
+        "tgt": "Hamstrings, glutes, erector spinae",
+        "desc": "Set up with the bar over mid-foot, hinge to grip it, take the slack out and brace. Push the floor away, keeping the bar in contact with the legs, and finish standing tall with the hips locked out.",
+        "s": 4,
+        "r": 5,
+        "tips": "Keep the hips low enough that the hamstrings load at the start but high enough that it is not a squat. Never round the lower back to finish a rep.",
+        "vid": "https://www.youtube.com/watch?v=1ZXobu7JvvE"
+      },
+      {
+        "img": "https://fitnessprogramer.com/wp-content/uploads/2021/02/Barbell-Good-Morning.gif",
+        "n": "Barbell Good Morning",
+        "diff": "Advanced",
+        "eq": "Barbell",
+        "tgt": "Hamstrings, erector spinae",
+        "desc": "With the bar on the upper back, brace hard and push the hips back, letting the torso tip forward with a flat back until it is near parallel with the floor, then drive the hips forward to stand.",
+        "s": 3,
+        "r": 10,
+        "tips": "Start much lighter than you think - the long lever makes this far harder than it looks. Any rounding of the back means the weight is too heavy or the range too deep.",
+        "vid": "https://www.youtube.com/results?search_query=how+to+barbell+good+morning"
+      }
+    ],
+    "inj": [
+      {
+        "n": "Hamstring strain",
+        "desc": "A tear of the muscle fibres, most often in the long head of biceps femoris and usually during high-speed running or a sudden lunge. It causes a sharp pain at the back of the thigh, sometimes with an audible pop, and bruising over the following days.",
+        "prev": "Include eccentric strengthening such as Nordic curls year-round, warm up thoroughly before sprinting, build sprint exposure gradually, and address large strength differences between the two legs."
+      },
+      {
+        "n": "Proximal hamstring tendinopathy",
+        "desc": "Irritation of the tendon at the ischial tuberosity, giving a deep ache high in the buttock that is worst when sitting on a hard surface, driving, or running uphill. It builds gradually rather than appearing suddenly.",
+        "prev": "Avoid sudden jumps in hill running or deep-stretch training, do not aggressively stretch an already irritated tendon, and load it progressively with isometrics and then heavy slow hinging."
+      },
+      {
+        "n": "Referred sciatic pain",
+        "desc": "Nerve pain from the lower back or deep buttock that travels down the back of the thigh and is easily mistaken for a hamstring strain. The giveaway is that it is often accompanied by tingling or numbness and does not have a clear moment of injury.",
+        "prev": "Look after lumbar spine mechanics, break up long sitting, and get persistent posterior thigh pain assessed rather than repeatedly stretching what may not be a muscle problem."
+      }
+    ],
+    "str": [
+      {
+        "n": "Supine hamstring stretch with a strap",
+        "desc": "Lie on your back and loop a strap or towel around one foot. Keeping that leg straight, draw it up toward the ceiling until you feel the stretch, and keep the opposite leg flat on the floor.",
+        "dur": "45 seconds per side"
+      },
+      {
+        "n": "Standing hinge hamstring stretch",
+        "desc": "Place one heel on a low step with the leg straight. Keeping the back flat, hinge forward from the hips until you feel a stretch along the back of the thigh - do not round the spine to reach further.",
+        "dur": "30 seconds per side"
+      },
+      {
+        "n": "Leg swings",
+        "desc": "Hold onto a support and swing one leg forward and back through a controlled range, gradually increasing the height. A dynamic warm-up to do before training, not after.",
+        "dur": "12 swings per leg"
+      },
+      {
+        "n": "Seated forward fold",
+        "desc": "Sit with both legs extended and hinge forward from the hips with a long spine, reaching toward the feet until you feel a stretch through both hamstrings.",
+        "dur": "45 seconds"
+      }
+    ],
+    "freq": { "b": "2", "i": "2", "a": "2-3" }
+  },
+  {
+    "id": 7,
+    "n": "Calves",
+    "sn": "Gastrocnemius & Soleus (Triceps Surae)",
+    "img": "",
+    "lvl": 2,
+    "desc": "The calf is made of two muscles sharing one tendon. Gastrocnemius is the visible pair of heads that give the calf its diamond shape, and soleus is the broader, flatter muscle beneath it. Together they push the foot down against the ground, generating the propulsion for every step, jump and sprint, and they take loads of several times bodyweight while doing it.",
+    "func": "Plantarflex the ankle - pointing the foot down to propel the body forward. Gastrocnemius also crosses the knee, so it assists with knee flexion and works hardest with the leg straight. Soleus takes over when the knee is bent and does most of the work during standing, walking and slow running.",
+    "anat": "The gastrocnemius has a medial and a lateral head and lies over the deeper, broader soleus; together they are called the triceps surae and merge into the Achilles tendon. Innervated by the tibial nerve (S1-S2). Soleus is predominantly slow-twitch, which is why it responds well to higher reps and long time under tension.",
+    "org": "Gastrocnemius: the medial and lateral condyles of the femur. Soleus: the posterior head and neck of the fibula and the soleal line of the tibia.",
+    "ins": "Posterior surface of the calcaneus (heel bone), via the Achilles tendon.",
+    "rel": ["Hamstrings", "Tibialis posterior", "Tibialis anterior", "Plantar fascia", "Achilles tendon"],
+    "train": [
+      "Train both muscles separately: straight-leg raises (standing) for gastrocnemius, bent-knee raises (seated) for soleus.",
+      "Use a full range - let the heel drop below the step for a deep stretch, then rise all the way onto the toes. Partial reps are the main reason calves fail to grow.",
+      "Pause for a second at both the top and the bottom of each rep to remove any bounce from the Achilles tendon.",
+      "Calves tolerate and often need more frequency than other muscles - they are worked all day - so two to four sessions a week is reasonable.",
+      "Soleus responds well to 15 to 25 reps; gastrocnemius handles the 8 to 15 range fine."
+    ],
+    "ex": [
+      {
+        "img": "https://fitnessprogramer.com/wp-content/uploads/2021/06/Standing-Calf-Raise.gif",
+        "n": "Standing Calf Raise",
+        "diff": "Beginner",
+        "eq": "Machine, dumbbells or bodyweight",
+        "tgt": "Gastrocnemius",
+        "desc": "Stand with the balls of the feet on a step or platform and the legs straight. Let the heels drop as far as they comfortably go, then press up onto the toes as high as possible and hold.",
+        "s": 4,
+        "r": 15,
+        "tips": "Straight legs are what make this a gastrocnemius exercise. Pause a full second at the top and at the bottom - bouncing lets the tendon do the work instead of the muscle.",
+        "vid": "https://www.youtube.com/watch?v=-M4-G8p8fmc"
+      },
+      {
+        "img": "https://fitnessprogramer.com/wp-content/uploads/2021/09/Barbell-Seated-Calf-Raise.gif",
+        "n": "Seated Calf Raise",
+        "diff": "Beginner",
+        "eq": "Machine or barbell on knees",
+        "tgt": "Soleus",
+        "desc": "Sit with the balls of the feet on the platform and the pad or bar across the lower thighs, knees bent to about 90 degrees. Drop the heels for a full stretch, then push up onto the toes.",
+        "s": 3,
+        "r": 20,
+        "tips": "The bent knee takes the gastrocnemius out of the movement and isolates the soleus, which most people never train directly. Go higher in reps here than on standing raises.",
+        "vid": "https://www.youtube.com/watch?v=JbyjNymZOt0"
+      },
+      {
+        "img": "https://fitnessprogramer.com/wp-content/uploads/2021/09/Donkey-Calf-Raise.gif",
+        "n": "Donkey Calf Raise",
+        "diff": "Intermediate",
+        "eq": "Machine or partner",
+        "tgt": "Gastrocnemius",
+        "desc": "Hinge forward at the hips with the upper body supported and the balls of the feet on a platform. Lower the heels for a full stretch, then drive up onto the toes.",
+        "s": 3,
+        "r": 15,
+        "tips": "The bent-hip position pre-stretches the gastrocnemius across the knee, which many lifters find gives a stronger contraction than a standing raise.",
+        "vid": "https://www.youtube.com/results?search_query=how+to+donkey+calf+raise"
+      },
+      {
+        "img": "https://fitnessprogramer.com/wp-content/uploads/2021/05/Leg-Press-Calf-Raise.gif",
+        "n": "Leg Press Calf Raise",
+        "diff": "Beginner",
+        "eq": "Leg press machine",
+        "tgt": "Gastrocnemius, soleus",
+        "desc": "Sit in the leg press with only the balls of the feet on the bottom edge of the platform and the legs nearly straight. Press the platform away by extending the ankles, then let it come back for a full stretch.",
+        "s": 3,
+        "r": 15,
+        "tips": "Keep the safety catches engaged and never let the knees bend and unbend - only the ankle should move. A good option when the calf raise machine is taken.",
+        "vid": "https://www.youtube.com/results?search_query=how+to+leg+press+calf+raise"
+      }
+    ],
+    "inj": [
+      {
+        "n": "Achilles tendinopathy",
+        "desc": "Degeneration and thickening of the Achilles tendon, giving stiffness and pain a few centimetres above the heel that is worst on the first steps of the morning and at the start of a run. It usually follows a jump in training volume or a switch to less supportive footwear.",
+        "prev": "Increase running and jumping volume gradually, include heavy slow calf raises with a three-second lowering phase, and change footwear or surfaces one variable at a time."
+      },
+      {
+        "n": "Calf strain (tennis leg)",
+        "desc": "A tear where the medial head of gastrocnemius meets its tendon, common in sports with sudden pushes off the back foot. It feels like being struck in the calf, with immediate sharp pain and difficulty walking on the toes.",
+        "prev": "Warm up the calves before explosive sport, build sprint and jump loads progressively, and keep the calves strong through a full range rather than only stretching them."
+      },
+      {
+        "n": "Medial tibial stress syndrome (shin splints)",
+        "desc": "Diffuse aching along the inner edge of the shin from repeated impact, usually when running volume, intensity or surface hardness increases too fast. If it becomes a sharp, pinpoint pain, it may be progressing to a stress fracture.",
+        "prev": "Follow a gradual running progression, strengthen the calves and tibialis anterior, run on softer surfaces when possible, and replace worn shoes."
+      },
+      {
+        "n": "Achilles tendon rupture",
+        "desc": "A complete tear of the tendon, typically during a sudden push-off in a middle-aged recreational athlete. There is an audible snap, a feeling of being kicked in the back of the ankle, and an inability to push off. It is a medical emergency.",
+        "prev": "Do not sprint or play explosive sport off a cold start, address long-standing Achilles pain early, and be cautious returning to jumping sports after a long layoff."
+      }
+    ],
+    "str": [
+      {
+        "n": "Straight-leg wall calf stretch",
+        "desc": "Stand facing a wall with one leg back, the heel down and the knee straight. Lean forward into the wall until you feel the stretch through the belly of the calf.",
+        "dur": "45 seconds per side"
+      },
+      {
+        "n": "Bent-knee calf stretch",
+        "desc": "Same position as above, but bend the back knee while keeping the heel on the floor. This shifts the stretch from the gastrocnemius down into the soleus and Achilles.",
+        "dur": "45 seconds per side"
+      },
+      {
+        "n": "Step heel drop",
+        "desc": "Stand on the edge of a step with the balls of the feet and let one heel sink below the level of the step, holding the position with control.",
+        "dur": "30 seconds per side"
+      },
+      {
+        "n": "Ankle circles and dorsiflexion rocks",
+        "desc": "Rotate the ankle slowly through its full range in both directions, then rock the knee forward over the toes with the heel down to open up dorsiflexion.",
+        "dur": "10 circles and 10 rocks per side"
+      }
+    ],
+    "freq": { "b": "2", "i": "2-3", "a": "3-4" }
+  },
+  {
+    "id": 8,
+    "n": "Chest",
+    "sn": "Pectoralis Major & Minor",
+    "img": "",
+    "lvl": 2,
+    "desc": "The pectoralis major is the broad fan-shaped muscle across the front of the chest, and it is the prime mover in every pushing action - bench pressing, push-ups, dips, throwing. Its two heads pull the arm in slightly different directions, which is why changing the angle of a press changes which part of the chest does most of the work.",
+    "func": "Adducts, flexes and internally rotates the humerus - bringing the arm forward and across the body. The clavicular (upper) head contributes most during incline pressing and shoulder flexion; the sternocostal (lower) head during flat and decline work. Pectoralis minor beneath it tilts and depresses the scapula.",
+    "anat": "Pectoralis major is a large, fan-shaped muscle with two heads, clavicular and sternocostal, whose fibres converge and twist about 180 degrees before inserting on the humerus. The smaller pectoralis minor lies underneath, attaching from the ribs to the coracoid process. Innervated by the lateral and medial pectoral nerves (C5-T1).",
+    "org": "Clavicular head: the medial half of the clavicle. Sternocostal head: the sternum, the costal cartilages of ribs 1 to 6, and the aponeurosis of the external oblique.",
+    "ins": "The lateral lip of the intertubercular (bicipital) groove of the humerus.",
+    "rel": ["Anterior deltoid", "Triceps brachii", "Serratus anterior", "Coracobrachialis", "Latissimus dorsi"],
+    "train": [
+      "Train more than one angle: flat pressing for the sternal head, incline for the clavicular head, and a fly or crossover to load the chest in adduction.",
+      "Set the shoulder blades down and back before every pressing set - it protects the shoulder and lets the chest, rather than the front delt, do the work.",
+      "A moderate arch and tucked elbows around 45 degrees is far safer than flaring the elbows to 90.",
+      "Control the eccentric. The chest is most vulnerable at full stretch under heavy load, which is where pec tears happen.",
+      "Match your pressing volume with at least an equal amount of pulling to keep the shoulders healthy."
+    ],
+    "ex": [
+      {
+        "img": "https://fitnessprogramer.com/wp-content/uploads/2021/02/Barbell-Bench-Press.gif",
+        "n": "Barbell Bench Press",
+        "diff": "Intermediate",
+        "eq": "Barbell and bench",
+        "tgt": "Pectoralis major (sternal head)",
+        "desc": "Lie on the bench with the shoulder blades pinched and the feet driving into the floor. Lower the bar to the mid-chest with the elbows tucked to roughly 45 degrees, then press back over the shoulders.",
+        "s": 4,
+        "r": 8,
+        "tips": "Keep the shoulder blades retracted and the wrists stacked over the elbows. Touch the chest rather than bouncing, and always use a spotter or safety pins on heavy sets.",
+        "vid": "https://www.youtube.com/watch?v=gRVjAtPip0Y"
+      },
+      {
+        "img": "https://fitnessprogramer.com/wp-content/uploads/2021/02/Incline-Dumbbell-Press.gif",
+        "n": "Incline Dumbbell Press",
+        "diff": "Beginner",
+        "eq": "Dumbbells and incline bench",
+        "tgt": "Pectoralis major (clavicular head)",
+        "desc": "Set the bench to around 30 degrees. Press the dumbbells from chest level up and slightly inward until the arms are extended, then lower under control until you feel a stretch across the upper chest.",
+        "s": 3,
+        "r": 10,
+        "tips": "Keep the incline shallow - past about 45 degrees the front delt takes over. Dumbbells allow a deeper stretch and even out side-to-side differences.",
+        "vid": "https://www.youtube.com/results?search_query=how+to+incline+dumbbell+press"
+      },
+      {
+        "img": "https://fitnessprogramer.com/wp-content/uploads/2021/06/Chest-Dips.gif",
+        "n": "Chest Dip",
+        "diff": "Intermediate",
+        "eq": "Parallel bars",
+        "tgt": "Pectoralis major (lower fibres), triceps",
+        "desc": "Support yourself on parallel bars, lean the torso forward and let the elbows flare slightly. Lower until the upper arms are about parallel with the floor, then press back up while keeping the forward lean.",
+        "s": 3,
+        "r": 10,
+        "tips": "The forward lean is what makes this a chest exercise rather than a triceps one. Stop at the depth where you can keep the shoulders under control - going deeper is not better.",
+        "vid": "https://www.youtube.com/results?search_query=how+to+chest+dips"
+      },
+      {
+        "img": "https://fitnessprogramer.com/wp-content/uploads/2021/02/Cable-Crossover.gif",
+        "n": "Cable Crossover",
+        "diff": "Beginner",
+        "eq": "Cable machine",
+        "tgt": "Pectoralis major",
+        "desc": "Stand between two high pulleys with a handle in each hand and a slight forward lean. With a soft elbow bend, sweep the hands down and together in front of the body, squeeze, then return under control.",
+        "s": 3,
+        "r": 15,
+        "tips": "Cables keep tension on the chest at the point where dumbbells lose it. Think of hugging a barrel rather than pressing - the elbow angle stays fixed throughout.",
+        "vid": "https://www.youtube.com/results?search_query=how+to+cable+crossover+chest"
+      },
+      {
+        "img": "https://fitnessprogramer.com/wp-content/uploads/2021/02/Push-Up.gif",
+        "n": "Push-Up",
+        "diff": "Beginner",
+        "eq": "Bodyweight",
+        "tgt": "Pectoralis major, triceps, core",
+        "desc": "Set the hands slightly wider than the shoulders with the body in a straight line from head to heels. Lower the chest to just above the floor with the elbows at about 45 degrees, then press back up.",
+        "s": 3,
+        "r": 15,
+        "tips": "Squeeze the glutes and brace the abs so the hips do not sag. Elevate the hands to make it easier, or the feet to make it harder.",
+        "vid": "https://www.youtube.com/watch?v=IODxDxX7oi4"
+      },
+      {
+        "img": "https://fitnessprogramer.com/wp-content/uploads/2021/02/Dumbbell-Fly.gif",
+        "n": "Dumbbell Fly",
+        "diff": "Intermediate",
+        "eq": "Dumbbells and bench",
+        "tgt": "Pectoralis major",
+        "desc": "Lie on a flat bench holding dumbbells above the chest with the elbows slightly bent. Open the arms out to the sides in a wide arc until you feel a stretch across the chest, then bring them back together.",
+        "s": 3,
+        "r": 12,
+        "tips": "Keep the elbow angle fixed and use moderate weight - the fully stretched position under load is where pec tears occur. Stop the descent level with the torso.",
+        "vid": "https://www.youtube.com/results?search_query=how+to+dumbbell+chest+fly"
+      }
+    ],
+    "inj": [
+      {
+        "n": "Pectoralis major tear",
+        "desc": "A partial or complete tear of the muscle or its tendon at the humerus, almost always during the lowering phase of a heavy bench press. There is a sudden pop and tearing sensation, followed by pain, bruising in the armpit and a visible change in the shape of the chest. Complete tears need surgery.",
+        "prev": "Warm up properly, avoid maximal singles with a bounced or uncontrolled descent, do not use an excessively wide grip, and keep the elbows tucked rather than flared."
+      },
+      {
+        "n": "Costochondritis",
+        "desc": "Inflammation of the cartilage joining the ribs to the sternum, causing sharp pain at the front of the chest that is reproduced by pressing on the area and worsens with deep breathing or pressing. It is harmless but can take weeks to settle.",
+        "prev": "Avoid sudden large jumps in pressing volume, and reduce range or load during a flare rather than training through the pain."
+      },
+      {
+        "n": "Anterior shoulder pain from pressing",
+        "desc": "Aching at the front of the shoulder from high-volume benching with flared elbows and unretracted shoulder blades, usually irritating the long head of biceps tendon or the subacromial structures.",
+        "prev": "Retract and depress the shoulder blades before every set, tuck the elbows, balance pressing with rowing, and rotate between flat, incline and neutral-grip variations."
+      }
+    ],
+    "str": [
+      {
+        "n": "Doorway pec stretch",
+        "desc": "Place the forearm against a door frame with the elbow at shoulder height and step forward gently, rotating the chest away. Repeat with the elbow low, level and high to reach the different fibre directions.",
+        "dur": "30 seconds at each of 3 heights"
+      },
+      {
+        "n": "Foam roller thoracic extension",
+        "desc": "Lie lengthways along a foam roller with the arms out to the sides in a T shape and let gravity open the chest. Breathe out and let the arms sink toward the floor.",
+        "dur": "60 seconds"
+      },
+      {
+        "n": "Floor angel",
+        "desc": "Lie on your back with the knees bent and the arms out at 90 degrees. Slide the arms overhead along the floor, keeping the wrists and lower back in contact, then bring them back down.",
+        "dur": "10 slow reps"
+      }
+    ],
+    "freq": { "b": "2", "i": "2-3", "a": "3" }
+  },
+  {
+    "id": 9,
+    "n": "Biceps",
+    "sn": "Biceps Brachii",
+    "img": "",
+    "lvl": 1,
+    "desc": "The biceps brachii is the two-headed muscle on the front of the upper arm and the one most people picture when they think of muscle. It is smaller than the triceps and contributes less to arm size than its reputation suggests, but it does two jobs no other muscle does as well: bending the elbow and turning the palm upward. The brachialis underneath it and the brachioradialis on the forearm assist with every curl.",
+    "func": "Flexes the elbow, supinates the forearm - it is the strongest supinator in the body, which is why turning a stiff doorknob is easier with the elbow bent - and assists with shoulder flexion through the long head.",
+    "anat": "Two heads on the front of the upper arm. The long head runs through the shoulder joint in the intertubercular groove; the short head arises from the coracoid process. Beneath them sits brachialis, the strongest pure elbow flexor, and on the outer forearm brachioradialis, which takes over in a neutral grip. Innervated by the musculocutaneous nerve (C5-C6).",
+    "org": "Long head: the supraglenoid tubercle of the scapula. Short head: the coracoid process of the scapula.",
+    "ins": "The radial tuberosity, and the deep fascia of the forearm via the bicipital aponeurosis.",
+    "rel": ["Brachialis", "Brachioradialis", "Anterior deltoid", "Latissimus dorsi", "Triceps brachii"],
+    "train": [
+      "Vary the shoulder position: incline curls stretch the long head, preacher curls load the short head in the shortened position, and standing curls sit in between.",
+      "Include a neutral or reverse grip movement such as hammer curls to hit brachialis and brachioradialis - growing them pushes the biceps up and makes the arm look thicker.",
+      "Supinate deliberately on dumbbell curls; turning the palm up under load is part of what the biceps actually does.",
+      "Rows and pull-ups already give the biceps meaningful volume, so direct curling needs less than most people assume.",
+      "Keep the elbows still. Swinging turns a curl into a poor deadlift and takes tension off the muscle."
+    ],
+    "ex": [
+      {
+        "img": "https://fitnessprogramer.com/wp-content/uploads/2021/02/Barbell-Curl.gif",
+        "n": "Barbell Curl",
+        "diff": "Beginner",
+        "eq": "Barbell or EZ bar",
+        "tgt": "Biceps brachii",
+        "desc": "Stand tall holding the bar at shoulder width with an underhand grip. Keeping the elbows at your sides, curl the bar up to chest height, squeeze, then lower slowly until the arms are fully extended.",
+        "s": 4,
+        "r": 10,
+        "tips": "Do not swing the hips to start the rep. If the wrists ache with a straight bar, an EZ bar puts them in a friendlier angle without reducing biceps work.",
+        "vid": "https://www.youtube.com/results?search_query=how+to+barbell+curl"
+      },
+      {
+        "img": "https://fitnessprogramer.com/wp-content/uploads/2021/02/Dumbbell-Curl.gif",
+        "n": "Dumbbell Curl",
+        "diff": "Beginner",
+        "eq": "Dumbbells",
+        "tgt": "Biceps brachii",
+        "desc": "Start with the dumbbells at your sides, palms facing in. As you curl, rotate the palm to face up, finishing with a squeeze, then reverse the rotation on the way down.",
+        "s": 3,
+        "r": 12,
+        "tips": "The supination is the point - rotating under load recruits the biceps more than curling with a fixed grip. Alternate arms to keep each rep strict.",
+        "vid": "https://www.youtube.com/watch?v=ykJmrZ5v0Oo"
+      },
+      {
+        "img": "https://fitnessprogramer.com/wp-content/uploads/2021/02/Hammer-Curl.gif",
+        "n": "Hammer Curl",
+        "diff": "Beginner",
+        "eq": "Dumbbells",
+        "tgt": "Brachialis, brachioradialis, biceps",
+        "desc": "Hold the dumbbells with a neutral grip, thumbs up. Curl straight up without rotating the wrists, keeping the elbows pinned to your sides, then lower under control.",
+        "s": 3,
+        "r": 12,
+        "tips": "The neutral grip shifts work onto brachialis and brachioradialis. It is usually the strongest curl variation, so expect to handle more weight than on a supinated curl.",
+        "vid": "https://www.youtube.com/watch?v=TwD-YGVP4Bk"
+      },
+      {
+        "img": "https://fitnessprogramer.com/wp-content/uploads/2021/02/Dumbbell-Preacher-Curl.gif",
+        "n": "Preacher Curl",
+        "diff": "Intermediate",
+        "eq": "Dumbbell and preacher bench",
+        "tgt": "Biceps brachii (short head)",
+        "desc": "Rest the back of the upper arm on the preacher pad with the armpit pressed into the top. Curl the weight up to shoulder height, then lower until the arm is almost straight.",
+        "s": 3,
+        "r": 12,
+        "tips": "Do not snap into full extension at the bottom under heavy load - the pad fixes the elbow and this is where biceps tendon strains happen. Control the last third of the descent.",
+        "vid": "https://www.youtube.com/results?search_query=how+to+preacher+curl"
+      },
+      {
+        "img": "https://fitnessprogramer.com/wp-content/uploads/2021/03/Chin-Up.gif",
+        "n": "Chin-Up",
+        "diff": "Intermediate",
+        "eq": "Pull-up bar",
+        "tgt": "Biceps brachii, latissimus dorsi",
+        "desc": "Hang from the bar with an underhand grip at shoulder width. Pull until the chin clears the bar, keeping the chest up and the elbows driving down, then lower to a full hang.",
+        "s": 3,
+        "r": 8,
+        "tips": "The best compound movement for the biceps - the underhand grip puts them in a strong position while the lats handle the load. Add weight once you can do 10 clean reps.",
+        "vid": "https://www.youtube.com/results?search_query=how+to+chin+up"
+      }
+    ],
+    "inj": [
+      {
+        "n": "Biceps tendinopathy (long head)",
+        "desc": "Irritation of the long head tendon where it runs through the groove at the front of the shoulder, common in throwing athletes and lifters who do a lot of overhead and curling volume. Pain is at the front of the shoulder and worsens with overhead reaching and resisted curling.",
+        "prev": "Balance curling with pulling, avoid rapid increases in overhead volume, keep the rotator cuff and scapular stabilisers strong, and do not train through front-of-shoulder pain."
+      },
+      {
+        "n": "Distal biceps tendon rupture",
+        "desc": "A tear of the tendon at the elbow, almost always when a heavy load suddenly extends a flexed arm - catching a falling weight, or a heavy cheat curl. There is a pop, pain in the front of the elbow, and the muscle bunches up toward the shoulder. Surgical repair is usually needed.",
+        "prev": "Avoid heavy uncontrolled negatives and cheat curls, never catch a dropping load with a bent arm, and warm the elbow up before heavy pulling."
+      },
+      {
+        "n": "SLAP tear",
+        "desc": "A tear of the labrum where the long head of the biceps attaches at the top of the shoulder socket, from repeated overhead throwing or a fall on an outstretched arm. It causes deep shoulder pain, clicking, and weakness overhead.",
+        "prev": "Build throwing and overhead volume progressively, keep the cuff strong, and avoid extreme behind-the-neck and deep bench positions if the shoulder is already symptomatic."
+      }
+    ],
+    "str": [
+      {
+        "n": "Wall biceps stretch",
+        "desc": "Stand side-on to a wall and place the palm flat against it behind you at shoulder height, fingers pointing back. Slowly rotate the body away from the wall until you feel a stretch through the biceps and front of the shoulder.",
+        "dur": "30 seconds per side"
+      },
+      {
+        "n": "Doorway biceps stretch",
+        "desc": "Grip a door frame with a straight arm behind you at shoulder height, thumb pointing down, then step forward gently.",
+        "dur": "30 seconds per side"
+      },
+      {
+        "n": "Seated bench stretch",
+        "desc": "Sit on the floor with the hands behind you on a bench, fingers pointing away, and slide the hips forward to open the front of the arms and shoulders.",
+        "dur": "30 seconds"
+      }
+    ],
+    "freq": { "b": "2", "i": "2-3", "a": "3" }
+  },
+  {
+    "id": 10,
+    "n": "Abs",
+    "sn": "Rectus Abdominis, Obliques & Transversus Abdominis",
+    "img": "",
+    "lvl": 2,
+    "desc": "The abdominal wall is a set of four layered muscles that wrap the trunk. Their most important job in training is not producing movement but preventing it - resisting the extension, rotation and side-bending forces that a heavy squat, a carry or a sprint tries to impose on the spine. Visible abs are mostly a matter of body fat; strong abs are a matter of bracing well under load.",
+    "func": "Rectus abdominis flexes the trunk and posteriorly tilts the pelvis. The external and internal obliques rotate and side-bend it, working in diagonal pairs. Transversus abdominis wraps around the trunk like a corset and raises intra-abdominal pressure, which is what actually stiffens and protects the spine.",
+    "anat": "Four layers. Rectus abdominis runs vertically down the front, divided by tendinous intersections into the segments that create the six-pack appearance, and enclosed in the rectus sheath. Outside it lie the external oblique, then the internal oblique running the opposite way, and deepest of all the transversus abdominis. Innervated by the anterior rami of T7-T12 and L1.",
+    "org": "Rectus abdominis: the pubic crest and pubic symphysis. Obliques: the lower ribs, iliac crest and thoracolumbar fascia.",
+    "ins": "Rectus abdominis: the costal cartilages of ribs 5 to 7 and the xiphoid process. The obliques and transversus converge on the linea alba down the midline.",
+    "rel": ["Erector spinae", "Diaphragm", "Pelvic floor", "Hip flexors", "Quadratus lumborum", "Serratus anterior"],
+    "train": [
+      "Train all three functions: anti-extension (planks, rollouts, dead bugs), anti-rotation (Pallof presses), and flexion (crunches, leg raises).",
+      "Add resistance rather than reps. Once you can plank for two minutes, holding it longer trains endurance, not strength - load it or make it harder instead.",
+      "Breathe out fully and pull the ribs down at the top of a crunch; it is the rib-to-pelvis distance closing that trains the rectus, not the neck lifting.",
+      "Heavy squats, deadlifts and carries already train the core hard isometrically - count them toward your weekly volume.",
+      "Abs recover quickly and tolerate frequent training, but visible definition comes from nutrition, not from extra sets."
+    ],
+    "ex": [
+      {
+        "img": "https://fitnessprogramer.com/wp-content/uploads/2021/02/plank.gif",
+        "n": "Plank",
+        "diff": "Beginner",
+        "eq": "Bodyweight",
+        "tgt": "Transversus abdominis, rectus abdominis",
+        "desc": "Support yourself on the forearms and toes with the body in a straight line. Squeeze the glutes, tuck the pelvis slightly and brace the abs hard, holding the position without letting the hips sag or pike.",
+        "s": 3,
+        "r": 1,
+        "tips": "Hold 30 to 45 seconds of hard bracing rather than three minutes of drifting. If it is easy, elevate the feet or add a weight plate on the back instead of holding longer.",
+        "vid": "https://www.youtube.com/watch?v=pSHjTRCQxIw"
+      },
+      {
+        "img": "https://fitnessprogramer.com/wp-content/uploads/2021/08/Hanging-Leg-Raises.gif",
+        "n": "Hanging Leg Raise",
+        "diff": "Advanced",
+        "eq": "Pull-up bar",
+        "tgt": "Rectus abdominis (lower fibres), hip flexors",
+        "desc": "Hang from a bar with the shoulders set. Raise the legs by curling the pelvis up toward the ribs, not just lifting the thighs, then lower under control without swinging.",
+        "s": 3,
+        "r": 12,
+        "tips": "Rounding the lower back at the top is what makes this an ab exercise rather than a hip flexor one. Start with bent knees and progress to straight legs.",
+        "vid": "https://www.youtube.com/results?search_query=how+to+hanging+leg+raise"
+      },
+      {
+        "img": "https://fitnessprogramer.com/wp-content/uploads/2021/02/Kneeling-Cable-Crunch.gif",
+        "n": "Kneeling Cable Crunch",
+        "diff": "Beginner",
+        "eq": "Cable machine with rope",
+        "tgt": "Rectus abdominis",
+        "desc": "Kneel facing a high cable with the rope held beside the head. Crunch down by curling the ribs toward the pelvis, keeping the hips fixed, then return slowly to a stretched position.",
+        "s": 3,
+        "r": 15,
+        "tips": "The one ab exercise that is easy to progressively overload. Keep the hips still - if you are hinging at the hips, you are doing a cable hinge, not a crunch.",
+        "vid": "https://www.youtube.com/results?search_query=how+to+kneeling+cable+crunch"
+      },
+      {
+        "img": "https://fitnessprogramer.com/wp-content/uploads/2021/06/Ab-Wheel-Rollout.gif",
+        "n": "Ab Wheel Rollout",
+        "diff": "Advanced",
+        "eq": "Ab wheel",
+        "tgt": "Rectus abdominis, transversus abdominis",
+        "desc": "Kneel holding the wheel under the shoulders with the pelvis tucked. Roll forward as far as you can while keeping the lower back from arching, then pull back with the abs.",
+        "s": 3,
+        "r": 10,
+        "tips": "Range is dictated by where your lower back starts to sag - go only that far. Start with rollouts against a wall to limit the distance.",
+        "vid": "https://www.youtube.com/results?search_query=how+to+ab+wheel+rollout"
+      },
+      {
+        "img": "https://fitnessprogramer.com/wp-content/uploads/2021/05/Dead-Bug.gif",
+        "n": "Dead Bug",
+        "diff": "Beginner",
+        "eq": "Bodyweight",
+        "tgt": "Transversus abdominis, rectus abdominis",
+        "desc": "Lie on your back with the arms up and the hips and knees at 90 degrees. Press the lower back into the floor, then slowly extend one arm and the opposite leg away, return, and alternate.",
+        "s": 3,
+        "r": 12,
+        "tips": "Move slowly and keep the lower back flat on the floor throughout. The moment it lifts, shorten the range - this is a bracing drill, not a speed exercise.",
+        "vid": "https://www.youtube.com/results?search_query=how+to+dead+bug+exercise"
+      },
+      {
+        "img": "https://fitnessprogramer.com/wp-content/uploads/2021/02/Russian-Twist.gif",
+        "n": "Russian Twist",
+        "diff": "Beginner",
+        "eq": "Bodyweight or medicine ball",
+        "tgt": "Obliques",
+        "desc": "Sit with the knees bent and the torso leaning back at about 45 degrees. Rotate the shoulders and arms from side to side under control, keeping the chest tall.",
+        "s": 3,
+        "r": 20,
+        "tips": "Rotate from the ribcage, not by waving the arms. Keep the movement slow - fast twisting with a rounded back loads the lumbar discs for little benefit.",
+        "vid": "https://www.youtube.com/watch?v=wkD8rjkodUI"
+      }
+    ],
+    "inj": [
+      {
+        "n": "Abdominal muscle strain",
+        "desc": "A tear in the rectus abdominis or the obliques, typically from an explosive twist, a heavy overhead lift, or a violent cough. It causes sharp pain in the abdominal wall that is reproduced by sitting up or twisting, and it can take several weeks to settle.",
+        "prev": "Warm up the trunk before rotational sport, progress loaded rotational and overhead work gradually, and brace properly before heavy lifts rather than lifting with a soft midsection."
+      },
+      {
+        "n": "Diastasis recti",
+        "desc": "A widening of the gap between the two halves of the rectus abdominis along the linea alba, most common after pregnancy but also seen with large increases in abdominal pressure. It shows as a ridge or doming down the midline when sitting up.",
+        "prev": "Avoid heavy crunching and loaded flexion while the gap is significant, work instead on transversus abdominis and breathing control, and progress under guidance postpartum."
+      },
+      {
+        "n": "Athletic pubalgia (sports hernia)",
+        "desc": "Chronic groin and lower abdominal pain from strain of the abdominal wall and adductor attachments near the pubic bone, common in sports involving cutting and kicking. There is often no visible hernia, just pain on sprinting, twisting and sit-ups.",
+        "prev": "Keep the adductors and abdominal wall strong and balanced, avoid sudden increases in cutting and kicking volume, and have persistent groin pain assessed early."
+      },
+      {
+        "n": "Lower back pain from poor bracing",
+        "desc": "Not an abdominal injury, but its most common consequence. When the deep core does not stiffen the trunk under load, the lumbar spine absorbs forces it is not built to handle - and high-volume sit-ups with a hip-flexor-dominant pattern add to it.",
+        "prev": "Learn to brace and breathe against a stiff trunk, favour anti-extension and anti-rotation exercises over endless sit-ups, and strengthen the glutes alongside the abs."
+      }
+    ],
+    "str": [
+      {
+        "n": "Cobra stretch",
+        "desc": "Lie face down and press up onto the hands with the hips staying on the floor, letting the chest rise and the abdominals lengthen. Keep the shoulders down away from the ears.",
+        "dur": "30 seconds"
+      },
+      {
+        "n": "Standing side bend",
+        "desc": "Stand tall with one arm reaching overhead and lean gently to the opposite side, keeping the hips level, to stretch the obliques and the side of the torso.",
+        "dur": "30 seconds per side"
+      },
+      {
+        "n": "Supine foam roller extension",
+        "desc": "Lie back over a foam roller placed across the mid-back with the arms overhead, letting the spine extend over it. Breathe out and relax into the position.",
+        "dur": "45 seconds"
+      },
+      {
+        "n": "Kneeling thoracic rotation",
+        "desc": "From all fours, place one hand behind the head and rotate the elbow up toward the ceiling, following it with your eyes, then rotate back down under the body.",
+        "dur": "10 reps per side"
+      }
+    ],
+    "freq": { "b": "2-3", "i": "3", "a": "3-4" }
+  },
+  {
+    "id": 11,
+    "n": "Grip",
+    "sn": "Forearm Flexors, Extensors & Brachioradialis",
+    "img": "",
+    "lvl": 2,
+    "desc": "The forearm contains around twenty muscles that control the wrist, the fingers and the rotation of the hand. Grip strength is what they add up to, and it is the limiting factor in more exercises than any other single quality - deadlifts, rows, pull-ups and carries all end when the hands give out. Grip strength is also one of the better-established general markers of overall health in adults.",
+    "func": "Flex and extend the wrist and fingers, pronate and supinate the forearm, and produce the three types of grip: crushing (closing the hand), supporting (holding onto a bar) and pinching (holding between thumb and fingers).",
+    "anat": "Two compartments. The anterior compartment holds the wrist and finger flexors and the pronators, arising mainly from the medial epicondyle; the posterior compartment holds the extensors and supinator, arising mainly from the lateral epicondyle. Brachioradialis sits on the thumb side and flexes the elbow. Flexors are supplied mostly by the median nerve, with part by the ulnar nerve; extensors by the radial nerve.",
+    "org": "Flexors: the common flexor origin on the medial epicondyle of the humerus. Extensors: the common extensor origin on the lateral epicondyle of the humerus.",
+    "ins": "The metacarpals and the phalanges of the fingers and thumb, via long tendons that cross the wrist inside retinacula.",
+    "rel": ["Biceps brachii", "Brachialis", "Latissimus dorsi", "Trapezius", "Rotator cuff"],
+    "train": [
+      "Train the three grip types separately: heavy holds and carries for supporting grip, hand grippers for crushing grip, plate pinches for pinch grip.",
+      "Train the extensors as well as the flexors. Almost everything you do in the gym closes the hand, and that imbalance is a major contributor to elbow pain.",
+      "Use straps for the heaviest pulling sets to save the back from being limited by grip - but do some sets without them so the grip still gets trained.",
+      "A thicker bar or fat grips dramatically increase forearm demand without any extra load.",
+      "Forearms handle frequent, higher-rep work well - 12 to 20 reps or timed holds beat heavy low-rep sets here."
+    ],
+    "ex": [
+      {
+        "img": "https://fitnessprogramer.com/wp-content/uploads/2021/02/barbell-Wrist-Curl.gif",
+        "n": "Barbell Wrist Curl",
+        "diff": "Beginner",
+        "eq": "Barbell",
+        "tgt": "Wrist flexors",
+        "desc": "Sit with the forearms resting on your thighs or a bench, palms up, and the wrists just past the edge. Let the bar roll down to the fingertips, then curl it back up by closing the hand and flexing the wrist.",
+        "s": 3,
+        "r": 15,
+        "tips": "Letting the bar roll to the fingers and rolling it back adds finger flexor work to the movement. Keep the forearms flat on the bench throughout.",
+        "vid": "https://www.youtube.com/watch?v=qMtmHwaCmYI"
+      },
+      {
+        "img": "https://fitnessprogramer.com/wp-content/uploads/2021/06/Barbell-Reverse-Wrist-Curl.gif",
+        "n": "Reverse Wrist Curl",
+        "diff": "Beginner",
+        "eq": "Barbell or dumbbells",
+        "tgt": "Wrist extensors",
+        "desc": "Rest the forearms on a bench with the palms facing down and the wrists over the edge. Lift the back of the hands upward as far as they will go, then lower slowly.",
+        "s": 3,
+        "r": 15,
+        "tips": "Use far less weight than on a normal wrist curl - the extensors are much smaller. This is the single most useful exercise for preventing and managing tennis elbow.",
+        "vid": "https://www.youtube.com/results?search_query=how+to+reverse+wrist+curl"
+      },
+      {
+        "img": "https://fitnessprogramer.com/wp-content/uploads/2022/02/Farmers-walk_Cardio.gif",
+        "n": "Farmer's Walk",
+        "diff": "Beginner",
+        "eq": "Heavy dumbbells or kettlebells",
+        "tgt": "Supporting grip, forearms, traps",
+        "desc": "Pick up a heavy weight in each hand, stand tall with the shoulders set back, and walk in a straight line with controlled steps until the grip is close to failing.",
+        "s": 4,
+        "r": 1,
+        "tips": "Measure in distance or time - 30 to 40 metres, or 30 to 45 seconds. This trains supporting grip better than any isolation exercise and carries over directly to deadlifts.",
+        "vid": "https://www.youtube.com/results?search_query=how+to+farmers+walk+carry"
+      },
+      {
+        "img": "https://fitnessprogramer.com/wp-content/uploads/2021/06/Dumbbell-Seated-Neutral-Wrist-Curl.gif",
+        "n": "Neutral Grip Wrist Curl",
+        "diff": "Beginner",
+        "eq": "Dumbbells",
+        "tgt": "Wrist radial and ulnar deviators, brachioradialis",
+        "desc": "Sit with the forearm on the thigh and the hand in a neutral (thumb-up) position over the edge. Raise the thumb side of the hand toward the ceiling, then lower under control.",
+        "s": 3,
+        "r": 15,
+        "tips": "This trains the deviators that the two standard wrist curls miss. Keep the movement small and controlled - the range here is naturally short.",
+        "vid": "https://www.youtube.com/results?search_query=how+to+neutral+grip+wrist+curl"
+      },
+      {
+        "img": "https://fitnessprogramer.com/wp-content/uploads/2021/02/Hammer-Curl.gif",
+        "n": "Hammer Curl",
+        "diff": "Beginner",
+        "eq": "Dumbbells",
+        "tgt": "Brachioradialis, forearm flexors",
+        "desc": "Hold the dumbbells with a neutral grip and curl straight up without rotating the wrists, keeping the elbows at your sides, then lower under control.",
+        "s": 3,
+        "r": 12,
+        "tips": "The neutral grip makes brachioradialis the main elbow flexor, thickening the upper forearm. Grip the handles hard to add grip work to every rep.",
+        "vid": "https://www.youtube.com/watch?v=TwD-YGVP4Bk"
+      }
+    ],
+    "inj": [
+      {
+        "n": "Lateral epicondylalgia (tennis elbow)",
+        "desc": "Degeneration of the common extensor tendon at the outside of the elbow, from repetitive gripping, typing, or a sudden increase in pulling volume. Pain sits on the outer elbow and is reproduced by gripping, lifting a cup, or extending the wrist against resistance.",
+        "prev": "Strengthen the wrist extensors directly, avoid sudden jumps in gripping volume, use a thicker handle to spread the load, and take breaks from sustained gripping tasks."
+      },
+      {
+        "n": "Medial epicondylalgia (golfer's elbow)",
+        "desc": "The same process on the inner side of the elbow, affecting the common flexor tendon. It comes from heavy gripping, hammer curls and pulling volume, and it hurts on the inside of the elbow when gripping or flexing the wrist.",
+        "prev": "Balance flexor work with extensor work, progress grip-heavy training gradually, and use straps on the heaviest pulling sets to reduce cumulative flexor load."
+      },
+      {
+        "n": "Carpal tunnel syndrome",
+        "desc": "Compression of the median nerve as it passes through the wrist, causing numbness, tingling and night pain in the thumb, index and middle fingers, and eventually weakness in the thumb. Sustained wrist flexion or extension, at a keyboard or on a bike, is a common contributor.",
+        "prev": "Keep the wrist near neutral when typing and lifting, avoid long periods of extreme wrist extension in front support positions, and break up repetitive gripping tasks."
+      },
+      {
+        "n": "De Quervain's tenosynovitis",
+        "desc": "Inflammation of the thumb-side tendon sheath at the wrist, causing pain when gripping, lifting with the thumb out, or turning the wrist. Common in new parents and in anyone doing a lot of repetitive thumb work.",
+        "prev": "Avoid repeated forceful thumb-out lifting, use a full-hand grip rather than a thumb-heavy one, and give the wrist relative rest when symptoms start."
+      }
+    ],
+    "str": [
+      {
+        "n": "Wrist flexor stretch",
+        "desc": "Extend one arm in front with the palm facing forward and fingers pointing down. Use the other hand to gently pull the fingers back toward you until you feel a stretch along the inside of the forearm.",
+        "dur": "30 seconds per side"
+      },
+      {
+        "n": "Wrist extensor stretch",
+        "desc": "Extend the arm with the palm facing down and let the hand drop. Gently pull the back of the hand toward you to stretch the outside of the forearm.",
+        "dur": "30 seconds per side"
+      },
+      {
+        "n": "Prayer stretch",
+        "desc": "Press the palms together in front of the chest and slowly lower the hands toward the waist while keeping the palms in contact, until you feel the stretch through both wrists.",
+        "dur": "30 seconds"
+      },
+      {
+        "n": "Rubber band finger extension",
+        "desc": "Loop a rubber band around the fingers and thumb and open the hand against its resistance. This trains the extensors that every gripping exercise neglects.",
+        "dur": "2 sets of 15"
+      }
+    ],
+    "freq": { "b": "2", "i": "2-3", "a": "3-4" }
+  },
+  {
+    "id": 12,
+    "n": "Quads",
+    "sn": "Quadriceps Femoris",
+    "img": "",
+    "lvl": 3,
+    "desc": "The quadriceps is the four-headed muscle group on the front of the thigh and the largest muscle group in the body by volume. Its single shared job is straightening the knee, which makes it the main engine behind squatting, climbing stairs, cycling and sprinting - and the muscle that absorbs the load every time you go down a step or land from a jump.",
+    "func": "All four heads extend the knee. Rectus femoris also crosses the hip, so it flexes the hip as well and is the only head that is fully loaded when the hip is extended - which is why leg extensions, reverse Nordics and sissy squats train it differently from squats. Vastus medialis helps keep the kneecap tracking correctly.",
+    "anat": "Four muscles: rectus femoris down the middle, vastus lateralis on the outside, vastus medialis on the inside, and vastus intermedius deep beneath rectus femoris. They join into the quadriceps tendon, which surrounds the patella and continues below it as the patellar ligament. Innervated by the femoral nerve (L2-L4).",
+    "org": "Rectus femoris: the anterior inferior iliac spine and the upper rim of the acetabulum. The three vastii: the intertrochanteric line, the linea aspera and the shaft of the femur.",
+    "ins": "The tibial tuberosity, via the quadriceps tendon, the patella and the patellar ligament.",
+    "rel": ["Gluteus maximus", "Hamstrings", "Hip adductors", "Gastrocnemius", "Tibialis anterior"],
+    "train": [
+      "Depth matters more than load - a squat to parallel or below trains the quads through far more range than a partial with heavier weight.",
+      "Include one hip-extended movement such as leg extensions or reverse Nordics; rectus femoris is barely trained by squatting because it is shortened at the hip.",
+      "A more upright torso, a closer stance and heel elevation all shift a squat toward the quads and away from the glutes.",
+      "Add single-leg work to expose and fix side-to-side differences that a barbell lets you hide.",
+      "Balance quad volume with hamstring work - a large strength imbalance between the two is associated with knee injury risk."
+    ],
+    "ex": [
+      {
+        "img": "https://fitnessprogramer.com/wp-content/uploads/2021/02/BARBELL-SQUAT.gif",
+        "n": "Barbell Back Squat",
+        "diff": "Intermediate",
+        "eq": "Barbell",
+        "tgt": "Quadriceps, glutes",
+        "desc": "With the bar on the upper back and the feet about shoulder width, brace and descend by bending the knees and hips together, keeping the chest up. Go to at least parallel, then drive back up through the whole foot.",
+        "s": 4,
+        "r": 8,
+        "tips": "Let the knees travel forward over the toes - this is normal and necessary for the quads. Keep the weight over mid-foot and the knees tracking in line with the toes.",
+        "vid": "https://www.youtube.com/watch?v=aclHkVaku9U"
+      },
+      {
+        "img": "https://fitnessprogramer.com/wp-content/uploads/2021/06/front-squat.gif",
+        "n": "Front Squat",
+        "diff": "Advanced",
+        "eq": "Barbell",
+        "tgt": "Quadriceps",
+        "desc": "Rack the bar across the front deltoids with the elbows high. Squat down with an upright torso, keeping the elbows lifted throughout, then drive back up.",
+        "s": 4,
+        "r": 6,
+        "tips": "The most quad-dominant barbell squat because the upright torso removes the hip lever. If the elbows drop, the bar rolls forward - keep them high even as it gets hard.",
+        "vid": "https://www.youtube.com/results?search_query=how+to+front+squat"
+      },
+      {
+        "img": "https://fitnessprogramer.com/wp-content/uploads/2015/11/Leg-Press.gif",
+        "n": "Leg Press",
+        "diff": "Beginner",
+        "eq": "Leg press machine",
+        "tgt": "Quadriceps, glutes",
+        "desc": "Sit with the feet shoulder width on the platform. Lower the weight by bending the knees until they reach roughly 90 degrees or slightly deeper, then press back up without locking out hard.",
+        "s": 3,
+        "r": 12,
+        "tips": "Never let the lower back round off the pad at the bottom - that is what causes leg press back injuries. A lower foot placement biases the quads further.",
+        "vid": "https://www.youtube.com/watch?v=IZxyjW7MPJQ"
+      },
+      {
+        "img": "https://fitnessprogramer.com/wp-content/uploads/2021/02/LEG-EXTENSION.gif",
+        "n": "Leg Extension",
+        "diff": "Beginner",
+        "eq": "Leg extension machine",
+        "tgt": "Quadriceps, rectus femoris",
+        "desc": "Sit with the pad on the lower shins and the knees aligned with the machine's pivot. Extend the knees until the legs are straight, hold briefly, then lower slowly.",
+        "s": 3,
+        "r": 15,
+        "tips": "The one machine that trains rectus femoris with the hip extended. Sitting more upright increases the stretch on it. Control the negative rather than dropping the weight.",
+        "vid": "https://www.youtube.com/results?search_query=how+to+leg+extension+machine"
+      },
+      {
+        "img": "https://fitnessprogramer.com/wp-content/uploads/2021/02/Dumbbell-Lunge.gif",
+        "n": "Dumbbell Lunge",
+        "diff": "Beginner",
+        "eq": "Dumbbells",
+        "tgt": "Quadriceps, glutes",
+        "desc": "Hold a dumbbell in each hand and step forward into a lunge, lowering until the back knee is just above the floor and the front shin is close to vertical. Push back to the start.",
+        "s": 3,
+        "r": 12,
+        "tips": "A shorter step biases the quads, a longer step the glutes. Keep the torso upright and do not let the front knee collapse inward.",
+        "vid": "https://www.youtube.com/watch?v=QOVaHwm-Q6U"
+      },
+      {
+        "img": "https://fitnessprogramer.com/wp-content/uploads/2021/05/Split-Squat.gif",
+        "n": "Split Squat",
+        "diff": "Beginner",
+        "eq": "Bodyweight or dumbbells",
+        "tgt": "Quadriceps, glutes",
+        "desc": "Set up in a staggered stance and lower straight down until the back knee nearly touches the floor, keeping the front foot flat, then drive back up through the front leg.",
+        "s": 3,
+        "r": 10,
+        "tips": "Easier to control than a walking lunge, which makes it a better place to add load. Keep the torso upright to keep the emphasis on the front leg's quad.",
+        "vid": "https://www.youtube.com/results?search_query=how+to+split+squat"
+      }
+    ],
+    "inj": [
+      {
+        "n": "Patellofemoral pain syndrome (runner's knee)",
+        "desc": "A dull ache around or behind the kneecap that is worst going down stairs, squatting, or after long periods of sitting. It comes from the load on the kneecap outpacing what the joint is conditioned for, often alongside weak hip abductors letting the knee drift inward.",
+        "prev": "Build squatting and running volume gradually, strengthen the glutes and quads together, and check that the knee tracks over the foot rather than caving in."
+      },
+      {
+        "n": "Patellar tendinopathy (jumper's knee)",
+        "desc": "Pain at the lower pole of the kneecap, right on the tendon, from repeated jumping and heavy deep squatting. It is sharply localised, warms up during activity, and hurts most the day after a hard session.",
+        "prev": "Progress jumping and heavy squat volume gradually, include slow heavy eccentric or isometric quad loading, and do not simply rest a tendon - it needs progressive load to recover."
+      },
+      {
+        "n": "Quadriceps strain",
+        "desc": "A tear in the muscle, most often in rectus femoris because it crosses two joints. It happens during sprinting, kicking or an explosive change of direction, and causes sudden sharp pain at the front of the thigh.",
+        "prev": "Warm up thoroughly before sprinting and kicking, include eccentric quad work, and build explosive volume gradually rather than in jumps."
+      },
+      {
+        "n": "Quadriceps contusion (dead leg)",
+        "desc": "A direct impact crushing the muscle against the femur, common in contact sport. It causes immediate pain, swelling and a marked loss of knee bend. Aggressive massage or heat early on can cause myositis ossificans, where bone forms inside the muscle.",
+        "prev": "Wear protective padding in contact sport, and in the first 48 hours after an impact use ice and gentle pain-free movement rather than deep massage or heat."
+      }
+    ],
+    "str": [
+      {
+        "n": "Standing quad stretch",
+        "desc": "Stand on one leg, pull the other heel toward the glute and keep the knees together with the pelvis tucked under. Hold onto something for balance.",
+        "dur": "30 seconds per side"
+      },
+      {
+        "n": "Couch stretch",
+        "desc": "Kneel with the rear shin against a wall or bench and the front foot planted ahead. Squeeze the glute of the rear leg and bring the torso upright to stretch the quad and hip flexor together.",
+        "dur": "60 seconds per side"
+      },
+      {
+        "n": "Kneeling hip flexor stretch",
+        "desc": "In a half-kneeling position, tuck the pelvis under, squeeze the rear glute and shift gently forward. Keep the ribs down rather than arching the lower back.",
+        "dur": "45 seconds per side"
+      },
+      {
+        "n": "Leg swings",
+        "desc": "Hold a support and swing one leg forward and back through a controlled, gradually increasing range. Use before training as a dynamic warm-up.",
+        "dur": "12 swings per leg"
+      }
+    ],
+    "freq": { "b": "2", "i": "2-3", "a": "3" }
+  }
+]
+
+
