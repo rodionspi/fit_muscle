@@ -3,27 +3,14 @@ import { Github, Heart, Users, TrendingUp, Target } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import React from "react";
-import { Fraunces, Space_Grotesk } from "next/font/google"
-
-const fraunces = Fraunces({
-  subsets: ["latin"],
-  weight: ["400", "600", "700"],
-  variable: "--font-display",
-})
-
-const spaceGrotesk = Space_Grotesk({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-body",
-})
 
 const About = () => {
   return (
     <PageWrapper>
-      <div className={`${spaceGrotesk.variable} ${fraunces.variable}`} style={{ fontFamily: "var(--font-body)" }}>
+      <div>
         <div className="min-h-screen from-stone-50 text-slate-100">
           <section className="relative overflow-hidden">
-            <div className="relative max-w-6xl mx-auto px-6 py-20 lg:py-28">
+            <div className="relative  mx-auto px-6 py-20 lg:py-28">
               <div className="grid items-center gap-12 lg:grid-cols-[1.1fr,0.9fr]">
                 <div className="animate-fade-up" style={{ animationDelay: "50ms" }}>
                   <div className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white/80 px-4 py-2 text-xs uppercase tracking-[0.24em] text-black shadow-sm">
@@ -31,7 +18,7 @@ const About = () => {
                     Built for real training
                   </div>
                   <h1
-                    style={{ fontFamily: "var(--font-display)" }}
+                    
                     className="mt-6 text-4xl font-semibold leading-tight text-slate-50 md:text-6xl"
                   >
                     About Trainer App
@@ -93,12 +80,12 @@ const About = () => {
             </div>
           </section>
 
-          <section className="max-w-6xl mx-auto px-6 py-16">
+          <section className=" mx-auto px-6 py-16">
             <div className="mb-10 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
               <div className="max-w-2xl animate-fade-up" style={{ animationDelay: "120ms" }}>
                 <p className="text-xs uppercase tracking-[0.24em] text-slate-300">Core features</p>
                 <h2
-                  style={{ fontFamily: "var(--font-display)" }}
+                  
                   className="mt-3 text-3xl font-semibold text-slate-50 md:text-4xl"
                 >
                   Train with intent, not guesswork.
@@ -157,12 +144,12 @@ const About = () => {
             </div>
           </section>
 
-          <section className="max-w-6xl mx-auto px-6 pb-16">
+          <section className=" mx-auto px-6 pb-16">
             <div className="grid items-center gap-10 lg:grid-cols-[1.05fr,0.95fr]">
               <div className="animate-fade-up" style={{ animationDelay: "120ms" }}>
                 <p className="text-xs uppercase tracking-[0.24em] text-slate-300">What you get</p>
                 <h2
-                  style={{ fontFamily: "var(--font-display)" }}
+                  
                   className="mt-3 text-3xl font-semibold text-slate-50 md:text-4xl"
                 >
                   A clear path from goal to daily action.
@@ -245,7 +232,7 @@ const About = () => {
             </div>
           </section>
 
-          <section className="max-w-6xl mx-auto px-6 pb-16">
+          <section className=" mx-auto px-6 pb-16">
             <Card className="overflow-hidden border-0 bg-slate-900 to-slate-800 text-white shadow-2xl">
               <div className="p-8 md:p-10">
                 <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
@@ -255,7 +242,7 @@ const About = () => {
                       <p className="text-xs uppercase tracking-[0.24em]">Support</p>
                     </div>
                     <h2
-                      style={{ fontFamily: "var(--font-display)" }}
+                      
                       className="mt-4 text-3xl font-semibold text-white"
                     >
                       Help the app grow with the community.
@@ -281,58 +268,11 @@ const About = () => {
             </Card>
           </section>
 
-          <section className="max-w-6xl mx-auto px-6 pb-16">
-            <Card className="border border-white/60 bg-slate-300 shadow-xl backdrop-blur">
-              <CardContent className="p-8 md:p-10">
-                <div className="flex flex-col gap-8 md:flex-row md:items-center md:justify-between">
-                  <div className="max-w-2xl animate-fade-up" style={{ animationDelay: "100ms" }}>
-                    <p className="text-xs uppercase tracking-[0.24em] text-slate-500">Developer</p>
-                    <h2
-                      style={{ fontFamily: "var(--font-display)" }}
-                      className="mt-3 text-3xl font-semibold text-slate-900"
-                    >
-                      Built by an independent developer.
-                    </h2>
-                    <p className="mt-4 text-lg text-slate-600">
-                      I build with JavaScript and TypeScript, focusing on thoughtful UI and clear training flows. Reach
-                      out on GitHub if you want to collaborate or share ideas.
-                    </p>
-                    <div className="mt-6 flex flex-wrap gap-3">
-                      <span className="rounded-full bg-amber-100 px-3 py-1 text-sm font-medium text-amber-800">
-                        JavaScript
-                      </span>
-                      <span className="rounded-full bg-blue-100 px-3 py-1 text-sm font-medium text-blue-800">
-                        TypeScript
-                      </span>
-                      <span className="rounded-full bg-emerald-100 px-3 py-1 text-sm font-medium text-emerald-800">
-                        React
-                      </span>
-                      <span className="rounded-full bg-slate-100 px-3 py-1 text-sm font-medium text-slate-700">
-                        2+ years experience
-                      </span>
-                    </div>
-                  </div>
-                  <div className="flex flex-col gap-3">
-                    <Button variant="outline" className="border-slate-700 text-slate-700 hover:bg-white" asChild>
-                      <a href="https://github.com/rodionspi" target="_blank" rel="noopener noreferrer">
-                        <Github className="mr-2 h-4 w-4" />
-                        View GitHub
-                      </a>
-                    </Button>
-                    <Button className="bg-slate-900 text-white hover:bg-slate-800" asChild>
-                      <a href="/profile/login">Sign in</a>
-                    </Button>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          </section>
-
-          <section className="max-w-6xl mx-auto px-6 pb-20 text-center">
+          <section className=" mx-auto px-6 pb-20 text-center">
             <Card className="border-0 bg-slate-900 text-white shadow-2xl">
               <CardContent className="p-12">
                 <h3
-                  style={{ fontFamily: "var(--font-display)" }}
+                  
                   className="text-3xl font-semibold"
                 >
                   Ready to start your next training block?

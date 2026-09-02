@@ -88,6 +88,13 @@ html,
 body {
   max-width: 100vw;
   overflow-x: hidden;
+  font-family: "Caacupe One", ui-sans-serif, system-ui, sans-serif;
+}
+
+.caacupe-one-regular {
+  font-family: "Caacupe One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
 a {
