@@ -23,18 +23,25 @@ const ProfilePage = () => {
         router.push(`/profile/login`)
       }
     }
-  }, [userData])
+  }, [userData]);
+
+
 
   return (
     <PageWrapper>
       {userData ? (
         <div className="flex flex-col items-center space-y-6">
-          <Image
-          alt="Account logo"
-          src={''}
-          className="h-32 w-32 rounded-full shadow-lg"
-          priority
-          />
+          <div className="text-left w-full">
+            <h1 className="text-4xl font-bold text-gray-300">Profile</h1>
+          </div>
+          <div>
+            <Image
+            alt="Account logo"
+            src={''}
+            className="h-32 w-32 rounded-full shadow-lg"
+            priority
+            />
+          </div>
           <div className="text-center">
           <p className="text-2xl font-semibold text-gray-300">{userData.name}</p>
           <p className="text-xl text-gray-300">{userData.email}</p>

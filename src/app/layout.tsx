@@ -1,13 +1,10 @@
 "use client"
 
 import React from "react";
-import { Inter } from "next/font/google";
 import "./globals.css";
 import { UserProvider } from "../contexts/UserContext";
 import { BrowserRouter } from "react-router-dom";
 import { MusclesProvider } from "@/contexts/MusclesContext";
-
-const inter = Inter({ subsets: ["latin"] });
 
 export default function RootLayout({
   children,
@@ -16,7 +13,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className} bg-zinc-950 text-zinc-100 antialiased`}>
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Caacupe+One&display=swap"
+          rel="stylesheet"
+        />
+      </head>
+      <body className="bg-zinc-950 text-zinc-100 antialiased">
         {typeof window !== "undefined" ? (
           <BrowserRouter
           >
