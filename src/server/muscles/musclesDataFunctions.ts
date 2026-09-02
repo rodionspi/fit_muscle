@@ -6,12 +6,40 @@ import {
   getDoc
 } from "firebase/firestore";
 import { Exercise, Muscle, CommonInjury, StretchingExercise } from "../../types/Muscle";
+import { musclesData, getLocalMuscleById } from "@/data/musclesData";
+
+// Bump this whenever the shape or content of the reference data changes, so
+// browsers holding an older cached copy fetch again instead of serving it.
+const CACHE_VERSION = "v2";
+
+/**
+ * A Firestore muscle document is considered outdated if it predates the
+ * reference dataset in src/data/muscles.json - the giveaway is that it carries
+ * no origin/insertion. Those documents are replaced by the bundled data until
+ * Firestore is re-seeded (npm run seed:muscles -- --force), after which the
+ * check passes and Firestore becomes the source of truth again.
+ */
+const isOutdated = (muscle: Muscle | undefined | null): boolean => !muscle?.org;
+
+const mergeWithReferenceData = (remote: Muscle[]): Muscle[] => {
+  const merged = musclesData.map((local) => {
+    const match = remote.find((m) => m.id?.toString() === local.id.toString());
+    return isOutdated(match) ? local : (match as Muscle);
+  });
+
+  // Keep any muscle that only exists in Firestore
+  const extra = remote.filter(
+    (m) => !musclesData.some((local) => local.id.toString() === m.id?.toString())
+  );
+
+  return [...merged, ...extra];
+};
 
 // Check if cached data exists and is fresh (e.g., <24 hours old)
 // Check if cached data exists and is fresh (client-side only)
 const getCachedMuscles = () => {
   if (typeof window === 'undefined' || !window.localStorage) return null;
-  const cached = window.localStorage.getItem("muscles");
+  const cached = window.localStorage.getItem(`muscles_${CACHE_VERSION}`);
   if (cached) {
     const { timestamp, data } = JSON.parse(cached);
     if (Date.now() - timestamp < 86400000) { // 24h cache
@@ -24,7 +52,7 @@ const getCachedMuscles = () => {
 // Per-muscle exercises cache (client-side only, 24h TTL)
 const getCachedExercises = (muscleId: string): Exercise[] | null => {
   if (typeof window === 'undefined' || !window.localStorage) return null;
-  const key = `muscle_exercises_${muscleId}`;
+  const key = `muscle_exercises_${CACHE_VERSION}_${muscleId}`;
   const cached = window.localStorage.getItem(key);
   if (!cached) return null;
   try {
@@ -40,7 +68,7 @@ const getCachedExercises = (muscleId: string): Exercise[] | null => {
 
 const setCachedExercises = (muscleId: string, exercises: Exercise[]) => {
   if (typeof window === 'undefined' || !window.localStorage) return;
-  const key = `muscle_exercises_${muscleId}`;
+  const key = `muscle_exercises_${CACHE_VERSION}_${muscleId}`;
   try {
     window.localStorage.setItem(key, JSON.stringify({ data: exercises, timestamp: Date.now() }));
   } catch {
@@ -51,7 +79,7 @@ const setCachedExercises = (muscleId: string, exercises: Exercise[]) => {
 // Per-muscle common injuries cache (client-side only, 24h TTL)
 const getCachedInjuries = (muscleId: string): CommonInjury[] | null => {
   if (typeof window === 'undefined' || !window.localStorage) return null;
-  const key = `muscle_injuries_${muscleId}`;
+  const key = `muscle_injuries_${CACHE_VERSION}_${muscleId}`;
   const cached = window.localStorage.getItem(key);
   if (!cached) return null;
   try {
@@ -67,7 +95,7 @@ const getCachedInjuries = (muscleId: string): CommonInjury[] | null => {
 
 const setCachedInjuries = (muscleId: string, injuries: CommonInjury[]) => {
   if (typeof window === 'undefined' || !window.localStorage) return;
-  const key = `muscle_injuries_${muscleId}`;
+  const key = `muscle_injuries_${CACHE_VERSION}_${muscleId}`;
   try {
     window.localStorage.setItem(key, JSON.stringify({ data: injuries, timestamp: Date.now() }));
   } catch (error) {
@@ -78,7 +106,7 @@ const setCachedInjuries = (muscleId: string, injuries: CommonInjury[]) => {
 // Per-muscle stretching cache (client-side only, 24h TTL)
 const getCachedStretching = (muscleId: string): StretchingExercise[] | null => {
   if (typeof window === 'undefined' || !window.localStorage) return null;
-  const key = `muscle_stretching_${muscleId}`;
+  const key = `muscle_stretching_${CACHE_VERSION}_${muscleId}`;
   const cached = window.localStorage.getItem(key);
   if (!cached) return null;
   try {
@@ -94,7 +122,7 @@ const getCachedStretching = (muscleId: string): StretchingExercise[] | null => {
 
 const setCachedStretching = (muscleId: string, stretches: StretchingExercise[]) => {
   if (typeof window === 'undefined' || !window.localStorage) return;
-  const key = `muscle_stretching_${muscleId}`;
+  const key = `muscle_stretching_${CACHE_VERSION}_${muscleId}`;
   try {
     window.localStorage.setItem(key, JSON.stringify({ data: stretches, timestamp: Date.now() }));
   } catch (error) {
@@ -102,22 +130,36 @@ const setCachedStretching = (muscleId: string, stretches: StretchingExercise[]) 
   }
 };
 
-// Fetch from Firestore if no valid cache exists
-export const getMuscles = async () => {
-  console.log("Attempting to fetch muscles...", getCachedMuscles());
+// Fetch from Firestore if no valid cache exists, then fill in any muscle whose
+// Firestore document still predates the reference dataset.
+export const getMuscles = async (): Promise<Muscle[]> => {
   const cached = getCachedMuscles();
-  if (cached) return cached;
+  if (cached?.length) return cached;
 
-  const musclesCol = collection(db, "muscles");
-  const snapshot = await getDocs(musclesCol);
-  const data = snapshot.docs.map(doc => doc.data());
-  console.log("Fetched muscles from Firestore:", data);
+  let remote: Muscle[] = [];
+  try {
+    const musclesCol = collection(db, "muscles");
+    const snapshot = await getDocs(musclesCol);
+    remote = snapshot.docs.map(doc => doc.data() as Muscle);
+  } catch (error) {
+    console.error("Failed to fetch muscles from Firestore:", error);
+  }
+
+  // Firestore is empty or unreachable - serve the bundled reference data
+  if (!remote.length) return musclesData;
+
+  const data = mergeWithReferenceData(remote);
+
   // Cache with timestamp (client-side only)
   if (typeof window !== 'undefined' && window.localStorage) {
-    window.localStorage.setItem(
-      "muscles",
-      JSON.stringify({ data, timestamp: Date.now() })
-    );
+    try {
+      window.localStorage.setItem(
+        `muscles_${CACHE_VERSION}`,
+        JSON.stringify({ data, timestamp: Date.now() })
+      );
+    } catch (error) {
+      console.error("Failed to cache muscles:", error);
+    }
   }
   return data;
 };
@@ -127,20 +169,27 @@ export const getMuscleExercisesById = async (muscleId: string): Promise<Exercise
   const cachedExercises = getCachedExercises(muscleId);
   if (cachedExercises) return cachedExercises;
 
-  // 1) Try to use cached full muscle data if available
-  const cached = getCachedMuscles() as Muscle[] | null;
-  if (cached) {
-    const found = cached.find((m) => m.id.toString() === muscleId);
-    if (found?.ex?.length) {
-      setCachedExercises(muscleId, found.ex as Exercise[]);
-      return found.ex as Exercise[];
-    }
+  // 1) The merged muscle list already carries the reference exercises
+  const muscles = await getMuscles();
+  const found = muscles.find((m) => m.id?.toString() === muscleId);
+  if (found?.ex?.length) {
+    setCachedExercises(muscleId, found.ex);
+    return found.ex;
   }
 
   // 2) Fallback: read subcollection from Firestore
-  const exCol = collection(db, "muscles", muscleId, "exercises");
-  const exSnap = await getDocs(exCol);
-  const exercises: Exercise[] = exSnap.docs.map((d) => d.data() as Exercise);
+  let exercises: Exercise[] = [];
+  try {
+    const exCol = collection(db, "muscles", muscleId, "exercises");
+    const exSnap = await getDocs(exCol);
+    exercises = exSnap.docs.map((d) => d.data() as Exercise);
+  } catch (error) {
+    console.error("Failed to fetch exercises from Firestore:", error);
+  }
+
+  // 3) Last resort: bundled reference data
+  if (!exercises.length) return getLocalMuscleById(muscleId)?.ex ?? [];
+
   setCachedExercises(muscleId, exercises);
   return exercises;
 };
@@ -150,20 +199,27 @@ export const getCommonInjuriesOfMuscle = async (muscleId: string): Promise<Commo
   const cachedInj = getCachedInjuries(muscleId);
   if (cachedInj) return cachedInj;
 
-  // 1) from cached full muscle data
-  const cached = getCachedMuscles() as Muscle[] | null;
-  if (cached) {
-    const found = cached.find((m) => m.id.toString() === muscleId);
-    if (found?.inj?.length) {
-      setCachedInjuries(muscleId, found.inj as CommonInjury[]);
-      return found.inj as CommonInjury[];
-    }
+  // 1) The merged muscle list already carries the reference injuries
+  const muscles = await getMuscles();
+  const found = muscles.find((m) => m.id?.toString() === muscleId);
+  if (found?.inj?.length) {
+    setCachedInjuries(muscleId, found.inj);
+    return found.inj;
   }
 
   // 2) Firestore subcollection
-  const injCol = collection(db, "muscles", muscleId, "commonInjuries");
-  const injSnap = await getDocs(injCol);
-  const injuries: CommonInjury[] = injSnap.docs.map((d) => d.data() as CommonInjury);
+  let injuries: CommonInjury[] = [];
+  try {
+    const injCol = collection(db, "muscles", muscleId, "commonInjuries");
+    const injSnap = await getDocs(injCol);
+    injuries = injSnap.docs.map((d) => d.data() as CommonInjury);
+  } catch (error) {
+    console.error("Failed to fetch common injuries from Firestore:", error);
+  }
+
+  // 3) Last resort: bundled reference data
+  if (!injuries.length) return getLocalMuscleById(muscleId)?.inj ?? [];
+
   setCachedInjuries(muscleId, injuries);
   return injuries;
 };
@@ -173,20 +229,27 @@ export const getStretchingExOfMuscle = async (muscleId: string): Promise<Stretch
   const cachedStr = getCachedStretching(muscleId);
   if (cachedStr) return cachedStr;
 
-  // 1) from cached full muscle data
-  const cached = getCachedMuscles() as Muscle[] | null;
-  if (cached) {
-    const found = cached.find((m) => m.id.toString() === muscleId);
-    if (found?.str?.length) {
-      setCachedStretching(muscleId, found.str as StretchingExercise[]);
-      return found.str as StretchingExercise[];
-    }
+  // 1) The merged muscle list already carries the reference stretches
+  const muscles = await getMuscles();
+  const found = muscles.find((m) => m.id?.toString() === muscleId);
+  if (found?.str?.length) {
+    setCachedStretching(muscleId, found.str);
+    return found.str;
   }
 
   // 2) Firestore subcollection (named "stretching")
-  const strCol = collection(db, "muscles", muscleId, "stretching");
-  const strSnap = await getDocs(strCol);
-  const stretches: StretchingExercise[] = strSnap.docs.map((d) => d.data() as StretchingExercise);
+  let stretches: StretchingExercise[] = [];
+  try {
+    const strCol = collection(db, "muscles", muscleId, "stretching");
+    const strSnap = await getDocs(strCol);
+    stretches = strSnap.docs.map((d) => d.data() as StretchingExercise);
+  } catch (error) {
+    console.error("Failed to fetch stretching exercises from Firestore:", error);
+  }
+
+  // 3) Last resort: bundled reference data
+  if (!stretches.length) return getLocalMuscleById(muscleId)?.str ?? [];
+
   setCachedStretching(muscleId, stretches);
   return stretches;
 };
@@ -207,12 +270,17 @@ export const getStrechingExOfMuscle = getStretchingExOfMuscle;
  * Fetch full muscle data by id from 'muscles' collection
  */
 export const getMuscleById = async (muscleId: string): Promise<Muscle | null> => {
-  const ref = doc(db, "muscles", muscleId);
-  const snap = await getDoc(ref);
-  if (snap.exists()) {
-    return snap.data() as Muscle;
+  try {
+    const ref = doc(db, "muscles", muscleId);
+    const snap = await getDoc(ref);
+    if (snap.exists()) {
+      const remote = snap.data() as Muscle;
+      if (!isOutdated(remote)) return remote;
+    }
+  } catch (error) {
+    console.error("Failed to fetch muscle from Firestore:", error);
   }
-  return null;
+  return getLocalMuscleById(muscleId) ?? null;
 };
 
 // export const getMuscleWithExercises = async (

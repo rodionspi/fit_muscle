@@ -40,7 +40,10 @@ export const MusclesProvider: React.FC<{ children: React.ReactNode }> = ({ child
   const refresh = useCallback(async () => {
     try {
       if (typeof window !== "undefined") {
-        window.localStorage.removeItem("muscles");
+        // Drop every cached muscle entry, including the per-muscle subcollections
+        Object.keys(window.localStorage)
+          .filter((key) => key === "muscles" || key.startsWith("muscles_") || key.startsWith("muscle_"))
+          .forEach((key) => window.localStorage.removeItem(key));
       }
     } catch (err) {
       // ignore localStorage errors (quota/availability)
