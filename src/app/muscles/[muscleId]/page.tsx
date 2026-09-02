@@ -73,7 +73,7 @@ const MusclePage = () => {
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-900 to-slate-800 text-white">
       <PageWrapper>
-      <div className="relative bg-gradient-to-r from-slate-800 to-slate-700 overflow-hidden">
+      <div className="relative bg-gradient-to-r from-slate-800 to-slate-700 overflow-hidden rounded-xl">
         <div className="absolute inset-0 opacity-10 bg-cover bg-center pointer-events-none"></div>
         <div className="container mx-auto px-4 py-12">
           <div className="flex flex-col md:flex-row md:items-start h-full">
@@ -117,11 +117,14 @@ const MusclePage = () => {
                 <div className="bg-slate-800/50 p-4 rounded-lg border border-slate-700">
                   <h3 className="text-sm text-slate-400 mb-1">Difficulty Level</h3>
                   <div className="flex items-center gap-1">
-                    <span className="w-2 h-2 bg-emerald-500 rounded-full"></span>
-                    <span className="w-2 h-2 bg-emerald-500 rounded-full"></span>
-                    <span className="w-2 h-2 bg-emerald-500 rounded-full"></span>
-                    <span className="w-2 h-2 bg-slate-600 rounded-full"></span>
-                    <span className="w-2 h-2 bg-slate-600 rounded-full"></span>
+                    {Array.from({ length: 5 }, (_, i) => (
+                      <span
+                        key={i}
+                        className={`w-2 h-2 rounded-full ${
+                          i < (muscleInfo.lvl ?? 3) ? "bg-emerald-500" : "bg-slate-600"
+                        }`}
+                      ></span>
+                    ))}
                   </div>
                 </div>
               </div>
@@ -144,10 +147,10 @@ const MusclePage = () => {
       <main className="container mx-auto sm:px-4 py-8">
         <Tabs value={activeTab} onValueChange={setActiveTab} className="mb-8" key={activeTab}>
           <TabsList className="bg-slate-800">
-            <TabsTrigger value="overview" className="text-xs p-2 sm:text-sm sm:p-3 md:text-base ">Overview</TabsTrigger>
+            <TabsTrigger value="overview" className="text-xs p-2 sm:text-sm sm:p-3 md:text-base rounded-l-lg ">Overview</TabsTrigger>
             <TabsTrigger value="exercises" className="text-xs p-2 sm:text-sm sm:p-3 md:text-base ">Exercises</TabsTrigger>
             <TabsTrigger value="anatomy" className="text-xs p-2 sm:text-sm sm:p-3 md:text-base ">Anatomy</TabsTrigger>
-            <TabsTrigger value="injuries" className="text-xs p-2 sm:text-sm sm:p-3 md:text-base ">Common Injuries</TabsTrigger>
+            <TabsTrigger value="injuries" className="text-xs p-2 sm:text-sm sm:p-3 md:text-base rounded-r-lg ">Common Injuries</TabsTrigger>
           </TabsList>
           <TabsContent value={activeTab} className="mt-10">
             {activeTab === "overview"  && <Overview   muscleInfo={muscleInfo} />}

@@ -8,8 +8,8 @@ export default function Footer() {
   return (
     <footer className="bg-slate-900 border-t border-slate-800">
       {/* Main Footer Content */}
-      <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-2  gap-8 mx-auto lg:w-[50%]">
+      <div className="container mx-auto  px-4 lg:px-20 py-12">
+        <div className="grid grid-cols-2 gap-8 mx-auto">
           {/* Brand Section */}
           <div className="lg:col-span-1">
             <div className="flex items-center gap-2 mb-4">
@@ -33,9 +33,9 @@ export default function Footer() {
           </div>
 
           {/* Quick Links */}
-          <div className="px-auto">
-            <h4 className="text-lg font-semibold text-white mb-8 text-center">Quick Links</h4>
-            <ul className="space-y-3 mx-auto w-full text-center">
+          <div className="">
+            <h4 className="text-lg font-semibold text-white mb-8 text-right">Quick Links</h4>
+            <ul className="space-y-3 mx-auto w-full text-right">
               <li>
                 <Link href="/" className="text-slate-400 hover:text-white transition-colors">
                   Muscle Chart

@@ -8,6 +8,10 @@ export interface Muscle {
     anat: string;        // anatomy -> anat
     func: string;        // function -> func
     sn: string;          // shortName -> sn
+    org?: string;        // origin (attachment on the stationary bone)
+    ins?: string;        // insertion (attachment on the moving bone)
+    lvl?: number;        // training difficulty, 1-5
+    train?: string[];    // trainingConsiderations -> train
     rel: string[];       // relatedMuscles -> rel
     ex: Exercise[];   // exercises -> ex (see below)
     inj: CommonInjury[]; // commonInjuries -> inj
