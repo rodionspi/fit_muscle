@@ -10,7 +10,7 @@ const About = () => {
       <div>
         <div className="min-h-screen from-stone-50 text-slate-100">
           <section className="relative overflow-hidden">
-            <div className="relative  mx-auto px-6 py-20 lg:py-28">
+            <div className="relative  mx-auto px-6">
               <div className="grid items-center gap-12 lg:grid-cols-[1.1fr,0.9fr]">
                 <div className="animate-fade-up" style={{ animationDelay: "50ms" }}>
                   <div className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white/80 px-4 py-2 text-xs uppercase tracking-[0.24em] text-black shadow-sm">
@@ -18,7 +18,6 @@ const About = () => {
                     Built for real training
                   </div>
                   <h1
-                    
                     className="mt-6 text-4xl font-semibold leading-tight text-slate-50 md:text-6xl"
                   >
                     About Trainer App
