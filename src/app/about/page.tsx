@@ -10,8 +10,8 @@ const About = () => {
       <div>
         <div className="min-h-screen from-stone-50 text-slate-100">
           <section className="relative overflow-hidden">
-            <div className="relative  mx-auto px-6 py-20 lg:py-28">
-              <div className="grid items-center gap-12 lg:grid-cols-[1.1fr,0.9fr]">
+            <div className="relative  mx-auto px-6">
+              <div className="grid gap-12 lg:grid-cols-[1.1fr,0.9fr]">
                 <div className="animate-fade-up" style={{ animationDelay: "50ms" }}>
                   <div className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white/80 px-4 py-2 text-xs uppercase tracking-[0.24em] text-black shadow-sm">
                     <span className="h-2 w-2 rounded-full bg-emerald-500"></span>
@@ -28,7 +28,7 @@ const About = () => {
                   </p>
                   <div className="mt-8 flex flex-wrap gap-4">
                     <Button size="lg" className="bg-slate-900 text-white border border-slate-300 hover:bg-slate-800" asChild>
-                      <a href="/exercises">Browse exercises</a>
+                      <a href="/">Browse exercises</a>
                     </Button>
                     <Button
                       size="lg"
@@ -48,7 +48,7 @@ const About = () => {
                     <div className="flex items-center justify-between">
                       <div>
                         <p className="text-xs uppercase tracking-[0.24em] text-slate-500">Focus</p>
-                        <p className="text-2xl font-semibold text-slate-900">Muscle growth</p>
+                        <p className="text-3xl font-semibold text-slate-900">Muscle growth</p>
                       </div>
                       <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-slate-900 text-white shadow-lg">
                         <Target className="h-6 w-6" />
@@ -56,19 +56,19 @@ const About = () => {
                     </div>
                     <div className="mt-8 grid gap-4">
                       <div className="rounded-2xl border border-3 border-slate-900 bg-white p-4">
-                        <p className="text-sm font-semibold text-slate-900">Progress snapshots</p>
+                        <p className="text-base font-semibold text-slate-900">Progress snapshots</p>
                         <p className="mt-1 text-sm text-slate-900/70">
                           Keep volume, intensity, and recovery in view.
                         </p>
                       </div>
                       <div className="rounded-2xl border border-3 border-slate-900 bg-white p-4">
-                        <p className="text-sm font-semibold text-slate-900">Training clarity</p>
+                        <p className="text-base font-semibold text-slate-900">Training clarity</p>
                         <p className="mt-1 text-sm text-slate-900/70">
                           See what to train next without the noise.
                         </p>
                       </div>
                       <div className="rounded-2xl border border-3 border-slate-900 bg-white p-4">
-                        <p className="text-sm font-semibold text-slate-900">Visual muscle maps</p>
+                        <p className="text-base font-semibold text-slate-900">Visual muscle maps</p>
                         <p className="mt-1 text-sm text-slate-600">
                           Tables, charts, and anatomy views in one place.
                         </p>
@@ -92,7 +92,7 @@ const About = () => {
                 </h2>
               </div>
               <p
-                className="max-w-md text-slate-200 animate-fade-up"
+                className="max-w-md text-slate-200 animate-fade-up text-lg md:text-right"
                 style={{ animationDelay: "180ms" }}
               >
                 Every screen keeps you focused on progression, balance, and smarter programming.
@@ -107,7 +107,7 @@ const About = () => {
                   <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-slate-900 text-white shadow-md">
                     <TrendingUp className="h-6 w-6" />
                   </div>
-                  <h3 className="mt-6 text-xl font-semibold text-slate-900">Progress tracking</h3>
+                  <h3 className="mt-6 text-3xl font-semibold text-slate-900">Progress tracking</h3>
                   <p className="mt-3 text-slate-600">
                     Stay accountable with session history, volume trends, and clear recovery cues.
                   </p>
@@ -121,7 +121,7 @@ const About = () => {
                   <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-slate-900 text-white shadow-md">
                     <Target className="h-6 w-6" />
                   </div>
-                  <h3 className="mt-6 text-xl font-semibold text-slate-900">Custom programs</h3>
+                  <h3 className="mt-6 text-3xl font-semibold text-slate-900">Custom programs</h3>
                   <p className="mt-3 text-slate-600">
                     Build routines that match your goals, time, and training experience.
                   </p>
@@ -135,7 +135,7 @@ const About = () => {
                   <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-slate-900 text-white shadow-md">
                     <Users className="h-6 w-6" />
                   </div>
-                  <h3 className="mt-6 text-xl font-semibold text-slate-900">Visual learning</h3>
+                  <h3 className="mt-6 text-3xl font-semibold text-slate-900">Visual learning</h3>
                   <p className="mt-3 text-slate-600">
                     Choose tables, charts, or anatomy views that explain each muscle group fast.
                   </p>
@@ -159,25 +159,25 @@ const About = () => {
                 </p>
                 <div className="mt-8 grid gap-4 sm:grid-cols-2">
                   <div className="rounded-2xl border border-slate-200 bg-slate-300 p-4">
-                    <p className="text-sm font-semibold text-slate-900">Personalized programs</p>
+                    <p className="text-base font-semibold text-slate-900">Personalized programs</p>
                     <p className="mt-2 text-sm text-slate-600">
                       Adjust volume and focus based on your goals.
                     </p>
                   </div>
                   <div className="rounded-2xl border border-slate-200 bg-slate-300 p-4">
-                    <p className="text-sm font-semibold text-slate-900">Muscle visualization</p>
+                    <p className="text-base font-semibold text-slate-900">Muscle visualization</p>
                     <p className="mt-2 text-sm text-slate-600">
                       Understand what is trained and what needs attention.
                     </p>
                   </div>
                   <div className="rounded-2xl border border-slate-200 bg-slate-300 p-4">
-                    <p className="text-sm font-semibold text-slate-900">Progress analytics</p>
+                    <p className="text-base font-semibold text-slate-900">Progress analytics</p>
                     <p className="mt-2 text-sm text-slate-600">
                       See performance changes across weeks.
                     </p>
                   </div>
                   <div className="rounded-2xl border border-slate-200 bg-slate-300 p-4">
-                    <p className="text-sm font-semibold text-slate-900">Evidence-based cues</p>
+                    <p className="text-base font-semibold text-slate-900">Evidence-based cues</p>
                     <p className="mt-2 text-sm text-slate-600">
                       Practical guidance based on training science.
                     </p>
@@ -195,7 +195,7 @@ const About = () => {
                     </div>
                     <div>
                       <p className="text-xs uppercase tracking-[0.24em] text-slate-500">Training loop</p>
-                      <p className="text-xl font-semibold text-slate-900">Plan. Train. Review.</p>
+                      <p className="text-3xl font-semibold text-slate-900">Plan. Train. Review.</p>
                     </div>
                   </div>
                   <div className="mt-6 ml-2 space-y-4">
@@ -204,7 +204,7 @@ const About = () => {
                         1
                       </span>
                       <div>
-                        <p className="text-sm font-semibold text-slate-900">Set your weekly focus</p>
+                        <p className="text-base font-semibold text-slate-900">Set your weekly focus</p>
                         <p className="text-sm text-slate-600">Pick muscle groups and goal intensity.</p>
                       </div>
                     </div>
@@ -213,7 +213,7 @@ const About = () => {
                         2
                       </span>
                       <div>
-                        <p className="text-sm font-semibold text-slate-900">Train with structure</p>
+                        <p className="text-base font-semibold text-slate-900">Train with structure</p>
                         <p className="text-sm text-slate-600">Use templates that adapt to your sessions.</p>
                       </div>
                     </div>
@@ -222,7 +222,7 @@ const About = () => {
                         3
                       </span>
                       <div>
-                        <p className="text-sm font-semibold text-slate-900">Review and adjust</p>
+                        <p className="text-base font-semibold text-slate-900">Review and adjust</p>
                         <p className="text-sm text-slate-600">See progress, then refine your plan.</p>
                       </div>
                     </div>
@@ -247,7 +247,7 @@ const About = () => {
                     >
                       Help the app grow with the community.
                     </h2>
-                    <p className="mt-4 text-lg text-emerald-100/90">
+                    <p className="mt-4 text-base text-emerald-100/90">
                       Share the platform with friends or support development on GitHub.
                     </p>
                   </div>
@@ -277,12 +277,12 @@ const About = () => {
                 >
                   Ready to start your next training block?
                 </h3>
-                <p className="mx-auto mt-4 max-w-2xl text-lg text-slate-200">
+                <p className="mx-auto mt-4 max-w-2xl text-base text-slate-200">
                   Organize your plan, visualize your progress, and stay consistent week after week.
                 </p>
                 <div className="mt-8 flex flex-wrap justify-center gap-4">
                   <Button size="lg" className="bg-white text-slate-900 hover:bg-emerald-50" asChild>
-                    <a href="/exercises">Start with exercises</a>
+                    <a href="/">Start with exercises</a>
                   </Button>
                 </div>
               </CardContent>
