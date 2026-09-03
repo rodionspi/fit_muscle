@@ -18,7 +18,6 @@ const About = () => {
                     Built for real training
                   </div>
                   <h1
-                    
                     className="mt-6 text-4xl font-semibold leading-tight text-slate-50 md:text-6xl"
                   >
                     About Trainer App
