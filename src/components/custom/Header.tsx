@@ -36,7 +36,7 @@ const Header = () => {
                 />
               </svg>
             </div>
-            <h1 className="text-xl font-bold">FitMuscle</h1>
+            <h1 className="text-3xl font-bold tracking-wider">FitMuscle</h1>
           </div>
           {/* скрыть на телефонах, показывать с sm и выше */}
           <div className="hidden sm:flex flex-1 items-center justify-around gap-4">
@@ -46,7 +46,7 @@ const Header = () => {
                   <a
                     key={item.name}
                     href={item.href}
-                    className={`text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium ${
+                    className={`text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-xl font-medium ${
                       item.current ? 'bg-gray-900 text-white' : ''
                     }`}
                   >
