@@ -21,7 +21,7 @@ const MusclesDisplay = () => {
       <>
 
         <div className="mb-8">
-            <h2 className="text-3xl font-bold mb-2">Muscle Chart</h2>
+            <h2 className="text-4xl md:text-6xl font-bold mb-2">Muscle Chart</h2>
             <p className="text-slate-300">Explore different muscle groups and learn about targeted exercises</p>
         </div>
         <Tabs defaultValue="grid" className="mb-8">
