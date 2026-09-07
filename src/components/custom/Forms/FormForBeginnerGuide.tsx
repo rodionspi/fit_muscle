@@ -167,9 +167,9 @@ const FormForBeginnerGuide = () => {
   return (
     <div className="max-w-2xl mx-auto py-8">
       <div className="mb-8">
-        <h1 className="text-4xl md:text-5xl font-bold mb-3">Beginner Guide</h1>
+        <h1 className="text-4xl md:text-5xl font-bold mb-3 tracking-wider">Beginner Guide</h1>
         <p className="text-xl text-emerald-400 mb-2">Welcome, {userData?.name || "friend"}!</p>
-        <p className="text-slate-300">
+        <p className="text-slate-300 text-lg">
           Answer six quick questions and we will point you at the right muscle groups,
           exercises, and training frequency to start with.
         </p>
@@ -190,7 +190,7 @@ const FormForBeginnerGuide = () => {
             <Form className="w-full">
               {questions.map((question) => (
                 <div key={question.name} className="mb-6">
-                  <label htmlFor={question.name} className="block text-base font-semibold mb-1">
+                  <label htmlFor={question.name} className="block text-xl font-semibold mb-1 tracking-wider">
                     {question.label}
                   </label>
                   <p className="text-sm text-slate-400 mb-2">{question.hint}</p>
@@ -211,7 +211,7 @@ const FormForBeginnerGuide = () => {
               ))}
 
               <div className="mb-6">
-                <label htmlFor="notes" className="block text-base font-semibold mb-1">
+                <label htmlFor="notes" className="block text-xl font-semibold mb-1 tracking-wider">
                   Anything we should know?
                 </label>
                 <p className="text-sm text-slate-400 mb-2">
