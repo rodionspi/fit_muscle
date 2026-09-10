@@ -23,11 +23,27 @@ export interface Muscle {
     };
 }
 
+/**
+ * Normalised equipment setups. `eq` stays free text for display; `eqTag` is what
+ * you filter on. A muscle's exercises are ordered main-lift-first, so taking the
+ * first matches is a sensible default - keep that order when editing muscles.json.
+ */
+export type EquipmentTag =
+    | "barbell"
+    | "dumbbell"     // includes kettlebells
+    | "cable"
+    | "machine"
+    | "bar"          // pull-up bar, parallel bars
+    | "bodyweight"
+    | "band"
+    | "wheel";       // ab wheel
+
 export interface Exercise {
     img: string;          // image URL
     n: string;            // name
     diff: string;         // difficulty
-    eq: string;           // equipment
+    eq: string;           // equipment, human readable
+    eqTag?: EquipmentTag[]; // any one of these setups is enough to perform it
     tgt: string;          // target
     desc: string;         // description
     s: number;            // sets
