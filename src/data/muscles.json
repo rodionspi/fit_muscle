@@ -10,7 +10,13 @@
     "anat": "A flat, diamond-shaped muscle covering the back of the neck and the upper thorax, made up of three functionally separate parts: upper (descending), middle (transverse) and lower (ascending) fibres. It is the most superficial muscle of the back and is innervated by the accessory nerve (CN XI), with sensory supply from the C3-C4 cervical nerves.",
     "org": "External occipital protuberance, medial third of the superior nuchal line, the nuchal ligament, and the spinous processes of C7-T12.",
     "ins": "Lateral third of the clavicle (upper fibres), the acromion (middle fibres) and the spine of the scapula (middle and lower fibres).",
-    "rel": ["Levator scapulae", "Rhomboids", "Posterior deltoid", "Serratus anterior", "Erector spinae"],
+    "rel": [
+      "Levator scapulae",
+      "Rhomboids",
+      "Posterior deltoid",
+      "Serratus anterior",
+      "Erector spinae"
+    ],
     "train": [
       "Train all three sections: shrugs for the upper fibres, rows and face pulls for the middle, and prone Y-raises or overhead work for the lower fibres.",
       "Most lifters are already upper-trap dominant from desk posture, so give the middle and lower fibres more volume than shrugs.",
@@ -24,6 +30,9 @@
         "n": "Barbell Shrug",
         "diff": "Beginner",
         "eq": "Barbell",
+        "eqTag": [
+          "barbell"
+        ],
         "tgt": "Upper trapezius",
         "desc": "Hold a barbell at arm's length in front of the thighs with a shoulder-width grip. Keeping the arms straight and the chin tucked, lift the shoulders straight up toward the ears, pause, then lower under control into a full stretch.",
         "s": 4,
@@ -36,6 +45,9 @@
         "n": "Dumbbell Shrug",
         "diff": "Beginner",
         "eq": "Dumbbells",
+        "eqTag": [
+          "dumbbell"
+        ],
         "tgt": "Upper trapezius",
         "desc": "Stand tall with a dumbbell in each hand at your sides. Shrug the shoulders vertically toward the ears without bending the elbows, hold briefly, then lower until you feel the traps lengthen.",
         "s": 3,
@@ -48,6 +60,9 @@
         "n": "Face Pull",
         "diff": "Beginner",
         "eq": "Cable machine with rope",
+        "eqTag": [
+          "cable"
+        ],
         "tgt": "Middle and lower trapezius, rear deltoid",
         "desc": "Set a rope attachment at roughly face height. Pull the rope toward your forehead, driving the elbows high and wide and separating your hands as you finish, then return under control.",
         "s": 3,
@@ -60,6 +75,9 @@
         "n": "Barbell Upright Row",
         "diff": "Intermediate",
         "eq": "Barbell",
+        "eqTag": [
+          "barbell"
+        ],
         "tgt": "Upper trapezius, lateral deltoid",
         "desc": "Hold a barbell with a grip slightly wider than shoulder width. Pull it up along the front of the body by leading with the elbows, stopping when the upper arms reach roughly chest height, then lower slowly.",
         "s": 3,
@@ -72,6 +90,9 @@
         "n": "Farmer's Walk",
         "diff": "Beginner",
         "eq": "Heavy dumbbells or kettlebells",
+        "eqTag": [
+          "dumbbell"
+        ],
         "tgt": "Trapezius, forearms, core",
         "desc": "Pick up a heavy weight in each hand, stand tall with the shoulder blades set down and back, and walk in a straight line with short controlled steps until your grip or posture starts to fail.",
         "s": 4,
@@ -119,7 +140,11 @@
         "dur": "2 sets of 10 each direction"
       }
     ],
-    "freq": { "b": "2", "i": "2-3", "a": "3-4" }
+    "freq": {
+      "b": "2",
+      "i": "2-3",
+      "a": "3-4"
+    }
   },
   {
     "id": 2,
@@ -132,7 +157,13 @@
     "anat": "A thick, triangular muscle formed by three heads: anterior (clavicular), lateral (acromial) and posterior (spinal). The lateral head is multipennate, which makes it strong but short-ranged. Innervated by the axillary nerve (C5-C6). Supraspinatus initiates the first 15 degrees of abduction before the lateral deltoid takes over.",
     "org": "Lateral third of the clavicle (anterior head), the acromion (lateral head) and the spine of the scapula (posterior head).",
     "ins": "Deltoid tuberosity on the lateral shaft of the humerus.",
-    "rel": ["Rotator cuff", "Trapezius", "Pectoralis major", "Triceps brachii", "Serratus anterior"],
+    "rel": [
+      "Rotator cuff",
+      "Trapezius",
+      "Pectoralis major",
+      "Triceps brachii",
+      "Serratus anterior"
+    ],
     "train": [
       "The anterior head already gets heavy work from every bench press and push-up, so most people need extra volume on the lateral and posterior heads, not the front.",
       "The lateral head responds better to moderate loads for 12 to 20 reps than to heavy swinging - the leverage is worst at the top of a raise.",
@@ -146,6 +177,9 @@
         "n": "Standing Overhead Press",
         "diff": "Intermediate",
         "eq": "Barbell",
+        "eqTag": [
+          "barbell"
+        ],
         "tgt": "Anterior and lateral deltoid",
         "desc": "Hold the bar at collarbone height with the elbows slightly in front. Brace the core, press the bar in a straight line past the face, and finish with the bar over the middle of the foot with the head pushed through.",
         "s": 4,
@@ -158,6 +192,9 @@
         "n": "Dumbbell Lateral Raise",
         "diff": "Beginner",
         "eq": "Dumbbells",
+        "eqTag": [
+          "dumbbell"
+        ],
         "tgt": "Lateral deltoid",
         "desc": "Stand with a slight forward lean and a small bend in the elbows. Raise the dumbbells out to the sides until the arms reach shoulder height, lead with the elbows rather than the hands, then lower slowly.",
         "s": 4,
@@ -170,6 +207,9 @@
         "n": "Dumbbell Reverse Fly",
         "diff": "Beginner",
         "eq": "Dumbbells",
+        "eqTag": [
+          "dumbbell"
+        ],
         "tgt": "Posterior deltoid",
         "desc": "Hinge forward at the hips until the torso is close to parallel with the floor, arms hanging with a soft elbow. Sweep the dumbbells out and slightly back until they reach shoulder height, then lower under control.",
         "s": 3,
@@ -182,6 +222,9 @@
         "n": "Arnold Press",
         "diff": "Intermediate",
         "eq": "Dumbbells",
+        "eqTag": [
+          "dumbbell"
+        ],
         "tgt": "Anterior and lateral deltoid",
         "desc": "Start seated with the dumbbells in front of the chest, palms facing you. As you press up, rotate the palms to face forward, finishing with the arms extended overhead, then reverse the path on the way down.",
         "s": 3,
@@ -194,6 +237,9 @@
         "n": "Dumbbell Front Raise",
         "diff": "Beginner",
         "eq": "Dumbbells",
+        "eqTag": [
+          "dumbbell"
+        ],
         "tgt": "Anterior deltoid",
         "desc": "Stand tall with dumbbells resting against the thighs. Raise one or both arms straight forward to shoulder height, keeping a slight bend in the elbow, then lower slowly.",
         "s": 3,
@@ -246,7 +292,11 @@
         "dur": "2 sets of 15"
       }
     ],
-    "freq": { "b": "2", "i": "2-3", "a": "3" }
+    "freq": {
+      "b": "2",
+      "i": "2-3",
+      "a": "3"
+    }
   },
   {
     "id": 3,
@@ -259,7 +309,14 @@
     "anat": "Layered from superficial to deep: latissimus dorsi covers the lower and middle back; beneath it lie the rhomboid major and minor and teres major; and running alongside the spine are the three erector spinae columns - iliocostalis, longissimus and spinalis. The lats are innervated by the thoracodorsal nerve (C6-C8) and the rhomboids by the dorsal scapular nerve (C5).",
     "org": "Latissimus dorsi: spinous processes of T7-L5, the thoracolumbar fascia, the iliac crest, the lower three or four ribs and the inferior angle of the scapula. Erector spinae: sacrum, iliac crest and lumbar spinous processes.",
     "ins": "Latissimus dorsi: the intertubercular (bicipital) groove of the humerus. Rhomboids: the medial border of the scapula. Erector spinae: ribs, and the transverse and spinous processes further up the spine.",
-    "rel": ["Trapezius", "Teres major", "Posterior deltoid", "Biceps brachii", "Erector spinae", "Gluteus maximus"],
+    "rel": [
+      "Trapezius",
+      "Teres major",
+      "Posterior deltoid",
+      "Biceps brachii",
+      "Erector spinae",
+      "Gluteus maximus"
+    ],
     "train": [
       "Train both pulling directions: vertical pulls (pull-ups, pulldowns) build lat width, horizontal pulls (rows) build thickness through the mid-back.",
       "Start each rep by pulling the shoulder blade down and back, then bend the elbow - leading with the arms turns a row into a biceps exercise.",
@@ -273,6 +330,9 @@
         "n": "Pull-Up",
         "diff": "Intermediate",
         "eq": "Pull-up bar",
+        "eqTag": [
+          "bar"
+        ],
         "tgt": "Latissimus dorsi",
         "desc": "Hang from the bar with an overhand grip slightly wider than shoulder width. Pull the shoulder blades down first, then drive the elbows to the ribs until the chin clears the bar, and lower all the way to a dead hang.",
         "s": 4,
@@ -285,6 +345,9 @@
         "n": "Barbell Bent-Over Row",
         "diff": "Intermediate",
         "eq": "Barbell",
+        "eqTag": [
+          "barbell"
+        ],
         "tgt": "Latissimus dorsi, rhomboids, middle trapezius",
         "desc": "Hinge at the hips until the torso is around 45 degrees or lower, back flat and knees soft. Pull the bar to the lower ribs or upper stomach, squeeze the shoulder blades, then lower under control.",
         "s": 4,
@@ -297,6 +360,9 @@
         "n": "Lat Pulldown",
         "diff": "Beginner",
         "eq": "Cable machine",
+        "eqTag": [
+          "cable"
+        ],
         "tgt": "Latissimus dorsi",
         "desc": "Sit with the thighs locked under the pads and grip the bar wider than shoulder width. Lean back slightly, pull the bar to the upper chest by driving the elbows down, then let it rise until the lats are fully stretched.",
         "s": 3,
@@ -309,6 +375,9 @@
         "n": "Seated Cable Row",
         "diff": "Beginner",
         "eq": "Cable machine",
+        "eqTag": [
+          "cable"
+        ],
         "tgt": "Rhomboids, middle trapezius, latissimus dorsi",
         "desc": "Sit tall with a slight knee bend and pull the handle to the stomach, keeping the elbows close to the body and the torso still. Squeeze the shoulder blades together, then let the arms extend fully.",
         "s": 3,
@@ -321,6 +390,10 @@
         "n": "T-Bar Row",
         "diff": "Intermediate",
         "eq": "T-bar or landmine",
+        "eqTag": [
+          "barbell",
+          "machine"
+        ],
         "tgt": "Mid-back, latissimus dorsi",
         "desc": "Straddle the bar, hinge forward with a flat back, and pull the handle to the lower chest with the elbows tracking close to the body. Lower until the arms are straight without letting the back round.",
         "s": 3,
@@ -333,6 +406,9 @@
         "n": "Conventional Deadlift",
         "diff": "Advanced",
         "eq": "Barbell",
+        "eqTag": [
+          "barbell"
+        ],
         "tgt": "Erector spinae, latissimus dorsi, glutes, hamstrings",
         "desc": "Stand with the bar over mid-foot, hinge down and grip just outside the knees. Take the slack out of the bar, brace, then push the floor away and stand up with the bar tight against the legs.",
         "s": 4,
@@ -385,7 +461,11 @@
         "dur": "30 seconds per side"
       }
     ],
-    "freq": { "b": "2", "i": "2-3", "a": "3-4" }
+    "freq": {
+      "b": "2",
+      "i": "2-3",
+      "a": "3-4"
+    }
   },
   {
     "id": 4,
@@ -398,7 +478,13 @@
     "anat": "A three-headed muscle on the back of the upper arm: the long head (which crosses both shoulder and elbow), the lateral head (the visible horseshoe on the outside of the arm) and the deep medial head. All three converge into a common tendon at the elbow. Innervated by the radial nerve (C6-C8).",
     "org": "Long head: infraglenoid tubercle of the scapula. Lateral head: posterior surface of the humerus above the radial groove. Medial head: posterior surface of the humerus below the radial groove.",
     "ins": "Olecranon process of the ulna, via the common triceps tendon.",
-    "rel": ["Anconeus", "Anterior deltoid", "Pectoralis major", "Latissimus dorsi", "Biceps brachii"],
+    "rel": [
+      "Anconeus",
+      "Anterior deltoid",
+      "Pectoralis major",
+      "Latissimus dorsi",
+      "Biceps brachii"
+    ],
     "train": [
       "Include at least one overhead movement - it is the only way to fully lengthen the long head, and the stretched position drives most of the growth.",
       "Balance overhead work with a pushdown or close-grip press so the lateral and medial heads get direct load too.",
@@ -412,6 +498,9 @@
         "n": "Close-Grip Bench Press",
         "diff": "Intermediate",
         "eq": "Barbell",
+        "eqTag": [
+          "barbell"
+        ],
         "tgt": "Triceps (all heads), chest",
         "desc": "Lie on a bench and grip the bar at roughly shoulder width. Lower it to the lower chest with the elbows tucked at about 45 degrees, then press back up by driving through the triceps.",
         "s": 4,
@@ -424,6 +513,9 @@
         "n": "Skull Crusher",
         "diff": "Intermediate",
         "eq": "EZ bar",
+        "eqTag": [
+          "barbell"
+        ],
         "tgt": "Triceps, long head",
         "desc": "Lie on a bench holding an EZ bar over the chest with straight arms. Bend only at the elbows to lower the bar toward the forehead or just behind the head, then extend back to the start.",
         "s": 3,
@@ -436,6 +528,9 @@
         "n": "Rope Pushdown",
         "diff": "Beginner",
         "eq": "Cable machine with rope",
+        "eqTag": [
+          "cable"
+        ],
         "tgt": "Lateral and medial head",
         "desc": "Stand facing a high cable with the rope in both hands and the elbows pinned to your sides. Extend the elbows fully, spreading the rope apart at the bottom, then return until the forearms are just past parallel.",
         "s": 3,
@@ -448,6 +543,9 @@
         "n": "Overhead Dumbbell Extension",
         "diff": "Beginner",
         "eq": "Dumbbell",
+        "eqTag": [
+          "dumbbell"
+        ],
         "tgt": "Triceps, long head",
         "desc": "Hold one dumbbell overhead with both hands, elbows pointing forward and close to the head. Lower the weight behind the head until you feel a deep stretch, then extend back to the top.",
         "s": 3,
@@ -460,6 +558,9 @@
         "n": "Bench Dip",
         "diff": "Beginner",
         "eq": "Bench",
+        "eqTag": [
+          "bodyweight"
+        ],
         "tgt": "Triceps",
         "desc": "Sit on the edge of a bench with the hands beside the hips and slide the hips forward off the bench. Bend the elbows to lower the body until the upper arms are about parallel to the floor, then press back up.",
         "s": 3,
@@ -502,7 +603,11 @@
         "dur": "45 seconds"
       }
     ],
-    "freq": { "b": "2", "i": "2-3", "a": "3" }
+    "freq": {
+      "b": "2",
+      "i": "2-3",
+      "a": "3"
+    }
   },
   {
     "id": 5,
@@ -515,7 +620,13 @@
     "anat": "Three overlapping muscles. Gluteus maximus is the superficial, coarse-fibred layer that gives the buttock its shape; gluteus medius lies partly beneath it on the outer hip; gluteus minimus is the deepest and smallest. Maximus is innervated by the inferior gluteal nerve (L5-S2), medius and minimus by the superior gluteal nerve (L4-S1).",
     "org": "Gluteus maximus: the posterior gluteal line of the ilium, the dorsal surface of the sacrum and coccyx, and the sacrotuberous ligament. Medius and minimus: the outer surface of the ilium.",
     "ins": "Gluteus maximus: the iliotibial tract (about three quarters of its fibres) and the gluteal tuberosity of the femur. Medius and minimus: the greater trochanter of the femur.",
-    "rel": ["Hamstrings", "Erector spinae", "Adductor magnus", "Tensor fasciae latae", "Deep hip rotators"],
+    "rel": [
+      "Hamstrings",
+      "Erector spinae",
+      "Adductor magnus",
+      "Tensor fasciae latae",
+      "Deep hip rotators"
+    ],
     "train": [
       "Squats and deadlifts load the glutes hardest at the bottom; hip thrusts and bridges load them hardest at lockout. A complete programme needs both.",
       "Do not neglect the abductors - gluteus medius weakness is what shows up as the knee caving inward during squats and running.",
@@ -529,6 +640,9 @@
         "n": "Barbell Hip Thrust",
         "diff": "Intermediate",
         "eq": "Barbell and bench",
+        "eqTag": [
+          "barbell"
+        ],
         "tgt": "Gluteus maximus",
         "desc": "Sit with the upper back against a bench and a padded barbell across the hips. Drive through the heels to lift the hips until the torso is parallel with the floor, squeeze hard at the top, then lower under control.",
         "s": 4,
@@ -541,6 +655,9 @@
         "n": "Barbell Back Squat",
         "diff": "Intermediate",
         "eq": "Barbell",
+        "eqTag": [
+          "barbell"
+        ],
         "tgt": "Glutes, quadriceps",
         "desc": "With the bar on the upper back, brace the core and sit down and back, keeping the chest up and the knees tracking over the toes. Descend to at least parallel, then drive up through the whole foot.",
         "s": 4,
@@ -553,6 +670,9 @@
         "n": "Bulgarian Split Squat",
         "diff": "Intermediate",
         "eq": "Dumbbells and bench",
+        "eqTag": [
+          "dumbbell"
+        ],
         "tgt": "Gluteus maximus, quadriceps",
         "desc": "Place the rear foot on a bench and step the front foot far enough forward that the shin stays near vertical. Lower until the back knee is close to the floor, then drive up through the front heel.",
         "s": 3,
@@ -565,6 +685,9 @@
         "n": "Glute Bridge",
         "diff": "Beginner",
         "eq": "Bodyweight",
+        "eqTag": [
+          "bodyweight"
+        ],
         "tgt": "Gluteus maximus",
         "desc": "Lie on your back with the knees bent and the feet flat, heels close to the hips. Push through the heels to lift the hips until the body forms a straight line from knees to shoulders, then lower slowly.",
         "s": 3,
@@ -577,6 +700,9 @@
         "n": "Romanian Deadlift",
         "diff": "Intermediate",
         "eq": "Barbell",
+        "eqTag": [
+          "barbell"
+        ],
         "tgt": "Glutes, hamstrings",
         "desc": "Stand holding the bar at hip height. Push the hips back and let the bar slide down the thighs with a flat back and soft knees, until you feel a strong stretch in the hamstrings, then drive the hips forward to stand.",
         "s": 3,
@@ -624,7 +750,11 @@
         "dur": "10 reps with 5 second holds"
       }
     ],
-    "freq": { "b": "2", "i": "2-3", "a": "3" }
+    "freq": {
+      "b": "2",
+      "i": "2-3",
+      "a": "3"
+    }
   },
   {
     "id": 6,
@@ -637,7 +767,13 @@
     "anat": "Three muscles running down the back of the thigh: biceps femoris (long and short heads) on the outside, and semitendinosus and semimembranosus on the inside. All except the short head of biceps femoris arise from the ischial tuberosity, the bone you sit on. Innervated by the tibial division of the sciatic nerve, with the short head supplied by the common fibular division.",
     "org": "Ischial tuberosity, except the short head of biceps femoris, which arises from the linea aspera on the shaft of the femur.",
     "ins": "Biceps femoris: the head of the fibula. Semitendinosus: the medial tibia via the pes anserinus. Semimembranosus: the medial condyle of the tibia.",
-    "rel": ["Gluteus maximus", "Gastrocnemius", "Adductor magnus", "Erector spinae", "Quadriceps"],
+    "rel": [
+      "Gluteus maximus",
+      "Gastrocnemius",
+      "Adductor magnus",
+      "Erector spinae",
+      "Quadriceps"
+    ],
     "train": [
       "Train both functions: hip-hinge movements such as Romanian deadlifts and good mornings, and knee-flexion movements such as leg curls and Nordic curls.",
       "Eccentric work is the strongest evidence-based protection against hamstring tears - Nordic curls or slow negatives on leg curls reduce injury rates substantially in athletes.",
@@ -651,6 +787,9 @@
         "n": "Romanian Deadlift",
         "diff": "Intermediate",
         "eq": "Barbell",
+        "eqTag": [
+          "barbell"
+        ],
         "tgt": "Hamstrings, glutes",
         "desc": "Start standing with the bar at hip height. Push the hips backward, letting the bar travel down the thighs with a flat back and a fixed soft knee bend, until you feel a deep hamstring stretch, then drive the hips forward.",
         "s": 4,
@@ -663,6 +802,9 @@
         "n": "Lying Leg Curl",
         "diff": "Beginner",
         "eq": "Leg curl machine",
+        "eqTag": [
+          "machine"
+        ],
         "tgt": "Hamstrings (knee flexion)",
         "desc": "Lie face down with the pad just above the heels and the knees just off the edge of the bench. Curl the heels toward the glutes, squeeze, then lower slowly under control.",
         "s": 3,
@@ -675,6 +817,9 @@
         "n": "Seated Leg Curl",
         "diff": "Beginner",
         "eq": "Leg curl machine",
+        "eqTag": [
+          "machine"
+        ],
         "tgt": "Hamstrings (knee flexion)",
         "desc": "Sit with the back against the pad, legs extended and the roller just above the heels. Curl the legs down and under, hold the contraction, then return until the knees are almost straight.",
         "s": 3,
@@ -687,6 +832,9 @@
         "n": "Conventional Deadlift",
         "diff": "Advanced",
         "eq": "Barbell",
+        "eqTag": [
+          "barbell"
+        ],
         "tgt": "Hamstrings, glutes, erector spinae",
         "desc": "Set up with the bar over mid-foot, hinge to grip it, take the slack out and brace. Push the floor away, keeping the bar in contact with the legs, and finish standing tall with the hips locked out.",
         "s": 4,
@@ -699,6 +847,9 @@
         "n": "Barbell Good Morning",
         "diff": "Advanced",
         "eq": "Barbell",
+        "eqTag": [
+          "barbell"
+        ],
         "tgt": "Hamstrings, erector spinae",
         "desc": "With the bar on the upper back, brace hard and push the hips back, letting the torso tip forward with a flat back until it is near parallel with the floor, then drive the hips forward to stand.",
         "s": 3,
@@ -746,7 +897,11 @@
         "dur": "45 seconds"
       }
     ],
-    "freq": { "b": "2", "i": "2", "a": "2-3" }
+    "freq": {
+      "b": "2",
+      "i": "2",
+      "a": "2-3"
+    }
   },
   {
     "id": 7,
@@ -759,7 +914,13 @@
     "anat": "The gastrocnemius has a medial and a lateral head and lies over the deeper, broader soleus; together they are called the triceps surae and merge into the Achilles tendon. Innervated by the tibial nerve (S1-S2). Soleus is predominantly slow-twitch, which is why it responds well to higher reps and long time under tension.",
     "org": "Gastrocnemius: the medial and lateral condyles of the femur. Soleus: the posterior head and neck of the fibula and the soleal line of the tibia.",
     "ins": "Posterior surface of the calcaneus (heel bone), via the Achilles tendon.",
-    "rel": ["Hamstrings", "Tibialis posterior", "Tibialis anterior", "Plantar fascia", "Achilles tendon"],
+    "rel": [
+      "Hamstrings",
+      "Tibialis posterior",
+      "Tibialis anterior",
+      "Plantar fascia",
+      "Achilles tendon"
+    ],
     "train": [
       "Train both muscles separately: straight-leg raises (standing) for gastrocnemius, bent-knee raises (seated) for soleus.",
       "Use a full range - let the heel drop below the step for a deep stretch, then rise all the way onto the toes. Partial reps are the main reason calves fail to grow.",
@@ -773,6 +934,11 @@
         "n": "Standing Calf Raise",
         "diff": "Beginner",
         "eq": "Machine, dumbbells or bodyweight",
+        "eqTag": [
+          "machine",
+          "dumbbell",
+          "bodyweight"
+        ],
         "tgt": "Gastrocnemius",
         "desc": "Stand with the balls of the feet on a step or platform and the legs straight. Let the heels drop as far as they comfortably go, then press up onto the toes as high as possible and hold.",
         "s": 4,
@@ -785,6 +951,10 @@
         "n": "Seated Calf Raise",
         "diff": "Beginner",
         "eq": "Machine or barbell on knees",
+        "eqTag": [
+          "machine",
+          "barbell"
+        ],
         "tgt": "Soleus",
         "desc": "Sit with the balls of the feet on the platform and the pad or bar across the lower thighs, knees bent to about 90 degrees. Drop the heels for a full stretch, then push up onto the toes.",
         "s": 3,
@@ -797,6 +967,10 @@
         "n": "Donkey Calf Raise",
         "diff": "Intermediate",
         "eq": "Machine or partner",
+        "eqTag": [
+          "machine",
+          "bodyweight"
+        ],
         "tgt": "Gastrocnemius",
         "desc": "Hinge forward at the hips with the upper body supported and the balls of the feet on a platform. Lower the heels for a full stretch, then drive up onto the toes.",
         "s": 3,
@@ -809,6 +983,9 @@
         "n": "Leg Press Calf Raise",
         "diff": "Beginner",
         "eq": "Leg press machine",
+        "eqTag": [
+          "machine"
+        ],
         "tgt": "Gastrocnemius, soleus",
         "desc": "Sit in the leg press with only the balls of the feet on the bottom edge of the platform and the legs nearly straight. Press the platform away by extending the ankles, then let it come back for a full stretch.",
         "s": 3,
@@ -861,7 +1038,11 @@
         "dur": "10 circles and 10 rocks per side"
       }
     ],
-    "freq": { "b": "2", "i": "2-3", "a": "3-4" }
+    "freq": {
+      "b": "2",
+      "i": "2-3",
+      "a": "3-4"
+    }
   },
   {
     "id": 8,
@@ -874,7 +1055,13 @@
     "anat": "Pectoralis major is a large, fan-shaped muscle with two heads, clavicular and sternocostal, whose fibres converge and twist about 180 degrees before inserting on the humerus. The smaller pectoralis minor lies underneath, attaching from the ribs to the coracoid process. Innervated by the lateral and medial pectoral nerves (C5-T1).",
     "org": "Clavicular head: the medial half of the clavicle. Sternocostal head: the sternum, the costal cartilages of ribs 1 to 6, and the aponeurosis of the external oblique.",
     "ins": "The lateral lip of the intertubercular (bicipital) groove of the humerus.",
-    "rel": ["Anterior deltoid", "Triceps brachii", "Serratus anterior", "Coracobrachialis", "Latissimus dorsi"],
+    "rel": [
+      "Anterior deltoid",
+      "Triceps brachii",
+      "Serratus anterior",
+      "Coracobrachialis",
+      "Latissimus dorsi"
+    ],
     "train": [
       "Train more than one angle: flat pressing for the sternal head, incline for the clavicular head, and a fly or crossover to load the chest in adduction.",
       "Set the shoulder blades down and back before every pressing set - it protects the shoulder and lets the chest, rather than the front delt, do the work.",
@@ -888,6 +1075,9 @@
         "n": "Barbell Bench Press",
         "diff": "Intermediate",
         "eq": "Barbell and bench",
+        "eqTag": [
+          "barbell"
+        ],
         "tgt": "Pectoralis major (sternal head)",
         "desc": "Lie on the bench with the shoulder blades pinched and the feet driving into the floor. Lower the bar to the mid-chest with the elbows tucked to roughly 45 degrees, then press back over the shoulders.",
         "s": 4,
@@ -900,6 +1090,9 @@
         "n": "Incline Dumbbell Press",
         "diff": "Beginner",
         "eq": "Dumbbells and incline bench",
+        "eqTag": [
+          "dumbbell"
+        ],
         "tgt": "Pectoralis major (clavicular head)",
         "desc": "Set the bench to around 30 degrees. Press the dumbbells from chest level up and slightly inward until the arms are extended, then lower under control until you feel a stretch across the upper chest.",
         "s": 3,
@@ -912,6 +1105,9 @@
         "n": "Chest Dip",
         "diff": "Intermediate",
         "eq": "Parallel bars",
+        "eqTag": [
+          "bar"
+        ],
         "tgt": "Pectoralis major (lower fibres), triceps",
         "desc": "Support yourself on parallel bars, lean the torso forward and let the elbows flare slightly. Lower until the upper arms are about parallel with the floor, then press back up while keeping the forward lean.",
         "s": 3,
@@ -924,6 +1120,9 @@
         "n": "Cable Crossover",
         "diff": "Beginner",
         "eq": "Cable machine",
+        "eqTag": [
+          "cable"
+        ],
         "tgt": "Pectoralis major",
         "desc": "Stand between two high pulleys with a handle in each hand and a slight forward lean. With a soft elbow bend, sweep the hands down and together in front of the body, squeeze, then return under control.",
         "s": 3,
@@ -936,6 +1135,9 @@
         "n": "Push-Up",
         "diff": "Beginner",
         "eq": "Bodyweight",
+        "eqTag": [
+          "bodyweight"
+        ],
         "tgt": "Pectoralis major, triceps, core",
         "desc": "Set the hands slightly wider than the shoulders with the body in a straight line from head to heels. Lower the chest to just above the floor with the elbows at about 45 degrees, then press back up.",
         "s": 3,
@@ -948,6 +1150,9 @@
         "n": "Dumbbell Fly",
         "diff": "Intermediate",
         "eq": "Dumbbells and bench",
+        "eqTag": [
+          "dumbbell"
+        ],
         "tgt": "Pectoralis major",
         "desc": "Lie on a flat bench holding dumbbells above the chest with the elbows slightly bent. Open the arms out to the sides in a wide arc until you feel a stretch across the chest, then bring them back together.",
         "s": 3,
@@ -990,7 +1195,11 @@
         "dur": "10 slow reps"
       }
     ],
-    "freq": { "b": "2", "i": "2-3", "a": "3" }
+    "freq": {
+      "b": "2",
+      "i": "2-3",
+      "a": "3"
+    }
   },
   {
     "id": 9,
@@ -1003,7 +1212,13 @@
     "anat": "Two heads on the front of the upper arm. The long head runs through the shoulder joint in the intertubercular groove; the short head arises from the coracoid process. Beneath them sits brachialis, the strongest pure elbow flexor, and on the outer forearm brachioradialis, which takes over in a neutral grip. Innervated by the musculocutaneous nerve (C5-C6).",
     "org": "Long head: the supraglenoid tubercle of the scapula. Short head: the coracoid process of the scapula.",
     "ins": "The radial tuberosity, and the deep fascia of the forearm via the bicipital aponeurosis.",
-    "rel": ["Brachialis", "Brachioradialis", "Anterior deltoid", "Latissimus dorsi", "Triceps brachii"],
+    "rel": [
+      "Brachialis",
+      "Brachioradialis",
+      "Anterior deltoid",
+      "Latissimus dorsi",
+      "Triceps brachii"
+    ],
     "train": [
       "Vary the shoulder position: incline curls stretch the long head, preacher curls load the short head in the shortened position, and standing curls sit in between.",
       "Include a neutral or reverse grip movement such as hammer curls to hit brachialis and brachioradialis - growing them pushes the biceps up and makes the arm look thicker.",
@@ -1017,6 +1232,9 @@
         "n": "Barbell Curl",
         "diff": "Beginner",
         "eq": "Barbell or EZ bar",
+        "eqTag": [
+          "barbell"
+        ],
         "tgt": "Biceps brachii",
         "desc": "Stand tall holding the bar at shoulder width with an underhand grip. Keeping the elbows at your sides, curl the bar up to chest height, squeeze, then lower slowly until the arms are fully extended.",
         "s": 4,
@@ -1029,6 +1247,9 @@
         "n": "Dumbbell Curl",
         "diff": "Beginner",
         "eq": "Dumbbells",
+        "eqTag": [
+          "dumbbell"
+        ],
         "tgt": "Biceps brachii",
         "desc": "Start with the dumbbells at your sides, palms facing in. As you curl, rotate the palm to face up, finishing with a squeeze, then reverse the rotation on the way down.",
         "s": 3,
@@ -1041,6 +1262,9 @@
         "n": "Hammer Curl",
         "diff": "Beginner",
         "eq": "Dumbbells",
+        "eqTag": [
+          "dumbbell"
+        ],
         "tgt": "Brachialis, brachioradialis, biceps",
         "desc": "Hold the dumbbells with a neutral grip, thumbs up. Curl straight up without rotating the wrists, keeping the elbows pinned to your sides, then lower under control.",
         "s": 3,
@@ -1053,6 +1277,9 @@
         "n": "Preacher Curl",
         "diff": "Intermediate",
         "eq": "Dumbbell and preacher bench",
+        "eqTag": [
+          "dumbbell"
+        ],
         "tgt": "Biceps brachii (short head)",
         "desc": "Rest the back of the upper arm on the preacher pad with the armpit pressed into the top. Curl the weight up to shoulder height, then lower until the arm is almost straight.",
         "s": 3,
@@ -1065,6 +1292,9 @@
         "n": "Chin-Up",
         "diff": "Intermediate",
         "eq": "Pull-up bar",
+        "eqTag": [
+          "bar"
+        ],
         "tgt": "Biceps brachii, latissimus dorsi",
         "desc": "Hang from the bar with an underhand grip at shoulder width. Pull until the chin clears the bar, keeping the chest up and the elbows driving down, then lower to a full hang.",
         "s": 3,
@@ -1107,7 +1337,11 @@
         "dur": "30 seconds"
       }
     ],
-    "freq": { "b": "2", "i": "2-3", "a": "3" }
+    "freq": {
+      "b": "2",
+      "i": "2-3",
+      "a": "3"
+    }
   },
   {
     "id": 10,
@@ -1120,7 +1354,14 @@
     "anat": "Four layers. Rectus abdominis runs vertically down the front, divided by tendinous intersections into the segments that create the six-pack appearance, and enclosed in the rectus sheath. Outside it lie the external oblique, then the internal oblique running the opposite way, and deepest of all the transversus abdominis. Innervated by the anterior rami of T7-T12 and L1.",
     "org": "Rectus abdominis: the pubic crest and pubic symphysis. Obliques: the lower ribs, iliac crest and thoracolumbar fascia.",
     "ins": "Rectus abdominis: the costal cartilages of ribs 5 to 7 and the xiphoid process. The obliques and transversus converge on the linea alba down the midline.",
-    "rel": ["Erector spinae", "Diaphragm", "Pelvic floor", "Hip flexors", "Quadratus lumborum", "Serratus anterior"],
+    "rel": [
+      "Erector spinae",
+      "Diaphragm",
+      "Pelvic floor",
+      "Hip flexors",
+      "Quadratus lumborum",
+      "Serratus anterior"
+    ],
     "train": [
       "Train all three functions: anti-extension (planks, rollouts, dead bugs), anti-rotation (Pallof presses), and flexion (crunches, leg raises).",
       "Add resistance rather than reps. Once you can plank for two minutes, holding it longer trains endurance, not strength - load it or make it harder instead.",
@@ -1134,6 +1375,9 @@
         "n": "Plank",
         "diff": "Beginner",
         "eq": "Bodyweight",
+        "eqTag": [
+          "bodyweight"
+        ],
         "tgt": "Transversus abdominis, rectus abdominis",
         "desc": "Support yourself on the forearms and toes with the body in a straight line. Squeeze the glutes, tuck the pelvis slightly and brace the abs hard, holding the position without letting the hips sag or pike.",
         "s": 3,
@@ -1146,6 +1390,9 @@
         "n": "Hanging Leg Raise",
         "diff": "Advanced",
         "eq": "Pull-up bar",
+        "eqTag": [
+          "bar"
+        ],
         "tgt": "Rectus abdominis (lower fibres), hip flexors",
         "desc": "Hang from a bar with the shoulders set. Raise the legs by curling the pelvis up toward the ribs, not just lifting the thighs, then lower under control without swinging.",
         "s": 3,
@@ -1158,6 +1405,9 @@
         "n": "Kneeling Cable Crunch",
         "diff": "Beginner",
         "eq": "Cable machine with rope",
+        "eqTag": [
+          "cable"
+        ],
         "tgt": "Rectus abdominis",
         "desc": "Kneel facing a high cable with the rope held beside the head. Crunch down by curling the ribs toward the pelvis, keeping the hips fixed, then return slowly to a stretched position.",
         "s": 3,
@@ -1170,6 +1420,9 @@
         "n": "Ab Wheel Rollout",
         "diff": "Advanced",
         "eq": "Ab wheel",
+        "eqTag": [
+          "wheel"
+        ],
         "tgt": "Rectus abdominis, transversus abdominis",
         "desc": "Kneel holding the wheel under the shoulders with the pelvis tucked. Roll forward as far as you can while keeping the lower back from arching, then pull back with the abs.",
         "s": 3,
@@ -1182,6 +1435,9 @@
         "n": "Dead Bug",
         "diff": "Beginner",
         "eq": "Bodyweight",
+        "eqTag": [
+          "bodyweight"
+        ],
         "tgt": "Transversus abdominis, rectus abdominis",
         "desc": "Lie on your back with the arms up and the hips and knees at 90 degrees. Press the lower back into the floor, then slowly extend one arm and the opposite leg away, return, and alternate.",
         "s": 3,
@@ -1194,6 +1450,9 @@
         "n": "Russian Twist",
         "diff": "Beginner",
         "eq": "Bodyweight or medicine ball",
+        "eqTag": [
+          "bodyweight"
+        ],
         "tgt": "Obliques",
         "desc": "Sit with the knees bent and the torso leaning back at about 45 degrees. Rotate the shoulders and arms from side to side under control, keeping the chest tall.",
         "s": 3,
@@ -1246,7 +1505,11 @@
         "dur": "10 reps per side"
       }
     ],
-    "freq": { "b": "2-3", "i": "3", "a": "3-4" }
+    "freq": {
+      "b": "2-3",
+      "i": "3",
+      "a": "3-4"
+    }
   },
   {
     "id": 11,
@@ -1259,7 +1522,13 @@
     "anat": "Two compartments. The anterior compartment holds the wrist and finger flexors and the pronators, arising mainly from the medial epicondyle; the posterior compartment holds the extensors and supinator, arising mainly from the lateral epicondyle. Brachioradialis sits on the thumb side and flexes the elbow. Flexors are supplied mostly by the median nerve, with part by the ulnar nerve; extensors by the radial nerve.",
     "org": "Flexors: the common flexor origin on the medial epicondyle of the humerus. Extensors: the common extensor origin on the lateral epicondyle of the humerus.",
     "ins": "The metacarpals and the phalanges of the fingers and thumb, via long tendons that cross the wrist inside retinacula.",
-    "rel": ["Biceps brachii", "Brachialis", "Latissimus dorsi", "Trapezius", "Rotator cuff"],
+    "rel": [
+      "Biceps brachii",
+      "Brachialis",
+      "Latissimus dorsi",
+      "Trapezius",
+      "Rotator cuff"
+    ],
     "train": [
       "Train the three grip types separately: heavy holds and carries for supporting grip, hand grippers for crushing grip, plate pinches for pinch grip.",
       "Train the extensors as well as the flexors. Almost everything you do in the gym closes the hand, and that imbalance is a major contributor to elbow pain.",
@@ -1273,6 +1542,9 @@
         "n": "Barbell Wrist Curl",
         "diff": "Beginner",
         "eq": "Barbell",
+        "eqTag": [
+          "barbell"
+        ],
         "tgt": "Wrist flexors",
         "desc": "Sit with the forearms resting on your thighs or a bench, palms up, and the wrists just past the edge. Let the bar roll down to the fingertips, then curl it back up by closing the hand and flexing the wrist.",
         "s": 3,
@@ -1285,6 +1557,10 @@
         "n": "Reverse Wrist Curl",
         "diff": "Beginner",
         "eq": "Barbell or dumbbells",
+        "eqTag": [
+          "barbell",
+          "dumbbell"
+        ],
         "tgt": "Wrist extensors",
         "desc": "Rest the forearms on a bench with the palms facing down and the wrists over the edge. Lift the back of the hands upward as far as they will go, then lower slowly.",
         "s": 3,
@@ -1297,6 +1573,9 @@
         "n": "Farmer's Walk",
         "diff": "Beginner",
         "eq": "Heavy dumbbells or kettlebells",
+        "eqTag": [
+          "dumbbell"
+        ],
         "tgt": "Supporting grip, forearms, traps",
         "desc": "Pick up a heavy weight in each hand, stand tall with the shoulders set back, and walk in a straight line with controlled steps until the grip is close to failing.",
         "s": 4,
@@ -1309,6 +1588,9 @@
         "n": "Neutral Grip Wrist Curl",
         "diff": "Beginner",
         "eq": "Dumbbells",
+        "eqTag": [
+          "dumbbell"
+        ],
         "tgt": "Wrist radial and ulnar deviators, brachioradialis",
         "desc": "Sit with the forearm on the thigh and the hand in a neutral (thumb-up) position over the edge. Raise the thumb side of the hand toward the ceiling, then lower under control.",
         "s": 3,
@@ -1321,6 +1603,9 @@
         "n": "Hammer Curl",
         "diff": "Beginner",
         "eq": "Dumbbells",
+        "eqTag": [
+          "dumbbell"
+        ],
         "tgt": "Brachioradialis, forearm flexors",
         "desc": "Hold the dumbbells with a neutral grip and curl straight up without rotating the wrists, keeping the elbows at your sides, then lower under control.",
         "s": 3,
@@ -1373,7 +1658,11 @@
         "dur": "2 sets of 15"
       }
     ],
-    "freq": { "b": "2", "i": "2-3", "a": "3-4" }
+    "freq": {
+      "b": "2",
+      "i": "2-3",
+      "a": "3-4"
+    }
   },
   {
     "id": 12,
@@ -1386,7 +1675,13 @@
     "anat": "Four muscles: rectus femoris down the middle, vastus lateralis on the outside, vastus medialis on the inside, and vastus intermedius deep beneath rectus femoris. They join into the quadriceps tendon, which surrounds the patella and continues below it as the patellar ligament. Innervated by the femoral nerve (L2-L4).",
     "org": "Rectus femoris: the anterior inferior iliac spine and the upper rim of the acetabulum. The three vastii: the intertrochanteric line, the linea aspera and the shaft of the femur.",
     "ins": "The tibial tuberosity, via the quadriceps tendon, the patella and the patellar ligament.",
-    "rel": ["Gluteus maximus", "Hamstrings", "Hip adductors", "Gastrocnemius", "Tibialis anterior"],
+    "rel": [
+      "Gluteus maximus",
+      "Hamstrings",
+      "Hip adductors",
+      "Gastrocnemius",
+      "Tibialis anterior"
+    ],
     "train": [
       "Depth matters more than load - a squat to parallel or below trains the quads through far more range than a partial with heavier weight.",
       "Include one hip-extended movement such as leg extensions or reverse Nordics; rectus femoris is barely trained by squatting because it is shortened at the hip.",
@@ -1400,6 +1695,9 @@
         "n": "Barbell Back Squat",
         "diff": "Intermediate",
         "eq": "Barbell",
+        "eqTag": [
+          "barbell"
+        ],
         "tgt": "Quadriceps, glutes",
         "desc": "With the bar on the upper back and the feet about shoulder width, brace and descend by bending the knees and hips together, keeping the chest up. Go to at least parallel, then drive back up through the whole foot.",
         "s": 4,
@@ -1412,6 +1710,9 @@
         "n": "Front Squat",
         "diff": "Advanced",
         "eq": "Barbell",
+        "eqTag": [
+          "barbell"
+        ],
         "tgt": "Quadriceps",
         "desc": "Rack the bar across the front deltoids with the elbows high. Squat down with an upright torso, keeping the elbows lifted throughout, then drive back up.",
         "s": 4,
@@ -1424,6 +1725,9 @@
         "n": "Leg Press",
         "diff": "Beginner",
         "eq": "Leg press machine",
+        "eqTag": [
+          "machine"
+        ],
         "tgt": "Quadriceps, glutes",
         "desc": "Sit with the feet shoulder width on the platform. Lower the weight by bending the knees until they reach roughly 90 degrees or slightly deeper, then press back up without locking out hard.",
         "s": 3,
@@ -1436,6 +1740,9 @@
         "n": "Leg Extension",
         "diff": "Beginner",
         "eq": "Leg extension machine",
+        "eqTag": [
+          "machine"
+        ],
         "tgt": "Quadriceps, rectus femoris",
         "desc": "Sit with the pad on the lower shins and the knees aligned with the machine's pivot. Extend the knees until the legs are straight, hold briefly, then lower slowly.",
         "s": 3,
@@ -1448,6 +1755,9 @@
         "n": "Dumbbell Lunge",
         "diff": "Beginner",
         "eq": "Dumbbells",
+        "eqTag": [
+          "dumbbell"
+        ],
         "tgt": "Quadriceps, glutes",
         "desc": "Hold a dumbbell in each hand and step forward into a lunge, lowering until the back knee is just above the floor and the front shin is close to vertical. Push back to the start.",
         "s": 3,
@@ -1460,6 +1770,10 @@
         "n": "Split Squat",
         "diff": "Beginner",
         "eq": "Bodyweight or dumbbells",
+        "eqTag": [
+          "bodyweight",
+          "dumbbell"
+        ],
         "tgt": "Quadriceps, glutes",
         "desc": "Set up in a staggered stance and lower straight down until the back knee nearly touches the floor, keeping the front foot flat, then drive back up through the front leg.",
         "s": 3,
@@ -1512,8 +1826,10 @@
         "dur": "12 swings per leg"
       }
     ],
-    "freq": { "b": "2", "i": "2-3", "a": "3" }
+    "freq": {
+      "b": "2",
+      "i": "2-3",
+      "a": "3"
+    }
   }
 ]
-
-
