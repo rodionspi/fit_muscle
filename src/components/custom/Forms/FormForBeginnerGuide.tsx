@@ -6,17 +6,12 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { CheckCircle2, ClipboardList, Lock, LogIn, UserPlus } from "lucide-react";
 import { useUser } from "@/contexts/UserContext";
+import { useMuscles } from "@/contexts/MusclesContext";
+import { buildWorkoutPlan, planOptions, type BeginnerAnswers } from "@/lib/workoutPlan";
 
-type BeginnerAnswers = {
-  goal: string;
-  experience: string;
-  daysPerWeek: string;
-  sessionLength: string;
-  equipment: string;
-  notes: string;
-};
-
-const initialValues: BeginnerAnswers = {
+// Every select starts empty, so the form holds plain strings - Yup's required checks
+// guarantee they are real options by the time onSubmit runs
+const initialValues: Record<keyof BeginnerAnswers, string> = {
   goal: "",
   experience: "",
   daysPerWeek: "",
@@ -34,37 +29,40 @@ const validationSchema = Yup.object({
   notes: Yup.string().max(500, "Keep it under 500 characters"),
 });
 
-/** Each entry becomes one <select> in the form - add a field by adding a row here. */
+/**
+ * Each entry becomes one <select> in the form. The options come from the plan rules in
+ * lib/workoutPlan, so every choice offered here has a rule behind it.
+ */
 const questions: { name: keyof BeginnerAnswers; label: string; hint: string; options: string[] }[] = [
   {
     name: "goal",
     label: "What is your main goal?",
     hint: "Everything else in the plan follows from this.",
-    options: ["Build muscle", "Lose fat", "Get stronger", "General fitness"],
+    options: planOptions.goal,
   },
   {
     name: "experience",
     label: "How long have you been training?",
     hint: "Be honest - starting lighter is what makes progress stick.",
-    options: ["I have never trained", "Less than 6 months", "6 to 12 months", "More than a year"],
+    options: planOptions.experience,
   },
   {
     name: "daysPerWeek",
     label: "How many days a week can you train?",
     hint: "Pick the number you can hold to on a bad week, not a good one.",
-    options: ["2 days", "3 days", "4 days", "5 or more days"],
+    options: planOptions.daysPerWeek,
   },
   {
     name: "sessionLength",
     label: "How long can one session be?",
     hint: "Warm-up and rest between sets included.",
-    options: ["30 minutes", "45 minutes", "60 minutes", "90 minutes"],
+    options: planOptions.sessionLength,
   },
   {
     name: "equipment",
     label: "What equipment do you have?",
     hint: "This decides which exercises the guide can suggest.",
-    options: ["Full gym", "Home gym with dumbbells", "Resistance bands only", "Bodyweight only"],
+    options: planOptions.equipment,
   },
 ];
 
@@ -73,16 +71,17 @@ const fieldClass =
 
 const FormForBeginnerGuide = () => {
   const { userData, isLoading } = useUser();
+  const { muscles, loading: musclesLoading } = useMuscles();
   const [answers, setAnswers] = useState<BeginnerAnswers | null>(null);
 
   const isLoggedIn = Boolean(userData?.id || userData?.email);
 
-  // Wait for the stored session to be read before choosing a branch
-  if (isLoading) {
+  // Wait for the stored session - and, once answered, the exercise library - before choosing a branch
+  if (isLoading || (answers && musclesLoading)) {
     return (
       <div className="flex flex-col items-center justify-center py-24">
         <div className="w-12 h-12 border-4 border-slate-600 border-t-slate-200 rounded-full animate-spin mb-4"></div>
-        <p className="text-slate-300">Loading your profile...</p>
+        <p className="text-slate-300">{answers ? "Building your plan..." : "Loading your profile..."}</p>
       </div>
     );
   }
@@ -121,36 +120,81 @@ const FormForBeginnerGuide = () => {
     );
   }
 
-  // Logged in and already answered - show what was submitted
+  // Logged in and already answered - show the plan built from those answers
   if (answers) {
+    const plan = buildWorkoutPlan(answers, muscles);
+
     return (
-      <div className="max-w-2xl mx-auto py-12">
-        <div className="bg-slate-800 border border-slate-700 rounded-2xl p-8 sm:p-10">
-          <div className="flex items-center gap-3 mb-6">
+      <div className="max-w-3xl mx-auto py-12">
+        <div className="bg-slate-800 border border-slate-700 rounded-2xl p-6 sm:p-10">
+          <div className="flex items-center gap-3 mb-4">
             <CheckCircle2 className="w-8 h-8 text-emerald-400 flex-shrink-0" />
-            <h2 className="text-3xl font-bold">Thanks, {userData?.name || "friend"}!</h2>
+            <h2 className="text-3xl font-bold">Your starting plan, {userData?.name || "friend"}</h2>
           </div>
-          <p className="text-slate-300 mb-8">
-            Here is what we have for you. These answers shape which muscle groups and
-            exercises the guide puts in front of you.
-          </p>
-          <dl className="space-y-3 mb-8">
-            {questions.map((question) => (
-              <div
-                key={question.name}
-                className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 bg-slate-900/60 border border-slate-700 rounded-lg px-4 py-3"
-              >
-                <dt className="text-sm text-slate-400">{question.label}</dt>
-                <dd className="font-semibold text-slate-100">{answers[question.name]}</dd>
-              </div>
+          <p className="text-slate-300 mb-8">{plan.summary}</p>
+
+          {plan.skipped.length > 0 && (
+            <p className="mb-8 text-sm text-amber-200 bg-amber-500/10 border border-amber-500/30 rounded-lg px-4 py-3">
+              Our exercise library has nothing for {plan.skipped.join(", ")} with your equipment and
+              experience yet, so the plan leaves them out.
+            </p>
+          )}
+
+          <div className="space-y-8 mb-8">
+            {plan.days.map((day) => (
+              <section key={day.day}>
+                <h3 className="text-xl font-semibold mb-3">
+                  Day {day.day}{" "}
+                  <span className="ml-1 text-base font-normal text-slate-400">{day.focus}</span>
+                </h3>
+                {day.exercises.length === 0 ? (
+                  <p className="text-slate-400">
+                    No exercise in the library fits this day with your equipment - use it for a long walk instead.
+                  </p>
+                ) : (
+                  <div className="overflow-x-auto rounded-lg border border-slate-700">
+                    <table className="w-full text-left">
+                      <thead className="bg-slate-900/60 text-sm text-slate-400">
+                        <tr>
+                          <th className="px-4 py-2 font-medium">Exercise</th>
+                          <th className="px-4 py-2 font-medium">Muscle</th>
+                          <th className="px-4 py-2 font-medium">Sets × reps</th>
+                        </tr>
+                      </thead>
+                      <tbody className="divide-y divide-slate-700">
+                        {day.exercises.map((exercise) => (
+                          <tr key={exercise.name}>
+                            <td className="px-4 py-3 font-medium text-slate-100">{exercise.name}</td>
+                            <td className="px-4 py-3">
+                              <Link
+                                href={`/muscles/${exercise.muscleId}`}
+                                className="text-emerald-400 hover:text-emerald-300"
+                              >
+                                {exercise.muscle}
+                              </Link>
+                            </td>
+                            <td className="px-4 py-3 text-slate-300 whitespace-nowrap">
+                              {exercise.sets} × {exercise.reps}
+                            </td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                )}
+              </section>
             ))}
-            {answers.notes && (
-              <div className="bg-slate-900/60 border border-slate-700 rounded-lg px-4 py-3">
-                <dt className="text-sm text-slate-400 mb-1">Anything we should know</dt>
-                <dd className="text-slate-100">{answers.notes}</dd>
-              </div>
-            )}
-          </dl>
+          </div>
+
+          {answers.notes && (
+            <div className="bg-slate-900/60 border border-slate-700 rounded-lg px-4 py-3 mb-8">
+              <p className="text-sm text-slate-400 mb-1">
+                Your notes - the plan does not read these, so swap out anything that clashes with them
+              </p>
+              <p className="text-slate-100">{answers.notes}</p>
+            </div>
+          )}
+
           <button
             type="button"
             onClick={() => setAnswers(null)}
@@ -184,7 +228,7 @@ const FormForBeginnerGuide = () => {
         <Formik
           initialValues={initialValues}
           validationSchema={validationSchema}
-          onSubmit={(values) => setAnswers(values)}
+          onSubmit={(values) => setAnswers(values as BeginnerAnswers)}
         >
           {() => (
             <Form className="w-full">
