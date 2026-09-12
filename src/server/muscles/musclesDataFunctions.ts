@@ -10,7 +10,7 @@ import { musclesData, getLocalMuscleById } from "@/data/musclesData";
 
 // Bump this whenever the shape or content of the reference data changes, so
 // browsers holding an older cached copy fetch again instead of serving it.
-const CACHE_VERSION = "v2";
+const CACHE_VERSION = "v4";
 
 /**
  * A Firestore muscle document is considered outdated if it predates the
