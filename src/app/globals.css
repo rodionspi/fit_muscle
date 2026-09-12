@@ -174,6 +174,10 @@ a {
   }
   body {
     @apply bg-zinc-950 text-zinc-100;
+    /* Matches text-base in tailwind.config, so text without a size class is 18px too.
+       Set on body, not html, so rem - and every text-* class - stays relative to the browser setting. */
+    font-size: 1.125rem;
+    line-height: 1.6;
   }
 }
 

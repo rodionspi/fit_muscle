@@ -10,6 +10,21 @@ export default {
 			fontFamily: {
 				sans: ['"Caacupe One"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
 			},
+			// Accessible type scale: nothing on the site renders below 16px, and all
+			// body text is 18px whether a component says text-sm or text-base.
+			// rem-based, so the browser's own font-size setting still scales it.
+			fontSize: {
+				xs: ['1rem', { lineHeight: '1.5rem' }],        // 16px - labels, badges (was 12px)
+				sm: ['1.125rem', { lineHeight: '1.75rem' }],   // 18px - body text (was 14px)
+				base: ['1.125rem', { lineHeight: '1.75rem' }], // 18px - body text (was 16px)
+				lg: ['1.25rem', { lineHeight: '1.875rem' }],   // 20px
+				xl: ['1.5rem', { lineHeight: '2rem' }],        // 24px
+				'2xl': ['1.75rem', { lineHeight: '2.25rem' }], // 28px
+				'3xl': ['2rem', { lineHeight: '2.5rem' }],     // 32px
+				'4xl': ['2.5rem', { lineHeight: '3rem' }],     // 40px
+				'5xl': ['3rem', { lineHeight: '1.15' }],       // 48px
+				'6xl': ['3.75rem', { lineHeight: '1.1' }],     // 60px
+			},
 			borderRadius: {
 				lg: 'var(--radius)',
 				md: 'calc(var(--radius) - 2px)',
