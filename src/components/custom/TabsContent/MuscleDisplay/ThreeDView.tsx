@@ -206,7 +206,7 @@ const ThreeDView = () => {
                     color: "white", fontSize: "1.2rem", textAlign: "center", zIndex: 10
                 }}>
                     Lade fotorealistisches Muskelmodell...
-                    <p style={{ fontSize: "0.8rem", color: "#64748b" }}>Dies kann einen Moment dauern.</p>
+                    <p style={{ fontSize: "1rem", color: "#64748b" }}>Dies kann einen Moment dauern.</p>
                 </div>
             )}
         </div>

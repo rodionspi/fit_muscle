@@ -33,13 +33,13 @@ const MusclesDisplay = () => {
               </TabsList>
 
               <div className="flex gap-2 w-auto justify-center sm:justify-start">
-                <Button variant="secondary" size="sm" className="border-slate-700 text-md" >
+                <Button variant="secondary" size="sm" className="border-slate-700 text-base" >
                   <a href="/beginnerGuide" className="flex items-center">
                     <Info size={16} className="mr-2" />
                     Beginner Guide
                   </a>
                 </Button>
-                <Button variant="secondary" size="sm" className="border-slate-700 text-md">
+                <Button variant="secondary" size="sm" className="border-slate-700 text-base">
                   <Calendar size={16} className="mr-2" />
                   Workout Planner
                 </Button>
