@@ -99,6 +99,81 @@
         "r": 1,
         "tips": "Work in distance or time rather than reps - 30 to 40 metres, or 30 to 45 seconds per set. The moment the shoulders slump forward, the set is over.",
         "vid": "https://www.youtube.com/results?search_query=how+to+farmers+walk+carry"
+      },
+      {
+        "img": "https://fitnessprogramer.com/wp-content/uploads/2021/02/wall-slide.gif",
+        "n": "Wall Slides",
+        "diff": "Beginner",
+        "eq": "Wall",
+        "eqTag": [
+          "bodyweight"
+        ],
+        "tgt": "Lower trapezius, serratus anterior",
+        "desc": "Stand with your back against a wall, arms raised in a goalpost position with the backs of your hands and forearms touching the wall. Slide your arms up overhead while keeping them in contact with the wall, then pull them back down to the start.",
+        "s": 3,
+        "r": 12,
+        "tips": "Pull the shoulder blades down on the way back - that downward pull is the lower traps working. Only slide as high as you can while your lower back and forearms stay on the wall.",
+        "vid": "https://www.youtube.com/results?search_query=how+to+wall+slides"
+      },
+      {
+        "img": "https://fitnessprogramer.com/wp-content/uploads/2022/05/Face-pull.gif",
+        "n": "Band Face Pull",
+        "diff": "Beginner",
+        "eq": "Resistance band, anchored at face height",
+        "eqTag": [
+          "band"
+        ],
+        "tgt": "Middle and lower trapezius, rear deltoid",
+        "desc": "Loop a band around a post or door anchor at face height and hold it with both hands, arms straight in front of you. Pull toward your forehead, driving the elbows high and wide and separating your hands as you finish, then return slowly.",
+        "s": 3,
+        "r": 15,
+        "tips": "Finish every rep with the shoulder blades pulled down and back. The band is hardest at the end of the pull, so control the return instead of letting it snap you forward.",
+        "vid": "https://www.youtube.com/results?search_query=how+to+band+face+pull"
+      },
+      {
+        "img": "https://fitnessprogramer.com/wp-content/uploads/2021/10/Scapular-Protraction-and-Retraction.gif",
+        "n": "Scapular Protraction and Retraction",
+        "diff": "Beginner",
+        "eq": "Bodyweight",
+        "eqTag": [
+          "bodyweight"
+        ],
+        "tgt": "Middle trapezius, rhomboids, serratus anterior",
+        "desc": "Stand tall with your arms relaxed by your sides. Pull your shoulder blades back and together as far as they will go and hold for two seconds, then push them forward and apart, letting the upper back round slightly.",
+        "s": 3,
+        "r": 15,
+        "tips": "It is a light drill, so squeeze hard at the back and move slowly - that is where the middle traps work. It makes a good warm-up before rows; the wall slide is the harder bodyweight option.",
+        "vid": "https://www.youtube.com/results?search_query=how+to+scapular+protraction+and+retraction"
+      },
+      {
+        "img": "https://fitnessprogramer.com/wp-content/uploads/2021/06/Band-pull-apart.gif",
+        "n": "Band Pull-Apart",
+        "diff": "Beginner",
+        "eq": "Resistance band",
+        "eqTag": [
+          "band"
+        ],
+        "tgt": "Middle trapezius, rhomboids, rear deltoid",
+        "desc": "Hold a light band in front of you at shoulder height, arms straight and hands about shoulder-width apart. Pull the band apart until it touches your chest, squeezing the shoulder blades together, then let it return under control.",
+        "s": 3,
+        "r": 15,
+        "tips": "Keep the shoulders away from the ears and the ribs down. To make it harder, move your hands closer together on the band rather than grabbing a thicker one.",
+        "vid": "https://www.youtube.com/results?search_query=how+to+band+pull+apart"
+      },
+      {
+        "img": "https://fitnessprogramer.com/wp-content/uploads/2022/01/Scapula-Pull-up.gif",
+        "n": "Scapula Pull-Up",
+        "diff": "Beginner",
+        "eq": "Pull-up bar",
+        "eqTag": [
+          "bar"
+        ],
+        "tgt": "Lower trapezius, latissimus dorsi",
+        "desc": "Hang from a pull-up bar with straight arms. Without bending the elbows, pull your shoulder blades down and back so your body rises a few centimetres, hold for a second, then lower back into the hang.",
+        "s": 3,
+        "r": 10,
+        "tips": "This is the first few centimetres of every good pull-up. If a full pull-up is still out of reach, this builds the shoulder-blade control you will need for it.",
+        "vid": "https://www.youtube.com/results?search_query=how+to+scapula+pull+up"
       }
     ],
     "inj": [
@@ -246,6 +321,66 @@
         "r": 12,
         "tips": "Optional for most lifters - the front delt is already heavily worked by pressing. Do not lean back to get the weight up.",
         "vid": "https://www.youtube.com/results?search_query=how+to+dumbbell+front+raise"
+      },
+      {
+        "img": "https://fitnessprogramer.com/wp-content/uploads/2021/06/Pike-Push-up.gif",
+        "n": "Pike Push-Up",
+        "diff": "Beginner",
+        "eq": "Bodyweight",
+        "eqTag": [
+          "bodyweight"
+        ],
+        "tgt": "Anterior deltoid, triceps",
+        "desc": "Start in a push-up position, then walk your feet in until your hips are high and your body forms an upside-down V. Bend the elbows to lower the top of your head toward the floor just in front of your hands, then press back up.",
+        "s": 3,
+        "r": 8,
+        "tips": "The more upright your torso, the more the shoulders work - raise your feet onto a step when it gets easy. Let the elbows angle back rather than flaring straight out to the sides.",
+        "vid": "https://www.youtube.com/results?search_query=how+to+pike+push+up"
+      },
+      {
+        "img": "https://fitnessprogramer.com/wp-content/uploads/2022/07/Band-Front-Lateral-Raise.gif",
+        "n": "Band Front Lateral Raise",
+        "diff": "Beginner",
+        "eq": "Resistance band",
+        "eqTag": [
+          "band"
+        ],
+        "tgt": "Anterior and lateral deltoid",
+        "desc": "Stand on one end of a band and hold the other end with your arm by your side. Raise the arm forward and slightly out to the side, in line with the shoulder blade, until it reaches shoulder height, then lower slowly.",
+        "s": 3,
+        "r": 15,
+        "tips": "This diagonal path, between a front and a side raise, is the most comfortable one for the shoulder joint. Keep the torso still instead of leaning back to finish the rep.",
+        "vid": "https://www.youtube.com/results?search_query=how+to+band+front+lateral+raise"
+      },
+      {
+        "img": "https://fitnessprogramer.com/wp-content/uploads/2021/02/Bear-Crawl.gif",
+        "n": "Bear Crawl",
+        "diff": "Beginner",
+        "eq": "Bodyweight",
+        "eqTag": [
+          "bodyweight"
+        ],
+        "tgt": "Deltoids, core",
+        "desc": "Get onto your hands and toes with the knees bent and hovering just off the floor. Crawl forward by moving the opposite hand and foot together, keeping the back flat and the hips level with the shoulders.",
+        "s": 3,
+        "r": 1,
+        "tips": "Work for time or distance - 30 to 45 seconds per set. Your shoulders hold your weight the whole time, so short steps at a steady pace beat going fast.",
+        "vid": "https://www.youtube.com/results?search_query=how+to+bear+crawl"
+      },
+      {
+        "img": "https://fitnessprogramer.com/wp-content/uploads/2022/02/Band-Single-Arm-Shoulder-Press.gif",
+        "n": "Band Single Arm Shoulder Press",
+        "diff": "Beginner",
+        "eq": "Resistance band",
+        "eqTag": [
+          "band"
+        ],
+        "tgt": "Anterior deltoid, triceps",
+        "desc": "Stand on one end of a band and hold the other end at shoulder height, palm facing forward. Press straight overhead until the arm is fully extended, then lower it back to the shoulder.",
+        "s": 3,
+        "r": 12,
+        "tips": "Brace your core so the shoulder does the pressing instead of your body leaning away from the arm. Shorten the band under your foot to make it harder.",
+        "vid": "https://www.youtube.com/results?search_query=how+to+band+single+arm+shoulder+press"
       }
     ],
     "inj": [
@@ -415,6 +550,126 @@
         "r": 5,
         "tips": "Set the lats by squeezing an orange under each armpit before you pull - it keeps the bar close and the spine neutral. Never round the lower back to finish a rep.",
         "vid": "https://www.youtube.com/watch?v=1ZXobu7JvvE"
+      },
+      {
+        "img": "https://fitnessprogramer.com/wp-content/uploads/2021/02/Dumbbell-Row.gif",
+        "n": "Dumbbell Row",
+        "diff": "Beginner",
+        "eq": "Dumbbell and bench",
+        "eqTag": [
+          "dumbbell"
+        ],
+        "tgt": "Latissimus dorsi, rhomboids",
+        "desc": "Put one knee and the same-side hand on a bench, back flat and roughly parallel to the floor, with a dumbbell hanging from the other hand. Row the dumbbell to your hip, driving the elbow back along your side, then lower it until the arm is straight.",
+        "s": 3,
+        "r": 12,
+        "tips": "Pull toward the hip, not the shoulder - that path is what puts the load on the lats. A sturdy chair works instead of a bench at home.",
+        "vid": "https://www.youtube.com/results?search_query=how+to+dumbbell+row"
+      },
+      {
+        "img": "https://fitnessprogramer.com/wp-content/uploads/2023/06/Bodyweight-Row-in-Doorway.gif",
+        "n": "Bodyweight Row in Doorway",
+        "diff": "Beginner",
+        "eq": "Doorway",
+        "eqTag": [
+          "bodyweight"
+        ],
+        "tgt": "Latissimus dorsi, rhomboids, biceps",
+        "desc": "Stand in a doorway, grip the frame at chest height with one hand and walk your feet in so you lean back and to the side on a straight arm. Pull your chest toward the frame by driving the elbow back, then lower yourself slowly. Do all reps on one side, then switch.",
+        "s": 3,
+        "r": 12,
+        "tips": "Check the frame is solid before you lean on it. The further your feet are in front of you, the harder it gets - start fairly upright and walk the feet in over the weeks.",
+        "vid": "https://www.youtube.com/results?search_query=how+to+bodyweight+row+in+doorway"
+      },
+      {
+        "img": "https://fitnessprogramer.com/wp-content/uploads/2022/02/Band-Seated-Row.gif",
+        "n": "Band Seated Row",
+        "diff": "Beginner",
+        "eq": "Resistance band",
+        "eqTag": [
+          "band"
+        ],
+        "tgt": "Latissimus dorsi, rhomboids, middle trapezius",
+        "desc": "Sit on the floor with your legs straight, loop the band around your feet and hold one end in each hand. Sitting tall, pull your hands to your lower ribs, driving the elbows back and squeezing the shoulder blades together, then return slowly.",
+        "s": 3,
+        "r": 15,
+        "tips": "Keep the back upright - rocking backward turns the row into a lean. Wrap the band an extra time around your feet to make it harder.",
+        "vid": "https://www.youtube.com/results?search_query=how+to+band+seated+row"
+      },
+      {
+        "img": "https://fitnessprogramer.com/wp-content/uploads/2022/04/Table-Inverted-Row.gif",
+        "n": "Table Inverted Row",
+        "diff": "Beginner",
+        "eq": "Sturdy table",
+        "eqTag": [
+          "bodyweight"
+        ],
+        "tgt": "Latissimus dorsi, rhomboids, biceps",
+        "desc": "Lie on your back under a sturdy table with your knees bent and feet flat, and grip its edge with your hands about shoulder-width apart. Keeping your body straight from knees to shoulders, pull your chest up to the edge, then lower yourself with control.",
+        "s": 3,
+        "r": 10,
+        "tips": "Test the table with your full weight before the first rep - it must not tip or slide. Straighten your legs and rest on your heels to make it harder.",
+        "vid": "https://www.youtube.com/results?search_query=how+to+table+inverted+row"
+      },
+      {
+        "img": "https://fitnessprogramer.com/wp-content/uploads/2022/02/Band-Alternating-Lat-Pulldown.gif",
+        "n": "Band Alternating Lat Pulldown",
+        "diff": "Beginner",
+        "eq": "Resistance band, anchored overhead",
+        "eqTag": [
+          "band"
+        ],
+        "tgt": "Latissimus dorsi",
+        "desc": "Anchor a band high above you, over a door or a bar, and hold one end in each hand with your arms stretched up. Pull one elbow down to your side, return it, then pull the other, keeping the chest up the whole time.",
+        "s": 3,
+        "r": 12,
+        "tips": "Think about driving the elbow into your back pocket rather than pulling with the hand. Kneeling makes it easier to get the band high enough above you.",
+        "vid": "https://www.youtube.com/results?search_query=how+to+band+alternating+lat+pulldown"
+      },
+      {
+        "img": "https://fitnessprogramer.com/wp-content/uploads/2021/02/Superman-exercise.gif",
+        "n": "Superman",
+        "diff": "Beginner",
+        "eq": "Bodyweight",
+        "eqTag": [
+          "bodyweight"
+        ],
+        "tgt": "Erector spinae, glutes",
+        "desc": "Lie face down with your arms stretched out in front of you. Lift your arms, chest and legs a few centimetres off the floor at the same time, hold for two seconds, then lower back down.",
+        "s": 3,
+        "r": 12,
+        "tips": "Keep your gaze on the floor so the neck stays in line - lifting your head to look forward strains it. Height does not matter here; a controlled hold does.",
+        "vid": "https://www.youtube.com/results?search_query=how+to+superman"
+      },
+      {
+        "img": "https://fitnessprogramer.com/wp-content/uploads/2021/06/Inverted-Row.gif",
+        "n": "Inverted Row",
+        "diff": "Beginner",
+        "eq": "Low bar or Smith machine",
+        "eqTag": [
+          "bar"
+        ],
+        "tgt": "Latissimus dorsi, rhomboids, biceps",
+        "desc": "Set a bar at about waist height and hang underneath it with straight arms, heels on the floor and body straight. Pull your chest up to the bar, squeezing the shoulder blades together, then lower yourself slowly.",
+        "s": 3,
+        "r": 10,
+        "tips": "The lower the bar, the harder it gets - raise it until you can do 10 clean reps. Keep the hips up; a sagging body turns it into a partial rep.",
+        "vid": "https://www.youtube.com/results?search_query=how+to+inverted+row"
+      },
+      {
+        "img": "https://fitnessprogramer.com/wp-content/uploads/2021/02/Dumbbell-Pullover.gif",
+        "n": "Dumbbell Pullover",
+        "diff": "Intermediate",
+        "eq": "Dumbbell and bench",
+        "eqTag": [
+          "dumbbell"
+        ],
+        "tgt": "Latissimus dorsi, chest",
+        "desc": "Lie on a bench holding one dumbbell with both hands over your chest, elbows slightly bent. Lower it back behind your head in an arc until you feel a stretch through the lats, then pull it back over your chest.",
+        "s": 3,
+        "r": 12,
+        "tips": "Keep the elbow bend fixed - it is an arc, not a triceps extension. Only lower as far as your shoulders are comfortable; the stretch is the point, not the depth.",
+        "vid": "https://www.youtube.com/results?search_query=how+to+dumbbell+pullover"
       }
     ],
     "inj": [
@@ -567,6 +822,81 @@
         "r": 12,
         "tips": "Keep the elbows pointing straight back and do not drop deeper than parallel - bench dips put the shoulder in internal rotation, which becomes risky at depth. Parallel-bar dips are the safer progression.",
         "vid": "https://www.youtube.com/watch?v=0326dy_-CzM"
+      },
+      {
+        "img": "https://fitnessprogramer.com/wp-content/uploads/2021/02/Dumbbell-Kickback.gif",
+        "n": "Dumbbell Kickback",
+        "diff": "Beginner",
+        "eq": "Dumbbell",
+        "eqTag": [
+          "dumbbell"
+        ],
+        "tgt": "Triceps (lateral and medial head)",
+        "desc": "Hinge forward with a flat back and hold a dumbbell with your upper arm pinned to your side, elbow bent at 90 degrees. Straighten the elbow until the arm points back, squeeze, then lower back to 90 degrees.",
+        "s": 3,
+        "r": 12,
+        "tips": "Only the forearm moves - if the upper arm swings, the weight is too heavy. Light dumbbells and a hard squeeze at full extension are what make this work.",
+        "vid": "https://www.youtube.com/results?search_query=how+to+dumbbell+kickback"
+      },
+      {
+        "img": "https://fitnessprogramer.com/wp-content/uploads/2022/07/Close-Grip-Knee-Push-up.gif",
+        "n": "Close Grip Knee Push-Up",
+        "diff": "Beginner",
+        "eq": "Bodyweight",
+        "eqTag": [
+          "bodyweight"
+        ],
+        "tgt": "Triceps, chest",
+        "desc": "Get into a push-up position on your knees with your hands directly under your shoulders or slightly narrower. Lower your chest toward your hands with the elbows brushing your sides, then press back up.",
+        "s": 3,
+        "r": 12,
+        "tips": "Tucking the elbows is what shifts the work from the chest to the triceps. When 15 clean reps feel easy, move up to the diamond push-up.",
+        "vid": "https://www.youtube.com/results?search_query=how+to+close+grip+knee+push+up"
+      },
+      {
+        "img": "https://fitnessprogramer.com/wp-content/uploads/2022/02/Band-Pushdown.gif",
+        "n": "Band Pushdown",
+        "diff": "Beginner",
+        "eq": "Resistance band, anchored overhead",
+        "eqTag": [
+          "band"
+        ],
+        "tgt": "Triceps (lateral and medial head)",
+        "desc": "Anchor a band above head height and hold it with both hands, elbows bent and pinned to your sides. Push down until your arms are fully straight, squeeze, then let your hands rise back to chest height.",
+        "s": 3,
+        "r": 15,
+        "tips": "Keep the elbows glued to your sides the whole time. A door anchor at the top of a door works well at home.",
+        "vid": "https://www.youtube.com/results?search_query=how+to+band+pushdown"
+      },
+      {
+        "img": "https://fitnessprogramer.com/wp-content/uploads/2021/02/Diamond-Push-up.gif",
+        "n": "Diamond Push-Up",
+        "diff": "Intermediate",
+        "eq": "Bodyweight",
+        "eqTag": [
+          "bodyweight"
+        ],
+        "tgt": "Triceps, chest",
+        "desc": "Get into a push-up position with your hands together under your chest, thumbs and index fingers touching to form a diamond. Lower your chest to your hands keeping the body straight, then press back up.",
+        "s": 3,
+        "r": 10,
+        "tips": "If your wrists or elbows complain, widen the hands slightly - the close-grip version works the triceps almost as well. Keep the hips in line with the shoulders.",
+        "vid": "https://www.youtube.com/results?search_query=how+to+diamond+push+up"
+      },
+      {
+        "img": "https://fitnessprogramer.com/wp-content/uploads/2020/05/Banded-Triceps-Extension.gif",
+        "n": "Banded Overhead Triceps Extension",
+        "diff": "Beginner",
+        "eq": "Resistance band",
+        "eqTag": [
+          "band"
+        ],
+        "tgt": "Triceps (long head)",
+        "desc": "Stand on one end of a band and hold the other with both hands behind your head, elbows pointing up. Extend your arms overhead until they are straight, then bend the elbows to lower your hands back behind your head.",
+        "s": 3,
+        "r": 12,
+        "tips": "The overhead position is what stretches the long head of the triceps - the part pushdowns miss. Keep the elbows pointing forward rather than flaring out.",
+        "vid": "https://www.youtube.com/results?search_query=how+to+banded+overhead+triceps+extension"
       }
     ],
     "inj": [
@@ -709,6 +1039,111 @@
         "r": 10,
         "tips": "The movement is a hip hinge, not a squat - the knees stay in a fixed soft bend throughout. Stop lowering the moment the back starts to round.",
         "vid": "https://www.youtube.com/results?search_query=how+to+romanian+deadlift"
+      },
+      {
+        "img": "https://fitnessprogramer.com/wp-content/uploads/2021/02/Dumbbell-Romanian-Deadlift.gif",
+        "n": "Dumbbell Romanian Deadlift",
+        "diff": "Beginner",
+        "eq": "Dumbbells",
+        "eqTag": [
+          "dumbbell"
+        ],
+        "tgt": "Glutes, hamstrings",
+        "desc": "Stand holding a dumbbell in each hand in front of your thighs. Push your hips back and let the dumbbells slide down the front of your legs with a flat back and soft knees until you feel a stretch in the hamstrings, then drive the hips forward to stand.",
+        "s": 3,
+        "r": 12,
+        "tips": "It is a hip hinge, not a squat - the knees stay softly bent and fixed. Finish by squeezing the glutes at the top instead of leaning back.",
+        "vid": "https://www.youtube.com/results?search_query=how+to+dumbbell+romanian+deadlift"
+      },
+      {
+        "img": "https://fitnessprogramer.com/wp-content/uploads/2021/06/Single-Leg-Bridge.gif",
+        "n": "Single Leg Glute Bridge",
+        "diff": "Beginner",
+        "eq": "Bodyweight",
+        "eqTag": [
+          "bodyweight"
+        ],
+        "tgt": "Gluteus maximus, hamstrings",
+        "desc": "Lie on your back with one knee bent and that foot flat, the other leg straight and raised. Push through the heel of the planted foot to lift your hips until they are in line with your knee, then lower slowly.",
+        "s": 3,
+        "r": 12,
+        "tips": "Keep the hips level - if the side of the lifted leg drops, the working glute is not holding the pelvis. Do all reps on one side, then switch.",
+        "vid": "https://www.youtube.com/results?search_query=how+to+single+leg+glute+bridge"
+      },
+      {
+        "img": "https://fitnessprogramer.com/wp-content/uploads/2022/02/Banded-Glute-Bridge.gif",
+        "n": "Banded Glute Bridge",
+        "diff": "Beginner",
+        "eq": "Mini band",
+        "eqTag": [
+          "band"
+        ],
+        "tgt": "Gluteus maximus, gluteus medius",
+        "desc": "Put a loop band just above your knees and lie on your back with knees bent and feet flat. Push your knees out against the band, then drive through your heels to lift your hips, squeeze at the top and lower.",
+        "s": 3,
+        "r": 15,
+        "tips": "Pushing out against the band recruits gluteus medius alongside the maximus. Do not let the knees cave in as you lift.",
+        "vid": "https://www.youtube.com/results?search_query=how+to+banded+glute+bridge"
+      },
+      {
+        "img": "https://fitnessprogramer.com/wp-content/uploads/2021/02/Donkey-Kicks.gif",
+        "n": "Donkey Kicks",
+        "diff": "Beginner",
+        "eq": "Bodyweight",
+        "eqTag": [
+          "bodyweight"
+        ],
+        "tgt": "Gluteus maximus",
+        "desc": "Get on your hands and knees with your hands under your shoulders. Keeping the knee bent at 90 degrees, lift one leg until the thigh is in line with your torso, pushing the sole of the foot toward the ceiling, then lower it back down.",
+        "s": 3,
+        "r": 15,
+        "tips": "Stop when the thigh is level with your back - going higher just arches the lower back. Brace your abs so only the hip moves.",
+        "vid": "https://www.youtube.com/results?search_query=how+to+donkey+kicks"
+      },
+      {
+        "img": "https://fitnessprogramer.com/wp-content/uploads/2022/02/Resistance-Band-Lateral-Walk.gif",
+        "n": "Resistance Band Lateral Walk",
+        "diff": "Beginner",
+        "eq": "Mini band",
+        "eqTag": [
+          "band"
+        ],
+        "tgt": "Gluteus medius",
+        "desc": "Put a loop band around your legs just above the knees or at the ankles and stand in a half squat. Step sideways, keeping tension on the band, for 10 to 15 steps, then walk back the other way.",
+        "s": 3,
+        "r": 12,
+        "tips": "Stay low and keep your toes pointing forward - the moment you stand up or let the feet turn out, the glutes stop working. A band around the ankles is harder than above the knees.",
+        "vid": "https://www.youtube.com/results?search_query=how+to+resistance+band+lateral+walk"
+      },
+      {
+        "img": "https://fitnessprogramer.com/wp-content/uploads/2021/12/Dumbeel-Step-Up.gif",
+        "n": "Dumbbell Step-Up",
+        "diff": "Beginner",
+        "eq": "Dumbbells and a box or step",
+        "eqTag": [
+          "dumbbell"
+        ],
+        "tgt": "Gluteus maximus, quadriceps",
+        "desc": "Stand in front of a knee-height box or sturdy step holding a dumbbell in each hand. Place one whole foot on the box and drive through that heel to stand up on it, then step back down with control.",
+        "s": 3,
+        "r": 10,
+        "tips": "Push through the top leg only - pushing off the floor with the back foot takes the work away from it. Start without dumbbells until the balance is solid.",
+        "vid": "https://www.youtube.com/results?search_query=how+to+dumbbell+step+up"
+      },
+      {
+        "img": "https://fitnessprogramer.com/wp-content/uploads/2022/01/Dumbbell-Glute-Bridge.gif",
+        "n": "Dumbbell Glute Bridge",
+        "diff": "Beginner",
+        "eq": "Dumbbell",
+        "eqTag": [
+          "dumbbell"
+        ],
+        "tgt": "Gluteus maximus",
+        "desc": "Lie on your back with your knees bent and feet flat, holding a dumbbell across your hips. Drive through your heels to lift your hips until your body forms a straight line from knees to shoulders, squeeze, then lower.",
+        "s": 3,
+        "r": 12,
+        "tips": "Rest a folded towel under the dumbbell so it does not dig into your hips. Pause for a full second at the top.",
+        "vid": "https://www.youtube.com/results?search_query=how+to+dumbbell+glute+bridge"
       }
     ],
     "inj": [
@@ -856,6 +1291,126 @@
         "r": 10,
         "tips": "Start much lighter than you think - the long lever makes this far harder than it looks. Any rounding of the back means the weight is too heavy or the range too deep.",
         "vid": "https://www.youtube.com/results?search_query=how+to+barbell+good+morning"
+      },
+      {
+        "img": "https://fitnessprogramer.com/wp-content/uploads/2021/02/Dumbbell-Romanian-Deadlift.gif",
+        "n": "Dumbbell Romanian Deadlift",
+        "diff": "Beginner",
+        "eq": "Dumbbells",
+        "eqTag": [
+          "dumbbell"
+        ],
+        "tgt": "Hamstrings, glutes",
+        "desc": "Stand holding a dumbbell in each hand in front of your thighs. Push your hips back and lower the dumbbells along the front of your legs with a flat back and soft knees until you feel a strong stretch in the hamstrings, then drive the hips forward to stand.",
+        "s": 3,
+        "r": 10,
+        "tips": "Depth is set by your hamstring flexibility, not by the floor - stop where your back would otherwise start to round. Slow the lowering phase to three seconds.",
+        "vid": "https://www.youtube.com/results?search_query=how+to+dumbbell+romanian+deadlift"
+      },
+      {
+        "img": "https://fitnessprogramer.com/wp-content/uploads/2021/05/Bodyweight-Single-Leg-Deadlift.gif",
+        "n": "Bodyweight Single Leg Deadlift",
+        "diff": "Beginner",
+        "eq": "Bodyweight",
+        "eqTag": [
+          "bodyweight"
+        ],
+        "tgt": "Hamstrings, glutes",
+        "desc": "Stand on one leg with a soft knee. Hinge forward at the hip, reaching your hands toward the floor while the free leg extends straight behind you, until your body is close to parallel with the floor, then return to standing.",
+        "s": 3,
+        "r": 10,
+        "tips": "Keep the hips square to the floor - the lifted leg's hip wants to rotate open. Touch a wall or chair with one hand at first if balance is the limit rather than the hamstring.",
+        "vid": "https://www.youtube.com/results?search_query=how+to+bodyweight+single+leg+deadlift"
+      },
+      {
+        "img": "https://fitnessprogramer.com/wp-content/uploads/2022/07/Good-Morning-With-Resistance-Band.gif",
+        "n": "Good Morning with Resistance Band",
+        "diff": "Beginner",
+        "eq": "Resistance band",
+        "eqTag": [
+          "band"
+        ],
+        "tgt": "Hamstrings, erector spinae",
+        "desc": "Stand on the middle of a band with your feet hip-width apart and loop the other end behind your neck and over your shoulders. With a flat back and soft knees, push your hips back and bow forward until your torso is nearly parallel to the floor, then drive the hips forward to stand.",
+        "s": 3,
+        "r": 15,
+        "tips": "The band is lightest at the bottom and heaviest at the top, which suits beginners - the stretched position stays easy while the finish gets hard. Never round the back to go lower.",
+        "vid": "https://www.youtube.com/results?search_query=how+to+good+morning+with+resistance+band"
+      },
+      {
+        "img": "https://fitnessprogramer.com/wp-content/uploads/2022/02/Glute-Bridge-on-Bench.gif",
+        "n": "Feet-Elevated Glute Bridge",
+        "diff": "Beginner",
+        "eq": "Bench, chair or sofa",
+        "eqTag": [
+          "bodyweight"
+        ],
+        "tgt": "Hamstrings, glutes",
+        "desc": "Lie on your back with your heels on a bench, chair or sofa, knees slightly bent and arms by your sides. Push your heels down into the bench to lift your hips until your body is straight from shoulders to knees, then lower slowly.",
+        "s": 3,
+        "r": 12,
+        "tips": "The straighter your legs, the more the hamstrings work instead of the glutes. If the back of the thigh cramps at first, bend the knees a little more.",
+        "vid": "https://www.youtube.com/results?search_query=how+to+feet+elevated+glute+bridge"
+      },
+      {
+        "img": "https://fitnessprogramer.com/wp-content/uploads/2022/05/Lying-leg-curl.gif",
+        "n": "Banded Lying Leg Curl",
+        "diff": "Beginner",
+        "eq": "Resistance band, anchored low",
+        "eqTag": [
+          "band"
+        ],
+        "tgt": "Hamstrings",
+        "desc": "Anchor a band low to a post or heavy piece of furniture, lie face down with your feet toward the anchor and loop the band around your ankles. Curl your heels toward your glutes against the band, squeeze, then straighten the legs slowly.",
+        "s": 3,
+        "r": 15,
+        "tips": "Keep your hips pressed into the floor so the hamstrings do the curling. Slow the return - the band pulls hardest when your legs are nearly straight.",
+        "vid": "https://www.youtube.com/results?search_query=how+to+banded+lying+leg+curl"
+      },
+      {
+        "img": "https://fitnessprogramer.com/wp-content/uploads/2022/02/Towel-Leg-Curl.gif",
+        "n": "Towel Leg Curl",
+        "diff": "Intermediate",
+        "eq": "Towel on a smooth floor",
+        "eqTag": [
+          "bodyweight"
+        ],
+        "tgt": "Hamstrings",
+        "desc": "Lie on your back on a smooth floor with your heels on a towel and legs straight. Lift your hips into a bridge, then pull your heels toward your glutes by sliding the towel, and slide them back out while keeping the hips up.",
+        "s": 3,
+        "r": 10,
+        "tips": "The hips stay lifted for the whole set - that is what makes it a hamstring curl rather than a bridge. If the full curl is too hard, slide out slowly and walk the feet back in.",
+        "vid": "https://www.youtube.com/results?search_query=how+to+towel+leg+curl"
+      },
+      {
+        "img": "https://fitnessprogramer.com/wp-content/uploads/2022/09/Dumbbell-Single-Leg-Deadlift.gif",
+        "n": "Dumbbell Single Leg Deadlift",
+        "diff": "Intermediate",
+        "eq": "Dumbbell",
+        "eqTag": [
+          "dumbbell"
+        ],
+        "tgt": "Hamstrings, glutes",
+        "desc": "Stand on one leg holding a dumbbell in the opposite hand. Hinge at the hip, lowering the dumbbell toward the floor while the free leg extends behind you, until your torso is near parallel to the floor, then return to standing.",
+        "s": 3,
+        "r": 10,
+        "tips": "Holding the weight on the side of the lifted leg makes the standing glute work harder to keep your hips level. Master the bodyweight version first.",
+        "vid": "https://www.youtube.com/results?search_query=how+to+dumbbell+single+leg+deadlift"
+      },
+      {
+        "img": "https://fitnessprogramer.com/wp-content/uploads/2021/06/Nordic-Hamstring-Curl.gif",
+        "n": "Nordic Hamstring Curl",
+        "diff": "Advanced",
+        "eq": "Anchor for the ankles (sofa, partner or bench)",
+        "eqTag": [
+          "bodyweight"
+        ],
+        "tgt": "Hamstrings",
+        "desc": "Kneel on a pad with your ankles held down by a partner or hooked under a heavy sofa. Keeping your body straight from knees to head, lean forward as slowly as you can, catch yourself with your hands at the bottom, and push back up.",
+        "s": 3,
+        "r": 5,
+        "tips": "The slow lowering is the whole exercise - it is one of the best-proven ways to prevent hamstring tears. Expect to control only part of the way down at first.",
+        "vid": "https://www.youtube.com/results?search_query=how+to+nordic+hamstring+curl"
       }
     ],
     "inj": [
@@ -992,6 +1547,52 @@
         "r": 15,
         "tips": "Keep the safety catches engaged and never let the knees bend and unbend - only the ankle should move. A good option when the calf raise machine is taken.",
         "vid": "https://www.youtube.com/results?search_query=how+to+leg+press+calf+raise"
+      },
+      {
+        "img": "https://fitnessprogramer.com/wp-content/uploads/2021/06/Single-Leg-Calf-Raises.gif",
+        "n": "Single Leg Calf Raise",
+        "diff": "Beginner",
+        "eq": "Step, bodyweight or a dumbbell",
+        "eqTag": [
+          "bodyweight",
+          "dumbbell"
+        ],
+        "tgt": "Gastrocnemius",
+        "desc": "Stand on one foot on the edge of a step with the heel hanging off, holding a wall or rail for balance. Lower the heel as far as it will go, then rise onto the ball of the foot as high as possible and hold for a second.",
+        "s": 3,
+        "r": 15,
+        "tips": "One leg at a time doubles the load without any equipment - hold a dumbbell in the free hand once 20 reps are easy. Pause at the bottom so the tendon cannot bounce you up.",
+        "vid": "https://www.youtube.com/results?search_query=how+to+single+leg+calf+raise"
+      },
+      {
+        "img": "https://fitnessprogramer.com/wp-content/uploads/2022/05/Calf-Raise-with-Resistance-Band.gif",
+        "n": "Calf Raise with Resistance Band",
+        "diff": "Beginner",
+        "eq": "Resistance band",
+        "eqTag": [
+          "band"
+        ],
+        "tgt": "Gastrocnemius, soleus",
+        "desc": "Stand on the middle of a band and hold the ends at your shoulders so it is taut. Rise onto the balls of your feet as high as you can, hold for a second, then lower your heels slowly.",
+        "s": 3,
+        "r": 20,
+        "tips": "Standing on a step lets your heels drop lower for a bigger range. Keep your legs straight to bias the gastrocnemius.",
+        "vid": "https://www.youtube.com/results?search_query=how+to+calf+raise+with+resistance+band"
+      },
+      {
+        "img": "https://fitnessprogramer.com/wp-content/uploads/2021/12/Squat-Hold-Calf-Raise.gif",
+        "n": "Squat Hold Calf Raise",
+        "diff": "Beginner",
+        "eq": "Bodyweight",
+        "eqTag": [
+          "bodyweight"
+        ],
+        "tgt": "Soleus, gastrocnemius",
+        "desc": "Sink into a half squat with your thighs close to parallel and hold that position. From there, rise onto the balls of your feet, pause, and lower your heels back down without standing up.",
+        "s": 3,
+        "r": 15,
+        "tips": "Bent knees shift the work onto the soleus, the calf muscle that straight-leg raises mostly miss. Hold onto a chair for balance so you can focus on the calves.",
+        "vid": "https://www.youtube.com/results?search_query=how+to+squat+hold+calf+raise"
       }
     ],
     "inj": [
@@ -1159,6 +1760,81 @@
         "r": 12,
         "tips": "Keep the elbow angle fixed and use moderate weight - the fully stretched position under load is where pec tears occur. Stop the descent level with the torso.",
         "vid": "https://www.youtube.com/results?search_query=how+to+dumbbell+chest+fly"
+      },
+      {
+        "img": "https://fitnessprogramer.com/wp-content/uploads/2021/04/Knee-Push-Up.gif",
+        "n": "Knee Push-Up",
+        "diff": "Beginner",
+        "eq": "Bodyweight",
+        "eqTag": [
+          "bodyweight"
+        ],
+        "tgt": "Pectoralis major, triceps",
+        "desc": "Start on your hands and knees, then walk your hands forward until your body is straight from knees to head, hands slightly wider than your shoulders. Lower your chest to just above the floor, then press back up.",
+        "s": 3,
+        "r": 12,
+        "tips": "Keep the hips in line with the rest of the body instead of piking them up. Once you can do 15, move on to full push-ups.",
+        "vid": "https://www.youtube.com/results?search_query=how+to+knee+push+up"
+      },
+      {
+        "img": "https://fitnessprogramer.com/wp-content/uploads/2022/01/Band-Standing-Chest-Press.gif",
+        "n": "Band Standing Chest Press",
+        "diff": "Beginner",
+        "eq": "Resistance band, anchored behind you",
+        "eqTag": [
+          "band"
+        ],
+        "tgt": "Pectoralis major, anterior deltoid, triceps",
+        "desc": "Anchor a band at chest height behind you, or wrap it around your upper back, and hold one end in each hand at chest level. Press forward until your arms are straight, bringing the hands slightly together, then return slowly.",
+        "s": 3,
+        "r": 15,
+        "tips": "Stagger your feet for balance and keep the core braced so you press with the chest rather than leaning into it. Step further from the anchor to add tension.",
+        "vid": "https://www.youtube.com/results?search_query=how+to+band+standing+chest+press"
+      },
+      {
+        "img": "https://fitnessprogramer.com/wp-content/uploads/2021/06/Incline-Push-Up.gif",
+        "n": "Incline Push-Up",
+        "diff": "Beginner",
+        "eq": "Bench, table or wall",
+        "eqTag": [
+          "bodyweight"
+        ],
+        "tgt": "Pectoralis major (lower fibres), triceps",
+        "desc": "Place your hands slightly wider than your shoulders on a bench, sturdy table or wall, and step your feet back until your body is straight. Lower your chest to the edge, then press back up.",
+        "s": 3,
+        "r": 15,
+        "tips": "The higher your hands, the easier it is - a wall is the easiest version, the floor the hardest. Lower the surface a step at a time as you get stronger.",
+        "vid": "https://www.youtube.com/results?search_query=how+to+incline+push+up"
+      },
+      {
+        "img": "https://fitnessprogramer.com/wp-content/uploads/2022/09/Resistance-Band-Alternating-Chest-Fly.gif",
+        "n": "Resistance Band Alternating Chest Fly",
+        "diff": "Beginner",
+        "eq": "Resistance band, anchored behind you",
+        "eqTag": [
+          "band"
+        ],
+        "tgt": "Pectoralis major",
+        "desc": "Anchor a band at chest height behind you and hold one end in each hand with your arms out to the sides and elbows slightly bent. Sweep one arm across in front of your chest, return it, then do the other, keeping the elbow angle fixed.",
+        "s": 3,
+        "r": 12,
+        "tips": "Think of hugging a barrel rather than pressing. Working one arm at a time lets you really squeeze the chest at the end of each rep.",
+        "vid": "https://www.youtube.com/results?search_query=how+to+resistance+band+alternating+chest+fly"
+      },
+      {
+        "img": "https://fitnessprogramer.com/wp-content/uploads/2015/07/Decline-Push-Up.gif",
+        "n": "Decline Push-Up",
+        "diff": "Intermediate",
+        "eq": "Bench, chair or step",
+        "eqTag": [
+          "bodyweight"
+        ],
+        "tgt": "Pectoralis major (upper fibres), anterior deltoid",
+        "desc": "Put your feet on a bench, chair or step and your hands on the floor slightly wider than your shoulders. Keeping your body straight, lower your chest to the floor, then press back up.",
+        "s": 3,
+        "r": 10,
+        "tips": "Raising the feet shifts the work toward the upper chest and shoulders. Brace the abs hard - the hips tend to sag in this position.",
+        "vid": "https://www.youtube.com/results?search_query=how+to+decline+push+up"
       }
     ],
     "inj": [
@@ -1301,6 +1977,36 @@
         "r": 8,
         "tips": "The best compound movement for the biceps - the underhand grip puts them in a strong position while the lats handle the load. Add weight once you can do 10 clean reps.",
         "vid": "https://www.youtube.com/results?search_query=how+to+chin+up"
+      },
+      {
+        "img": "https://fitnessprogramer.com/wp-content/uploads/2022/04/Table-Inverted-Row.gif",
+        "n": "Table Inverted Row",
+        "diff": "Beginner",
+        "eq": "Sturdy table",
+        "eqTag": [
+          "bodyweight"
+        ],
+        "tgt": "Biceps brachii, latissimus dorsi",
+        "desc": "Lie on your back under a sturdy table with your knees bent and feet flat, and grip its edge with your hands about shoulder-width apart. Keeping your body straight from knees to shoulders, pull your chest up to the edge, then lower yourself with control.",
+        "s": 3,
+        "r": 10,
+        "tips": "Rows work the biceps hard, and turning your palms toward you shifts even more of the work onto them. Test the table with your full weight before the first rep.",
+        "vid": "https://www.youtube.com/results?search_query=how+to+table+inverted+row"
+      },
+      {
+        "img": "https://fitnessprogramer.com/wp-content/uploads/2022/02/Band-Biceps-Curl.gif",
+        "n": "Band Biceps Curl",
+        "diff": "Beginner",
+        "eq": "Resistance band",
+        "eqTag": [
+          "band"
+        ],
+        "tgt": "Biceps brachii",
+        "desc": "Stand on the middle of a band with your feet hip-width apart and hold one end in each hand, palms facing forward. Keeping your elbows at your sides, curl your hands up to your shoulders, squeeze, then lower slowly.",
+        "s": 3,
+        "r": 15,
+        "tips": "The band is hardest at the top, so squeeze there for a second. Stand with your feet wider apart on the band to make it harder.",
+        "vid": "https://www.youtube.com/results?search_query=how+to+band+biceps+curl"
       }
     ],
     "inj": [
@@ -1459,6 +2165,36 @@
         "r": 20,
         "tips": "Rotate from the ribcage, not by waving the arms. Keep the movement slow - fast twisting with a rounded back loads the lumbar discs for little benefit.",
         "vid": "https://www.youtube.com/watch?v=wkD8rjkodUI"
+      },
+      {
+        "img": "https://fitnessprogramer.com/wp-content/uploads/2022/07/Bird-Dog.gif",
+        "n": "Bird Dog",
+        "diff": "Beginner",
+        "eq": "Bodyweight",
+        "eqTag": [
+          "bodyweight"
+        ],
+        "tgt": "Transversus abdominis, erector spinae, glutes",
+        "desc": "Get on your hands and knees with your back flat. Reach one arm forward and the opposite leg straight back until both are in line with your torso, hold for two seconds, then return and switch sides.",
+        "s": 3,
+        "r": 10,
+        "tips": "Imagine a glass of water balanced on your lower back - the goal is to move the arm and leg without the torso rotating or sagging. Slow beats high reps here.",
+        "vid": "https://www.youtube.com/results?search_query=how+to+bird+dog"
+      },
+      {
+        "img": "https://fitnessprogramer.com/wp-content/uploads/2022/01/Resistance-Band-Bicycle-Crunch.gif",
+        "n": "Resistance Band Bicycle Crunch",
+        "diff": "Intermediate",
+        "eq": "Mini band",
+        "eqTag": [
+          "band"
+        ],
+        "tgt": "Obliques, rectus abdominis",
+        "desc": "Lie on your back with a loop band around your feet, hands lightly behind your head and shoulders off the floor. Bring one knee toward your chest against the band while rotating the opposite elbow toward it, then switch sides in a pedalling motion.",
+        "s": 3,
+        "r": 20,
+        "tips": "Rotate from the ribcage rather than pulling on your neck. Go slowly - the band is there to add resistance, not to be flicked through.",
+        "vid": "https://www.youtube.com/results?search_query=how+to+resistance+band+bicycle+crunch"
       }
     ],
     "inj": [
@@ -1612,6 +2348,66 @@
         "r": 12,
         "tips": "The neutral grip makes brachioradialis the main elbow flexor, thickening the upper forearm. Grip the handles hard to add grip work to every rep.",
         "vid": "https://www.youtube.com/watch?v=TwD-YGVP4Bk"
+      },
+      {
+        "img": "https://fitnessprogramer.com/wp-content/uploads/2021/06/Dumbbell-Wrist-Curl.gif",
+        "n": "Dumbbell Wrist Curl",
+        "diff": "Beginner",
+        "eq": "Dumbbells",
+        "eqTag": [
+          "dumbbell"
+        ],
+        "tgt": "Wrist flexors",
+        "desc": "Sit with your forearms resting on your thighs or a bench, palms up, holding a dumbbell in each hand with the wrists just past your knees. Let the dumbbells roll down toward your fingertips, then curl them back up by closing your hands and bending your wrists.",
+        "s": 3,
+        "r": 15,
+        "tips": "Letting the weight roll to the fingertips adds finger-flexor work to every rep. Keep the forearms still - only the wrists and fingers move.",
+        "vid": "https://www.youtube.com/results?search_query=how+to+dumbbell+wrist+curl"
+      },
+      {
+        "img": "https://fitnessprogramer.com/wp-content/uploads/2022/07/Knuckle-Push-Up.gif",
+        "n": "Knuckle Push-Up",
+        "diff": "Beginner",
+        "eq": "Bodyweight",
+        "eqTag": [
+          "bodyweight"
+        ],
+        "tgt": "Wrist and forearm stabilisers, chest, triceps",
+        "desc": "Make fists and place them on a soft surface under your shoulders, wrists straight and your weight on the first two knuckles. Lower into a push-up, then press back up while keeping the wrists locked straight.",
+        "s": 3,
+        "r": 10,
+        "tips": "Start on your knees and on a mat or folded towel. Holding the wrists rigid under load is what trains the forearms - if they bend, the set is over.",
+        "vid": "https://www.youtube.com/results?search_query=how+to+knuckle+push+up"
+      },
+      {
+        "img": "https://fitnessprogramer.com/wp-content/uploads/2022/08/Isometric-Pull-Up.gif",
+        "n": "Dead Hang",
+        "diff": "Beginner",
+        "eq": "Pull-up bar",
+        "eqTag": [
+          "bar"
+        ],
+        "tgt": "Forearm flexors, grip",
+        "desc": "Grab a pull-up bar with an overhand grip, hands shoulder-width apart, and hang with your arms fully straight and feet off the floor. Keep your shoulders gently pulled down and hold for as long as your grip allows.",
+        "s": 3,
+        "r": 1,
+        "tips": "Work for time - 30 to 45 seconds per set is a good start. It is the simplest way to build the support grip that deadlifts and rows need.",
+        "vid": "https://www.youtube.com/results?search_query=how+to+dead+hang"
+      },
+      {
+        "img": "https://fitnessprogramer.com/wp-content/uploads/2022/07/Finger-Push-up.gif",
+        "n": "Finger Push-Up",
+        "diff": "Advanced",
+        "eq": "Bodyweight",
+        "eqTag": [
+          "bodyweight"
+        ],
+        "tgt": "Finger flexors, chest, triceps",
+        "desc": "Get into a push-up position resting on your fingertips instead of flat hands, fingers spread and slightly bent. Lower your chest toward the floor, then press back up without letting the fingers collapse.",
+        "s": 3,
+        "r": 5,
+        "tips": "Build up from fingertip planks and from doing them on your knees - the finger joints need weeks to adapt. Stop immediately if a finger joint hurts.",
+        "vid": "https://www.youtube.com/results?search_query=how+to+finger+push+up"
       }
     ],
     "inj": [
@@ -1780,6 +2576,66 @@
         "r": 10,
         "tips": "Easier to control than a walking lunge, which makes it a better place to add load. Keep the torso upright to keep the emphasis on the front leg's quad.",
         "vid": "https://www.youtube.com/results?search_query=how+to+split+squat"
+      },
+      {
+        "img": "https://fitnessprogramer.com/wp-content/uploads/2023/01/Dumbbell-Goblet-Squat.gif",
+        "n": "Dumbbell Goblet Squat",
+        "diff": "Beginner",
+        "eq": "Dumbbell",
+        "eqTag": [
+          "dumbbell"
+        ],
+        "tgt": "Quadriceps, glutes",
+        "desc": "Hold one dumbbell vertically against your chest with both hands, feet slightly wider than shoulder width. Squat down between your knees, keeping your chest up and elbows inside the knees, then drive back up through the whole foot.",
+        "s": 3,
+        "r": 12,
+        "tips": "Holding the weight in front makes it much easier to stay upright than with a barbell - the best way to learn the squat. Go as deep as you can while your heels stay down.",
+        "vid": "https://www.youtube.com/results?search_query=how+to+dumbbell+goblet+squat"
+      },
+      {
+        "img": "https://fitnessprogramer.com/wp-content/uploads/2021/05/bodyweight-squat-full-version.gif",
+        "n": "Bodyweight Squat",
+        "diff": "Beginner",
+        "eq": "Bodyweight",
+        "eqTag": [
+          "bodyweight"
+        ],
+        "tgt": "Quadriceps, glutes",
+        "desc": "Stand with your feet shoulder-width apart and arms out in front for balance. Sit down and back until your thighs are at least parallel to the floor, keeping your chest up and heels down, then stand back up.",
+        "s": 3,
+        "r": 15,
+        "tips": "Let the knees travel forward over the toes - that is normal, and it is what works the quads. Slow the way down to three seconds when 20 reps become easy.",
+        "vid": "https://www.youtube.com/results?search_query=how+to+bodyweight+squat"
+      },
+      {
+        "img": "https://fitnessprogramer.com/wp-content/uploads/2022/10/Banded-Split-Squat.gif",
+        "n": "Banded Split Squat",
+        "diff": "Beginner",
+        "eq": "Resistance band",
+        "eqTag": [
+          "band"
+        ],
+        "tgt": "Quadriceps, glutes",
+        "desc": "Stand in a split stance with the middle of a band under your front foot, holding the ends at your shoulders. Lower straight down until your back knee nearly touches the floor, then drive up through the front leg.",
+        "s": 3,
+        "r": 10,
+        "tips": "Keep the front knee tracking over the toes and the torso upright. Do all reps on one leg before switching.",
+        "vid": "https://www.youtube.com/results?search_query=how+to+banded+split+squat"
+      },
+      {
+        "img": "https://fitnessprogramer.com/wp-content/uploads/2022/07/Seated-Leg-Extension-with-Resistance-Band.gif",
+        "n": "Seated Leg Extension with Resistance Band",
+        "diff": "Beginner",
+        "eq": "Resistance band and a chair",
+        "eqTag": [
+          "band"
+        ],
+        "tgt": "Quadriceps (rectus femoris)",
+        "desc": "Sit on a chair with a band looped around one ankle and anchored to the chair leg behind you. Straighten the knee until your leg is fully extended, squeeze the thigh, then lower slowly.",
+        "s": 3,
+        "r": 15,
+        "tips": "Sit tall to keep the rectus femoris working - it is the one quad muscle squats barely train. Squeeze for a full second at the top.",
+        "vid": "https://www.youtube.com/results?search_query=how+to+seated+leg+extension+with+resistance+band"
       }
     ],
     "inj": [
