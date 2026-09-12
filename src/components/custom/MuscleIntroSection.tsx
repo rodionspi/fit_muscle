@@ -347,7 +347,7 @@ const MuscleIntroSection = () => {
                         {step.tags.map((tag) => (
                           <span
                             key={tag}
-                            className="rounded-full border border-slate-800 bg-slate-900/80 px-3 py-1 text-[11px] uppercase tracking-[0.22em] text-slate-400"
+                            className="rounded-full border border-slate-800 bg-slate-900/80 px-3 py-1 text-xs uppercase tracking-[0.22em] text-slate-400"
                           >
                             {tag}
                           </span>
