@@ -4,10 +4,11 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
-import { CheckCircle2, ClipboardList, Lock, LogIn, UserPlus } from "lucide-react";
 import { useUser } from "@/contexts/UserContext";
 import { useMuscles } from "@/contexts/MusclesContext";
 import { buildWorkoutPlan, planOptions, type BeginnerAnswers } from "@/lib/workoutPlan";
+import { CheckCircle2, ChevronRight, ChevronDown, ClipboardList, Lock, LogIn, UserPlus} from "lucide-react";
+
 
 // Every select starts empty, so the form holds plain strings - Yup's required checks
 // guarantee they are real options by the time onSubmit runs
@@ -238,14 +239,17 @@ const FormForBeginnerGuide = () => {
                     {question.label}
                   </label>
                   <p className="text-sm text-slate-400 mb-2">{question.hint}</p>
-                  <Field as="select" id={question.name} name={question.name} className={fieldClass}>
-                    <option value="">Choose an option</option>
-                    {question.options.map((option) => (
-                      <option key={option} value={option}>
-                        {option}
-                      </option>
-                    ))}
-                  </Field>
+                  <div className="relative">
+                    <Field as="select" id={question.name} name={question.name} className={`${fieldClass} appearance-none pr-12`}>
+                      <option value="">Choose an option</option>
+                      {question.options.map((option) => (
+                        <option key={option} value={option}>
+                          {option}
+                        </option>
+                      ))}
+                    </Field>
+                    <ChevronDown className="pointer-events-none absolute right-3 top-1/3 -translte-y-1/2 h-5 w-5 text-slate-400"/> 
+                  </div>
                   <ErrorMessage
                     name={question.name}
                     component="p"
@@ -253,24 +257,6 @@ const FormForBeginnerGuide = () => {
                   />
                 </div>
               ))}
-
-              <div className="mb-6">
-                <label htmlFor="notes" className="block text-xl font-semibold mb-1 tracking-wider">
-                  Anything we should know?
-                </label>
-                <p className="text-sm text-slate-400 mb-2">
-                  Injuries, exercises that hurt, or anything you want to avoid. Optional.
-                </p>
-                <Field
-                  as="textarea"
-                  id="notes"
-                  name="notes"
-                  rows={4}
-                  placeholder="Old shoulder injury, so no overhead pressing for now..."
-                  className={`${fieldClass} resize-y`}
-                />
-                <ErrorMessage name="notes" component="p" className="mt-2 text-sm text-red-400" />
-              </div>
 
               <button
                 type="submit"
