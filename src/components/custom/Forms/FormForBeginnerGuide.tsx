@@ -7,7 +7,7 @@ import * as Yup from "yup";
 import { useUser } from "@/contexts/UserContext";
 import { useMuscles } from "@/contexts/MusclesContext";
 import { buildWorkoutPlan, planOptions, type BeginnerAnswers } from "@/lib/workoutPlan";
-import { CheckCircle2, ChevronRight, ChevronDown, ClipboardList, Lock, LogIn, UserPlus} from "lucide-react";
+import { CheckCircle2, ChevronDown, ClipboardList, Lock, LogIn, UserPlus} from "lucide-react";
 
 
 // Every select starts empty, so the form holds plain strings - Yup's required checks
@@ -239,7 +239,7 @@ const FormForBeginnerGuide = () => {
                     {question.label}
                   </label>
                   <p className="text-sm text-slate-400 mb-2">{question.hint}</p>
-                  <div className="relative">
+                  <div className="relative group">
                     <Field as="select" id={question.name} name={question.name} className={`${fieldClass} appearance-none pr-12`}>
                       <option value="">Choose an option</option>
                       {question.options.map((option) => (
@@ -248,7 +248,7 @@ const FormForBeginnerGuide = () => {
                         </option>
                       ))}
                     </Field>
-                    <ChevronDown className="pointer-events-none absolute right-3 top-1/3 -translte-y-1/2 h-5 w-5 text-slate-400"/> 
+                    <ChevronDown className="pointer-events-none absolute right-3 top-1/3 -translte-y-1/2 h-5 w-5 text-slate-400 transition-transform duration-200 group-focus-within:rotate-90"/> 
                   </div>
                   <ErrorMessage
                     name={question.name}
