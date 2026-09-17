@@ -19,8 +19,8 @@ function PageWrapper({ children }: { children?: React.ReactNode }) {
 
   
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-900 to-slate-800 text-white">
-      <header className="border-b border-slate-700 bg-slate-900/80 backdrop-blur-sm sticky top-0 z-10">
+    <div className="min-h-screen bg-gradient-to-btext-white">
+      <header className="border-b border-slate-700 sticky top-0 z-10">
         <Header />
       </header>
 

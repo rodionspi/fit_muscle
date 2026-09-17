@@ -21,7 +21,7 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body className="bg-zinc-950 text-zinc-100 antialiased">
+      <body className=" text-zinc-100 antialiased">
         {typeof window !== "undefined" ? (
           <BrowserRouter
           >
