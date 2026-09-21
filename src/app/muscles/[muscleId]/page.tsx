@@ -71,9 +71,9 @@ const MusclePage = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-900 to-slate-800 text-white">
+    <div className="min-h-screen text-white">
       <PageWrapper>
-      <div className="relative bg-gradient-to-r from-slate-800 to-slate-700 overflow-hidden rounded-xl">
+      <div className="relative border-2 overflow-hidden rounded-xl">
         <div className="absolute inset-0 opacity-10 bg-cover bg-center pointer-events-none"></div>
         <div className="container mx-auto px-4 py-12">
           <div className="flex flex-col md:flex-row md:items-start h-full">
@@ -146,8 +146,8 @@ const MusclePage = () => {
       {/* Main Content */}
       <main className="container mx-auto sm:px-4 py-8">
         <Tabs value={activeTab} onValueChange={setActiveTab} className="mb-8" key={activeTab}>
-          <TabsList className="bg-slate-800">
-            <TabsTrigger value="overview" className="text-xs p-2 sm:text-sm sm:p-3 md:text-base rounded-l-lg ">Overview</TabsTrigger>
+          <TabsList className="bg-transparent">
+            <TabsTrigger value="overview" className="text-xs p-2 sm:text-sm sm:p-3 md:text-base rounded-l-lg border border-1 border-white ">Overview</TabsTrigger>
             <TabsTrigger value="exercises" className="text-xs p-2 sm:text-sm sm:p-3 md:text-base ">Exercises</TabsTrigger>
             <TabsTrigger value="anatomy" className="text-xs p-2 sm:text-sm sm:p-3 md:text-base ">Anatomy</TabsTrigger>
             <TabsTrigger value="injuries" className="text-xs p-2 sm:text-sm sm:p-3 md:text-base rounded-r-lg ">Common Injuries</TabsTrigger>
