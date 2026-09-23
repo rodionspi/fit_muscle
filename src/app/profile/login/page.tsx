@@ -7,12 +7,12 @@ import { useRouter } from "next/navigation";
 import PageWrapper from "@/components/custom/PageWrapper";
 import * as Yup from "yup";
 import { ErrorMessage, Field, Form, Formik } from "formik";
-import { getUser } from "@/server/user/userDataFunctions";
+import { ensureUserDocument, type StoredUser } from "@/server/user/userDataFunctions";
+import { describeAuthError } from "@/server/user/authErrors";
 import { setDataToLS } from "@/server/user/localStorageFunctions";
 import { auth, provider, signInWithPopup } from "@/firebaseConfig";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import Image from "next/image";
-import User from "@/types/User";
 
 const Login = () => {
   const [isHidden, setIsHidden] = useState<boolean>(true);
@@ -39,39 +39,35 @@ const Login = () => {
       password: "",
   };
 
-    const handleLoginSuccess = async (acount: User) => {
-        if (acount.email) {
-            console.log("User info:", acount);
-            const data = await getUser({ email: acount.email });
-            if (data) {
-                setUserData(data);
-                setDataToLS(data);
-                setUserId(data.id);
-                router.push(`/profile/${data.id}`);
-            } else {
-                console.error("User not found");
-                setError("User not found");
-            }
-        }
+    /** Same last step for both ways in: remember the profile and open it. */
+    const finishSignIn = (profile: StoredUser) => {
+        setUserData(profile);
+        setDataToLS(profile);
+        setUserId(profile.id);
+        router.push(`/profile/${profile.id}`);
     };
 
     const handleEmailLogin = async (values: typeof initialValues) => {
+        setError(null);
         try {
-            const userCredential = await signInWithEmailAndPassword(auth, values.email, values.password);
-            await handleLoginSuccess({ ...userCredential.user, email: userCredential.user.email || undefined });
+            const credential = await signInWithEmailAndPassword(auth, values.email, values.password);
+            // ensure rather than read: an account from before profiles were keyed by uid gets
+            // its document here instead of being told "User not found".
+            finishSignIn(await ensureUserDocument(credential.user));
         } catch (error) {
-            console.error("Login error:", error);
-            setError("Login error");
+            console.error("Login failed:", error);
+            setError(describeAuthError(error));
         }
     };
 
     const handleGoogleLogin = async () => {
+        setError(null);
         try {
             const result = await signInWithPopup(auth, provider);
-            await handleLoginSuccess({ ...result.user, email: result.user.email || undefined });
+            finishSignIn(await ensureUserDocument(result.user));
         } catch (error) {
-            console.error("Login error:", error);
-            setError("Login error");
+            console.error("Google login failed:", error);
+            setError(describeAuthError(error));
         }
     };
 

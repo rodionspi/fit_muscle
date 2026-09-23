@@ -3,7 +3,6 @@
 import React from "react";
 import "./globals.css";
 import { UserProvider } from "../contexts/UserContext";
-import { BrowserRouter } from "react-router-dom";
 import { MusclesProvider } from "@/contexts/MusclesContext";
 
 export default function RootLayout({
@@ -21,19 +20,10 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body className="bg-zinc-950 text-zinc-100 antialiased">
-        {typeof window !== "undefined" ? (
-          <BrowserRouter
-          >
-            <UserProvider>
-              <MusclesProvider>{children}</MusclesProvider>
-            </UserProvider>
-          </BrowserRouter>
-        ) : (
-          <UserProvider>
-            <MusclesProvider>{children}</MusclesProvider>
-          </UserProvider>
-        )}
+      <body className=" text-zinc-100 antialiased">
+        <UserProvider>
+          <MusclesProvider>{children}</MusclesProvider>
+        </UserProvider>
       </body>
     </html>
   );

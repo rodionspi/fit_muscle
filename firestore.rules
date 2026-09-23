@@ -1,0 +1,32 @@
+rules_version = '2';
+
+// Paste this into Firebase console -> Firestore Database -> Rules, then publish.
+// Kept in the repository so the rules are reviewable next to the code that depends on them.
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Reference data. Everyone may read it, nobody may change it from the browser -
+    // seeding runs from a trusted context (console or Admin SDK), never from the client.
+    match /muscles/{muscleId} {
+      allow read: if true;
+      allow write: if false;
+
+      // exercises, commonInjuries, stretching
+      match /{subCollection=**} {
+        allow read: if true;
+        allow write: if false;
+      }
+    }
+
+    // Profiles. Only the signed-in owner may touch their own document.
+    // This works because a profile is stored under its Firebase Auth uid (users/{uid}).
+    match /users/{uid} {
+      allow read, write: if request.auth != null && request.auth.uid == uid;
+    }
+
+    // Anything not named above stays closed.
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

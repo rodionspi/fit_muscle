@@ -232,8 +232,8 @@ const About = () => {
           </section>
 
           <section className=" mx-auto px-6 pb-16">
-            <Card className="overflow-hidden border-0 bg-slate-900 to-slate-800 text-white shadow-2xl">
-              <div className="p-8 md:p-10">
+            <Card className="text-white shadow-2xl">
+              <div className="p-8 md:p-10 border-4 rounded-xl">
                 <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
                   <div className="max-w-2xl animate-fade-up" style={{ animationDelay: "120ms" }}>
                     <div className="flex items-center gap-3 text-emerald-100">
@@ -268,8 +268,8 @@ const About = () => {
           </section>
 
           <section className=" mx-auto px-6 pb-20 text-center">
-            <Card className="border-0 bg-slate-900 text-white shadow-2xl">
-              <CardContent className="p-12">
+            <Card className="bg-slate-900 text-white border-none shadow-2xl">
+              <CardContent className="p-14 border-none">
                 <h3
                   
                   className="text-3xl font-semibold"
