@@ -5,13 +5,14 @@ import PageWrapper from "@/components/custom/PageWrapper";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { useState } from "react";
 import * as Yup from "yup";
-import { addUser, getUser } from "@/server/user/userDataFunctions";
+import { ensureUserDocument, type StoredUser } from "@/server/user/userDataFunctions";
+import { describeAuthError } from "@/server/user/authErrors";
+import { setDataToLS } from "@/server/user/localStorageFunctions";
 import Image from "next/image";
-// import google_logo from "@/../public/images/logos/google_logo.png";
-import "firebase/compat/auth";
 import { useUser } from "@/contexts/UserContext";
 import { useRouter } from "next/navigation";
 import { auth, provider, signInWithPopup } from "@/firebaseConfig";
+import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 
 const Registration = () => {
     const [isHidden, setIsHidden] = useState<boolean>(true);
@@ -42,56 +43,38 @@ const Registration = () => {
         password: "",
     };
 
+    /** Same last step for both ways in: remember the profile and open it. */
+    const finishSignIn = (profile: StoredUser) => {
+        setUserData(profile);
+        setDataToLS(profile);
+        setUserId(profile.id);
+        router.push(`/profile/${profile.id}`);
+    };
+
     const handleSubmit = async (values: typeof initialValues) => {
+        setError('');
         try {
-          const existingUser = await getUser(values);
-          
-          if (existingUser) {
-            setError('User already exists');
-          } else {
-            const newUser = await addUser(values);
-            
-            if (newUser) {
-              setUserData(values);
-              setUserId(newUser.id);
-              router.push(`/profile/${newUser.id}`);
-            }
-          }
+            // Creating the Firebase Auth account was missing entirely, which is why an e-mail
+            // registration could never log in afterwards - there was no account to sign in to.
+            const credential = await createUserWithEmailAndPassword(auth, values.email, values.password);
+            await updateProfile(credential.user, { displayName: values.name });
+            finishSignIn(await ensureUserDocument(credential.user, values.name));
         } catch (error) {
-          console.error("Error during submission:", error);
-          setError('An error occurred during registration. Please try again.');
+            console.error("Registration failed:", error);
+            setError(describeAuthError(error));
         }
     };
 
     const handleGoogleRegistration = async () => {
+        setError('');
         try {
-            // Implement Google registration logic here
-            // For example, using Firebase Authentication
+            // With Google there is no separate "register": the popup signs the person in and
+            // the profile document is created the first time they arrive.
             const result = await signInWithPopup(auth, provider);
-            const user = result.user;
-
-            if (user) {
-                const userData = {
-                    name: user.displayName || "",
-                    email: user.email || "", // Ensure email is a string
-                    password: "", // You might want to handle this differently
-                };
-
-                const existingUser = await getUser(userData);
-
-                if (existingUser) {
-                    setError('User already exists');
-                } else {
-                    const newUser = await addUser(userData);
-                    if (newUser) {
-                        setUserData(userData);
-                        setUserId(newUser.id);
-                        router.push(`/profile/${newUser.id}`);
-                    }
-                }
-            }
+            finishSignIn(await ensureUserDocument(result.user));
         } catch (error) {
-            console.error("Error during Google registration:", error);
+            console.error("Google registration failed:", error);
+            setError(describeAuthError(error));
         }
     };
       
