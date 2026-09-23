@@ -1,54 +1,43 @@
 import { db } from "@/firebaseConfig";
-import { collection, addDoc, getDocs, query, where } from "firebase/firestore";
+import { doc, getDoc, setDoc } from "firebase/firestore";
+import type { User as FirebaseUser } from "firebase/auth";
 import User from "@/types/User";
-import { v4 as generateUuid } from "uuid";
 
-const addUser = async (formValues: User) => {
-  const {name, email} = formValues;
-  try {
-    // Check if db is properly initialized
-    if (!db) {
-      throw new Error("Database not initialized");
-    }
-    
-    const userId = generateUuid();
-    
-    const docRef = await addDoc(collection(db, "users"), {
-      name: name,
-      email: email,
-      id: userId
-    });
-    
-    console.log("Document written with ID: ", docRef.id);
-    return { id: userId, docId: docRef.id };
-  } catch (error) {
-    console.error("Error adding document: ", error);
-    return null;
-  }
+/** A profile that is already stored, so its id - the Firebase Auth uid - is guaranteed. */
+export type StoredUser = User & { id: string };
+
+/**
+ * Profiles live under their Firebase Auth uid at users/{uid}. That is what lets the Firestore
+ * rules compare request.auth.uid against the document, and it makes creating one idempotent:
+ * signing in twice can no longer produce a second profile for the same person.
+ *
+ * Nothing in here swallows errors. A failed read must never look like "no such user" - that is
+ * exactly what made the old code create duplicates instead of reporting the real problem.
+ */
+export const getUserById = async (uid: string): Promise<StoredUser | null> => {
+  const snapshot = await getDoc(doc(db, "users", uid));
+  return snapshot.exists() ? { ...(snapshot.data() as User), id: uid } : null;
 };
 
-const getUser = async (formValues: User) => {
-  const {email} = formValues;
-  try {
-    // Check if db is properly initialized
-    if (!db) {
-      throw new Error("Database not initialized");
-    }
-    
-    const usersRef = collection(db, "users");
-    const q = query(usersRef, where("email", "==", email));
-    const querySnapshot = await getDocs(q);
-    
-    if (!querySnapshot.empty) {
-      const doc = querySnapshot.docs[0];
-      return doc.data();
-    }
-    
-    return null;
-  } catch (error) {
-      console.error("Error while getting collection: ", error);
-      return null;
-  }
-}
+/** Returns the stored profile, creating it the first time someone signs in. */
+export const ensureUserDocument = async (
+  authUser: FirebaseUser,
+  preferredName?: string,
+): Promise<StoredUser> => {
+  const existing = await getUserById(authUser.uid);
+  if (existing) return existing;
 
-export {addUser, getUser};
+  const profile: StoredUser = {
+    id: authUser.uid,
+    name:
+      preferredName?.trim() ||
+      authUser.displayName ||
+      authUser.email?.split("@")[0] ||
+      "Athlete",
+    // Firestore rejects undefined, so the field is only written when there is a value
+    ...(authUser.email ? { email: authUser.email } : {}),
+  };
+
+  await setDoc(doc(db, "users", authUser.uid), profile);
+  return profile;
+};
