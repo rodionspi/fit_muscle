@@ -20,7 +20,8 @@ function PageWrapper({ children }: { children?: React.ReactNode }) {
   
   return (
     <div className="min-h-screen bg-gradient-to-btext-white">
-      <header className="border-b border-slate-700 sticky top-0 z-10">
+      {/* Opaque so content scrolling underneath does not show through the sticky header */}
+      <header className="border-b border-slate-700 sticky top-0 z-30 bg-zinc-950/95 backdrop-blur">
         <Header />
       </header>
 
