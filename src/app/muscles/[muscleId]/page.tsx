@@ -75,9 +75,9 @@ const MusclePage = () => {
       <PageWrapper>
       <div className="relative border-2 overflow-hidden rounded-xl">
         <div className="absolute inset-0 opacity-10 bg-cover bg-center pointer-events-none"></div>
-        <div className="container mx-auto px-4 py-12">
+        <div className="container mx-auto px-4 py-6 sm:py-12">
           <div className="flex flex-col md:flex-row md:items-start h-full">
-            <div className="w-full md:w-1/3 relative h-96 mr-8 sm:mb-8 mb-4">
+            <div className="w-full md:w-1/3 relative h-72 sm:h-96 md:mr-8 mb-6 md:mb-0 shrink-0">
               {(() => {
                 const id = Array.isArray(muscleId) ? muscleId[0] : muscleId;
                 const imagePath = getMuscleImageWithFallback(id, muscleInfo.img);
@@ -99,9 +99,9 @@ const MusclePage = () => {
               <div className="flex items-center gap-3 mb-2">
                 <BicepsFlexed className="w-10 h-10 text-emerald-400" />
               </div>
-              <h1 className="text-4xl md:text-5xl font-bold mb-4">{muscleInfo.n}</h1>
-              <p className="text-xl text-slate-300 mb-6">{muscleInfo.desc}</p>
-              <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-6">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">{muscleInfo.n}</h1>
+              <p className="text-lg sm:text-xl text-slate-300 mb-6">{muscleInfo.desc}</p>
+              <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
                 <div className="bg-slate-800/50 p-4 rounded-lg border border-slate-700">
                   <h3 className="text-sm text-slate-400 mb-1">Also Known As</h3>
                   <p className="font-medium">{muscleInfo.sn}</p>
@@ -114,7 +114,8 @@ const MusclePage = () => {
                       : "-"}
                   </p>
                 </div>
-                <div className="bg-slate-800/50 p-4 rounded-lg border border-slate-700">
+                {/* Full row while the grid has two columns, so the odd third card does not sit alone in half a row */}
+                <div className="col-span-2 lg:col-span-1 bg-slate-800/50 p-4 rounded-lg border border-slate-700">
                   <h3 className="text-sm text-slate-400 mb-1">Difficulty Level</h3>
                   <div className="flex items-center gap-1">
                     {Array.from({ length: 5 }, (_, i) => (
@@ -146,13 +147,17 @@ const MusclePage = () => {
       {/* Main Content */}
       <main className="container mx-auto sm:px-4 py-8">
         <Tabs value={activeTab} onValueChange={setActiveTab} className="mb-8" key={activeTab}>
-          <TabsList className="bg-transparent">
-            <TabsTrigger value="overview" className="text-xs p-2 sm:text-sm sm:p-3 md:text-base rounded-l-lg border border-1 border-white ">Overview</TabsTrigger>
-            <TabsTrigger value="exercises" className="text-xs p-2 sm:text-sm sm:p-3 md:text-base ">Exercises</TabsTrigger>
-            <TabsTrigger value="anatomy" className="text-xs p-2 sm:text-sm sm:p-3 md:text-base ">Anatomy</TabsTrigger>
-            <TabsTrigger value="injuries" className="text-xs p-2 sm:text-sm sm:p-3 md:text-base rounded-r-lg ">Common Injuries</TabsTrigger>
+          {/* Four equal columns across the full width on phones, so every tab stays tappable */}
+          <TabsList className="grid w-full grid-cols-4 gap-1 bg-slate-800 p-1 sm:inline-flex sm:w-auto">
+            <TabsTrigger value="overview" className="rounded-md px-1 py-2 text-sm sm:px-4 md:text-base">Overview</TabsTrigger>
+            <TabsTrigger value="exercises" className="rounded-md px-1 py-2 text-sm sm:px-4 md:text-base">Exercises</TabsTrigger>
+            <TabsTrigger value="anatomy" className="rounded-md px-1 py-2 text-sm sm:px-4 md:text-base">Anatomy</TabsTrigger>
+            <TabsTrigger value="injuries" className="rounded-md px-1 py-2 text-sm sm:px-4 md:text-base">
+              <span className="sm:hidden">Injuries</span>
+              <span className="hidden sm:inline">Common Injuries</span>
+            </TabsTrigger>
           </TabsList>
-          <TabsContent value={activeTab} className="mt-10">
+          <TabsContent value={activeTab} className="mt-6 sm:mt-10">
             {activeTab === "overview"  && <Overview   muscleInfo={muscleInfo} />}
             {activeTab === "exercises" && <Exercises  muscleId={Array.isArray(muscleId) ? muscleId[0] : muscleId} />}
             {activeTab === "anatomy" && <Anatomy muscleInfo={muscleInfo} />}
