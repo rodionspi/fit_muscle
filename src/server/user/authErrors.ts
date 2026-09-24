@@ -23,15 +23,18 @@ export const describeAuthError = (error: unknown): string => {
     case "auth/cancelled-popup-request":
       return "The sign-in window was closed before it finished.";
     case "auth/email-already-in-use":
-      return "An account with this e-mail already exists - log in instead.";
+      return "You already have an account with this e-mail. Please log in instead of registering.";
     case "auth/invalid-email":
       return "That e-mail address does not look right.";
     case "auth/weak-password":
       return "Please choose a longer password - at least 8 characters.";
+    // With e-mail enumeration protection on (the Firebase default), a missing account arrives as
+    // invalid-credential too, so this has to cover "not registered yet" as well.
     case "auth/invalid-credential":
     case "auth/wrong-password":
+      return "E-mail or password is wrong. No account yet? Register first. Signed up with Google? Use \"Login with Google\".";
     case "auth/user-not-found":
-      return "E-mail or password is wrong.";
+      return "There is no account with this e-mail yet. Please register first.";
     case "auth/too-many-requests":
       return "Too many attempts. Wait a moment before trying again.";
     case "auth/network-request-failed":
@@ -40,6 +43,8 @@ export const describeAuthError = (error: unknown): string => {
       return "The database refused the request - this account is not allowed to read or write that profile.";
     case "unavailable":
       return "The database is unreachable right now. Please try again in a moment.";
+    case "deadline-exceeded":
+      return "The database did not answer in time. Check your internet connection (or VPN) and try again.";
     default:
       return code
         ? `Something went wrong (${code}). Please try again.`
