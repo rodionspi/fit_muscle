@@ -18,21 +18,21 @@ const UserMenubar = () => {
         <Menubar>
             {/* Profile dropdown */}
             <MenubarMenu>
-                <MenubarTrigger className="group relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white">
+                <MenubarTrigger className="group relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:bg-gray-700 focus:text-white data-[state=open]:bg-gray-700 data-[state=open]:text-white">
                     <User/>
                 </MenubarTrigger>
-                <MenubarContent
-                > 
+                {/* Dark like the header: the shadcn default is a white popover, which hid the light item text */}
+                <MenubarContent align="end" className="border-slate-700 bg-slate-900 text-gray-100">
                     <div className="space-y-1 px-2 pb-3 pt-2">
                         {userData? (
                             <>
                                 <Link href={`/profile/${userData.id}`}>
-                                    <MenubarItem className='text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium'>
+                                    <MenubarItem className='text-gray-300 hover:bg-gray-700 hover:text-white focus:bg-gray-700 focus:text-white block rounded-md px-3 py-2 text-base font-medium'>
                                         Profile
                                     </MenubarItem>
                                 </Link>
                                 <Link href="/" onClick={handleSignOut}>
-                                    <MenubarItem className='text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium'>
+                                    <MenubarItem className='text-gray-300 hover:bg-gray-700 hover:text-white focus:bg-gray-700 focus:text-white block rounded-md px-3 py-2 text-base font-medium'>
                                         Sign out
                                     </MenubarItem>
                                 </Link>
@@ -40,12 +40,12 @@ const UserMenubar = () => {
                             ) : (
                             <>
                                 <Link href="/profile/login">
-                                    <MenubarItem className='text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium'>
+                                    <MenubarItem className='text-gray-300 hover:bg-gray-700 hover:text-white focus:bg-gray-700 focus:text-white block rounded-md px-3 py-2 text-base font-medium'>
                                         Login
                                     </MenubarItem>
                                 </Link>
                                 <Link href="/profile/registration">
-                                    <MenubarItem className='text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium'>
+                                    <MenubarItem className='text-gray-300 hover:bg-gray-700 hover:text-white focus:bg-gray-700 focus:text-white block rounded-md px-3 py-2 text-base font-medium'>
                                         Registration
                                     </MenubarItem>
                                 </Link>
