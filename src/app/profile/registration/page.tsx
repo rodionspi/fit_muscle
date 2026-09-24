@@ -3,22 +3,38 @@
 import React from 'react';
 import PageWrapper from "@/components/custom/PageWrapper";
 import { Formik, Form, Field, ErrorMessage } from "formik";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import * as Yup from "yup";
 import { ensureUserDocument, type StoredUser } from "@/server/user/userDataFunctions";
 import { describeAuthError } from "@/server/user/authErrors";
 import { setDataToLS } from "@/server/user/localStorageFunctions";
+import { continueWithGoogle, warmUpGoogleSignIn } from "@/server/user/googleSignIn";
 import Image from "next/image";
 import { useUser } from "@/contexts/UserContext";
 import { useRouter } from "next/navigation";
-import { auth, provider, signInWithPopup } from "@/firebaseConfig";
+import { auth } from "@/firebaseConfig";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
+
+/** Explanations for pages that send someone here, keyed by their ?notice= value. */
+const NOTICES: Record<string, string> = {
+    "no-account": "You don't have an account yet. Please register first - then you can log in.",
+};
 
 const Registration = () => {
     const [isHidden, setIsHidden] = useState<boolean>(true);
     const { setUserId, setUserData } = useUser();
     const [error, setError] = useState<string>('');
+    const [notice, setNotice] = useState<string | null>(null);
+    const [busy, setBusy] = useState<"email" | "google" | null>(null);
     const router = useRouter();
+
+    useEffect(() => {
+        warmUpGoogleSignIn();
+        // Read directly rather than through useSearchParams, which would need a Suspense
+        // boundary around this statically rendered page.
+        const key = new URLSearchParams(window.location.search).get("notice");
+        setNotice(key ? NOTICES[key] ?? null : null);
+    }, []);
 
     const validationSchema = Yup.object({
         name: Yup.string()
@@ -53,6 +69,7 @@ const Registration = () => {
 
     const handleSubmit = async (values: typeof initialValues) => {
         setError('');
+        setBusy("email");
         try {
             // Creating the Firebase Auth account was missing entirely, which is why an e-mail
             // registration could never log in afterwards - there was no account to sign in to.
@@ -62,19 +79,28 @@ const Registration = () => {
         } catch (error) {
             console.error("Registration failed:", error);
             setError(describeAuthError(error));
+        } finally {
+            setBusy(null);
         }
     };
 
     const handleGoogleRegistration = async () => {
+        // No await may come before the popup opens - see warmUpGoogleSignIn.
         setError('');
+        setBusy("google");
         try {
-            // With Google there is no separate "register": the popup signs the person in and
-            // the profile document is created the first time they arrive.
-            const result = await signInWithPopup(auth, provider);
-            finishSignIn(await ensureUserDocument(result.user));
+            const outcome = await continueWithGoogle("register");
+            if (outcome.status === "already-registered") {
+                setNotice(null);
+                setError("You already have an account with this Google account. Please use \"Login\" instead of registering.");
+            } else if (outcome.status === "signed-in") {
+                finishSignIn(outcome.profile);
+            }
         } catch (error) {
             console.error("Google registration failed:", error);
             setError(describeAuthError(error));
+        } finally {
+            setBusy(null);
         }
     };
       
@@ -90,6 +116,11 @@ const Registration = () => {
                 >
                     {() => (
                         <Form className="w-full">
+                            {notice && !error && (
+                            <div className="mb-4 p-4 text-blue-800 bg-blue-100 border border-blue-400 rounded">
+                                <p className="text-sm">{notice}</p>
+                            </div>
+                        )}
                             {error && (
                             <div className="mb-4 p-4 text-red-700 bg-red-100 border border-red-400 rounded">
                                 <p className="text-sm">{error}</p>
@@ -177,15 +208,17 @@ const Registration = () => {
 
                             <button
                                 type="submit"
-                                className="w-full py-3 px-4 text-base bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 mt-6"
+                                disabled={busy !== null}
+                                className="w-full py-3 px-4 text-base bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 mt-6 disabled:opacity-60 disabled:cursor-wait"
                             >
-                                Register
+                                {busy === "email" ? "Creating account..." : "Register"}
                             </button>
 
                             <button
                                 type="button"
                                 onClick={handleGoogleRegistration}
-                                className="w-full py-3 px-4 text-base bg-white text-gray-700 font-semibold rounded-lg border border-gray-300 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-300 mt-3 flex items-center justify-center"
+                                disabled={busy !== null}
+                                className="w-full py-3 px-4 text-base bg-white text-gray-700 font-semibold rounded-lg border border-gray-300 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-300 mt-3 flex items-center justify-center disabled:opacity-60 disabled:cursor-wait"
                             >
                                 <Image
                                     src="/images/logos/google_logo.png"
@@ -194,7 +227,7 @@ const Registration = () => {
                                     height={20}
                                     className="w-5 h-5 mr-2"
                                 />
-                                Register with Google
+                                {busy === "google" ? "Waiting for Google..." : "Register with Google"}
                             </button>
 
                             <p className="text-center text-sm mt-6 mb-3 text-gray-300">or if you already have an account</p>
