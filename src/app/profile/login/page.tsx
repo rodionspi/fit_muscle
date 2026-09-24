@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useUser } from "../../../contexts/UserContext";
 import { useRouter } from "next/navigation";
 import PageWrapper from "@/components/custom/PageWrapper";
@@ -10,15 +10,24 @@ import { ErrorMessage, Field, Form, Formik } from "formik";
 import { ensureUserDocument, type StoredUser } from "@/server/user/userDataFunctions";
 import { describeAuthError } from "@/server/user/authErrors";
 import { setDataToLS } from "@/server/user/localStorageFunctions";
-import { auth, provider, signInWithPopup } from "@/firebaseConfig";
+import { continueWithGoogle, warmUpGoogleSignIn } from "@/server/user/googleSignIn";
+import { auth } from "@/firebaseConfig";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import Image from "next/image";
+
+/** Where "Login" sends someone who has no account yet; the registration page explains why. */
+const REGISTRATION_FOR_UNKNOWN_ACCOUNT = "/profile/registration?notice=no-account";
 
 const Login = () => {
   const [isHidden, setIsHidden] = useState<boolean>(true);
   const { setUserId, setUserData } = useUser();
   const router = useRouter();
   const [error, setError] = useState<string | null>(null);
+  const [busy, setBusy] = useState<"email" | "google" | null>(null);
+
+  useEffect(() => {
+      warmUpGoogleSignIn();
+  }, []);
 
 
   const validationSchema = Yup.object({
@@ -49,6 +58,7 @@ const Login = () => {
 
     const handleEmailLogin = async (values: typeof initialValues) => {
         setError(null);
+        setBusy("email");
         try {
             const credential = await signInWithEmailAndPassword(auth, values.email, values.password);
             // ensure rather than read: an account from before profiles were keyed by uid gets
@@ -56,18 +66,34 @@ const Login = () => {
             finishSignIn(await ensureUserDocument(credential.user));
         } catch (error) {
             console.error("Login failed:", error);
+            // Only reported when e-mail enumeration protection is off in the Firebase console;
+            // with it on, Firebase answers invalid-credential and the message says it instead.
+            if ((error as { code?: string })?.code === "auth/user-not-found") {
+                router.push(REGISTRATION_FOR_UNKNOWN_ACCOUNT);
+                return;
+            }
             setError(describeAuthError(error));
+        } finally {
+            setBusy(null);
         }
     };
 
     const handleGoogleLogin = async () => {
+        // No await may come before the popup opens - see warmUpGoogleSignIn.
         setError(null);
+        setBusy("google");
         try {
-            const result = await signInWithPopup(auth, provider);
-            finishSignIn(await ensureUserDocument(result.user));
+            const outcome = await continueWithGoogle("login");
+            if (outcome.status === "no-account") {
+                router.push(REGISTRATION_FOR_UNKNOWN_ACCOUNT);
+            } else if (outcome.status === "signed-in") {
+                finishSignIn(outcome.profile);
+            }
         } catch (error) {
             console.error("Google login failed:", error);
             setError(describeAuthError(error));
+        } finally {
+            setBusy(null);
         }
     };
 
@@ -148,15 +174,17 @@ const Login = () => {
 
                         <button
                             type="submit"
-                            className="w-full py-3 px-4 text-base bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 mt-6"
+                            disabled={busy !== null}
+                            className="w-full py-3 px-4 text-base bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 mt-6 disabled:opacity-60 disabled:cursor-wait"
                         >
-                            Login
+                            {busy === "email" ? "Signing in..." : "Login"}
                         </button>
 
                         <button
                             type="button"
                             onClick={handleGoogleLogin}
-                            className="w-full py-3 px-4 text-base bg-white text-gray-700 font-semibold rounded-lg border border-gray-300 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-300 mt-3 flex items-center justify-center"
+                            disabled={busy !== null}
+                            className="w-full py-3 px-4 text-base bg-white text-gray-700 font-semibold rounded-lg border border-gray-300 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-300 mt-3 flex items-center justify-center disabled:opacity-60 disabled:cursor-wait"
                         >
                             <Image
                                 src="/images/logos/google_logo.png"
@@ -165,7 +193,7 @@ const Login = () => {
                                 height={20}
                                 className="w-5 h-5 mr-2"
                             />
-                            Login with Google
+                            {busy === "google" ? "Waiting for Google..." : "Login with Google"}
                         </button>
 
                         <p className="text-center text-sm mt-6 mb-3">or if you are not registered yet</p>

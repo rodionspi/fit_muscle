@@ -10,7 +10,7 @@ const About = () => {
       <div>
         <div className="min-h-screen from-stone-50 text-slate-100">
           <section className="relative overflow-hidden">
-            <div className="relative  mx-auto px-6">
+            <div className="relative mx-auto">
               <div className="grid gap-12 lg:grid-cols-[1.1fr,0.9fr]">
                 <div className="animate-fade-up" style={{ animationDelay: "50ms" }}>
                   <div className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white/80 px-4 py-2 text-xs uppercase tracking-[0.24em] text-black shadow-sm">
@@ -43,7 +43,7 @@ const About = () => {
                   className="animate-fade-up border border-white/60 bg-slate-300 shadow-2xl backdrop-blur"
                   style={{ animationDelay: "140ms" }}
                 >
-                  <CardContent className="p-8">
+                  <CardContent className="p-6 sm:p-8">
                     <div className="flex items-center justify-between">
                       <div>
                         <p className="text-xs uppercase tracking-[0.24em] text-slate-500">Focus</p>
@@ -79,7 +79,7 @@ const About = () => {
             </div>
           </section>
 
-          <section className=" mx-auto px-6 py-16">
+          <section className="mx-auto py-12 sm:py-16">
             <div className="mb-10 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
               <div className="max-w-2xl animate-fade-up" style={{ animationDelay: "120ms" }}>
                 <p className="text-xs uppercase tracking-[0.24em] text-slate-300">Core features</p>
@@ -102,7 +102,7 @@ const About = () => {
                 className="group animate-fade-up border border-white/60 bg-slate-300 shadow-lg backdrop-blur transition duration-300 hover:-translate-y-1 hover:shadow-xl"
                 style={{ animationDelay: "220ms" }}
               >
-                <CardContent className="p-7">
+                <CardContent className="p-6 sm:p-7">
                   <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-slate-900 text-white shadow-md">
                     <TrendingUp className="h-6 w-6" />
                   </div>
@@ -116,7 +116,7 @@ const About = () => {
                 className="group animate-fade-up border border-white/60 bg-slate-300 shadow-lg backdrop-blur transition duration-300 hover:-translate-y-1 hover:shadow-xl"
                 style={{ animationDelay: "280ms" }}
               >
-                <CardContent className="p-7">
+                <CardContent className="p-6 sm:p-7">
                   <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-slate-900 text-white shadow-md">
                     <Target className="h-6 w-6" />
                   </div>
@@ -130,7 +130,7 @@ const About = () => {
                 className="group animate-fade-up border border-white/60 bg-slate-300 shadow-lg backdrop-blur transition duration-300 hover:-translate-y-1 hover:shadow-xl"
                 style={{ animationDelay: "340ms" }}
               >
-                <CardContent className="p-7">
+                <CardContent className="p-6 sm:p-7">
                   <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-slate-900 text-white shadow-md">
                     <Users className="h-6 w-6" />
                   </div>
@@ -143,7 +143,7 @@ const About = () => {
             </div>
           </section>
 
-          <section className=" mx-auto px-6 pb-16">
+          <section className="mx-auto pb-12 sm:pb-16">
             <div className="grid items-center gap-10 lg:grid-cols-[1.05fr,0.95fr]">
               <div className="animate-fade-up" style={{ animationDelay: "120ms" }}>
                 <p className="text-xs uppercase tracking-[0.24em] text-slate-300">What you get</p>
@@ -187,7 +187,7 @@ const About = () => {
                 className="animate-fade-up border border-emerald-100 bg-slate-300 shadow-xl backdrop-blur"
                 style={{ animationDelay: "200ms" }}
               >
-                <CardContent className="p-8">
+                <CardContent className="p-6 sm:p-8">
                   <div className="flex items-center gap-3">
                     <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-slate-900 text-white">
                       <TrendingUp className="h-6 w-6" />
@@ -231,9 +231,9 @@ const About = () => {
             </div>
           </section>
 
-          <section className=" mx-auto px-6 pb-16">
+          <section className="mx-auto pb-12 sm:pb-16">
             <Card className="text-white shadow-2xl">
-              <div className="p-8 md:p-10 border-4 rounded-xl">
+              <div className="p-6 sm:p-8 md:p-10 border-4 rounded-xl">
                 <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
                   <div className="max-w-2xl animate-fade-up" style={{ animationDelay: "120ms" }}>
                     <div className="flex items-center gap-3 text-emerald-100">
@@ -267,7 +267,7 @@ const About = () => {
             </Card>
           </section>
 
-          <section className=" mx-auto px-6 pb-20 text-center">
+          <section className="mx-auto pb-16 sm:pb-20 text-center">
             <Card className="bg-slate-900 text-white border-none shadow-2xl">
               <CardContent className="p-14 border-none">
                 <h3
