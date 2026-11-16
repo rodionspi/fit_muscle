@@ -1,216 +1,230 @@
+"use client";
+
 import React, { useEffect, useRef, useState } from "react";
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
+import { AlertTriangle, MousePointer2, Move3d } from "lucide-react";
+import { Spinner } from "@/components/custom/Feedback";
 
-const isMesh = (object: THREE.Object3D): object is THREE.Mesh => {
-    return (object as THREE.Mesh).isMesh === true;
-};
+const MODEL_URL = "/models/muscle_man.glb";
+// Matches --card in globals.css so the canvas blends into the page.
+const SCENE_BACKGROUND = 0x0f1117;
+const FLOOR_Y = -0.72;
+const MODEL_HEIGHT = 1.8;
 
-const disposeMeshMaterial = (material: THREE.Material | THREE.Material[]) => {
-    if (Array.isArray(material)) {
-        material.forEach((mat: THREE.Material) => mat.dispose());
-        return;
-    }
-    material.dispose();
+type LoadState = { status: "loading"; progress: number } | { status: "ready" } | { status: "error" };
+
+const isMesh = (object: THREE.Object3D): object is THREE.Mesh => (object as THREE.Mesh).isMesh === true;
+
+const disposeMaterial = (material: THREE.Material | THREE.Material[]) => {
+  if (Array.isArray(material)) {
+    material.forEach((item) => item.dispose());
+    return;
+  }
+  material.dispose();
 };
 
 const ThreeDView = () => {
-    const containerRef = useRef<HTMLDivElement | null>(null);
-    const [isLoading, setIsLoading] = useState(true);
+  const containerRef = useRef<HTMLDivElement | null>(null);
+  const [state, setState] = useState<LoadState>({ status: "loading", progress: 0 });
 
-    useEffect(() => {
-        const container = containerRef.current;
-        if (!container) return;
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
 
-        const scene = new THREE.Scene();
-        scene.background = new THREE.Color("#0b1220"); // Dunkler Hintergrund beibehalten
+    const scene = new THREE.Scene();
+    scene.background = new THREE.Color(SCENE_BACKGROUND);
+    scene.fog = new THREE.Fog(SCENE_BACKGROUND, 7, 13);
 
-        const camera = new THREE.PerspectiveCamera(
-            45,
-            container.clientWidth / container.clientHeight,
-            0.1,
-            100
-        );
-        camera.position.set(0, 1, 4.2); // Kamera-Position beibehalten
-
-        const renderer = new THREE.WebGLRenderer({ antialias: true });
-        renderer.setPixelRatio(window.devicePixelRatio);
-        renderer.setSize(container.clientWidth, container.clientHeight);
-        renderer.outputColorSpace = THREE.SRGBColorSpace;
-        
-        // --- 1. SCHATTEN AKTIVIEREN FÜR REALISMUS ---
-        // Dies ist der Schlüssel, um die Muskeln wie im Bild hervorzuheben.
-        renderer.shadowMap.enabled = true;
-        renderer.shadowMap.type = THREE.PCFSoftShadowMap; // Sanfte Schatten
-        
-        container.appendChild(renderer.domElement);
-
-        const controls = new OrbitControls(camera, renderer.domElement);
-        controls.enableDamping = true;
-        controls.dampingFactor = 0.06;
-        controls.target.set(0, 0, 0);
-        controls.minDistance = 2.2;
-        controls.maxDistance = 8;
-        controls.maxPolarAngle = Math.PI * 0.9;
-
-        // --- 2. BELEUCHTUNG FÜR MUSKEL-DEFINITION ---
-        // Ein Studio-Beleuchtungs-Setup, das Schatten wirft und Highlights setzt.
-
-        const hemiLight = new THREE.HemisphereLight(0xdbeafe, 0x0f172a, 0.4);
-        scene.add(hemiLight);
-
-        // Die Haupt-Lichtquelle, die Schatten wirft (key light)
-        const directionalLight = new THREE.DirectionalLight(0xffffff, 2.5); // Erhöhte Intensität
-        directionalLight.position.set(2, 5, 4); // Positioniert, um Schatten unter den Muskeln zu werfen
-        directionalLight.castShadow = true; // Aktiviert Schattenwerfen
-        
-        // Schatten-Einstellungen für bessere Qualität
-        directionalLight.shadow.mapSize.width = 1024;
-        directionalLight.shadow.mapSize.height = 1024;
-        directionalLight.shadow.camera.near = 0.5;
-        directionalLight.shadow.camera.far = 50;
-        directionalLight.shadow.camera.left = -5;
-        directionalLight.shadow.camera.right = 5;
-        directionalLight.shadow.camera.top = 5;
-        directionalLight.shadow.camera.bottom = -5;
-        scene.add(directionalLight);
-
-        // Subtiles Fülllicht für die Rückseite
-        const backLight = new THREE.DirectionalLight(0x9cc7ff, 1.0);
-        backLight.position.set(-2, 1, -3);
-        scene.add(backLight);
-
-        // --- 3. DER BODEN (BEIBEHALTEN, ABER SCHATTEN EMPFANGEND) ---
-        const floorGeometry = new THREE.CircleGeometry(3.4, 48);
-        const floorMaterial = new THREE.MeshStandardMaterial({
-            color: 0x111827,
-            roughness: 0.92,
-        });
-        const floorMesh = new THREE.Mesh(floorGeometry, floorMaterial);
-        floorMesh.rotation.x = -Math.PI / 2;
-        floorMesh.position.y = -0.72; // Boden tiefer gesetzt
-        floorMesh.receiveShadow = true; // Empfängt Schatten des Modells
-        scene.add(floorMesh);
-
-        // --- 4. DAS MUSKELMODELL LADEN ---
-        const loader = new GLTFLoader();
-        
-        // PLATZHALTER-PFAD: Ändere dies zu deiner tatsächlichen Modelldatei.
-        const modelUrl = "/models/muscle_man.glb"; 
-
-        loader.load(
-            modelUrl,
-            (gltf) => {
-                const modelScene = gltf.scene;
-
-                // --- MODELL-OPTIMIERUNGEN ---
-                // a) Skalierung & Zentrierung (unvorhersehbare Modellgrößen handhaben)
-                const box = new THREE.Box3().setFromObject(modelScene);
-                const size = box.getSize(new THREE.Vector3());
-                const center = box.getCenter(new THREE.Vector3());
-
-                // Modell skalieren, um in die Szene zu passen (angenommen, es ist zu groß oder klein)
-                const desiredHeight = 1.8; // Zielhöhe in Metern
-                const scaleFactor = desiredHeight / size.y;
-                modelScene.scale.set(scaleFactor, scaleFactor, scaleFactor);
-
-                // Modell zentrieren
-                modelScene.position.sub(center.multiplyScalar(scaleFactor));
-                // Positionierung in der Szene, passend zur Kamera und zum Boden
-                modelScene.position.y = size.y * scaleFactor / 2 - 0.72; 
-
-                // b) Materialien und Schatten
-                modelScene.traverse((child) => {
-                    if (isMesh(child)) {
-                        child.castShadow = true; // Jedes Teil wirft Schatten
-                        child.receiveShadow = true; // Jedes Teil empfängt Schatten
-                        // Stellen Sie sicher, dass das Material PBR-kompatibel ist (Standard in GLTF)
-                        // und nicht zu glänzend oder dunkel ist.
-                    }
-                });
-
-                scene.add(modelScene);
-                setIsLoading(false); // Ladezustand beenden
-
-                console.log("Muskelmodell erfolgreich geladen!");
-            },
-            // Fortschritts-Callback (optional)
-            (xhr) => {
-                console.log((xhr.loaded / xhr.total * 100) + '% loaded');
-            },
-            // Fehler-Callback
-            (error) => {
-                console.error("Fehler beim Laden des Modells:", error);
-                setIsLoading(false); // Ladezustand beenden
-            }
-        );
-
-        // --- 5. AUFRÄUMEN UND UNMOUNTING (Verbessert) ---
-        const disposableObjects: (THREE.BufferGeometry | THREE.Material)[] = [
-            floorGeometry,
-            floorMaterial
-        ];
-
-        let frameId = 0;
-        const animate = () => {            
-            // Die spezifischen Teil-Rotationen (Arm, Bein, Kopf) sind weg,
-            // da wir jetzt ein einzelnes geladenes Modell haben, nicht eine Gruppe von Primitiven.
-
-            controls.update();
-            renderer.render(scene, camera);
-            frameId = requestAnimationFrame(animate);
-        };
-        animate();
-
-        const onResize = () => {
-            if (!container) return;
-            camera.aspect = container.clientWidth / container.clientHeight;
-            camera.updateProjectionMatrix();
-            renderer.setSize(container.clientWidth, container.clientHeight);
-        };
-        window.addEventListener("resize", onResize);
-
-        return () => {
-            cancelAnimationFrame(frameId);
-            window.removeEventListener("resize", onResize);
-            controls.dispose();
-            
-            // Dispose alle statischen Geometrien/Materialien
-            disposableObjects.forEach((obj) => obj.dispose());
-            
-            // Dispose das geladene Modell (muss traversiert werden)
-            scene.traverse((child) => {
-                if (isMesh(child)) {
-                    child.geometry.dispose();
-                    disposeMeshMaterial(child.material);
-                }
-            });
-
-            renderer.dispose();
-            if (renderer.domElement.parentNode === container) {
-                container.removeChild(renderer.domElement);
-            }
-        };
-    }, []);
-
-    return (
-        <div
-            ref={containerRef}
-            style={{ height: "700px", width: "100%", position: "relative" }}
-            className="rounded-xl border border-slate-700 overflow-hidden"
-        >
-            {isLoading && (
-                <div style={{
-                    position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)",
-                    color: "white", fontSize: "1.2rem", textAlign: "center", zIndex: 10
-                }}>
-                    Lade fotorealistisches Muskelmodell...
-                    <p style={{ fontSize: "1rem", color: "#64748b" }}>Dies kann einen Moment dauern.</p>
-                </div>
-            )}
-        </div>
+    const camera = new THREE.PerspectiveCamera(
+      45,
+      container.clientWidth / Math.max(container.clientHeight, 1),
+      0.1,
+      100
     );
+    camera.position.set(0, 1, 4.2);
+
+    const renderer = new THREE.WebGLRenderer({ antialias: true });
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.setSize(container.clientWidth, container.clientHeight);
+    renderer.outputColorSpace = THREE.SRGBColorSpace;
+    renderer.shadowMap.enabled = true;
+    renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+    renderer.domElement.style.display = "block";
+    container.appendChild(renderer.domElement);
+
+    const controls = new OrbitControls(camera, renderer.domElement);
+    controls.enableDamping = true;
+    controls.dampingFactor = 0.06;
+    controls.target.set(0, 0, 0);
+    controls.minDistance = 2.2;
+    controls.maxDistance = 8;
+    controls.maxPolarAngle = Math.PI * 0.9;
+
+    // Studio rig: soft ambient, a shadow-casting key, a teal rim for the brand and a cool fill.
+    scene.add(new THREE.HemisphereLight(0xdbeafe, 0x0f172a, 0.45));
+
+    const keyLight = new THREE.DirectionalLight(0xffffff, 2.4);
+    keyLight.position.set(2, 5, 4);
+    keyLight.castShadow = true;
+    keyLight.shadow.mapSize.set(1024, 1024);
+    keyLight.shadow.camera.near = 0.5;
+    keyLight.shadow.camera.far = 50;
+    keyLight.shadow.camera.left = -5;
+    keyLight.shadow.camera.right = 5;
+    keyLight.shadow.camera.top = 5;
+    keyLight.shadow.camera.bottom = -5;
+    scene.add(keyLight);
+
+    const rimLight = new THREE.DirectionalLight(0x5eead4, 0.9);
+    rimLight.position.set(-2, 1.2, -3);
+    scene.add(rimLight);
+
+    const fillLight = new THREE.DirectionalLight(0x93c5fd, 0.35);
+    fillLight.position.set(-3, 2, 2);
+    scene.add(fillLight);
+
+    const floorGeometry = new THREE.CircleGeometry(3.4, 64);
+    const floorMaterial = new THREE.MeshStandardMaterial({ color: 0x151925, roughness: 0.95 });
+    const floor = new THREE.Mesh(floorGeometry, floorMaterial);
+    floor.rotation.x = -Math.PI / 2;
+    floor.position.y = FLOOR_Y;
+    floor.receiveShadow = true;
+    scene.add(floor);
+
+    const loader = new GLTFLoader();
+    loader.load(
+      MODEL_URL,
+      (gltf) => {
+        const model = gltf.scene;
+
+        // Normalise unknown model sizes: scale to MODEL_HEIGHT and stand it on the floor
+        const box = new THREE.Box3().setFromObject(model);
+        const size = box.getSize(new THREE.Vector3());
+        const center = box.getCenter(new THREE.Vector3());
+        const scale = MODEL_HEIGHT / size.y;
+        model.scale.setScalar(scale);
+        model.position.sub(center.multiplyScalar(scale));
+        model.position.y = (size.y * scale) / 2 + FLOOR_Y;
+
+        model.traverse((child) => {
+          if (isMesh(child)) {
+            child.castShadow = true;
+            child.receiveShadow = true;
+          }
+        });
+
+        scene.add(model);
+        setState({ status: "ready" });
+      },
+      (event) => {
+        if (event.total > 0) {
+          setState({ status: "loading", progress: Math.round((event.loaded / event.total) * 100) });
+        }
+      },
+      (error) => {
+        console.error("Failed to load the 3D model:", error);
+        setState({ status: "error" });
+      }
+    );
+
+    let frameId = 0;
+    const animate = () => {
+      controls.update();
+      renderer.render(scene, camera);
+      frameId = requestAnimationFrame(animate);
+    };
+    animate();
+
+    // The canvas sits in a tab, so its size changes without a window resize
+    const resize = () => {
+      const { clientWidth, clientHeight } = container;
+      if (!clientWidth || !clientHeight) return;
+      camera.aspect = clientWidth / clientHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(clientWidth, clientHeight);
+    };
+    const observer = new ResizeObserver(resize);
+    observer.observe(container);
+
+    return () => {
+      cancelAnimationFrame(frameId);
+      observer.disconnect();
+      controls.dispose();
+      floorGeometry.dispose();
+      floorMaterial.dispose();
+      scene.traverse((child) => {
+        if (isMesh(child)) {
+          child.geometry.dispose();
+          disposeMaterial(child.material);
+        }
+      });
+      renderer.dispose();
+      if (renderer.domElement.parentNode === container) {
+        container.removeChild(renderer.domElement);
+      }
+    };
+  }, []);
+
+  return (
+    <div className="relative overflow-hidden rounded-2xl border border-border bg-[#0f1117] shadow-card">
+      <div
+        ref={containerRef}
+        className="h-[min(72vh,720px)] min-h-[420px] w-full cursor-grab active:cursor-grabbing"
+        aria-label="Interactive 3D muscle model"
+        role="img"
+      />
+
+      <div className="pointer-events-none absolute inset-x-0 top-0 flex items-start justify-between gap-3 p-4">
+        <div className="glass rounded-xl border px-3.5 py-2.5">
+          <p className="eyebrow">Anatomical model</p>
+          <p className="mt-1 text-sm font-medium">Rotate, zoom, inspect</p>
+        </div>
+        <div className="glass hidden items-center gap-3 rounded-xl border px-3.5 py-2.5 text-xs text-muted-foreground sm:flex">
+          <span className="inline-flex items-center gap-1.5">
+            <MousePointer2 className="h-3.5 w-3.5" />
+            Drag to rotate
+          </span>
+          <span className="h-3 w-px bg-border" />
+          <span className="inline-flex items-center gap-1.5">
+            <Move3d className="h-3.5 w-3.5" />
+            Scroll to zoom
+          </span>
+        </div>
+      </div>
+
+      {state.status === "loading" && (
+        <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 bg-[#0f1117]/85 backdrop-blur-sm">
+          <Spinner />
+          <div className="text-center">
+            <p className="text-sm font-medium">Loading the 3D model</p>
+            <p className="mt-1 text-xs text-muted-foreground">
+              {state.progress > 0 ? `${state.progress}% - ` : ""}this can take a moment on a slow connection
+            </p>
+          </div>
+          <div className="h-1 w-48 overflow-hidden rounded-full bg-white/10">
+            <div
+              className="h-full rounded-full bg-emerald-400 transition-[width] duration-300"
+              style={{ width: `${state.progress}%` }}
+            />
+          </div>
+        </div>
+      )}
+
+      {state.status === "error" && (
+        <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 bg-[#0f1117]/90 px-6 text-center">
+          <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-border bg-surface-2 text-amber-300">
+            <AlertTriangle className="h-6 w-6" />
+          </div>
+          <p className="text-sm font-medium">The model could not be loaded</p>
+          <p className="max-w-xs text-xs text-muted-foreground">
+            Check your connection and reload the page. The grid and list views still work without it.
+          </p>
+        </div>
+      )}
+    </div>
+  );
 };
 
 export default ThreeDView;
