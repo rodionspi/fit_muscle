@@ -1,79 +1,41 @@
-"use client"
+"use client";
 
 import React from "react";
-import Footer from "@/components/custom/Footer";
-// import { useUser } from "@/contexts/UserContext";
 import Header from "@/components/custom/Header";
+import Footer from "@/components/custom/Footer";
+import { cn } from "@/lib/utils";
 
-function PageWrapper({ children }: { children?: React.ReactNode }) {
-  // const {userData, userId} = useUser();
+interface PageWrapperProps {
+  children?: React.ReactNode;
+  /** Extra classes for <main>. */
+  className?: string;
+  /** Drop the default container and padding so the page can lay itself out. */
+  bleed?: boolean;
+}
 
-  // useEffect(() => {
-  //   if (userData && userData.id && navigation.length === 2) {
-  //     setNavigation((prevNav) => [
-  //       ...prevNav,
-  //       { name: 'Calendar', href: `/calendar/${userData?.id}`, current: false, show: !!userData }
-  //     ]);
-  //   }
-  // }, [userData, userId]);
-
-  
+function PageWrapper({ children, className, bleed = false }: PageWrapperProps) {
   return (
-    <div className="min-h-screen bg-gradient-to-btext-white">
-      {/* Opaque so content scrolling underneath does not show through the sticky header */}
-      <header className="border-b border-slate-700 sticky top-0 z-30 bg-zinc-950/95 backdrop-blur">
+    <div className="relative flex min-h-dvh flex-col">
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-lg focus:bg-primary focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-primary-foreground"
+      >
+        Skip to content
+      </a>
+
+      {/* Translucent so the page shows through, sticky so navigation is always one tap away */}
+      <header className="glass sticky top-0 z-40 border-b">
         <Header />
       </header>
 
-      <main className="container mx-auto px-4 lg:px-20 py-8 animate-fade-up">
-        {children || <div>Loading content...</div>}
+      <main
+        id="main-content"
+        className={cn("flex-1 animate-fade-in", !bleed && "container py-8 sm:py-10 lg:py-12", className)}
+      >
+        {children}
       </main>
 
-      {/* {selectedMuscle && (
-          <motion.div
-            className="bg-slate-800 rounded-xl border border-slate-700 p-6 mb-8"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-          >
-            <h3 className="text-2xl font-bold mb-4">
-              {muscleGroups.find((m) => m.id === selectedMuscle)?.name} Details
-            </h3>
-            <div className="grid md:grid-cols-2 gap-6">
-              <div>
-                <h4 className="text-lg font-semibold mb-2">Overview</h4>
-                <p className="text-slate-300 mb-4">
-                  The {muscleGroups.find((m) => m.id === selectedMuscle)?.name.toLowerCase()} are a major muscle group
-                  that play an important role in various movements and exercises.
-                </p>
-                <h4 className="text-lg font-semibold mb-2">Function</h4>
-                <ul className="list-disc list-inside text-slate-300 space-y-1">
-                  <li>Primary movement patterns</li>
-                  <li>Stabilization during compound exercises</li>
-                  <li>Support for adjacent muscle groups</li>
-                </ul>
-              </div>
-              <div>
-                <h4 className="text-lg font-semibold mb-2">Recommended Exercises</h4>
-                <div className="space-y-3">
-                  {[1, 2, 3].map((i) => (
-                    <div key={i} className="flex items-center gap-3 p-3 bg-slate-700/50 rounded-lg">
-                      <div className="w-12 h-12 bg-slate-700 rounded-md flex items-center justify-center flex-shrink-0">
-                        <span className="font-bold">{i}</span>
-                      </div>
-                      <div>
-                        <h5 className="font-medium">Exercise {i}</h5>
-                        <p className="text-sm text-slate-300">3 sets × 12 reps</p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </motion.div>
-        )} */}
-      <footer className="mt-auto">
-        <Footer />
-      </footer>
+      <Footer />
     </div>
   );
 }
