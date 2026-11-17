@@ -1,100 +1,102 @@
-import { Card, CardContent } from "@/components/ui/card";
-import { Muscle } from "@/types/Muscle";
-import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@radix-ui/react-accordion";
-import { Check } from "lucide-react";
 import React from "react";
+import { Check, CircleDot, Crosshair } from "lucide-react";
+import { Muscle } from "@/types/Muscle";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 interface AnatomyProps {
   muscleInfo: Muscle;
 }
 
-const Anatomy: React.FC<AnatomyProps> = ({ muscleInfo }) => {
-    return (
-        <div className="grid md:grid-cols-2 gap-8">
-            <div>
-                <h2 className="text-2xl font-bold mb-4">Muscle Anatomy</h2>
-                <p className="text-slate-300">{muscleInfo.anat}</p>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6">
-                    <Card className="bg-slate-800 border-slate-700">
-                        <CardContent className="p-4">
-                            <h3 className="font-semibold mb-1 text-slate-300">Origin</h3>
-                            <p className="text-xs text-slate-500 mb-2">Attachment on the stationary bone</p>
-                            <p className="text-sm text-slate-300">{muscleInfo.org ?? "-"}</p>
-                        </CardContent>
-                    </Card>
-                    <Card className="bg-slate-800 border-slate-700">
-                        <CardContent className="p-4">
-                            <h3 className="font-semibold mb-1 text-slate-300">Insertion</h3>
-                            <p className="text-xs text-slate-500 mb-2">Attachment on the moving bone</p>
-                            <p className="text-sm text-slate-300">{muscleInfo.ins ?? "-"}</p>
-                        </CardContent>
-                    </Card>
-                </div>
-                </div>
+const DEFAULT_TRAINING_TIPS = [
+  "Train with a variety of exercises to target all parts of the muscle",
+  "Include both compound and isolation exercises",
+  "Allow 48-72 hours of recovery between intense training sessions",
+];
 
-                <div>
-                <h2 className="text-2xl font-bold mb-4">Detailed Information</h2>
-                <Accordion
-                    type="single"
-                    collapsible
-                    className="bg-slate-800 rounded-xl border border-slate-700 overflow-hidden"
-                >
-                    <AccordionItem value="structure" className="border-b border-slate-700">
-                        <AccordionTrigger className="px-6 py-4 hover:bg-slate-700/50 w-full">Muscle Structure</AccordionTrigger>
-                        <AccordionContent className="px-6 pb-4">
-                            <p className="text-slate-300 mb-4">{muscleInfo.anat}</p>
-                        </AccordionContent>
-                    </AccordionItem>
-                    <AccordionItem value="function" className="border-b border-slate-700">
-                        <AccordionTrigger className="px-6 py-4 hover:bg-slate-700/50 w-full">Function & Movement</AccordionTrigger>
-                        <AccordionContent className="px-6 pb-4">
-                            <p className="text-slate-300 mb-4">{muscleInfo.func}</p>
-                        </AccordionContent>
-                    </AccordionItem>
-                    <AccordionItem value="synergists" className="border-b border-slate-700">
-                        <AccordionTrigger className="px-6 py-4 hover:bg-slate-700/50 w-full">Synergist Muscles</AccordionTrigger>
-                        <AccordionContent className="px-6 pb-4">
-                            <p className="text-slate-300 mb-4">
-                            Synergist muscles that work with the {muscleInfo.n} include:
-                            </p>
-                            <ul className="list-disc list-inside text-slate-300 space-y-1">
-                            {muscleInfo.rel.map((muscle: string) => (
-                                <li key={muscle} className="capitalize">
-                                {muscle}
-                                </li>
-                            ))}
-                            </ul>
-                        </AccordionContent>
-                    </AccordionItem>
-                    <AccordionItem value="training" className="border-b-0">
-                        <AccordionTrigger className="px-6 py-4 hover:bg-slate-700/50 w-full">
-                            Training Considerations
-                        </AccordionTrigger>
-                        <AccordionContent className="px-6 pb-4">
-                            <p className="text-slate-300 mb-4">
-                            When training the {muscleInfo.n}, consider the following:
-                            </p>
-                            <ul className="space-y-2">
-                            {(muscleInfo.train?.length
-                                ? muscleInfo.train
-                                : [
-                                    "Train with a variety of exercises to target all parts of the muscle",
-                                    "Include both compound and isolation exercises",
-                                    "Allow 48-72 hours of recovery between intense training sessions",
-                                  ]
-                            ).map((tip: string) => (
-                                <li key={tip} className="flex items-start gap-2">
-                                    <Check className="w-5 h-5 text-emerald-400 mt-0.5 flex-shrink-0" />
-                                    <span className="text-slate-300">{tip}</span>
-                                </li>
-                            ))}
-                            </ul>
-                        </AccordionContent>
-                    </AccordionItem>
-                </Accordion>
+const Anatomy: React.FC<AnatomyProps> = ({ muscleInfo }) => {
+  const tips = muscleInfo.train?.length ? muscleInfo.train : DEFAULT_TRAINING_TIPS;
+
+  return (
+    <div className="grid gap-10 lg:grid-cols-5">
+      <article className="lg:col-span-3">
+        <h2 className="text-2xl font-semibold">Structure</h2>
+        <p className="prose-muscle mt-4">{muscleInfo.anat}</p>
+
+        <div className="mt-8 grid gap-4 sm:grid-cols-2">
+          <div className="panel relative overflow-hidden p-5">
+            <div className="pointer-events-none absolute -right-8 -top-8 h-28 w-28 rounded-full bg-emerald-400/10 blur-2xl" />
+            <div className="flex items-center gap-2.5">
+              <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-emerald-400/10 text-emerald-300">
+                <CircleDot className="h-4 w-4" />
+              </span>
+              <h3 className="font-sans text-base font-semibold tracking-normal">Origin</h3>
             </div>
+            <p className="mt-1 text-xs text-muted-foreground">Attachment on the stationary bone</p>
+            <p className="mt-3 text-sm leading-relaxed text-foreground/85">{muscleInfo.org ?? "-"}</p>
+          </div>
+
+          <div className="panel relative overflow-hidden p-5">
+            <div className="pointer-events-none absolute -right-8 -top-8 h-28 w-28 rounded-full bg-sky-400/10 blur-2xl" />
+            <div className="flex items-center gap-2.5">
+              <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-sky-400/10 text-sky-300">
+                <Crosshair className="h-4 w-4" />
+              </span>
+              <h3 className="font-sans text-base font-semibold tracking-normal">Insertion</h3>
+            </div>
+            <p className="mt-1 text-xs text-muted-foreground">Attachment on the moving bone</p>
+            <p className="mt-3 text-sm leading-relaxed text-foreground/85">{muscleInfo.ins ?? "-"}</p>
+          </div>
         </div>
-    )
-}
+      </article>
+
+      <aside className="lg:col-span-2">
+        <h2 className="text-2xl font-semibold">In detail</h2>
+        <Accordion type="single" collapsible defaultValue="function" className="panel mt-4 overflow-hidden">
+          <AccordionItem value="function">
+            <AccordionTrigger>Function &amp; movement</AccordionTrigger>
+            <AccordionContent>
+              <p className="leading-relaxed">{muscleInfo.func}</p>
+            </AccordionContent>
+          </AccordionItem>
+
+          <AccordionItem value="synergists">
+            <AccordionTrigger>Synergist muscles</AccordionTrigger>
+            <AccordionContent>
+              <p className="text-sm text-muted-foreground">
+                Muscles that work together with the {muscleInfo.n.toLowerCase()}:
+              </p>
+              <ul className="mt-3 flex flex-wrap gap-2">
+                {muscleInfo.rel.map((muscle) => (
+                  <li
+                    key={muscle}
+                    className="rounded-lg border border-border bg-surface-2 px-2.5 py-1 text-sm capitalize text-foreground/85"
+                  >
+                    {muscle}
+                  </li>
+                ))}
+              </ul>
+            </AccordionContent>
+          </AccordionItem>
+
+          <AccordionItem value="training">
+            <AccordionTrigger>Training considerations</AccordionTrigger>
+            <AccordionContent>
+              <ul className="space-y-3">
+                {tips.map((tip) => (
+                  <li key={tip} className="flex items-start gap-3">
+                    <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-emerald-400/15 text-emerald-300">
+                      <Check className="h-3 w-3" />
+                    </span>
+                    <span className="text-sm leading-relaxed text-foreground/85">{tip}</span>
+                  </li>
+                ))}
+              </ul>
+            </AccordionContent>
+          </AccordionItem>
+        </Accordion>
+      </aside>
+    </div>
+  );
+};
 
 export default Anatomy;

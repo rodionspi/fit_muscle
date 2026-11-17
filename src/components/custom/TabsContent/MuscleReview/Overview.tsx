@@ -1,98 +1,140 @@
-import React, { useEffect, useState } from 'react';
-import { Clock, Info, Target } from "lucide-react";
-import { Muscle, StretchingExercise } from '@/types/Muscle';
-import { Progress } from "@/components/ui/progress"
-import { getStrechingExOfMuscle } from '@/server/muscles/musclesDataFunctions';
+"use client";
+
+import React, { useEffect, useState } from "react";
+import { Activity, Clock, HeartPulse, Info } from "lucide-react";
+import { Muscle, StretchingExercise } from "@/types/Muscle";
+import { Progress } from "@/components/ui/progress";
+import { Badge } from "@/components/ui/badge";
+import { getStretchingExOfMuscle } from "@/server/muscles/musclesDataFunctions";
 
 interface OverviewProps {
   muscleInfo: Muscle;
 }
 
+const LEVELS = [
+  { key: "b", label: "Beginner", bar: "bg-gradient-to-r from-emerald-500 to-emerald-300" },
+  { key: "i", label: "Intermediate", bar: "bg-gradient-to-r from-sky-500 to-sky-300" },
+  { key: "a", label: "Advanced", bar: "bg-gradient-to-r from-amber-500 to-amber-300" },
+] as const;
+
+/** "2-3" -> 3, "2" -> 2; the bar is scaled against four sessions a week. */
+const sessionsPerWeek = (value: string | undefined): number => {
+  const numbers = (value ?? "").match(/\d+(\.\d+)?/g)?.map(Number) ?? [];
+  return numbers.length ? Math.max(...numbers) : 0;
+};
+
 const Overview: React.FC<OverviewProps> = ({ muscleInfo }) => {
+  const [stretches, setStretches] = useState<StretchingExercise[] | null>(null);
 
-   const [stretchingExercises, setStretchingExercises] = useState<StretchingExercise[]>([]);
-
-   useEffect(() => {
-     const fetchStretchingExercises = async () => {
-       if (!muscleInfo.id) return;
-
-       getStrechingExOfMuscle(muscleInfo.id.toString())
-         .then((data) => {
-           return setStretchingExercises(data ?? []);
-         })
-         .catch((err) => {
-           console.error(err);
-           setStretchingExercises([]);
-         });
-     };
-     fetchStretchingExercises();
-   }, []);
+  useEffect(() => {
+    if (!muscleInfo.id) return;
+    let cancelled = false;
+    getStretchingExOfMuscle(muscleInfo.id.toString())
+      .then((data) => {
+        if (!cancelled) setStretches(data ?? []);
+      })
+      .catch((err) => {
+        console.error(err);
+        if (!cancelled) setStretches([]);
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, [muscleInfo.id]);
 
   return (
-    <div className="grid md:grid-cols-2 gap-8">
-              <div>
-                <h2 className="text-2xl font-bold mb-4 flex items-center">
-                  <Info className="w-5 h-5 mr-2 text-emerald-400" />
-                  About {muscleInfo.n}
-                </h2>
-                <div className="prose prose-invert max-w-none">
-                  <p className="text-slate-300 mb-4">{muscleInfo.desc}</p>
-                  <h3 className="text-xl font-semibold mb-2">Function</h3>
-                  <p className="text-slate-300 mb-4">{muscleInfo.func}</p>
-                  <h3 className="text-xl font-semibold mb-2">Anatomy</h3>
-                  <p className="text-slate-300">{muscleInfo.anat}</p>
-                </div>
-              </div>
+    <div className="grid gap-10 lg:grid-cols-5">
+      <article className="lg:col-span-3">
+        <h2 className="flex items-center gap-2.5 text-2xl font-semibold">
+          <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-emerald-400/10 text-emerald-300">
+            <Info className="h-4 w-4" />
+          </span>
+          About the {muscleInfo.n.toLowerCase()}
+        </h2>
 
-              <div>
-                <h2 className="text-2xl font-bold mb-4 flex items-center">
-                  <Target className="w-5 h-5 mr-2 text-amber-400" />
-                  Training Tips
-                </h2>
-                <div className="bg-slate-800 rounded-xl border border-slate-700 p-6 mb-6">
-                  <h3 className="text-xl font-semibold mb-4">Recommended Training Frequency</h3>
-                  <div className="space-y-4">
-                    <div>
-                      <div className="flex justify-between mb-1">
-                        <span className="text-sm text-slate-400">Beginner</span>
-                        <span className="text-sm text-slate-400">{muscleInfo.freq?.b ?? "-"} times per week</span>
-                      </div>
-                      <Progress value={40} className="h-2 bg-slate-700" />
-                    </div>
-                    <div>
-                      <div className="flex justify-between mb-1">
-                        <span className="text-sm text-slate-400">Intermediate</span>
-                        <span className="text-sm text-slate-400">{muscleInfo.freq?.i ?? "-"} times per week</span>
-                      </div>
-                      <Progress value={60} className="h-2 bg-slate-700" />
-                    </div>
-                    <div>
-                      <div className="flex justify-between mb-1">
-                        <span className="text-sm text-slate-400">Advanced</span>
-                        <span className="text-sm text-slate-400">{muscleInfo.freq?.a ?? "-"} times per week</span>
-                      </div>
-                      <Progress value={80} className="h-2 bg-slate-700" />
-                    </div>
+        <div className="prose-muscle mt-5">
+          <p>{muscleInfo.desc}</p>
+        </div>
+
+        <h3 className="mt-8 text-lg font-semibold">What it does</h3>
+        <p className="prose-muscle mt-2">{muscleInfo.func}</p>
+
+        <h3 className="mt-8 text-lg font-semibold">Where it sits</h3>
+        <p className="prose-muscle mt-2">{muscleInfo.anat}</p>
+      </article>
+
+      <aside className="space-y-6 lg:col-span-2">
+        <section className="panel p-6">
+          <h2 className="flex items-center gap-2.5 text-lg font-semibold">
+            <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-sky-400/10 text-sky-300">
+              <Activity className="h-4 w-4" />
+            </span>
+            Training frequency
+          </h2>
+          <p className="mt-2 text-sm text-muted-foreground">
+            Sessions a week in which this group gets direct work, by experience level.
+          </p>
+
+          <div className="mt-6 space-y-5">
+            {LEVELS.map(({ key, label, bar }) => {
+              const raw = muscleInfo.freq?.[key];
+              const sessions = sessionsPerWeek(raw);
+              return (
+                <div key={key}>
+                  <div className="mb-2 flex items-baseline justify-between gap-3">
+                    <span className="text-sm font-medium">{label}</span>
+                    <span className="text-sm tabular-nums text-muted-foreground">
+                      {raw ? `${raw}× per week` : "-"}
+                    </span>
                   </div>
+                  <Progress
+                    value={Math.min(100, (sessions / 4) * 100)}
+                    aria-label={`${label}: ${raw ?? "-"} sessions per week`}
+                    indicatorClassName={bar}
+                  />
                 </div>
+              );
+            })}
+          </div>
+        </section>
 
-                <h3 className="text-xl font-semibold mb-3">Stretching Exercises</h3>
-                <div className="space-y-3 mb-6">
-                  {stretchingExercises.map((stretch: StretchingExercise, index: number) => (
-                      <div key={index} className="bg-slate-800/50 p-4 rounded-lg border border-slate-700">
-                        <h4 className="font-medium mb-1">{stretch.n}</h4>
-                        <p className="text-sm text-slate-300 mb-2">{stretch.desc}</p>
-                        <div className="flex items-center text-sm text-slate-400">
-                          <Clock className="w-3 h-3 mr-1" />
-                          <span>{stretch.dur}</span>
-                        </div>
-                      </div>
-                    ))
-                  }
+        <section className="panel p-6">
+          <h2 className="flex items-center gap-2.5 text-lg font-semibold">
+            <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-amber-400/10 text-amber-300">
+              <HeartPulse className="h-4 w-4" />
+            </span>
+            Stretches
+          </h2>
+          <p className="mt-2 text-sm text-muted-foreground">
+            Hold each one after training or on rest days.
+          </p>
+
+          <div className="mt-5 space-y-3">
+            {stretches === null ? (
+              Array.from({ length: 3 }, (_, index) => <div key={index} className="skeleton h-20" />)
+            ) : stretches.length === 0 ? (
+              <p className="text-sm text-muted-foreground">No stretches recorded for this muscle yet.</p>
+            ) : (
+              stretches.map((stretch, index) => (
+                <div key={`${stretch.n}-${index}`} className="panel-muted p-4">
+                  <div className="flex items-start justify-between gap-3">
+                    <h3 className="font-sans text-base font-semibold tracking-normal">{stretch.n}</h3>
+                    {stretch.dur && (
+                      <Badge variant="outline" className="shrink-0">
+                        <Clock />
+                        {stretch.dur}
+                      </Badge>
+                    )}
+                  </div>
+                  <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">{stretch.desc}</p>
                 </div>
-              </div>
-            </div>
+              ))
+            )}
+          </div>
+        </section>
+      </aside>
+    </div>
   );
-}
+};
 
 export default Overview;
