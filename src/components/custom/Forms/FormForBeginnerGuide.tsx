@@ -2,13 +2,28 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { Formik, Form, Field, ErrorMessage } from "formik";
+import { ErrorMessage, Field, Form, Formik } from "formik";
 import * as Yup from "yup";
+import {
+  ArrowRight,
+  CalendarDays,
+  CheckCircle2,
+  ChevronDown,
+  ClipboardList,
+  Lock,
+  LogIn,
+  RotateCcw,
+  Sparkles,
+  UserPlus,
+} from "lucide-react";
 import { useUser } from "@/contexts/UserContext";
 import { useMuscles } from "@/contexts/MusclesContext";
 import { buildWorkoutPlan, planOptions, type BeginnerAnswers } from "@/lib/workoutPlan";
-import { CheckCircle2, ChevronDown, ClipboardList, Lock, LogIn, UserPlus} from "lucide-react";
-
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { inputClassName } from "@/components/ui/input";
+import { LoadingState } from "@/components/custom/Feedback";
+import { cn } from "@/lib/utils";
 
 // Every select starts empty, so the form holds plain strings - Yup's required checks
 // guarantee they are real options by the time onSubmit runs
@@ -67,8 +82,7 @@ const questions: { name: keyof BeginnerAnswers; label: string; hint: string; opt
   },
 ];
 
-const fieldClass =
-  "block w-full px-4 py-3 text-base rounded-lg border border-slate-600 bg-slate-900 text-white focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500";
+const selectClass = cn(inputClassName, "appearance-none pr-11");
 
 const FormForBeginnerGuide = () => {
   const { userData, isLoading } = useUser();
@@ -76,45 +90,42 @@ const FormForBeginnerGuide = () => {
   const [answers, setAnswers] = useState<BeginnerAnswers | null>(null);
 
   const isLoggedIn = Boolean(userData?.id || userData?.email);
+  const firstName = userData?.name?.split(" ")[0] || "friend";
 
   // Wait for the stored session - and, once answered, the exercise library - before choosing a branch
   if (isLoading || (answers && musclesLoading)) {
-    return (
-      <div className="flex flex-col items-center justify-center py-24">
-        <div className="w-12 h-12 border-4 border-slate-600 border-t-slate-200 rounded-full animate-spin mb-4"></div>
-        <p className="text-slate-300">{answers ? "Building your plan..." : "Loading your profile..."}</p>
-      </div>
-    );
+    return <LoadingState label={answers ? "Building your plan..." : "Loading your profile..."} />;
   }
 
   // Logged out - point the visitor at login or registration instead of the form
   if (!isLoggedIn) {
     return (
-      <div className="max-w-xl mx-auto py-12">
-        <div className="bg-slate-800 border border-slate-700 rounded-2xl p-8 sm:p-10 text-center">
-          <div className="w-14 h-14 rounded-2xl bg-slate-900 flex items-center justify-center mx-auto mb-6">
-            <Lock className="w-7 h-7 text-emerald-400" />
-          </div>
-          <h1 className="text-3xl font-bold mb-3">Beginner Guide</h1>
-          <p className="text-slate-300 mb-8">
-            This guide is built around your answers, so we need an account to save them to.
-            Sign in or create one, then come back and fill in the form.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <Link
-              href="/profile/login"
-              className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white font-semibold transition-colors"
-            >
-              <LogIn className="w-5 h-5" />
-              Log in
-            </Link>
-            <Link
-              href="/profile/registration"
-              className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg border border-slate-600 hover:bg-slate-700 text-slate-100 font-semibold transition-colors"
-            >
-              <UserPlus className="w-5 h-5" />
-              Create an account
-            </Link>
+      <div className="mx-auto max-w-xl py-10">
+        <div className="panel relative overflow-hidden p-8 text-center sm:p-10">
+          <div className="pointer-events-none absolute -right-20 -top-24 h-64 w-64 rounded-full bg-emerald-500/15 blur-3xl" />
+          <div className="relative">
+            <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl border border-border bg-surface-2 text-emerald-300">
+              <Lock className="h-6 w-6" />
+            </div>
+            <h1 className="mt-6 text-3xl font-bold">Beginner guide</h1>
+            <p className="mt-3 text-muted-foreground">
+              The guide is built around your answers, so it needs an account to save them to. Sign in or
+              create one, then come back and fill in the form.
+            </p>
+            <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
+              <Button asChild size="lg">
+                <Link href="/profile/login">
+                  <LogIn />
+                  Log in
+                </Link>
+              </Button>
+              <Button asChild size="lg" variant="secondary">
+                <Link href="/profile/registration">
+                  <UserPlus />
+                  Create an account
+                </Link>
+              </Button>
+            </div>
           </div>
         </div>
       </div>
@@ -126,148 +137,203 @@ const FormForBeginnerGuide = () => {
     const plan = buildWorkoutPlan(answers, muscles);
 
     return (
-      <div className="max-w-3xl mx-auto py-12">
-        <div className="bg-slate-800 border border-slate-700 rounded-2xl p-6 sm:p-10">
-          <div className="flex items-center gap-3 mb-4">
-            <CheckCircle2 className="w-8 h-8 text-emerald-400 flex-shrink-0" />
-            <h2 className="text-3xl font-bold">Your starting plan, {userData?.name || "friend"}</h2>
-          </div>
-          <p className="text-slate-300 mb-8">{plan.summary}</p>
-
-          {plan.skipped.length > 0 && (
-            <p className="mb-8 text-sm text-amber-200 bg-amber-500/10 border border-amber-500/30 rounded-lg px-4 py-3">
-              Our exercise library has nothing for {plan.skipped.join(", ")} with your equipment and
-              experience yet, so the plan leaves them out.
+      <div className="mx-auto max-w-4xl py-4">
+        <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+          <div>
+            <p className="eyebrow">
+              <CheckCircle2 className="h-3.5 w-3.5 text-emerald-400" />
+              Your starting plan
             </p>
-          )}
-
-          <div className="space-y-8 mb-8">
-            {plan.days.map((day) => (
-              <section key={day.day}>
-                <h3 className="text-xl font-semibold mb-3">
-                  Day {day.day}{" "}
-                  <span className="ml-1 text-base font-normal text-slate-400">{day.focus}</span>
-                </h3>
-                {day.exercises.length === 0 ? (
-                  <p className="text-slate-400">
-                    No exercise in the library fits this day with your equipment - use it for a long walk instead.
-                  </p>
-                ) : (
-                  <div className="overflow-x-auto rounded-lg border border-slate-700">
-                    <table className="w-full text-left">
-                      <thead className="bg-slate-900/60 text-sm text-slate-400">
-                        <tr>
-                          <th className="px-4 py-2 font-medium">Exercise</th>
-                          <th className="px-4 py-2 font-medium">Muscle</th>
-                          <th className="px-4 py-2 font-medium">Sets × reps</th>
-                        </tr>
-                      </thead>
-                      <tbody className="divide-y divide-slate-700">
-                        {day.exercises.map((exercise) => (
-                          <tr key={exercise.name}>
-                            <td className="px-4 py-3 font-medium text-slate-100">{exercise.name}</td>
-                            <td className="px-4 py-3">
-                              <Link
-                                href={`/muscles/${exercise.muscleId}`}
-                                className="text-emerald-400 hover:text-emerald-300"
-                              >
-                                {exercise.muscle}
-                              </Link>
-                            </td>
-                            <td className="px-4 py-3 text-slate-300 whitespace-nowrap">
-                              {exercise.sets} × {exercise.reps}
-                            </td>
-                          </tr>
-                        ))}
-                      </tbody>
-                    </table>
-                  </div>
-                )}
-              </section>
-            ))}
+            <h1 className="mt-3 text-3xl font-bold sm:text-4xl">Here you go, {firstName}.</h1>
           </div>
-
-          {answers.notes && (
-            <div className="bg-slate-900/60 border border-slate-700 rounded-lg px-4 py-3 mb-8">
-              <p className="text-sm text-slate-400 mb-1">
-                Your notes - the plan does not read these, so swap out anything that clashes with them
-              </p>
-              <p className="text-slate-100">{answers.notes}</p>
-            </div>
-          )}
-
-          <button
-            type="button"
-            onClick={() => setAnswers(null)}
-            className="w-full sm:w-auto px-6 py-3 rounded-lg border border-slate-600 hover:bg-slate-700 text-slate-100 font-semibold transition-colors"
-          >
-            Change my answers
-          </button>
+          <div className="flex flex-wrap gap-2">
+            <Button variant="secondary" onClick={() => setAnswers(null)} type="button">
+              <RotateCcw />
+              Change my answers
+            </Button>
+            {userData?.id && (
+              <Button asChild variant="ghost">
+                <Link href={`/calendar/${userData.id}`}>
+                  <CalendarDays />
+                  Open the calendar
+                </Link>
+              </Button>
+            )}
+          </div>
         </div>
+
+        <div className="panel mt-8 flex gap-4 border-emerald-400/25 bg-gradient-to-br from-emerald-500/10 to-card p-5 sm:p-6">
+          <Sparkles className="mt-0.5 h-5 w-5 shrink-0 text-emerald-300" />
+          <p className="text-base leading-relaxed text-foreground/90">{plan.summary}</p>
+        </div>
+
+        {plan.skipped.length > 0 && (
+          <p className="mt-4 rounded-xl border border-amber-500/30 bg-amber-500/10 px-4 py-3 text-sm text-amber-200">
+            Our exercise library has nothing for {plan.skipped.join(", ")} with your equipment and experience
+            yet, so the plan leaves them out.
+          </p>
+        )}
+
+        <div className="mt-8 grid gap-5 md:grid-cols-2">
+          {plan.days.map((day) => (
+            <section key={day.day} className="panel overflow-hidden">
+              <header className="flex items-center justify-between border-b border-border bg-surface-2/60 px-5 py-3.5">
+                <h2 className="text-lg font-semibold">
+                  Day {day.day} <span className="ml-1 font-sans text-sm font-normal text-muted-foreground">{day.focus}</span>
+                </h2>
+                <Badge variant="outline">{day.exercises.length} exercises</Badge>
+              </header>
+
+              {day.exercises.length === 0 ? (
+                <p className="px-5 py-6 text-sm text-muted-foreground">
+                  No exercise in the library fits this day with your equipment - use it for a long walk instead.
+                </p>
+              ) : (
+                <ol className="divide-y divide-border">
+                  {day.exercises.map((exercise, index) => (
+                    <li key={exercise.name} className="flex items-center gap-4 px-5 py-3">
+                      <span className="w-5 shrink-0 text-xs tabular-nums text-muted-foreground">{index + 1}</span>
+                      <div className="min-w-0 flex-1">
+                        <p className="truncate text-sm font-medium">{exercise.name}</p>
+                        <Link
+                          href={`/muscles/${exercise.muscleId}`}
+                          className="text-xs text-emerald-300 transition-colors hover:text-emerald-200"
+                        >
+                          {exercise.muscle}
+                        </Link>
+                      </div>
+                      <span className="shrink-0 rounded-lg border border-border bg-surface-2 px-2.5 py-1 text-xs font-semibold tabular-nums">
+                        {exercise.sets} × {exercise.reps}
+                      </span>
+                    </li>
+                  ))}
+                </ol>
+              )}
+            </section>
+          ))}
+        </div>
+
+        {answers.notes && (
+          <div className="panel-muted mt-6 px-5 py-4">
+            <p className="text-xs font-semibold uppercase tracking-[0.14em] text-muted-foreground">Your notes</p>
+            <p className="mt-2 whitespace-pre-line text-sm text-foreground/90">{answers.notes}</p>
+            <p className="mt-2 text-xs text-muted-foreground">
+              The plan does not read these, so swap out anything that clashes with them.
+            </p>
+          </div>
+        )}
       </div>
     );
   }
 
   // Logged in - the form itself
   return (
-    <div className="max-w-2xl mx-auto py-8">
-      <div className="mb-8">
-        <h1 className="text-4xl md:text-5xl font-bold mb-3 tracking-wider">Beginner Guide</h1>
-        <p className="text-xl text-emerald-400 mb-2">Welcome, {userData?.name || "friend"}!</p>
-        <p className="text-slate-300 text-lg">
-          Answer six quick questions and we will point you at the right muscle groups,
-          exercises, and training frequency to start with.
+    <div className="mx-auto max-w-2xl py-4">
+      <div>
+        <p className="eyebrow">
+          <ClipboardList className="h-3.5 w-3.5 text-emerald-400" />
+          Beginner guide
+        </p>
+        <h1 className="mt-3 text-4xl font-bold sm:text-5xl">Welcome, {firstName}.</h1>
+        <p className="mt-4 text-lg text-muted-foreground">
+          Answer five quick questions and we will point you at the right muscle groups, exercises and
+          training frequency to start with.
         </p>
       </div>
 
-      <div className="bg-slate-800 border border-slate-700 rounded-2xl p-6 sm:p-8">
-        <div className="flex items-center gap-2 mb-6 text-slate-400">
-          <ClipboardList className="w-5 h-5" />
-          <span className="text-sm uppercase tracking-widest">Your training profile</span>
-        </div>
-
-        <Formik
-          initialValues={initialValues}
-          validationSchema={validationSchema}
-          onSubmit={(values) => setAnswers(values as BeginnerAnswers)}
-        >
-          {() => (
-            <Form className="w-full">
-              {questions.map((question) => (
-                <div key={question.name} className="mb-6">
-                  <label htmlFor={question.name} className="block text-xl font-semibold mb-1 tracking-wider">
-                    {question.label}
-                  </label>
-                  <p className="text-sm text-slate-400 mb-2">{question.hint}</p>
-                  <div className="relative group">
-                    <Field as="select" id={question.name} name={question.name} className={`${fieldClass} appearance-none pr-12`}>
-                      <option value="">Choose an option</option>
-                      {question.options.map((option) => (
-                        <option key={option} value={option}>
-                          {option}
-                        </option>
-                      ))}
-                    </Field>
-                    <ChevronDown className="pointer-events-none absolute right-3 top-1/3 -translte-y-1/2 h-5 w-5 text-slate-400 transition-transform duration-200 group-focus-within:rotate-90"/> 
+      <Formik
+        initialValues={initialValues}
+        validationSchema={validationSchema}
+        onSubmit={(values) => setAnswers(values as BeginnerAnswers)}
+      >
+        {({ values }) => {
+          const answered = questions.filter((question) => values[question.name]).length;
+          return (
+            <Form className="panel mt-8 overflow-hidden">
+              <div className="flex items-center justify-between gap-4 border-b border-border px-5 py-4 sm:px-7">
+                <p className="text-sm font-medium text-muted-foreground">Your training profile</p>
+                <div className="flex items-center gap-3">
+                  <span className="text-xs tabular-nums text-muted-foreground">
+                    {answered}/{questions.length}
+                  </span>
+                  <div className="h-1.5 w-24 overflow-hidden rounded-full bg-white/[0.07]">
+                    <div
+                      className="h-full rounded-full bg-emerald-400 transition-[width] duration-500"
+                      style={{ width: `${(answered / questions.length) * 100}%` }}
+                    />
                   </div>
-                  <ErrorMessage
-                    name={question.name}
-                    component="p"
-                    className="mt-2 text-sm text-red-400"
-                  />
                 </div>
-              ))}
+              </div>
 
-              <button
-                type="submit"
-                className="w-full py-3 px-4 text-base bg-emerald-600 hover:bg-emerald-700 text-white font-semibold rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 transition-colors"
-              >
-                Build my starting plan
-              </button>
+              <div className="divide-y divide-border">
+                {questions.map((question, index) => (
+                  <div key={question.name} className="grid gap-4 px-5 py-6 sm:grid-cols-[2.5rem_1fr] sm:px-7">
+                    <span
+                      className={cn(
+                        "flex h-9 w-9 items-center justify-center rounded-full border font-display text-sm font-bold transition-colors",
+                        values[question.name]
+                          ? "border-emerald-400/40 bg-emerald-400/10 text-emerald-300"
+                          : "border-border bg-surface-2 text-muted-foreground"
+                      )}
+                    >
+                      {index + 1}
+                    </span>
+                    <div>
+                      <label htmlFor={question.name} className="block text-lg font-semibold">
+                        {question.label}
+                      </label>
+                      <p className="mt-1 text-sm text-muted-foreground">{question.hint}</p>
+                      <div className="relative mt-3">
+                        <Field as="select" id={question.name} name={question.name} className={selectClass}>
+                          <option value="">Choose an option</option>
+                          {question.options.map((option) => (
+                            <option key={option} value={option}>
+                              {option}
+                            </option>
+                          ))}
+                        </Field>
+                        <ChevronDown className="pointer-events-none absolute right-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
+                      </div>
+                      <ErrorMessage name={question.name} component="p" className="mt-2 text-sm text-red-300" />
+                    </div>
+                  </div>
+                ))}
+
+                <div className="grid gap-4 px-5 py-6 sm:grid-cols-[2.5rem_1fr] sm:px-7">
+                  <span className="flex h-9 w-9 items-center justify-center rounded-full border border-border bg-surface-2 font-display text-sm font-bold text-muted-foreground">
+                    +
+                  </span>
+                  <div>
+                    <label htmlFor="notes" className="block text-lg font-semibold">
+                      Anything we should know?{" "}
+                      <span className="font-sans text-sm font-normal text-muted-foreground">Optional</span>
+                    </label>
+                    <p className="mt-1 text-sm text-muted-foreground">
+                      Old injuries, movements you dislike, a sport you play alongside.
+                    </p>
+                    <Field
+                      as="textarea"
+                      id="notes"
+                      name="notes"
+                      rows={3}
+                      placeholder="e.g. My left shoulder complains during overhead pressing."
+                      className={cn(inputClassName, "mt-3 h-auto min-h-[88px] resize-y py-2.5")}
+                    />
+                    <ErrorMessage name="notes" component="p" className="mt-2 text-sm text-red-300" />
+                  </div>
+                </div>
+              </div>
+
+              <div className="border-t border-border bg-surface-2/40 px-5 py-5 sm:px-7">
+                <Button type="submit" size="lg" className="w-full">
+                  Build my starting plan
+                  <ArrowRight />
+                </Button>
+              </div>
             </Form>
-          )}
-        </Formik>
-      </div>
+          );
+        }}
+      </Formik>
     </div>
   );
 };
