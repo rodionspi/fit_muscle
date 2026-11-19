@@ -1,5 +1,5 @@
-import { db } from "@/firebaseConfig";
-import { doc, getDoc, setDoc } from "firebase/firestore";
+import { auth, db } from "@/firebaseConfig";
+import { deleteField, doc, getDoc, setDoc } from "firebase/firestore";
 import type { User as FirebaseUser } from "firebase/auth";
 import User from "@/types/User";
 
@@ -55,4 +55,20 @@ export const ensureUserDocument = async (
 
   await withTimeout(setDoc(doc(db, "users", authUser.uid), profile));
   return profile;
+};
+
+/**
+ * Stores the chosen avatar ("style:seed") on the profile, or removes it when null.
+ *
+ * The rules only let the signed-in owner write users/{uid}, while the app treats a visitor as
+ * logged in from localStorage alone. So the Firebase session is checked first: an expired one
+ * becomes a clear "unauthenticated" error instead of an opaque permission-denied from Firestore.
+ */
+export const saveUserAvatar = async (uid: string, avatar: string | null): Promise<void> => {
+  await auth.authStateReady();
+  if (auth.currentUser?.uid !== uid) throw { code: "unauthenticated" };
+
+  await withTimeout(
+    setDoc(doc(db, "users", uid), { avatar: avatar ?? deleteField() }, { merge: true }),
+  );
 };
