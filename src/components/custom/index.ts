@@ -4,6 +4,7 @@ export { default as Header } from './Header';
 export { default as Footer } from './Footer';
 export { default as Logo, LogoMark } from './Logo';
 export { default as Avatar, initialsOf } from './Avatar';
+export { default as AvatarPicker } from './AvatarPicker';
 export { default as Calendar } from './Calendar';
 export { default as DifficultyDots, levelLabel } from './DifficultyDots';
 export { Spinner, LoadingState, EmptyState, SectionHeading } from './Feedback';

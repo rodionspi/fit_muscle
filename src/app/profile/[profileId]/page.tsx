@@ -1,12 +1,13 @@
 "use client";
 
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { ArrowUpRight, CalendarDays, ClipboardList, Layers, LogOut, ShieldCheck } from "lucide-react";
+import { ArrowUpRight, CalendarDays, ClipboardList, Layers, LogOut, Pencil, ShieldCheck, Sparkles } from "lucide-react";
 import { useUser } from "@/contexts/UserContext";
 import PageWrapper from "@/components/custom/PageWrapper";
 import Avatar from "@/components/custom/Avatar";
+import AvatarPicker from "@/components/custom/AvatarPicker";
 import { LoadingState } from "@/components/custom/Feedback";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -15,6 +16,7 @@ import { endSession } from "@/lib/session";
 const ProfilePage = () => {
   const { userData, isLoading, setUserData, setUserId } = useUser();
   const router = useRouter();
+  const [pickerOpen, setPickerOpen] = useState(false);
 
   // The provider has already looked in localStorage by the time isLoading drops
   useEffect(() => {
@@ -70,7 +72,24 @@ const ProfilePage = () => {
         <div className="pointer-events-none absolute -right-24 -top-28 h-72 w-72 rounded-full bg-emerald-500/15 blur-3xl" />
         <div className="relative flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
           <div className="flex items-center gap-5">
-            <Avatar name={userData.name} email={userData.email} className="h-20 w-20 text-2xl" />
+            <button
+              type="button"
+              onClick={() => setPickerOpen((open) => !open)}
+              aria-expanded={pickerOpen}
+              aria-controls="avatar-picker"
+              aria-label="Change avatar"
+              className="group relative shrink-0 rounded-full outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-4 focus-visible:ring-offset-card"
+            >
+              <Avatar
+                name={userData.name}
+                email={userData.email}
+                avatar={userData.avatar}
+                className="h-20 w-20 text-2xl transition-transform duration-300 group-hover:scale-105"
+              />
+              <span className="absolute -bottom-0.5 -right-0.5 flex h-7 w-7 items-center justify-center rounded-full border-2 border-card bg-primary text-primary-foreground shadow-glow-sm transition-transform duration-300 group-hover:scale-110">
+                <Pencil className="h-3.5 w-3.5" />
+              </span>
+            </button>
             <div className="min-w-0">
               <p className="eyebrow">Your profile</p>
               <h1 className="mt-1 truncate text-3xl font-bold sm:text-4xl">{userData.name || "Athlete"}</h1>
@@ -84,12 +103,30 @@ const ProfilePage = () => {
               </div>
             </div>
           </div>
-          <Button variant="secondary" onClick={handleSignOut} type="button" className="sm:self-start">
-            <LogOut />
-            Sign out
-          </Button>
+          <div className="flex flex-wrap gap-2 sm:self-start">
+            <Button
+              variant="secondary"
+              onClick={() => setPickerOpen((open) => !open)}
+              aria-expanded={pickerOpen}
+              aria-controls="avatar-picker"
+              type="button"
+            >
+              <Sparkles />
+              {userData.avatar ? "Change avatar" : "Pick an avatar"}
+            </Button>
+            <Button variant="secondary" onClick={handleSignOut} type="button">
+              <LogOut />
+              Sign out
+            </Button>
+          </div>
         </div>
       </section>
+
+      {pickerOpen && (
+        <div className="mt-6">
+          <AvatarPicker id="avatar-picker" onClose={() => setPickerOpen(false)} />
+        </div>
+      )}
 
       <section className="mt-8">
         <h2 className="text-xl font-semibold">Where to next</h2>
