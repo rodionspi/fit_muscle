@@ -40,13 +40,13 @@ const UserMenubar = () => {
           aria-label="Account menu"
           className="inline-flex cursor-pointer items-center gap-1.5 rounded-full border border-transparent py-0.5 pl-0.5 pr-2 transition-colors hover:border-border hover:bg-accent data-[state=open]:border-border data-[state=open]:bg-accent"
         >
-          <Avatar name={userData.name} email={userData.email} className="h-8 w-8" />
+          <Avatar name={userData.name} email={userData.email} avatar={userData.avatar} className="h-8 w-8" />
           <ChevronDown className="hidden h-4 w-4 text-muted-foreground sm:block" />
         </MenubarTrigger>
 
         <MenubarContent align="end" sideOffset={10} className="w-64 rounded-2xl p-1.5 shadow-elevated">
           <div className="flex items-center gap-3 px-3 py-2.5">
-            <Avatar name={userData.name} email={userData.email} className="h-10 w-10 text-sm" />
+            <Avatar name={userData.name} email={userData.email} avatar={userData.avatar} className="h-10 w-10 text-sm" />
             <div className="min-w-0">
               <p className="truncate text-sm font-semibold">{userData.name || "Athlete"}</p>
               {userData.email && <p className="truncate text-xs text-muted-foreground">{userData.email}</p>}

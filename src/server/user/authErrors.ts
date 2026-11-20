@@ -31,6 +31,9 @@ export const describeAuthError = (error: unknown): string => {
       return "E-mail or password is wrong. No account yet? Register first. Signed up with Google? Use \"Login with Google\".";
     case "auth/user-not-found":
       return "There is no account with this e-mail yet. Please register first.";
+    // Raised by saveUserAvatar when the Firebase session behind the stored profile has ended
+    case "unauthenticated":
+      return "Your sign-in has expired. Log out and back in to save changes to your account.";
     case "auth/too-many-requests":
       return "Too many attempts. Wait a moment before trying again.";
     case "auth/network-request-failed":

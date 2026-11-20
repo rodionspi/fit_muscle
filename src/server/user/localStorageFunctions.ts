@@ -1,6 +1,6 @@
 import User from "@/types/User";
 
-const USER_STORAGE_KEYS = ["id", "name", "email", "calendar"] as const;
+const USER_STORAGE_KEYS = ["id", "name", "email", "avatar", "calendar"] as const;
 
 const isUserData = (value: unknown): value is User => {
   if (!value || typeof value !== "object" || Array.isArray(value)) {
